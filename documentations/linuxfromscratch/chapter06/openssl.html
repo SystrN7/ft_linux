@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      6.50.&nbsp;OpenSSL-1.1.1a
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-8.4">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libffi.html" title=
+          "Libffi-3.2.1">Précédent</a>
+          <p>
+            Libffi-3.2.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="Python.html" title=
+          "Python-3.7.2">Suivant</a>
+          <p>
+            Python-3.7.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 8.4 ">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="ch-system-openssl" name="ch-system-openssl"></a>6.50.
+        OpenSSL-1.1.1a
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <p>
+          Le paquet OpenSSL contient des outils et des bibliothèques de
+          gestion en matière de cryptographie. Ils servent à fournir des
+          fonctions cryptographiques à d'autres paquets, comme OpenSSH, des
+          applications de messagerie électronique et des navigateurs Internet
+          (pour accéder à des sites HTTPS).
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Temps de construction
+              approximatif:</strong> <span class="segbody">1.7 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Espace disque requis:</strong>
+              <span class="segbody">141 Mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          6.50.1. Installation d'OpenSSL
+        </h2>
+        <p>
+          Préparez OpenSSL à la compilation&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic</kbd></pre>
+        <p>
+          Compilez le paquet&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">make test</kbd></pre>
+        <p>
+          Installez le paquet&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
+make MANSUFFIX=ssl install</kbd></pre>
+        <p>
+          Si vous le souhaitez, installez la documentation&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1a
+cp -vfr doc/* /usr/share/doc/openssl-1.1.1a</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="contents-openssl" name="contents-openssl"></a>6.50.2.
+          Contenu d'OpenSSL
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">c_rehash et openssl</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libcrypto.{so,a} et libssl.{so,a}</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/etc/ssl, /usr/include/openssl,
+              /usr/lib/engines et /usr/share/doc/openssl-1.1.1a</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="c_rehash" name="c_rehash"></a><span class=
+                    "term"><span class=
+                    "command"><strong>c_rehash</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script <span class="application">Perl</span> qui
+                    scanne tous les fichiers dans un répertoire et ajoute des
+                    liens symboliques vers leur valeur hashée
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="openssl-prog" name="openssl-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>openssl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outils en ligne de commande qui permet d'utiliser
+                    les diverses fonctions cryptographique de la bibliothèque
+                    crypto d'<span class="application">OpenSSL</span> depuis
+                    le shell. Il peut être utilisé pour diverses fonctions
+                    documentées dans <span class="command"><strong>man 1
+                    openssl</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcrypto" name="libcrypto"></a><span class=
+                    "term"><code class="filename">libcrypto.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    implémente une large variété d'algorithmes
+                    cryptographiques utilisés dans divers standards Internet.
+                    Les services fournis par cette bibliothèque sont utilisés
+                    par les implémentations <span class=
+                    "application">OpenSSL</span> de SSL, TLS et S/MIME et ils
+                    ont aussi été utilisés pour implémenter <span class=
+                    "application">OpenSSH</span>, <span class=
+                    "application">OpenPGP</span> et d'autres standards de
+                    cryptographie.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libssl" name="libssl"></a><span class=
+                    "term"><code class="filename">libssl.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    implémente le protocole <span class=
+                    "foreignphrase"><em class="foreignphrase">Transport Layer
+                    Security</em></span> (TLS v1). Elle fournit une API
+                    riche, et sa documentation peut être trouvée en lançant
+                    <span class="command"><strong>man 3 ssl</strong></span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libffi.html" title=
+          "Libffi-3.2.1">Précédent</a>
+          <p>
+            Libffi-3.2.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="Python.html" title=
+          "Python-3.7.2">Suivant</a>
+          <p>
+            Python-3.7.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 8.4 ">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      6.80.&nbsp;Nettoyer
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-8.4">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="strippingagain.html" title=
+          "Supprimer de nouveau les symboles des fichiers objets">Précédent</a>
+          <p>
+            Supprimer de nouveau les symboles des fichiers objets
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../chapter07/chapter07.html" title=
+          "Configuration du système">Suivant</a>
+          <p>
+            Configuration du système
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 8.4 ">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="ch-system-revisedchroot" name=
+        "ch-system-revisedchroot"></a>6.80. Nettoyer
+      </h1>
+      <p>
+        Enfin, nettoyez des fichiers résultant des tests&nbsp;:
+      </p>
+      <pre class="userinput"><kbd class="command">rm -rf /tmp/*</kbd></pre>
+      <p>
+        Maintenant déconnectez-vous et entrez de nouveau dans l'environnement
+        chroot avec une nouvelle commande chroot. À partir de maintenant,
+        utilisez cette nouvelle commande chroot à chaque fois que vous devrez
+        entrer dans l'environnement chroot après l'avoir quitté&nbsp;:
+      </p>
+      <pre class="userinput"><kbd class="command">logout
+
+chroot "$LFS" /usr/bin/env -i          \
+    HOME=/root TERM="$TERM"            \
+    PS1='(lfs chroot) \u:\w\$ '        \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login</kbd></pre>
+      <p>
+        La raison en est que les programmes de <code class=
+        "filename">/tools</code> ne sont plus nécessaires. Comme ils ne sont
+        plus utiles, vous pouvez supprimer le répertoire <code class=
+        "filename">/tools</code> si vous le voulez.
+      </p>
+      <div class="admon note">
+        <img alt="[Note]" src="../images/note.png" />
+        <h3>
+          Note
+        </h3>
+        <p>
+          Effacer aussi de <code class="filename">/tools</code> les copies
+          temporaires de Tcl, Expect et DejaGnu, qui ont été utilisées pour
+          lancer les tests de l'ensemble des outils. Si vous avez besoin de
+          ces programmes plus tard, vous devrez les recompiler et les
+          ré-installer. Le livre BLFS a les bonnes instructions pour le faire
+          (voir <a class="ulink" href=
+          "http://fr.linuxfromscratch.org/blfs">http://fr.linuxfromscratch.org/blfs</a>).
+        </p>
+      </div>
+      <p>
+        Si les systèmes de fichiers virtuel du noyau ont été démontés,
+        manuellement ou suite à un redémarrage, assurez-vous que les systèmes
+        de fichiers virtuels du noyau seront montés lorsque vous entrerez à
+        nouveau dans le chroot. On a expliqué cette procédure dans <a class=
+        "xref" href="kernfs.html#ch-system-bindmount" title=
+        "6.2.2.&nbsp;Monter et peupler /dev">Section&nbsp;6.2.2,
+        «&nbsp;Monter et peupler /dev&nbsp;»</a> et <a class="xref" href=
+        "kernfs.html#ch-system-kernfsmount" title=
+        "6.2.3.&nbsp;Monter les systèmes de fichiers virtuels du noyau">Section&nbsp;6.2.3,
+        «&nbsp;Monter les systèmes de fichiers virtuels du noyau&nbsp;»</a>.
+      </p>
+      <p>
+        De nombreuses bibliothèques statiques n'ont pas été supprimées
+        précédemment dans le chapitre dans le but de satisfaire les tests de
+        régression de plusieurs paquets. Ces bibliothèques proviennent de
+        binutils, bzip2, e2fsprogs, flex, libtool et zlib. Si désiré,
+        supprimez-les maintenant&nbsp;:
+      </p>
+      <pre class="userinput"><kbd class=
+      "command">rm -f /usr/lib/lib{bfd,opcodes}.a
+rm -f /usr/lib/libbz2.a
+rm -f /usr/lib/lib{com_err,e2p,ext2fs,ss}.a
+rm -f /usr/lib/libltdl.a
+rm -f /usr/lib/libfl.a
+rm -f /usr/lib/libz.a</kbd></pre>
+      <p>
+        Il y a aussi de nombreux fichiers installés dans les répertoires
+        /usr/lib et /usr/libexec dont l'extension est .la. Ce sont les
+        fichiers d'«&nbsp;archive libtool&nbsp;» et ne sont généralement pas
+        nécessaires sur un système Linux. Aucun n'est plus nécessaire
+        maintenant. Pour les supprimer, lancez&nbsp;:
+      </p>
+      <pre class="userinput"><kbd class=
+      "command">find /usr/lib /usr/libexec -name \*.la -delete</kbd></pre>
+      <p>
+        Pour plus d'informations sur les fichiers d'archive libtool, voir la
+        <a class="ulink" href=
+        "http://fr.linuxfromscratch.org/blfs8.4//introduction/la-files.html">section
+        BLFS «&nbsp;À propos des fichiers d'archive libtool (.la)&nbsp;»</a>.
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="strippingagain.html" title=
+          "Supprimer de nouveau les symboles des fichiers objets">Précédent</a>
+          <p>
+            Supprimer de nouveau les symboles des fichiers objets
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../chapter07/chapter07.html" title=
+          "Configuration du système">Suivant</a>
+          <p>
+            Configuration du système
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "Chapitre&nbsp;6.&nbsp;Installer les logiciels du système de base">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 8.4 ">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
