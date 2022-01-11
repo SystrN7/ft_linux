@@ -12,8 +12,11 @@
 
 .PHONY all settings fs partition
 
-all: settings fs
-	
+all: setup settings fs
+
+setup:
+	./setup/debian.sh
+
 fs: partition
 	sh ./steps/create-fs.sh
 	sh ./steps/mount-fs.sh
