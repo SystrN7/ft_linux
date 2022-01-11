@@ -15,17 +15,17 @@
 all: setup settings fs
 
 setup:
-	./setup/debian.sh
+	./sources/setup/debian.sh
 
 fs: partition
-	sh ./steps/create-fs.sh
-	sh ./steps/mount-fs.sh
+	sh ./sources/steps/create-fs.sh
+	sh ./sources/steps/mount-fs.sh
 
 partition:
-	sh ./steps/create-partition.sh
+	sh ./sources/steps/create-partition.sh
 
 settings:	
-	sh ./settings.sh
+	sh ./sources/settings.sh
 
 
 
