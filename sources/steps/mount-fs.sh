@@ -12,6 +12,13 @@
 
 #!/bin/sh
 
-mkdir -pv $LFS
+# Mount tuto at (https://stefanoprenna.com/blog/2014/09/22/tutorial-how-to-mount-raw-images-img-images-on-linux/);
+# Command to get virtual disque info
+# fdisk -l build/linux_from_scratch.img
+
+mkdir -pv $LFS_BOOT_PATH
+mkdir -pv $LFS_PATH
+
 # mounting partition in lfs path
-mount -v -t ext4 $LFS_PARTITION $LFS_PATH
+sudo mount -t vfat -o loop,offset=$((2048 * 512)) $LFS_VIRTUAL_DRIVE_FILE $LFS_BOOT_PATH
+sudo mount -t ext4 -o loop,offset=$((4325376 * 512)) $LFS_VIRTUAL_DRIVE_FILE $LFS_PATH

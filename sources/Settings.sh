@@ -10,8 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
+echo 
+
+# The path contain virtual hard drive file
+export LFS_VIRTUAL_DRIVE_FILE=./build/linux_from_scratch.img
+
 # Location of partion using to build lfs
 export LFS_PARTITION=/dev/sdb1
 
-# Location of linux from scratch file systeme (In linux from scratch totorial is the LFS variable)
+# Location of linux from scratch file systeme (In linux from scratch tutorial is the LFS variable)
 export LFS_PATH=/mnt/lfs
+export LFS_BOOT_PATH=/mnt/
