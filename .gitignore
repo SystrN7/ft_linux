@@ -1,1 +1,5 @@
+# Macosx
 .DS_Store
+
+# Build files
+/build

@@ -10,13 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY all settings fs partition
+.PHONY: all settings fs partition
 
-all: setup settings fs
+all: setup settings drive fs
 
+# Step 0 - Setup required software.
 setup:
 	./sources/setup/debian.sh
 
+# Step 1 - Create virtual hard drive.
+drive: settings
+	sh ./sources/steps/create-disk.sh
+
+# Step 2 - 
 fs: partition
 	sh ./sources/steps/create-fs.sh
 	sh ./sources/steps/mount-fs.sh
@@ -25,11 +31,8 @@ partition:
 	sh ./sources/steps/create-partition.sh
 
 settings:	
-	sh ./sources/settings.sh
+	sh ./sources/Settings.sh
 
-
-
-
-
-
-
+clean:
+	sudo umount /mnt/VHD/
+	rm -Rf ./build
