@@ -20,5 +20,6 @@ mkdir -pv $LFS_BOOT_PATH
 mkdir -pv $LFS_PATH
 
 # mounting partition in lfs path
-sudo mount -t vfat -o loop,offset=$((2048 * 512)) $LFS_VIRTUAL_DRIVE_FILE $LFS_BOOT_PATH
-sudo mount -t ext4 -o loop,offset=$((4325376 * 512)) $LFS_VIRTUAL_DRIVE_FILE $LFS_PATH
+
+sudo mount -t vfat /dev/mapper/$LINUX_LOOP'p1' $LFS_BOOT_PATH
+sudo mount -t ext4 /dev/mapper/$LINUX_LOOP'p3' $LFS_PATH
