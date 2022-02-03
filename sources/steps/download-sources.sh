@@ -15,5 +15,5 @@ wget --input-file=./resources/wget-list --continue --directory-prefix=./download
 
 # Cheking source archive validity
 pushd ./download/
-md5sum -c ../resources/md5sums
+	md5sum -c ../resources/md5sums
 popd
