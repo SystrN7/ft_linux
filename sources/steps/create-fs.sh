@@ -12,22 +12,19 @@
 
 #!/bin/sh
 
-# ??? - Fix loop for user dynamic name
-
 # Enables the kernel module requested by kpartx, just in case.
 # sudo modprobe dm-mod # D'ont work on WSL2
 
 # Mount virtual hard drive partition for creation file system
-sudo kpartx -av $LFS_VIRTUAL_DRIVE_FILE
+LINUX_LOOP=$(sudo kpartx -av $LFS_VIRTUAL_DRIVE_FILE | head -1 | sed 's/add map //' | sed 's/p. .*//')
+
+echo 'LINUX_LOOP='$LINUX_LOOP > $LFS_BUILD_DIRECTORY'build.env'
 
 # Creating Fat32 file system
-mkfs.vfat /dev/mapper/loop2p1 -F 32
+sudo mkfs.vfat /dev/mapper/$LINUX_LOOP'p1' -F 32
 
 # Creating swap file system
-mkswap /dev/mapper/loop2p2
+sudo mkswap /dev/mapper/$LINUX_LOOP'p2'
 
 # Creating roots file system with ext4 fs
-mkfs -v -t ext4 /dev/mapper/loop2p3
-
-# Unmount virtual hard drive partition for creation file system
-sudo kpartx -dv /dev/loop2
+sudo mkfs -v -t ext4 /dev/mapper/$LINUX_LOOP'p3'
