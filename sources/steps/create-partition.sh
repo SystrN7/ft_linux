@@ -13,25 +13,19 @@
 #!/bin/sh
 
 # Create partition table
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE mktable gpt
 
 # Creating Boot partition
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE mkpart primary fat32 2048s 131071s
 # Creating Swap partition
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE mkpart primary linux-swap 131072s 4325375s
 # Creating Root partition
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE mkpart primary ext4 4325376s 100%
 
-sudo parted $LFS_VIRTUAL_DRIVE_FILE
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE align-check optimal 1
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE align-check optimal 2
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE align-check optimal 3
 
-mktable gpt
-
-mkpart primary fat32 2048s 131071s
-mkpart primary linux-swap 131072s 4325375s
-mkpart primary ext4 4325376s 100%
-
-align-check optimal 1
-align-check optimal 2
-align-check optimal 3
-
-name 1 UEFI
-name 2 SWAP
-name 3 SYSTEM
-
-quit
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE name 1 UEFI
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE name 2 SWAP
+sudo parted -s $LFS_VIRTUAL_DRIVE_FILE name 3 SYSTEM
