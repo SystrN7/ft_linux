@@ -10,29 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all settings fs partition
+# Load Linux from scratch Config
+include config.env
+export $(shell grep -v '^#' config.env | sed 's/=.*//' | xargs -d '\n')
 
-all: setup settings drive fs
+# Load build config (is use to restart build process)
+include build/build.env
+export $(shell grep -v '^#' build/build.env | sed 's/=.*//' | xargs -d '\n')
+
+.PHONY: all
+
+all: setup
+	env | grep LFS
 
 # Step 0 - Setup required software.
 setup:
-	./sources/setup/debian.sh
-
-# Step 1 - Create virtual hard drive.
-drive: settings
-	sh ./sources/steps/create-disk.sh
-
-# Step 2 - 
-fs: partition
-	sh ./sources/steps/create-fs.sh
-	sh ./sources/steps/mount-fs.sh
-
-partition:
-	sh ./sources/steps/create-partition.sh
-
-settings:	
-	sh ./sources/Settings.sh
+	source test
 
 clean:
-	sudo umount /mnt/VHD/
+
 	rm -Rf ./build
+
+
+# dependency
