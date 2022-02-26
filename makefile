@@ -20,16 +20,22 @@ export $(shell grep -v '^#' build/build.env | sed 's/=.*//' | xargs -d '\n')
 
 .PHONY: all
 
-all: setup
-	env | grep LFS
+# Start building scripts
+all:
+	bash ./build-lfs.sh
 
-# Step 0 - Setup required software.
+# Install dependency to build LFS
 setup:
-	source test
+	bash ./sources/setup.sh
 
-clean:
+# Mount virtual disk and folder in build directory
+mount:
+	bach /sources/setps/mount.sh
 
+# UnMount virtual disk and folder in build directory
+unount:
+	bash /sources/steps/unmount.sh
+
+# Remove buildfile
+clean: unmount
 	rm -Rf ./build
-
-
-# dependency

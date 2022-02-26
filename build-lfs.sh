@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# ================================= #
-# Step 0 : - Setup Environement.	#
-# ================================= #
+# ================================================= #
+# Step 0 : - Setup Environement.					#
+# ================================================= #
 
 # Load Config file
 export $(grep -v '^#' config.env | xargs -d '\n')
@@ -25,9 +25,9 @@ echo "[i]-Create lfs build directory."
 mkdir -p "$LFS_BUILD_DIRECTORY"
 
 
-# ================================= #
-# Step 1 : - Building file systerm.	#
-# ================================= #
+# ================================================= #
+# Step 1 : Building file systerm.					#
+# ================================================= #
 
 # Create Disk
 source ./sources/steps/create-disk.sh
@@ -41,11 +41,16 @@ source ./sources/steps/create-fs.sh
 # Mount FileSystem
 source ./sources/steps/mount-fs.sh
 
+# ================================================= #
+# Step 2 : Downloads softwares source code.			#
+# ================================================= #
 
 
-# ================================= #
-# Step end : - Close all.			#
-# ================================= #
+# ================================================= #
+# Step end : Close all.								#
+# ================================================= #
 
 # Unmout FileSystem
 source /sources/steps/unmount.sh
+
+echo "[v]-Build"
