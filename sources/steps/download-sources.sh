@@ -11,9 +11,16 @@
 # **************************************************************************** #
 
 # Downloading source file
-wget --input-file=./resources/wget-list --continue --directory-prefix=./download/
 
-# Cheking source archive validity
-pushd ./download/
-	md5sum -c ../resources/md5sums
-popd
+if [[ ! -d "../download" ]]; then
+
+	echo '[i]-[Download](Sources)';
+	
+	wget --input-file=./resources/wget-list --continue --directory-prefix=../download/
+
+	# Cheking source archive validity
+	pushd ./download/
+		md5sum -c ../resources/md5sums
+	popd
+
+fi
