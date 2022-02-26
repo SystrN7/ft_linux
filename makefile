@@ -30,11 +30,11 @@ setup:
 
 # Mount virtual disk and folder in build directory
 mount:
-	bach /sources/setps/mount.sh
+	bach ./sources/steps/disk/mount.sh
 
 # UnMount virtual disk and folder in build directory
 unount:
-	bash /sources/steps/unmount.sh
+	bash ./sources/steps/disk/unmount.sh
 
 # Remove buildfile
 clean: unmount

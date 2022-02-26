@@ -30,16 +30,16 @@ mkdir -p "$LFS_BUILD_DIRECTORY"
 # ================================================= #
 
 # Create Disk
-source ./sources/steps/create-disk.sh
+source ./sources/steps/disk/create-disk.sh
 
 # Create Partition
-source ./sources/steps/create-partition.sh
+source ./sources/steps/disk/create-partition.sh
 
 # Create FileSystem
-source ./sources/steps/create-fs.sh
+source ./sources/steps/disk/create-fs.sh
 
 # Mount FileSystem
-source ./sources/steps/mount-fs.sh
+source ./sources/steps/disk/mount-fs.sh
 
 # ================================================= #
 # Step 2 : Downloads softwares source code.			#
@@ -51,6 +51,6 @@ source ./sources/steps/mount-fs.sh
 # ================================================= #
 
 # Unmout FileSystem
-source /sources/steps/unmount.sh
+source /sources/steps/disk/unmount.sh
 
 echo "[v]-Build"
