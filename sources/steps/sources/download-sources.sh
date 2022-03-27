@@ -10,16 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Downloading source file
+# Downloading sources files
 
-if [[ ! -d "../download" ]]; then
+.sources
 
-	echo '[i]-[Download](Sources)';
+if [[ ! -d "./sources/downloads" ]]; then
+
+	echo '[i]-[Download](Sources)...';
 	
-	wget --input-file=./resources/wget-list --continue --directory-prefix=../download/
+	wget --input-file=./resources/wget-list --continue --directory-prefix=./sources/downloads/
 
-	# Cheking source archive validity
-	pushd ./download/
+	# Cheking source archive intergrity
+	pushd ./sources/downloads/
 		md5sum -c ../resources/md5sums
 	popd
 
