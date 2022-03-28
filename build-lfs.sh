@@ -32,6 +32,9 @@ mkdir -p "$LFS_BUILD_DIRECTORY"
 # Create Disk
 source ./sources/steps/disk/create-disk.sh
 
+# Mount Disk
+source ./sources/steps/disk/mount-disk.sh
+
 # Create Partition
 source ./sources/steps/disk/create-partition.sh
 

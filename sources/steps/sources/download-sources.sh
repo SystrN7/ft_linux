@@ -1,18 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    download_sources.sh                                :+:      :+:    :+:    #
+#    download-sources.sh                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgalaup <fgalaup@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 12:27:21 by fgalaup           #+#    #+#              #
-#    Updated: 2021/02/06 13:36:22 by fgalaup          ###   ########lyon.fr    #
+#    Updated: 2022/03/27 19:28:22 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 # Downloading sources files
-
-.sources
 
 if [[ ! -d "./sources/downloads" ]]; then
 

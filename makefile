@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgalaup <fgalaup@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2021/02/06 12:10:14 by fgalaup          ###   ########lyon.fr    #
+#    Updated: 2022/03/28 12:12:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ setup:
 
 # Mount virtual disk and folder in build directory
 mount:
-	bach ./sources/steps/disk/mount.sh
+	bash -c 'source ./sources/steps/disk/mount-disk.sh ; source ./sources/steps/disk/mount-fs.sh'
 
 # UnMount virtual disk and folder in build directory
 unount:
