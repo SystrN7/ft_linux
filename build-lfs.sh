@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    build-lfs.sh                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
+#    Updated: 2022/04/02 15:37:57 by felix            ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/bash
 
 # ================================================= #
@@ -48,12 +60,22 @@ source ./sources/steps/disk/mount-fs.sh
 # Step 2 : Downloads softwares source code.			#
 # ================================================= #
 
+source ./sources/steps/sources/download-sources.sh
+
+# ================================================= #
+# Step 3 : Prepare Temp system build.				#
+# ================================================= #
+
+source ./sources/steps/user-env/create-user.sh
+source ./sources/steps/user-env/create-tools-directory.sh
+./sources/utils/login $LFS_USER $LFS_USER_PASSWORD ./sources/steps/user-env/setup-lfs-user-env.sh
+
 
 # ================================================= #
 # Step end : Close all.								#
 # ================================================= #
 
 # Unmout FileSystem
-source /sources/steps/disk/unmount.sh
+source ./sources/steps/disk/unmount.sh
 
 echo "[v]-Build"

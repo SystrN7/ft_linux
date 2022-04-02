@@ -28,7 +28,8 @@ then
 		sed \
 		tar \
 		texinfo \
-		xz-utils
+		xz-utils \
+		expect
 
 
 	sudo rm /bin/sh

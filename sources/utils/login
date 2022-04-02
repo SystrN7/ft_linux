@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+# Need thee args username password scipt_to_execute
+set user [lindex $argv 0]
+set password [lindex $argv 1]
+set script [lindex $argv 2]
+
+spawn /bin/su $user - $script
+
+expect "Password:"
+send "$password\r";
+
+interact
