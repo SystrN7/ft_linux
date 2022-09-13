@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/04/02 15:34:25 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/13 11:35:42 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,22 @@ exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF
 
 # Create custom bash config to configure build
+
+echo 'set +h' > ~/.bashrc
+echo 'umask 022' >> ~/.bashrc
+echo "LFS_PATH=$LFS_PATH" >> ~/.bashrc
+echo "LFS_TOOLS_PATH=$LFS_TOOLS_PATH" >> ~/.bashrc
+echo "LFS_SOURCES_PATH=$LFS_SOURCES_PATH" >> ~/.bashrc
+echo 'LC_ALL=POSIX' > ~/.bashrc
+echo 'LFS_TGT=$(uname -m)-lfs-linux-gnu' >> ~/.bashrc
+echo "PATH=$LFS_TOOLS_PATH/bin:/bin:/usr/bin" >> ~/.bashrc
+echo 'export LFS LC_ALL LFS_TGT PATH' >> ~/.bashrc
+echo "export MAKEFLAGS='-j \$(nproc --all)'" >> ./test
+
+
 cat > ~/.bashrc << "EOF"
-set +h
-umask 022
-LFS_PATH=$LFS_PATH
-LC_ALL=POSIX
-LFS_TGT=$(uname -m)-lfs-linux-gnu
-PATH=/tools/bin:/bin:/usr/bin
-export LFS LC_ALL LFS_TGT PATH
-export MAKEFLAGS='-j $(nproc --all)'
 EOF
 
-# source ~/.bash_profile
+source ~/.bash_profile
 
 fi

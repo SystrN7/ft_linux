@@ -1,25 +1,17 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    create-tools-directory.sh                          :+:      :+:    :+:    #
+#    create-program-aliases.sh                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/02 12:55:10 by felix             #+#    #+#              #
-#    Updated: 2022/04/02 18:44:02 by felix            ###   ########lyon.fr    #
+#    Created: 2022/04/02 16:43:33 by felix             #+#    #+#              #
+#    Updated: 2022/04/02 16:52:57 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-# Create lsf build tool directory
-sudo mkdir $LFS_TOOLS_PATH
-sudo mkdir $LFS_SOURCES_PATH
-
-# Create link between host system an lfs
-sudo ln -s $LFS_TOOLS_PATH /
-
-# Change tools give permision
-sudo chown -v $LFS_USER $LFS_TOOLS_PATH
-sudo chown -v $LFS_USER $LFS_SOURCES_PATH
-# chown -v lfs $LFS/sources
+ln -s /usr/bin/bash /usr/bin/sh
+ln -s /usr/bin/gawk /usr/bin/awk
+ln -s /usr/bin/bison /usr/bin/yacc

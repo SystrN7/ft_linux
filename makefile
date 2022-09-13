@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2022/03/28 12:12:41 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/13 11:33:36 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,10 @@ mount:
 unount:
 	bash ./sources/steps/disk/unmount.sh
 
+# Remove users
+remove-user:
+	bash ./sources/steps/user-env/clean-user-env.sh
+
 # Remove buildfile
-clean: unmount
+clean: remove-user unmount
 	rm -Rf ./build
