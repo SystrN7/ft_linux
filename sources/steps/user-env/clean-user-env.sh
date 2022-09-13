@@ -1,8 +1,10 @@
-# Delete LFS user
-sudo deluser --remove-home $LFS_USER
+if id "$LFS_USER" > /dev/null 2>&1; then
+    # Delete LFS user
+	sudo deluser --remove-home $LFS_USER
 
-# Delete LFS user group
-sudo groupdel $LFS_GROUP
+	# Delete LFS user group
+	sudo groupdel $LFS_GROUP
+fi
 
 # Delete link
-rm $LFS_TOOLS_PATH
+sudo rm -f /$LFS_TOOLS_DIRECTORY

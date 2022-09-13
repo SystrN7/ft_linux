@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:55:10 by felix             #+#    #+#              #
-#    Updated: 2022/04/02 18:44:02 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/13 14:57:04 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ sudo mkdir $LFS_TOOLS_PATH
 sudo mkdir $LFS_SOURCES_PATH
 
 # Create link between host system an lfs
-sudo ln -s $LFS_TOOLS_PATH /
+sudo ln -s $LFS_TOOLS_PATH /$LFS_TOOLS_DIRECTORY
 
 # Change tools give permision
 sudo chown -v $LFS_USER $LFS_TOOLS_PATH

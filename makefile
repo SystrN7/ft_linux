@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2022/09/13 11:33:36 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/13 15:16:53 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ include config.env
 export $(shell grep -v '^#' config.env | sed 's/=.*//' | xargs -d '\n')
 
 # Load build config (is use to restart build process)
-include build/build.env
-export $(shell grep -v '^#' build/build.env | sed 's/=.*//' | xargs -d '\n')
+ifneq (, $(wildcard "./build/build.env"))
+	include build/build.env
+	export $(shell grep -v '^#' build/build.env | sed 's/=.*//' | xargs -d '\n')
+endif
 
-.PHONY: all
+.PHONY: all setup mount unmount remove-user clean
 
 # Start building scripts
 all:
@@ -33,7 +35,7 @@ mount:
 	bash -c 'source ./sources/steps/disk/mount-disk.sh ; source ./sources/steps/disk/mount-fs.sh'
 
 # UnMount virtual disk and folder in build directory
-unount:
+unmount:
 	bash ./sources/steps/disk/unmount.sh
 
 # Remove users
