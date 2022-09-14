@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/09/13 11:03:39 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/14 14:22:07 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ if [ -d "$LFS_BUILD_DIRECTORY" ]; then
 	if [ -e "$LFS_BUILD_DIRECTOR/build.env" ]; then
 		echo "[i]-Unmount filesystem."
 		export $(grep -v '^#' $LFS_BUILD_DIRECTORY/build.env | xargs -d '\n')
-		source ./sources/unmount.sh	
+		source ./sources/steps/disk/unmount.sh
 	fi
 
 	echo "[i]-Remove lfs build directory."
@@ -36,62 +36,17 @@ fi
 echo "[i]-Create lfs build directory."
 mkdir -p "$LFS_BUILD_DIRECTORY"
 
-
-# ================================================= #
-# Step 1 : Building file systerm.					#
-# ================================================= #
-
-# Create Disk
-source ./sources/steps/disk/create-disk.sh
-
-# Mount Disk
-source ./sources/steps/disk/mount-disk.sh
-
-# Create Partition
-source ./sources/steps/disk/create-partition.sh
-
-# Create FileSystem
-source ./sources/steps/disk/create-fs.sh
-
-# Mount FileSystem
-source ./sources/steps/disk/mount-fs.sh
-
-# ================================================= #
-# Step 2 : Downloads softwares source code.			#
-# ================================================= #
-
-# Download source file (Is include into the repository)
-source ./sources/steps/sources/download-sources.sh
-
-# ================================================= #
-# Step 3 : Prepare temporary system build.			#
-# ================================================= #
-
-# Create linux from scratch usrs
-source ./sources/steps/user-env/create-user.sh
-
-# Create tool directory
-source ./sources/steps/user-env/create-tools-directory.sh
+# Execute with user
+source ./sources/steps/prepare-host.sh
 
 # Login to the lfs user
-echo "You need to type manualy the lfs user password"
+echo "[i]-If You need to type manualy the lfs user password"
 echo "Password is : $LFS_USER_PASSWORD"
-su - $LFS_USER
-
-# Build system
-./sources/steps/user-env/setup-lfs-user-env.sh
-
-# 
-source ./sources/steps/create-program-aliases.sh
+su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER -
 
 
 # ================================================= #
-# Step 4 : Built temporary system.					#
-# ================================================= #
-
-
-# ================================================= #
-# Step end : Close all.								#
+# Clean Step : Close all.							#
 # ================================================= #
 
 # Clean User

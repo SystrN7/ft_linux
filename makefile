@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2022/09/13 15:16:53 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/14 14:15:48 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,4 +44,4 @@ remove-user:
 
 # Remove buildfile
 clean: remove-user unmount
-	rm -Rf ./build
+	sudo rm -Rf ./build

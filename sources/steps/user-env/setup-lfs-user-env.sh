@@ -6,12 +6,11 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/09/13 11:35:42 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/14 14:09:45 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
-
 export $(grep -v '^#' config.env | xargs -d '\n')
 
 if [ $(whoami) = "$LFS_USER" ]; then
@@ -28,15 +27,12 @@ echo 'umask 022' >> ~/.bashrc
 echo "LFS_PATH=$LFS_PATH" >> ~/.bashrc
 echo "LFS_TOOLS_PATH=$LFS_TOOLS_PATH" >> ~/.bashrc
 echo "LFS_SOURCES_PATH=$LFS_SOURCES_PATH" >> ~/.bashrc
-echo 'LC_ALL=POSIX' > ~/.bashrc
+echo 'LC_ALL=POSIX' >> ~/.bashrc
 echo 'LFS_TGT=$(uname -m)-lfs-linux-gnu' >> ~/.bashrc
 echo "PATH=$LFS_TOOLS_PATH/bin:/bin:/usr/bin" >> ~/.bashrc
 echo 'export LFS LC_ALL LFS_TGT PATH' >> ~/.bashrc
-echo "export MAKEFLAGS='-j \$(nproc --all)'" >> ./test
-
-
-cat > ~/.bashrc << "EOF"
-EOF
+# Add this to build faster
+echo "export MAKEFLAGS='-j \$(nproc --all)'" >> ~/.bashrc
 
 source ~/.bash_profile
 
