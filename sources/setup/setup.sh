@@ -3,7 +3,7 @@ OS=$(uname);
 
 # Install linux dependency
 if [ "${OS}" = "Linux" ]; then
-	sh ./_Build/Setup/Linux.sh
+	source ./sources/setup/linux.sh
 	exit
 fi
 

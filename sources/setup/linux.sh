@@ -3,7 +3,7 @@
 # Get Dist name
 DIS_NAME=$(lsb_release -is)
 
-if [ $DIS_NAME = "Ubuntu" || ];
+if [ $DIS_NAME = "Ubuntu" ];
 then
 	echo "[i] - Installing Ubuntu software requierments."
 	sudo apt install -y \
@@ -33,7 +33,7 @@ then
 
 
 	sudo rm /bin/sh
-	sudo ln -s /usr/bin/bash /bin/sh
+	sudo ln -s /bin/bash /bin/sh
 fi
 
 # Manjaro

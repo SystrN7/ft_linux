@@ -28,7 +28,7 @@ all:
 
 # Install dependency to build LFS
 setup:
-	bash ./sources/setup.sh
+	bash ./sources/setup/setup.sh
 
 # Mount virtual disk and folder in build directory
 mount:
