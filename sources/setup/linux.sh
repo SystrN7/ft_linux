@@ -29,7 +29,8 @@ then
 		tar \
 		texinfo \
 		xz-utils \
-		expect
+		expect \
+		kpartx
 
 
 	sudo rm /bin/sh
