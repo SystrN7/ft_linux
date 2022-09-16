@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:28 by felix             #+#    #+#              #
-#    Updated: 2022/09/14 14:24:18 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/16 15:19:56 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ source ./sources/steps/disk/mount-fs.sh
 source ./sources/steps/sources/download-sources.sh
 
 # Extract source code
-source ./sources/steps/source/extract-sources.sh
+source ./sources/steps/sources/extract-sources.sh
 
 # ================================================= #
 # Step 3 : Prepare temporary system build.			#
@@ -49,4 +49,4 @@ source ./sources/steps/user-env/create-user.sh
 # Create tool directory
 source ./sources/steps/user-env/create-tools-directory.sh
 
-source ./sources/steps/create-program-aliases.sh
+source ./sources/steps/user-env/create-program-aliases.sh
