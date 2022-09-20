@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/14 17:19:54 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/21 00:15:04 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ cd $LFS_REPOSITORY_PATH
 # Configure lfs user environement
 source ./sources/steps/user-env/setup-lfs-user-env.sh
 
-cat ~/bashrc
+cat ~/.bashrc
 
 exit 0
 

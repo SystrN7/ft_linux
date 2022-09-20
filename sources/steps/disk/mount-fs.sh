@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    mount-fs.sh                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgalaup <fgalaup@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 12:27:37 by fgalaup           #+#    #+#              #
-#    Updated: 2021/02/06 12:28:09 by fgalaup          ###   ########lyon.fr    #
+#    Updated: 2022/09/20 14:58:36 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,3 +23,5 @@ mkdir -pv $LFS_PATH
 
 sudo mount -t vfat /dev/mapper/$LINUX_LOOP'p1' $LFS_BOOT_PATH
 sudo mount -t ext4 /dev/mapper/$LINUX_LOOP'p3' $LFS_PATH
+
+sudo chown -R $(whoami) ./$LFS_BUILD_DIRECTORY
