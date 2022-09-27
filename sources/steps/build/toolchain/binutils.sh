@@ -6,16 +6,18 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 18:14:57 by felix             #+#    #+#              #
-#    Updated: 2022/04/03 18:20:44 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/27 13:38:38 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-mkdir -v build
-cd build
+# Create temp build directory and copy binutils sources.
+mkdir -v $LFS_TOOLS_PATH/build/
+cp -r build/lfs/sources/binutils-2.32 $LFS_TOOLS_PATH/build/
 
+pushd $LFS_TOOLS_PATH/build/binutils-2.32
 # Create makefile with config
 ../configure --prefix=/tools            \
-             --with-sysroot=$LFS        \
+             --with-sysroot=$LFS_PATH       \
              --with-lib-path=/tools/lib \
              --target=$LFS_TGT          \
              --disable-nls              \
@@ -30,3 +32,8 @@ case $(uname -m) in
 esac
 
 make install
+
+popd
+
+# Remove temps build dir
+# rm -rf $LFS_TOOLS_PATH/build/binutils-2.32

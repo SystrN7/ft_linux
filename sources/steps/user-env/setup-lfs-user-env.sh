@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/09/23 14:31:33 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/27 13:47:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,8 @@ export $(grep -v '^#' config.env | xargs -d '\n')
 if [ $(whoami) = "$LFS_USER" ]; then
 	
 # Create custom bash profil to prevent loading of system default env
-cat > ~/.bash_profile << "EOF"
-exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
-EOF
+# Useless because linux(su) dont work in scripting case (Fuck you linux, fuck you) but he throw
+echo 'exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash' > ~/.bash_profile
 
 # Create custom bash config to configure build
 
@@ -35,13 +34,15 @@ echo 'umask 022' >> ~/.bashrc
 echo "LFS_PATH=$LFS_PATH" >> ~/.bashrc
 echo "LFS_TOOLS_PATH=$LFS_TOOLS_PATH" >> ~/.bashrc
 echo "LFS_SOURCES_PATH=$LFS_SOURCES_PATH" >> ~/.bashrc
+echo "LFS_SCRIPT_PATH=$LFS_REPOSITORY_PATH" >> ~/.bashrc
 echo 'LC_ALL=POSIX' >> ~/.bashrc
-echo 'LFS_TGT=$(uname -m)-lfs-linux-gnu' >> ~/.bashrc
+echo 'LFS_TGT=$(/bin/uname -m)-lfs-linux-gnu' >> ~/.bashrc
+echo 'HOME='$HOME >> ~/.bashrc
+echo 'TERM='$TERM >> ~/.bashrc
+echo 'PS1='\u:\w\$ '' >> ~/.bashrc #Can be remove (is just interactive shell promt format)
 echo "PATH=/$LFS_TOOLS_DIRECTORY/bin:/bin:/usr/bin" >> ~/.bashrc
-echo 'export LFS LC_ALL LFS_TGT PATH' >> ~/.bashrc
+echo 'export LFS_SCRIPT_PATH LFS_PATH LFS_SOURCES_PATH LFS_TOOLS_PATH LC_ALL LFS_TGT PATH HOME TERM PS1' >> ~/.bashrc
 # Add this to build faster
 echo "export MAKEFLAGS='-j '$(nproc --all)" >> ~/.bashrc
-
-# source ~/.bash_profile
 
 fi
