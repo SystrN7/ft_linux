@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2022/09/21 17:44:56 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/27 09:16:13 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ endif
 
 # Start building scripts
 all:
-	bash ./build-lfs.sh
+	bash ./builds.sh
 
 # Install dependency to build LFS
 setup:
