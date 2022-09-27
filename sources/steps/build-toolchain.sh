@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/27 13:47:51 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/27 14:41:42 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ cd $LFS_SCRIPT_PATH
 # Step 4 : Built temporary system.					#
 # ================================================= #
 
-# Build binutils (Passe 1)
-source ./sources/steps/build-toolchain.sh
+# Create temp build directory 
+mkdir -v $LFS_TOOLS_PATH/build/
 
-# Build GCC
+# Build binutils (Passe 1)
+# source ./sources/steps/build/toolchain/binutils.sh
+
+# Build GCC (Passe 1)
