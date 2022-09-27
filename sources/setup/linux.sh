@@ -30,7 +30,7 @@ then
 		texinfo \
 		xz-utils \
 		expect \
-		kpartx
+		flex
 
 
 	sudo rm /bin/sh
