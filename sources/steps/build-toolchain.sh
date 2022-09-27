@@ -6,23 +6,13 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/21 00:15:04 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/23 14:28:40 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# ================================================= #
-# Step 3 : Prepare temporary system build.			#
-# ================================================= #
-
-# Goto to the ft_linux directory
-LFS_REPOSITORY_PATH=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd ../.. && pwd )
-export LFS_REPOSITORY_PATH
-cd $LFS_REPOSITORY_PATH
-
-# Configure lfs user environement
-source ./sources/steps/user-env/setup-lfs-user-env.sh
 
 cat ~/.bashrc
+env
 
 exit 0
 

@@ -6,11 +6,18 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/09/21 00:08:29 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/23 14:31:33 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
+
+# Goto to the ft_linux directory
+LFS_REPOSITORY_PATH=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd ../../.. && pwd )
+export LFS_REPOSITORY_PATH
+cd $LFS_REPOSITORY_PATH
+
+
 export $(grep -v '^#' config.env | xargs -d '\n')
 
 if [ $(whoami) = "$LFS_USER" ]; then
@@ -33,7 +40,7 @@ echo 'LFS_TGT=$(uname -m)-lfs-linux-gnu' >> ~/.bashrc
 echo "PATH=/$LFS_TOOLS_DIRECTORY/bin:/bin:/usr/bin" >> ~/.bashrc
 echo 'export LFS LC_ALL LFS_TGT PATH' >> ~/.bashrc
 # Add this to build faster
-echo "export MAKEFLAGS='-j \$(nproc --all)'" >> ~/.bashrc
+echo "export MAKEFLAGS='-j '$(nproc --all)" >> ~/.bashrc
 
 # source ~/.bash_profile
 

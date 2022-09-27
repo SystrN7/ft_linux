@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 10:51:10 by fgalaup           #+#    #+#              #
-#    Updated: 2022/09/15 15:54:36 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/21 17:44:56 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,11 @@ mount:
 
 # UnMount virtual disk and folder in build directory
 unmount:
-	bash ./sources/steps/disk/unmount.sh
+	bash ./sources/steps/disk/unmount.sh || echo
 
 # Remove users
 remove-user:
-	bash ./sources/steps/user-env/clean-user-env.sh
+	bash ./sources/steps/user-env/clean-user-env.sh || echo
 
 # Remove buildfile
 clean: remove-user unmount

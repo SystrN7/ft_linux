@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/09/20 10:59:35 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/21 16:58:21 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,17 +39,14 @@ mkdir -p "$LFS_BUILD_DIRECTORY"
 # Execute with your user
 source ./sources/steps/prepare-host.sh
 
-# Login to the lfs user
-echo "[i]-If You need to type manualy the lfs user password"
-echo "Password is : $LFS_USER_PASSWORD"
-su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER - # TODO : Change file permition to make executable by other
-
+# Login with lfs user and build the linux from scratch toolchain
+su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER -
 
 # ================================================= #
 # Clean Step : Close all and clean the system.		#
 # ================================================= #
 
-exit 0;
+exit 0; # TODO remove when script is finish
 
 # Clean User
 source ./sources/steps/user-env/clean-user-env.sh
