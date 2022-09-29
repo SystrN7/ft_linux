@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/29 15:36:36 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/29 19:06:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,11 @@ mkdir -v $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/binutils-2.sh
 
 # Build GCC (Passe 2)
-source ./sources/steps/build/toolchain/gcc-2.sh
+# source ./sources/steps/build/toolchain/gcc-2.sh
 
 # Test the current stage of build
-source ./sources/steps/build/tests/toolchain-glibc-test.sh
+# source ./sources/steps/build/tests/toolchain-glibc-test.sh
+
+# Build TCL (Test) (Optional)
+source ./sources/steps/build/toolchain/tcl.sh
+
