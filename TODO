@@ -1,0 +1,9 @@
+# Todo
+
+# Posible improvement
+
+- Use absolute env for building lfs env context for LFS_PATH and other
+- Extract the tar durring the build and note befor and remove cp and the --preserve arguement durring build script
+[i] The --preserve is require beceause if you change the date is trying to rebuid configure and other build config utils
+
+- Removing Flex and autotools from setup scripts

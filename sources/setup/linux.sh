@@ -30,7 +30,8 @@ then
 		texinfo \
 		xz-utils \
 		expect \
-		flex
+		flex \
+		automake
 
 
 	sudo rm /bin/sh

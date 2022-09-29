@@ -6,12 +6,12 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 18:14:57 by felix             #+#    #+#              #
-#    Updated: 2022/09/27 14:41:01 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/29 10:10:50 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 # Copy binutils sources.
-cp -r build/lfs/sources/binutils-2.32 $LFS_TOOLS_PATH/build/
+cp -r --preserve build/lfs/sources/binutils-2.32 $LFS_TOOLS_PATH/build/
 
 pushd $LFS_TOOLS_PATH/build/binutils-2.32
 
