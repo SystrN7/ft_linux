@@ -8,6 +8,7 @@ then
 	echo "[i] - Installing Ubuntu software requierments."
 	sudo apt install -y \
 		build-essential \
+		gettext \
 		wget \
 		bash \
 		binutils \

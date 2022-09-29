@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/29 11:00:11 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/29 14:32:42 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,3 +40,10 @@ source ./sources/steps/build/toolchain/gcc.sh
 
 # Build (Extract linux header)
 source ./sources/steps/build/toolchain/linux-headers.sh
+
+# Build Glibc
+source ./sources/steps/build/toolchain/glibc.sh
+
+# Test the current stage of build
+source ./sources/steps/build/tests/toolchain-glibc-test.sh
+
