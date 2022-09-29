@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/29 19:23:38 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/09/29 19:31:48 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,4 +63,7 @@ mkdir -v $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/tcl.sh
 
 # Build expect (Test) (Optional)
-source ./sources/steps/build/toolchain/expect.sh
+# source ./sources/steps/build/toolchain/expect.sh
+
+# Build DejaGNU (Test) (Optional)
+source ./sources/steps/build/toolchain/dejagnu.sh
