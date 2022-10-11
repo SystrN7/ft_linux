@@ -22,14 +22,14 @@ export $(grep -v '^#' config.env | xargs -d '\n')
 # Test if build directory exist
 if [ -d "$LFS_BUILD_DIRECTORY" ]; then
 
-	if [ -e "$LFS_BUILD_DIRECTOR/build.env" ]; then
+	if [ -e "$LFS_BUILD_DIRECTORY/build.env" ]; then
 		echo "[i]-Unmount filesystem."
-		export $(grep -v '^#' $LFS_BUILD_DIRECTORY/build.env | xargs -d '\n')
+		export $(grep -v '^#' "$LFS_BUILD_DIRECTORY/build.env" | xargs -d '\n')
 		source ./sources/steps/disk/unmount.sh
 	fi
 
 	echo "[i]-Remove lfs build directory."
-	rm -rf $LFS_BUILD_DIRECTORY
+	rm -rf "$LFS_BUILD_DIRECTORY"
 fi
 
 
