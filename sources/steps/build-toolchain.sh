@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/09/30 15:29:55 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/11 16:19:46 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,4 +75,7 @@ mkdir -v $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/ncurses.sh
 
 # Build Bash
-source ./sources/steps/build/toolchain/bash.sh
+# source ./sources/steps/build/toolchain/bash.sh
+
+# Build Bison
+source ./sources/steps/build/toolchain/bison.sh

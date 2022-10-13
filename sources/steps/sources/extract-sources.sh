@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:22 by felix             #+#    #+#              #
-#    Updated: 2022/09/14 09:09:00 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 10:14:54 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,3 +91,6 @@ tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/util-linu
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/vim-8.1.tar.bz2
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/xz-5.2.4.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/zlib-1.2.11.tar.xz
+
+# Fix Source files owner
+sudo chown -vR $LFS_USER $LFS_SOURCES_PATH

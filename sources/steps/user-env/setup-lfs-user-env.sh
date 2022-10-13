@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/09/27 13:47:15 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/11 16:30:55 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ echo 'exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash' > ~/.bash_prof
 # Create custom bash config to configure build
 
 echo 'set +h' > ~/.bashrc
-# echo 'set +m' > ~/.bashrc
+# echo 'set +m' >> ~/.bashrc
+echo 'set -e' >> ~/.bashrc # Exit shell on error
 echo 'umask 022' >> ~/.bashrc
 echo "LFS_PATH=$LFS_PATH" >> ~/.bashrc
 echo "LFS_TOOLS_PATH=$LFS_TOOLS_PATH" >> ~/.bashrc

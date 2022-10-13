@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 14:58:10 by felix             #+#    #+#              #
-#    Updated: 2022/10/07 17:02:05 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/11 16:16:53 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,4 @@ ln -sv bash /tools/bin/sh
 popd
 
 # Remove temps build directory
-# rm -rf $LFS_TOOLS_PATH/build/bash-5.0
+rm -rf $LFS_TOOLS_PATH/build/bash-5.0
