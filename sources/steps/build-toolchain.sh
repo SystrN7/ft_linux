@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 11:18:31 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 14:27:09 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,4 +90,7 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/diffutils.sh
 
 # Build File
-source ./sources/steps/build/toolchain/file.sh
+# source ./sources/steps/build/toolchain/file.sh
+
+# Build FindUtils
+source ./sources/steps/build/toolchain/findutils.sh
