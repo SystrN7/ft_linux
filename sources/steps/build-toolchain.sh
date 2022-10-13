@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 14:31:22 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 15:04:40 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,4 +96,7 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/findutils.sh
 
 # Build Gawk
-source ./sources/steps/build/toolchain/gawk.sh
+# source ./sources/steps/build/toolchain/gawk.sh
+
+# Build GetText
+source ./sources/steps/build/toolchain/gettext.sh
