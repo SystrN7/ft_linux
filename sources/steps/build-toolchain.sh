@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 10:43:02 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 11:08:11 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,4 +81,7 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/bison.sh
 
 # Build Bzip2
-source ./sources/steps/build/toolchain/bzip2.sh
+# source ./sources/steps/build/toolchain/bzip2.sh
+
+# Build CoreUtils
+source ./sources/steps/build/toolchain/coreutils.sh
