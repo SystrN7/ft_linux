@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 15:17:37 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 15:20:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,4 +105,8 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/grep.sh
 
 # Build Gzip
-source ./sources/steps/build/toolchain/gzip.sh
+# source ./sources/steps/build/toolchain/gzip.sh
+
+# Build Make
+source ./sources/steps/build/toolchain/make.sh
+
