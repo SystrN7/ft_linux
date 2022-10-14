@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 16:17:49 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/14 16:38:58 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,4 +129,20 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/textinfo.sh
 
 # Build Xz
-source ./sources/steps/build/toolchain/xz.sh
+# source ./sources/steps/build/toolchain/xz.sh
+
+# ================================================= #
+# Step 4.1 : Clean useless files of build   		#
+# ================================================= #
+
+# Clean debuging symbole
+strip --strip-debug /tools/lib/* || true
+/usr/bin/strip --strip-unneeded /tools/{,s}bin/* || true
+
+# Removing docs, manual
+rm -rf /tools/{,share}/{info,man,doc}
+
+# Remove other useless stuff
+find /tools/{lib,libexec} -name \*.la -delete
+
+echo "Build Toolchain Over"
