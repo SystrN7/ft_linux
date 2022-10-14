@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 15:58:38 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/14 16:10:02 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,4 +123,7 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/sed.sh
 
 # Build Tar
-source ./sources/steps/build/toolchain/tar.sh
+# source ./sources/steps/build/toolchain/tar.sh
+
+# Build textinfo
+source ./sources/steps/build/toolchain/textinfo.sh
