@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 17:07:35 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/13 17:30:55 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,4 +111,7 @@ mkdir -vp $LFS_TOOLS_PATH/build/
 # source ./sources/steps/build/toolchain/make.sh
 
 # Build Patch
-source ./sources/steps/build/toolchain/patch.sh
+# source ./sources/steps/build/toolchain/patch.sh
+
+# Build Perl.sh
+source ./sources/steps/build/toolchain/perl.sh
