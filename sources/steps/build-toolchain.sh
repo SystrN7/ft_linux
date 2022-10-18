@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 16:38:58 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/18 10:11:30 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -144,5 +144,7 @@ rm -rf /tools/{,share}/{info,man,doc}
 
 # Remove other useless stuff
 find /tools/{lib,libexec} -name \*.la -delete
+
+chown -R root:root $LFS_PATH/tools
 
 echo "Build Toolchain Over"
