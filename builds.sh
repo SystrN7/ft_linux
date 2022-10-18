@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/09/27 09:16:21 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/18 15:10:20 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,14 @@ source ./sources/steps/prepare-host.sh
 
 # Login with lfs user and build the linux from scratch toolchain
 su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER -
+
+# Copy lfs sripts
+mkdir $LFS_PATH/script
+cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
+cp -r ./sources/steps/final-system/ $LFS_PATH/script/final-system/
+
+# Mouting fs
+source ./sources/steps/final-system/create_system_directory.sh
 
 # ================================================= #
 # Clean Step : Close all and clean the system.		#
