@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/10/18 15:10:20 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/21 14:50:51 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,24 @@ mkdir $LFS_PATH/script
 cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
 cp -r ./sources/steps/final-system/ $LFS_PATH/script/final-system/
 
-# Mouting fs
+# Mouting host system device and other requirement
 source ./sources/steps/final-system/create_system_directory.sh
+
+# Mounting the lfs img as root of file system to prepare file system
+sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
+    HOME=/root                  \
+    TERM="$TERM"                \
+    PS1='(lfs chroot) \u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
+    /tools/bin/bash --login +he /script/prepare-system.sh
+
+# Mounting the lfs img as root of file system to build final system
+# sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
+#     HOME=/root                  \
+#     TERM="$TERM"                \
+#     PS1='(lfs chroot) \u:\w\$ ' \
+#     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
+#     /tools/bin/bash --login +he /script/build-system.sh
 
 # ================================================= #
 # Clean Step : Close all and clean the system.		#
