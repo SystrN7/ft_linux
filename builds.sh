@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 14:50:51 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/21 15:57:46 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,9 @@ su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER -
 # Copy lfs sripts
 mkdir $LFS_PATH/script
 cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
+cp ./sources/steps/build-system.sh $LFS_PATH/script/build-system.sh
 cp -r ./sources/steps/final-system/ $LFS_PATH/script/final-system/
+cp -r ./sources/steps/build/system $LFS_PATH/script/build
 
 # Mouting host system device and other requirement
 source ./sources/steps/final-system/create_system_directory.sh
@@ -56,15 +58,15 @@ sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-    /tools/bin/bash --login +he /script/prepare-system.sh
+    /tools/bin/bash --login +h +e /script/prepare-system.sh
 
 # Mounting the lfs img as root of file system to build final system
-# sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
-#     HOME=/root                  \
-#     TERM="$TERM"                \
-#     PS1='(lfs chroot) \u:\w\$ ' \
-#     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-#     /tools/bin/bash --login +he /script/build-system.sh
+sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
+    HOME=/root                  \
+    TERM="$TERM"                \
+    PS1='(lfs chroot) \u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
+    /tools/bin/bash --login +h +e /script/build-system.sh
 
 # ================================================= #
 # Clean Step : Close all and clean the system.		#
