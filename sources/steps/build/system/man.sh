@@ -1,23 +1,23 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    build-system.sh                                    :+:      :+:    :+:    #
+#    man.sh                                             :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 16:12:59 by felix            ###   ########lyon.fr    #
+#    Created: 2022/09/29 10:38:00 by felix             #+#    #+#              #
+#    Updated: 2022/10/21 16:03:25 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Debug
-# whoami
-# ls
+# Copy linux kernel sources.
+cp -r --preserve /sources/man-pages-4.16 /build/
 
-mkdir -vp /build
+pushd /build/man-pages-4.16
 
-# Install Linux headers
-# source /script/build/linux-headers.sh
+# Intstall
+make install
 
-# Install Man
-source /script/build/man.sh
+popd
+
+rm -rf /build/man-pages-4.16
