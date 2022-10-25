@@ -1,34 +1,36 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    build-system.sh                                    :+:      :+:    :+:    #
+#    zlib.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 14:59:00 by felix            ###   ########lyon.fr    #
+#    Created: 2022/10/25 15:00:28 by felix             #+#    #+#              #
+#    Updated: 2022/10/25 15:06:43 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Debug
-# whoami
-# ls
+# Copy linux kernel sources.
+cp -r --preserve /sources/zlib-1.2.11 /build/zlib-1.2.11
 
-export MAKEFLAGS='-j '$(nproc --all)
+pushd /build/zlib-1.2.11
 
-mkdir -vp /build
+# Create makefile with config
+./configure --prefix=/usr
 
-# Install Linux headers
-# source /script/build/linux-headers.sh
+# Build
+make
 
-# Install Man
-# source /script/build/man.sh
+# Run test
+make check
 
-# Build & install Glibc
-# source /script/build/glibc.sh
+# Install
+make install
 
-# Ajust toolchain
-# source /script/build/change-toolchain.sh
+# Move lib into the right directorys
+mv -v /usr/lib/libz.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so
 
-# Build & Install Zlib
-source /script/build/zlib.sh
+popd
+
+rm -rf /build/zlib-1.2.11
