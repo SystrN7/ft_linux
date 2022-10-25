@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:46:01 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/25 16:30:28 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,7 @@ mkdir -vp /build
 # source /script/build/readline.sh
 
 # Build & Install M4
-source /script/build/m4.sh
+# source /script/build/m4.sh
+
+# Build & Install BC
+source /script/build/bc.sh
