@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:25:18 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/25 15:38:32 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,4 +34,7 @@ mkdir -vp /build
 # source /script/build/zlib.sh
 
 # Build & Install File
-source /script/build/file.sh
+# source /script/build/file.sh
+
+# Build & Install Readline
+source /script/build/readline.sh
