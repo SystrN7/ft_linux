@@ -6,12 +6,12 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 10:38:00 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 15:45:05 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/25 10:10:28 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 # Copy linux kernel sources.
-cp -r --preserve /sources/linux-4.20.12 /build/
+cp -r --preserve /sources/linux-4.20.12 /build/linux-4.20.12
 
 pushd /build/linux-4.20.12
 

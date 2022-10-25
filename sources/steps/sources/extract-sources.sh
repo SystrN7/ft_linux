@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:22 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 10:14:54 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/21 21:49:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,12 +85,16 @@ tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/sysvinit-
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/tar-1.31.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/tcl8.6.9-src.tar.gz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/texinfo-6.5.tar.xz
-tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/tzdata2018i.tar.gz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/udev-lfs-20171102.tar.bz2
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/util-linux-2.33.1.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/vim-8.1.tar.bz2
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/xz-5.2.4.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/zlib-1.2.11.tar.xz
+
+mkdir -pv $LFS_SOURCES_PATH/tzdata2018i
+tar --extract --directory=$LFS_SOURCES_PATH/tzdata2018i --file=./sources/downloads/tzdata2018i.tar.gz
+
+cp -r ./sources/downloads/patchs $LFS_SOURCES_PATH
 
 # Fix Source files owner
 sudo chown -vR $LFS_USER $LFS_SOURCES_PATH

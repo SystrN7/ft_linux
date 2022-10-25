@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 16:12:59 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/21 16:17:16 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,7 @@ mkdir -vp /build
 # source /script/build/linux-headers.sh
 
 # Install Man
-source /script/build/man.sh
+# source /script/build/man.sh
+
+# Build & install Glibc
+source /script/build/glibc.sh

@@ -22,7 +22,7 @@ sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-    /tools/bin/bash --login -e +h/script/prepare-system.sh
+    /tools/bin/bash --login -e +h /script/prepare-system.sh
 
 # /tools/bin/bash --login +he $(pwd)"/$LFS_PATH/script/prepare-system.sh"
     
