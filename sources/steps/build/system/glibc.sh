@@ -6,11 +6,11 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 10:38:00 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 11:20:57 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/25 15:17:22 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Copy linux kernel sources.
+# Copy sources.
 cp -r --preserve /sources/glibc-2.29 /build/glibc-2.29
 
 pushd /build/glibc-2.29

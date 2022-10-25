@@ -6,11 +6,11 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 15:00:28 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:06:43 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/25 15:17:08 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Copy linux kernel sources.
+# Copy sources.
 cp -r --preserve /sources/zlib-1.2.11 /build/zlib-1.2.11
 
 pushd /build/zlib-1.2.11

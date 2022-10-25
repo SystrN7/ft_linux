@@ -1,37 +1,32 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    build-system.sh                                    :+:      :+:    :+:    #
+#    file.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:25:18 by felix            ###   ########lyon.fr    #
+#    Created: 2022/10/25 15:00:28 by felix             #+#    #+#              #
+#    Updated: 2022/10/25 15:19:30 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Debug
-# whoami
-# ls
+# Copy sources.
+cp -r --preserve /sources/file-5.36 /build/file-5.36
 
-export MAKEFLAGS='-j '$(nproc --all)
+pushd /build/file-5.36
 
-mkdir -vp /build
+# Create makefile with config
+./configure --prefix=/usr
 
-# Install Linux headers
-# source /script/build/linux-headers.sh
+# Build
+make
 
-# Install Man
-# source /script/build/man.sh
+# Run test
+make check
 
-# Build & install Glibc
-# source /script/build/glibc.sh
+# Install
+make install
 
-# Ajust toolchain
-# source /script/build/change-toolchain.sh
+popd
 
-# Build & Install Zlib
-# source /script/build/zlib.sh
-
-# Build & Install File
-source /script/build/file.sh
+rm -rf /build/file-5.36
