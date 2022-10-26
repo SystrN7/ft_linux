@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 17:03:13 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/26 17:07:32 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,4 +55,7 @@ mkdir -vp /build
 # source /script/build/mpfr.sh
 
 # Build & Install MPC
-source /script/build/mpc.sh
+# source /script/build/mpc.sh
+
+# Build & Install Shadow
+source /script/build/shadow.sh
