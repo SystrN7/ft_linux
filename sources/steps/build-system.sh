@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 22:04:00 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/26 17:00:09 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,5 +48,8 @@ mkdir -vp /build
 # Build & Install BinUtils
 # source /script/build/binutils.sh
 
-# Build & Install gmp
-source /script/build/gmp.sh
+# Build & Install GMP
+# source /script/build/gmp.sh
+
+# Build & Install MPFR
+source /script/build/mpfr.sh
