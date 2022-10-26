@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 17:00:09 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/26 17:03:13 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,4 +52,7 @@ mkdir -vp /build
 # source /script/build/gmp.sh
 
 # Build & Install MPFR
-source /script/build/mpfr.sh
+# source /script/build/mpfr.sh
+
+# Build & Install MPC
+source /script/build/mpc.sh
