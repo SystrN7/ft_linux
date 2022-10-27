@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 16:01:58 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 18:23:51 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,4 +151,7 @@ mkdir -vp /build
 # source /script/build/openssl.sh
 
 # Build & Install Python
-source /script/build/python.sh
+# source /script/build/python.sh
+
+# Build & Install Ninja
+source /script/build/ninja.sh
