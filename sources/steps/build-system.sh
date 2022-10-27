@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 10:49:21 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 10:55:18 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,4 +82,7 @@ mkdir -vp /build
 # source /script/build/libcap.sh
 
 # Build & Install Sed
-source /script/build/sed.sh
+# source /script/build/sed.sh
+
+# Build & Install Psmisc
+source /script/build/psmisc.sh
