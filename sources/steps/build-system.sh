@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 10:55:18 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 11:03:42 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,4 +85,7 @@ mkdir -vp /build
 # source /script/build/sed.sh
 
 # Build & Install Psmisc
-source /script/build/psmisc.sh
+# source /script/build/psmisc.sh
+
+# Build & Install Iana-Etc
+source /script/build/iana-etc.sh
