@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:05:29 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 15:08:11 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,4 +121,7 @@ mkdir -vp /build
 # source /script/build/perl.sh
 
 # Build & Install XML-Parser
-source /script/build/xml-parser.sh
+# source /script/build/xml-parser.sh
+
+# Build & Install IntlTool
+source /script/build/intltool.sh
