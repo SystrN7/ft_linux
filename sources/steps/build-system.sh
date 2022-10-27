@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 11:09:27 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 11:16:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,4 +94,7 @@ mkdir -vp /build
 # source /script/build/bison.sh
 
 # Build & Install Flex
-source /script/build/flex.sh
+# source /script/build/flex.sh
+
+# Build & Install Grep
+source /script/build/grep.sh
