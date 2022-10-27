@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 10:38:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 10:44:49 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,4 +76,7 @@ mkdir -vp /build
 # source /script/build/attr.sh
 
 # Build & Install Acl
-source /script/build/acl.sh
+# source /script/build/acl.sh
+
+# Build & Install LibCap
+source /script/build/libcap.sh
