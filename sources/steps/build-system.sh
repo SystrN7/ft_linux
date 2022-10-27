@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 11:03:42 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 11:06:24 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,4 +88,7 @@ mkdir -vp /build
 # source /script/build/psmisc.sh
 
 # Build & Install Iana-Etc
-source /script/build/iana-etc.sh
+# source /script/build/iana-etc.sh
+
+# Build & Install Bison
+source /script/build/bison.sh
