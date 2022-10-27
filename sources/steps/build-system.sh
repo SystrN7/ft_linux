@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:38:03 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 15:40:54 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,4 +136,7 @@ mkdir -vp /build
 # source /script/build/xz.sh
 
 # Build & Install Kmod
-source /script/build/kmod.sh
+# source /script/build/kmod.sh
+
+# Build & Install GetText
+source /script/build/gettext.sh
