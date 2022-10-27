@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:29:33 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 14:33:42 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,4 +109,7 @@ mkdir -vp /build
 # source /script/build/gdbm.sh
 
 # Build & Install GPerf
-source /script/build/gperf.sh
+# source /script/build/gperf.sh
+
+# Build & Install Expat
+source /script/build/expat.sh
