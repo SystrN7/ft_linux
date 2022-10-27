@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 11:21:01 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 14:20:59 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,4 +100,7 @@ mkdir -vp /build
 # source /script/build/grep.sh
 
 # Build & Install Bash
-source /script/build/bash.sh
+# source /script/build/bash.sh
+
+# Build & Install LibTool
+source /script/build/libtool.sh
