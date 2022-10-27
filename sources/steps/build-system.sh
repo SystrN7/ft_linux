@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:20:59 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 14:26:26 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,4 +103,7 @@ mkdir -vp /build
 # source /script/build/bash.sh
 
 # Build & Install LibTool
-source /script/build/libtool.sh
+# source /script/build/libtool.sh
+
+# Build & Install GDBM
+source /script/build/gdbm.sh
