@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 10:18:59 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 10:22:35 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,4 +67,7 @@ mkdir -vp /build
 # source /script/build/bzip2.sh
 
 # Build & Install PKG Config
-source /script/build/pkg-config.sh
+# source /script/build/pkg-config.sh
+
+# Build & Install Ncurses
+source /script/build/ncurses.sh
