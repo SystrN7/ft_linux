@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 19:33:30 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 10:14:10 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,4 +61,7 @@ mkdir -vp /build
 # source /script/build/shadow.sh
 
 # Build & Install GCC
-source /script/build/gcc.sh
+# source /script/build/gcc.sh
+
+# Build & Install BZip2
+source /script/build/bzip2.sh
