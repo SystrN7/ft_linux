@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:33:42 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 14:35:27 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,4 +112,7 @@ mkdir -vp /build
 # source /script/build/gperf.sh
 
 # Build & Install Expat
-source /script/build/expat.sh
+# source /script/build/expat.sh
+
+# Build & Install Expat
+source /script/build/inetutils.sh
