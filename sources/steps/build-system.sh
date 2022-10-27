@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:49:21 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 15:51:56 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,4 +145,7 @@ mkdir -vp /build
 # source /script/build/libelf.sh
 
 # Build & Install Libffi
-source /script/build/libffi.sh
+# source /script/build/libffi.sh
+
+# Build & Install OpenSSL
+source /script/build/openssl.sh
