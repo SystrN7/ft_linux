@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:47:03 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 15:49:21 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,4 +142,7 @@ mkdir -vp /build
 # source /script/build/gettext.sh
 
 # Build & Install ELFUtils
-source /script/build/libelf.sh
+# source /script/build/libelf.sh
+
+# Build & Install Libffi
+source /script/build/libffi.sh
