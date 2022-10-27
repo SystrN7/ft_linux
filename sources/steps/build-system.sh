@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 18:26:52 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/10/27 18:47:28 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,4 +157,7 @@ mkdir -vp /build
 # source /script/build/ninja.sh
 
 # Build & Install Meson
-source /script/build/meson.sh
+# source /script/build/meson.sh
+
+# Build & Install CoreUtils
+source /script/build/coreutils.sh
