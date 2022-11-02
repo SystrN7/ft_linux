@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 10:54:18 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 10:56:54 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -196,4 +196,7 @@ mkdir -vp /build
 # source /script/build/libpipeline.sh
 
 # Build & Install Make
-source /script/build/make.sh
+# source /script/build/make.sh
+
+# Build & Install Patch
+source /script/build/patch.sh
