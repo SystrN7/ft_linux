@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:05:39 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 14:16:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,217 +19,217 @@ export MAKEFLAGS='-j '$(nproc --all)
 mkdir -vp /build
 
 # Install Linux headers
-# source /script/build/linux-headers.sh
+source /script/build/linux-headers.sh
 
 # Install Man
-# source /script/build/man.sh
+source /script/build/man.sh
 
 # Build & install Glibc
-# source /script/build/glibc.sh
+source /script/build/glibc.sh
 
 # Ajust toolchain
-# source /script/build/change-toolchain.sh
+source /script/build/change-toolchain.sh
 
 # Build & Install Zlib
-# source /script/build/zlib.sh
+source /script/build/zlib.sh
 
 # Build & Install File
-# source /script/build/file.sh
+source /script/build/file.sh
 
 # Build & Install Readline
-# source /script/build/readline.sh
+source /script/build/readline.sh
 
 # Build & Install M4
-# source /script/build/m4.sh
+source /script/build/m4.sh
 
 # Build & Install BC
-# source /script/build/bc.sh
+source /script/build/bc.sh
 
 # Build & Install BinUtils
-# source /script/build/binutils.sh
+source /script/build/binutils.sh
 
 # Build & Install GMP
-# source /script/build/gmp.sh
+source /script/build/gmp.sh
 
 # Build & Install MPFR
-# source /script/build/mpfr.sh
+source /script/build/mpfr.sh
 
 # Build & Install MPC
-# source /script/build/mpc.sh
+source /script/build/mpc.sh
 
 # Build & Install Shadow
-# source /script/build/shadow.sh
+source /script/build/shadow.sh
 
 # Build & Install GCC
-# source /script/build/gcc.sh
+source /script/build/gcc.sh
 
 # Build & Install BZip2
-# source /script/build/bzip2.sh
+source /script/build/bzip2.sh
 
 # Build & Install PKG Config
-# source /script/build/pkg-config.sh
+source /script/build/pkg-config.sh
 
 # Build & Install Ncurses
-# source /script/build/ncurses.sh
+source /script/build/ncurses.sh
 
 # Build & Install Attr
-# source /script/build/attr.sh
+source /script/build/attr.sh
 
 # Build & Install Acl
-# source /script/build/acl.sh
+source /script/build/acl.sh
 
 # Build & Install LibCap
-# source /script/build/libcap.sh
+source /script/build/libcap.sh
 
 # Build & Install Sed
-# source /script/build/sed.sh
+source /script/build/sed.sh
 
 # Build & Install Psmisc
-# source /script/build/psmisc.sh
+source /script/build/psmisc.sh
 
 # Build & Install Iana-Etc
-# source /script/build/iana-etc.sh
+source /script/build/iana-etc.sh
 
 # Build & Install Bison
-# source /script/build/bison.sh
+source /script/build/bison.sh
 
 # Build & Install Flex
-# source /script/build/flex.sh
+source /script/build/flex.sh
 
 # Build & Install Grep
-# source /script/build/grep.sh
+source /script/build/grep.sh
 
 # Build & Install Bash
-# source /script/build/bash.sh
+source /script/build/bash.sh
 
 # Build & Install LibTool
-# source /script/build/libtool.sh
+source /script/build/libtool.sh
 
 # Build & Install GDBM
-# source /script/build/gdbm.sh
+source /script/build/gdbm.sh
 
 # Build & Install GPerf
-# source /script/build/gperf.sh
+source /script/build/gperf.sh
 
 # Build & Install Expat
-# source /script/build/expat.sh
+source /script/build/expat.sh
 
 # Build & Install Expat
-# source /script/build/inetutils.sh
+source /script/build/inetutils.sh
 
 # Build & Install Perl
-# source /script/build/perl.sh
+source /script/build/perl.sh
 
 # Build & Install XML-Parser
-# source /script/build/xml-parser.sh
+source /script/build/xml-parser.sh
 
 # Build & Install IntlTool
-# source /script/build/intltool.sh
+source /script/build/intltool.sh
 
 # Build & Install AutoConf
-# source /script/build/autoconf.sh
+source /script/build/autoconf.sh
 
 # Build & Install AutoMake
-# source /script/build/automake.sh
+source /script/build/automake.sh
 
 # Build & Install XZ
-# source /script/build/xz.sh
+source /script/build/xz.sh
 
 # Build & Install Kmod
-# source /script/build/kmod.sh
+source /script/build/kmod.sh
 
 # Build & Install GetText
-# source /script/build/gettext.sh
+source /script/build/gettext.sh
 
 # Build & Install ELFUtils
-# source /script/build/libelf.sh
+source /script/build/libelf.sh
 
 # Build & Install Libffi
-# source /script/build/libffi.sh
+source /script/build/libffi.sh
 
 # Build & Install OpenSSL
-# source /script/build/openssl.sh
+source /script/build/openssl.sh
 
 # Build & Install Python
-# source /script/build/python.sh
+source /script/build/python.sh
 
 # Build & Install Ninja
-# source /script/build/ninja.sh
+source /script/build/ninja.sh
 
 # Build & Install Meson
-# source /script/build/meson.sh
+source /script/build/meson.sh
 
 # Build & Install CoreUtils
-# source /script/build/coreutils.sh
+source /script/build/coreutils.sh
 
 # Build & Install Check
-# source /script/build/check.sh
+source /script/build/check.sh
 
 # Build & Install DiffUtils
-# source /script/build/diffutils.sh
+source /script/build/diffutils.sh
 
 # Build & Install Gawk
-# source /script/build/gawk.sh
+source /script/build/gawk.sh
 
 # Build & Install FindUtils
-# source /script/build/findutils.sh
+source /script/build/findutils.sh
 
 # Build & Install Groff
-# source /script/build/groff.sh
+source /script/build/groff.sh
 
 # Build & Install Grub
-# source /script/build/grub.sh
+source /script/build/grub.sh
 
 # Build & Install Less
-# source /script/build/less.sh
+source /script/build/less.sh
 
 # Build & Install Gzip
-# source /script/build/gzip.sh
+source /script/build/gzip.sh
 
 # Build & Install IpRoute2
-# source /script/build/iproute2.sh
+source /script/build/iproute2.sh
 
 # Build & Install Kdb
-# source /script/build/kdb.sh
+source /script/build/kdb.sh
 
 # Build & Install LibPipeline
-# source /script/build/libpipeline.sh
+source /script/build/libpipeline.sh
 
 # Build & Install Make
-# source /script/build/make.sh
+source /script/build/make.sh
 
 # Build & Install Patch
-# source /script/build/patch.sh
+source /script/build/patch.sh
 
 # Build & Install ManDb
-# source /script/build/man-db.sh
+source /script/build/man-db.sh
 
 # Build & Install Tar
-# source /script/build/tar.sh
+source /script/build/tar.sh
 
 # Build & Install TextInfo
-# source /script/build/textinfo.sh
+source /script/build/textinfo.sh
 
 # Build & Install Vim
-# source /script/build/vim.sh
+source /script/build/vim.sh
 
 # Build & Install ProcPs
-# source /script/build/procps.sh
+source /script/build/procps.sh
 
 # Build & Install UtilLinux
-# source /script/build/util-linux.sh
+source /script/build/util-linux.sh
 
 # Build & Install E2fsprogs
-# source /script/build/e2fsprogs.sh
+source /script/build/e2fsprogs.sh
 
 # Build & Install SysKLogD
-# source /script/build/sysklogd.sh
+source /script/build/sysklogd.sh
 
 # Build & Install SysVInit
-# source /script/build/sysvinit.sh
+source /script/build/sysvinit.sh
 
 # Build & Install Eudev
-# source /script/build/eudev.sh
+source /script/build/eudev.sh
 
 
 # ================================================= #
