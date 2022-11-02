@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 09:04:14 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 09:11:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,4 +166,7 @@ mkdir -vp /build
 # source /script/build/check.sh
 
 # Build & Install DiffUtils
-source /script/build/diffutils.sh
+# source /script/build/diffutils.sh
+
+# Build & Install Gawk
+source /script/build/gawk.sh
