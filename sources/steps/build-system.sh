@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 12:10:53 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 12:16:49 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -223,4 +223,7 @@ mkdir -vp /build
 # source /script/build/e2fsprogs.sh
 
 # Build & Install SysKLogD
-source /script/build/sysklogd.sh
+# source /script/build/sysklogd.sh
+
+# Build & Install SysVInit
+source /script/build/sysvinit.sh
