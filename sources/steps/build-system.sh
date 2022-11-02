@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 18:47:28 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 08:59:23 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,4 +160,7 @@ mkdir -vp /build
 # source /script/build/meson.sh
 
 # Build & Install CoreUtils
-source /script/build/coreutils.sh
+# source /script/build/coreutils.sh
+
+# Build & Install Check
+source /script/build/check.sh
