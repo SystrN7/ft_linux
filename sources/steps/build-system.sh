@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 10:58:57 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 11:03:47 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -202,4 +202,7 @@ mkdir -vp /build
 # source /script/build/patch.sh
 
 # Build & Install ManDb
-source /script/build/man-db.sh
+# source /script/build/man-db.sh
+
+# Build & Install Tar
+source /script/build/tar.sh
