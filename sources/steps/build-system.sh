@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:03:47 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 11:20:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -205,4 +205,7 @@ mkdir -vp /build
 # source /script/build/man-db.sh
 
 # Build & Install Tar
-source /script/build/tar.sh
+# source /script/build/tar.sh
+
+# Build & Install TextInfo
+source /script/build/textinfo.sh
