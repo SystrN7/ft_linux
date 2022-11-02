@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:03:04 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 14:05:39 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -273,3 +273,9 @@ echo "Libs backup"
     -exec /tools/bin/strip --strip-all {} ';' || true
 
 echo "Clean debug symbole"
+
+# Remove file generated durring build
+rm -rf /tmp/*
+
+# Exit chroot
+logout
