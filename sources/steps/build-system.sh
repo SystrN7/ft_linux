@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:23:32 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 11:35:14 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -211,4 +211,7 @@ mkdir -vp /build
 # source /script/build/textinfo.sh
 
 # Build & Install Vim
-source /script/build/vim.sh
+# source /script/build/vim.sh
+
+# Build & Install ProcPs
+source /script/build/procps.sh
