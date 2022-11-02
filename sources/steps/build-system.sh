@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 09:25:28 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 09:42:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -172,4 +172,7 @@ mkdir -vp /build
 # source /script/build/gawk.sh
 
 # Build & Install FindUtils
-source /script/build/findutils.sh
+# source /script/build/findutils.sh
+
+# Build & Install Groff
+source /script/build/groff.sh
