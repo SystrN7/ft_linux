@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 10:40:30 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 10:43:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -187,4 +187,7 @@ mkdir -vp /build
 # source /script/build/gzip.sh
 
 # Build & Install IpRoute2
-source /script/build/iproute2.sh
+# source /script/build/iproute2.sh
+
+# Build & Install Kdb
+source /script/build/kdb.sh
