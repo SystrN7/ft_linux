@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:51:03 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 15:17:27 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,4 +22,7 @@ export MAKEFLAGS='-j '$(nproc --all)
 # source /script/remove-libs.sh
 
 # Install init config (SysV)
-source /script/install-bootscripts.sh
+# source /script/install-bootscripts.sh
+
+# Configure devices
+source /script/configure-devices.sh
