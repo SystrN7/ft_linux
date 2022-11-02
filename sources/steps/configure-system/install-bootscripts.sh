@@ -1,25 +1,23 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    configure-system.sh                                :+:      :+:    :+:    #
+#    install-bootscritpts.sh                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:51:03 by felix            ###   ########lyon.fr    #
+#    Created: 2022/11/02 14:48:07 by felix             #+#    #+#              #
+#    Updated: 2022/11/02 14:49:31 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Make build multi-threaded
-export MAKEFLAGS='-j '$(nproc --all)
+# Copy sources.
+cp -r --preserve /sources/lfs-bootscripts-20180820 /build/lfs-bootscripts-20180820
 
-# Debug
-# whoami
-# ls
-# env
+pushd /build/lfs-bootscripts-20180820
 
-# Remove some useless libs (debug and other)
-# source /script/remove-libs.sh
+# Install
+make install
 
-# Install init config (SysV)
-source /script/install-bootscripts.sh
+popd
+
+rm -rf /build/lfs-bootscripts-20180820
