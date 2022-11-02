@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 09:56:05 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 10:26:57 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -178,4 +178,7 @@ mkdir -vp /build
 # source /script/build/groff.sh
 
 # Build & Install Grub
-source /script/build/grub.sh
+# source /script/build/grub.sh
+
+# Build & Install Less
+source /script/build/less.sh
