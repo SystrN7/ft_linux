@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 15:17:27 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/02 16:05:36 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ export MAKEFLAGS='-j '$(nproc --all)
 # Remove some useless libs (debug and other)
 # source /script/remove-libs.sh
 
-# Install init config (SysV)
+# Install init tool (SysV)
 # source /script/install-bootscripts.sh
 
 # Configure devices
-source /script/configure-devices.sh
+# source /script/configure-devices.sh
+
+# Configure SystemV (init)
+source /script/configure-init.sh
