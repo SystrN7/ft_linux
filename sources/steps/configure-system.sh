@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:19:50 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 10:36:33 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,5 +30,8 @@ export MAKEFLAGS='-j '$(nproc --all)
 # Configure SystemV (init)
 # source /script/configure-init.sh
 
-# Configure bash
-source /script/configure-bash.sh
+# Configure Bash
+# source /script/configure-bash.sh
+
+# Configure Readline
+source /script/configure-readline.sh
