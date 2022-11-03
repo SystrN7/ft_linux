@@ -1,34 +1,33 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    configure-system.sh                                :+:      :+:    :+:    #
+#    configure-bash.sh                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:19:50 by felix            ###   ########lyon.fr    #
+#    Created: 2022/11/03 10:14:59 by felix             #+#    #+#              #
+#    Updated: 2022/11/03 10:32:19 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# Make build multi-threaded
-export MAKEFLAGS='-j '$(nproc --all)
+echo "List all locals available on the system."
+locale -a
 
-# Debug
-# whoami
-# ls
-# env
+echo "Show info of canonic name of chosen local"
+export LC_ALL=fr_FR.iso88591
 
-# Remove some useless libs (debug and other)
-# source /script/remove-libs.sh
+locale language
+locale charmap
+locale int_curr_symbol
+locale int_prefix
 
-# Install init tool (SysV)
-# source /script/install-bootscripts.sh
+unset LC_ALL
 
-# Configure devices
-# source /script/configure-devices.sh
+# Create default sub bash configuration
+cat > /etc/profile << "EOF"
+# Début de /etc/profile
 
-# Configure SystemV (init)
-# source /script/configure-init.sh
+export LANG=fr_FR.ISO-8859-1@euro
 
-# Configure bash
-source /script/configure-bash.sh
+# Fin de /etc/profile
+EOF
