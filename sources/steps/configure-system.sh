@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:40:23 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 10:58:47 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,7 @@ export MAKEFLAGS='-j '$(nproc --all)
 # source /script/configure-readline.sh
 
 # Configure Shell
-source /script/configure-shell.sh
+# source /script/configure-shell.sh
+
+# Configure File System loading
+source /script/configure-file-system-load.sh
