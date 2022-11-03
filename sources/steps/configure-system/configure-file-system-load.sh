@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 10:48:50 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:55:23 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 16:23:03 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ cat > /etc/fstab << "EOF"
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
+/dev/sda1      /boot        vfat     defaults            1     1
 /dev/sda3      /            ext4     defaults            1     1
 /dev/sda2      swap         swap     pri=1               0     0
 proc           /proc        proc     nosuid,noexec,nodev 0     0
@@ -27,3 +28,5 @@ devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
 
 # End /etc/fstab
 EOF
+
+# Check if this line is required
