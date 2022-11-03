@@ -1,4 +1,5 @@
 export $(grep -v '^#' config.env | xargs -d '\n')
+export $(grep -v '^#' "$LFS_BUILD_DIRECTORY/build.env" | xargs -d '\n')
 set e
 
 cp --remove-destination ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
@@ -18,6 +19,7 @@ sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    LINUX_LOOP=$LINUX_LOOP             \
     /bin/bash --login -e +h /script/final.sh
 
 exit 1

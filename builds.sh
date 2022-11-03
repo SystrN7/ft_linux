@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 14:58:28 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 16:12:00 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    LINUX_LOOP=$LINUX_LOOP             \
     /bin/bash --login -e +h /script/final.sh
 
 # ================================================= #
