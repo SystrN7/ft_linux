@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:40:38 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 14:58:28 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,11 @@ mkdir $LFS_PATH/script
 cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
 cp ./sources/steps/build-system.sh $LFS_PATH/script/build-system.sh
 cp ./sources/steps/configure-system.sh $LFS_PATH/script/configure-system.sh
+cp ./sources/steps/final.sh $LFS_PATH/script/final.sh
 cp -r ./sources/steps/final-system/ $LFS_PATH/script/final-system/
 cp -r ./sources/steps/build/system $LFS_PATH/script/build
 cp -r ./sources/steps/configure-system/* $LFS_PATH/script/
+cp -r ./sources/steps/final/. $LFS_PATH/script/
 
 # Mouting host system device and other requirement
 source ./sources/steps/final-system/create_system_directory.sh
@@ -76,6 +78,16 @@ sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login -e +h /script/configure-system.sh
+
+# Mounting boot into the lfs folder
+sudo mount --bind $LFS_BOOT_PATH $LFS_PATH/boot
+
+# Mounting the lfs img as root of file system to build & install linux and grub
+sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
+    HOME=/root TERM="$TERM"            \
+    PS1='(lfs chroot) \u:\w\$ '        \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login -e +h /script/final.sh
 
 # ================================================= #
 # Clean Step : Close all and clean the system.		#

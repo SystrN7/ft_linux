@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:58:47 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/03 11:36:04 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,25 +19,25 @@ export MAKEFLAGS='-j '$(nproc --all)
 # env
 
 # Remove some useless libs (debug and other)
-# source /script/remove-libs.sh
+source /script/remove-libs.sh
 
 # Install init tool (SysV)
-# source /script/install-bootscripts.sh
+source /script/install-bootscripts.sh
 
 # Configure devices
-# source /script/configure-devices.sh
+source /script/configure-devices.sh
 
 # Configure SystemV (init)
-# source /script/configure-init.sh
+source /script/configure-init.sh
 
 # Configure Bash
-# source /script/configure-bash.sh
+source /script/configure-bash.sh
 
 # Configure Readline
-# source /script/configure-readline.sh
+source /script/configure-readline.sh
 
 # Configure Shell
-# source /script/configure-shell.sh
+source /script/configure-shell.sh
 
 # Configure File System loading
 source /script/configure-file-system-load.sh
