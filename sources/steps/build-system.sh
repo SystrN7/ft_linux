@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 14:16:12 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 16:55:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -208,7 +208,7 @@ source /script/build/man-db.sh
 source /script/build/tar.sh
 
 # Build & Install TextInfo
-source /script/build/textinfo.sh
+source /script/build/texinfo.sh
 
 # Build & Install Vim
 source /script/build/vim.sh

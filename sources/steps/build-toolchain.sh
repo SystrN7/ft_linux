@@ -6,13 +6,15 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:37 by felix             #+#    #+#              #
-#    Updated: 2022/10/18 12:48:36 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 16:52:53 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 # chmod +x ~/.bashrc
 for c in $(env | cut -d '=' -f 1); do unset $c; done
 source ~/.bashrc
+
+set -e
 
 # For debuging
 # cat ~/.bashrc
@@ -125,8 +127,8 @@ source ./sources/steps/build/toolchain/sed.sh
 # Build Tar
 source ./sources/steps/build/toolchain/tar.sh
 
-# Build textinfo
-source ./sources/steps/build/toolchain/textinfo.sh
+# Build texinfo
+source ./sources/steps/build/toolchain/texinfo.sh
 
 # Build Xz
 source ./sources/steps/build/toolchain/xz.sh
