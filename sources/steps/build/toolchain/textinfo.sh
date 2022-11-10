@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:50:07 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 16:10:26 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:19:25 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/texinfo-6.5
 # Build
 make
 
-# Run test (Multiple test failed)
-# make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test (Multiple test failed)
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:50:07 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 16:15:49 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:46:34 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/xz-5.2.4
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make check
+fi
 
 # Install
 make install

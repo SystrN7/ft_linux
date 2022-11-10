@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 10:44:47 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 11:08:52 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:37:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ pushd $LFS_TOOLS_PATH/build/coreutils-8.30
 # Build
 make
 
-# Run test
-make RUN_EXPENSIVE_TESTS=yes check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make RUN_EXPENSIVE_TESTS=yes check
+fi
+
 
 # Install
 make install

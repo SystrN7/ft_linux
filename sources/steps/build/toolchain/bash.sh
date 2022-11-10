@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 14:58:10 by felix             #+#    #+#              #
-#    Updated: 2022/10/11 16:16:53 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:19:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,10 @@ pushd $LFS_TOOLS_PATH/build/bash-5.0
 # Build
 make
 
-# # Run test
-# make tests
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make tests || echo "Test Faild : $?"
+fi
 
 # Install
 make install

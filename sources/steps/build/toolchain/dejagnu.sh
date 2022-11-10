@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 19:09:57 by felix             #+#    #+#              #
-#    Updated: 2022/09/29 19:31:43 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:37:35 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/dejagnu-1.6.2
 # Build & Install
 make install
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make check
+fi
 
 popd
 

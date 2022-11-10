@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:16:29 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 10:36:05 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:36:35 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ pushd $LFS_TOOLS_PATH/build/bison-3.3.2
 # Build
 make
 
-# # Run test
-make check
+
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make check
+fi
 
 # Install
 make install

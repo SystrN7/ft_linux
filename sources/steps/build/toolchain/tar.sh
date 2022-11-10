@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:50:07 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 16:01:59 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:45:24 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/tar-1.31
 # Build
 make
 
-# Run test (test 124 faild)
-# make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test (test 124 faild) and tar test (can fill the hard drive)
+    # make check
+fi
 
 # Install
 make install

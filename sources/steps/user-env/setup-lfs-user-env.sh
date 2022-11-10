@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:56:52 by felix             #+#    #+#              #
-#    Updated: 2022/10/11 16:30:55 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:32:44 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,13 +36,14 @@ echo "LFS_PATH=$LFS_PATH" >> ~/.bashrc
 echo "LFS_TOOLS_PATH=$LFS_TOOLS_PATH" >> ~/.bashrc
 echo "LFS_SOURCES_PATH=$LFS_SOURCES_PATH" >> ~/.bashrc
 echo "LFS_SCRIPT_PATH=$LFS_REPOSITORY_PATH" >> ~/.bashrc
+echo "LFS_TEST_RUN=$LFS_TEST_RUN" >> ~/.bashrc
 echo 'LC_ALL=POSIX' >> ~/.bashrc
 echo 'LFS_TGT=$(/bin/uname -m)-lfs-linux-gnu' >> ~/.bashrc
 echo 'HOME='$HOME >> ~/.bashrc
 echo 'TERM='$TERM >> ~/.bashrc
 echo 'PS1='\u:\w\$ '' >> ~/.bashrc #Can be remove (is just interactive shell promt format)
 echo "PATH=/$LFS_TOOLS_DIRECTORY/bin:/bin:/usr/bin" >> ~/.bashrc
-echo 'export LFS_SCRIPT_PATH LFS_PATH LFS_SOURCES_PATH LFS_TOOLS_PATH LC_ALL LFS_TGT PATH HOME TERM PS1' >> ~/.bashrc
+echo 'export LFS_SCRIPT_PATH LFS_PATH LFS_SOURCES_PATH LFS_TOOLS_PATH LFS_TEST_RUN LC_ALL LFS_TGT PATH HOME TERM PS1' >> ~/.bashrc
 # Add this to build faster
 echo "export MAKEFLAGS='-j '$(nproc --all)" >> ~/.bashrc
 

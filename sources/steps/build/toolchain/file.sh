@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 11:16:44 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 11:18:02 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:38:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/file-5.36
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make check
+fi
 
 # Install
 make install

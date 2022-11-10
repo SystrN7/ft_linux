@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:46:05 by felix             #+#    #+#              #
-#    Updated: 2022/10/14 15:47:32 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:44:11 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/sed-4.7
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test
+    make check
+fi
 
 # Install
 make install

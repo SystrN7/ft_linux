@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 15:09:19 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 15:11:22 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:40:57 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ pushd $LFS_TOOLS_PATH/build/grep-3.3
 # Build
 make
 
-# Run test
-make check
+
+if [[ "$LFS_TEST_RUN" == "true" ]]; then    
+    # Run test
+    make check
+fi
 
 # Install
 make install

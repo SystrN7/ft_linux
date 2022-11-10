@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 14:30:06 by felix             #+#    #+#              #
-#    Updated: 2022/10/13 14:46:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:19:21 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd $LFS_TOOLS_PATH/build/gawk-4.2.1
 # Build
 make
 
-# Run test (??? tow test faild for somme resson)
-# make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then
+    # Run test (??? tow test faild for somme resson)
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install
