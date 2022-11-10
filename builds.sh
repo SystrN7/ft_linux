@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 16:28:41 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:06:39 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ cp -r ./sources/steps/configure-system/* $LFS_PATH/script/
 cp -r ./sources/steps/final/. $LFS_PATH/script/
 
 # Mouting host system device and other requirement
-source ./sources/steps/final-system/create_system_directory.sh
+source ./sources/steps/final-system/create-system-directory.sh
 
 # Mounting the lfs img as root of file system to prepare file system
 sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
