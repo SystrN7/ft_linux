@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 17:23:39 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 16:55:30 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:08:48 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ make
 # Build docs
 make html
 
-# Run test
-make check 2>&1 | tee gmp-check-log
-# Print result
-awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check 2>&1 | tee gmp-check-log
+    # Print result
+    awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
+fi
 
 # Install
 make install

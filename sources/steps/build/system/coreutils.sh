@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:07:49 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 18:45:46 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:30:33 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,20 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 # Build
 FORCE_UNSAFE_CONFIGURE=1 make
 
-# Run test
-make NON_ROOT_USERNAME=nobody check-root
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make NON_ROOT_USERNAME=nobody check-root
+    
+    # Add uset to temps groups to runing test
+    echo "dummy:x:1000:nobody" >> /etc/group
+    chown -Rv nobody . 
 
-# Add uset to temps groups to runing test
-echo "dummy:x:1000:nobody" >> /etc/group
-chown -Rv nobody . 
-
-su nobody -s /bin/bash \
-          -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check" \
-          || echo "Test faild : $?"
-# Remove temps groups
-sed -i '/dummy/d' /etc/group
+    su nobody -s /bin/bash \
+            -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check" \
+            || echo "Test Faild : $?"
+    # Remove temps groups
+    sed -i '/dummy/d' /etc/group
+fi
 
 # Install
 make install

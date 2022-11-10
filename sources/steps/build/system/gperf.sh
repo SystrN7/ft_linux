@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:05:01 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:28:23 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:09:07 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd /build/gperf-3.1
 # Build
 make
 
-# Run test
-make -j1 check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make -j1 check
+fi
 
 # Install
 make install

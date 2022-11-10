@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:05:41 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:32:43 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:54:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ sed -i 's|usr/bin/env |bin/|' run.sh.in
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

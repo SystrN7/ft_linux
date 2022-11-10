@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 09:59:17 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 11:12:14 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:54:26 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ HELP2MAN=/tools/bin/true \
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

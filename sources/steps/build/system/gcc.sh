@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 18:56:53 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 20:20:02 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:20:10 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,18 +42,20 @@ SED=sed                               \
 # Build
 make
 
-# Fix test environement (incress stack size)
-ulimit -s 32768
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+  # Fix test environement (incress stack size)
+  ulimit -s 32768
 
-# Remove bad test
-rm ../gcc/testsuite/g++.dg/pr83239.C
+  # Remove bad test
+  rm ../gcc/testsuite/g++.dg/pr83239.C
 
-# Run test
-chown -Rv nobody . 
-su nobody -s /bin/bash -c "PATH=$PATH make -k check || echo $?"
+  # Run test
+  chown -Rv nobody . 
+  su nobody -s /bin/bash -c "PATH=$PATH make -k check || echo 'Test Faild : '$?"
 
-# show test result
-../contrib/test_summary
+  # show test result
+  ../contrib/test_summary
+fi
 
 # Install
 make install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:06:04 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:49:35 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:55:32 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ sed -i 's:\\\${:\\\$\\{:' intltool-update.in
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

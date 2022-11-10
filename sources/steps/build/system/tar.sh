@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:01 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:18:01 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:35:44 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ FORCE_UNSAFE_CONFIGURE=1  \
 # Build
 make
 
-# Run test (Tar fill the drive)
-# make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test (Tar fill the drive)
+    # make check
+fi
 
 # Install
 make install

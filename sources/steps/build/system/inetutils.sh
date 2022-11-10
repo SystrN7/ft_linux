@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:05:47 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:38:44 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:18:26 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ pushd /build/inetutils-1.9.4
 # Build
 make
 
-# Run test
-make check || echo "Test faild : $?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:24 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:37:43 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:19:08 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
 rm testsuite/pgrep.test/pgrep.exp
 
-# Run test
-make check || echo "Test  Faild :$?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install

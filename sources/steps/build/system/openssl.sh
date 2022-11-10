@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:07:12 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:57:02 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:18:45 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ pushd /build/openssl-1.1.1a
 # Build
 make
 
-# Run test
-make test || echo "Test faild : $?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make test || echo "Test Faild : $?"
+fi
 
 # Install
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 15:00:28 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:17:08 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:02:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd /build/zlib-1.2.11
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

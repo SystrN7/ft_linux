@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:03:49 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 10:53:37 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:10:49 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
 # Build
 make
 
-# Run test
-make PERL5LIB=$PWD/tests/ check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make PERL5LIB=$PWD/tests/ check
+fi
 
 # Install
 make install

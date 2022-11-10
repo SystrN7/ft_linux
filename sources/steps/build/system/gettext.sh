@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:06:31 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:04:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:54:47 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ sed -e '/AppData/{N;N;p;s/\.appdata\./.metainfo./}' \
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

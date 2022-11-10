@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 10:38:00 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 15:17:22 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:18:12 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,10 @@ case $(uname -m) in
   x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
 esac
 
-# Run test
-make check || echo "Error code :"$?
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check || echo "Test Faild : $?"
+fi
 
 ###Prepare instalation###
 # Fix error message: missing /etc/ld.so.conf

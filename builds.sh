@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 10:06:39 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:15:06 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
+    LFS_TEST_RUN=$LFS_TEST_RUN  \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
     /tools/bin/bash --login -e +h /script/build-system.sh
 

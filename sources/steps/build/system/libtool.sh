@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:04:55 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:20:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:18:40 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ pushd /build/libtool-2.4.6
 # Build
 make
 
-# Run test
-make check || echo "Test faild : $?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install

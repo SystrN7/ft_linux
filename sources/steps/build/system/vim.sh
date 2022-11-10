@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:19 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:30:28 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:14:10 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 # Build
 make
 
-# Run test
-LANG=en_US.UTF-8 make -j1 test &> vim-test.log
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    LANG=en_US.UTF-8 make -j1 test &> vim-test.log
+fi
 
 # Install
 make install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 09:58:39 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 10:35:58 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:52:56 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ pushd /build/attr-2.4.48
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

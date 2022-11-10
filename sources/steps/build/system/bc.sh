@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 15:49:39 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 16:29:22 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:04:32 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,10 @@ sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
 # Build
 make
 
-# Run test
-echo "quit" | ./bc/bc -l Test/checklib.b
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    echo "quit" | ./bc/bc -l Test/checklib.b
+fi
 
 # Install
 make install

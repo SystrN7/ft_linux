@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:52 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 12:26:10 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:07:03 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,10 @@ LIBRARY_PATH=/tools/lib make
 mkdir -pv /lib/udev/rules.d
 mkdir -pv /etc/udev/rules.d
 
-# Run test
-make LD_LIBRARY_PATH=/tools/lib check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make LD_LIBRARY_PATH=/tools/lib check
+fi
 
 # Install
 make LD_LIBRARY_PATH=/tools/lib install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:05:52 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 14:46:12 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:18:54 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,10 @@ sh Configure -des -Dprefix=/usr                 \
 # Build
 make
 
-# Run test
-make -k test || echo "Test faild : $?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make -k test || echo "Test Faild : $?"
+fi
 
 # Install
 make install

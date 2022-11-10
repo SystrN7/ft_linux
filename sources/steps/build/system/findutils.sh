@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:08:17 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 09:40:07 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:54:22 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ echo "#define _IO_IN_BACKUP 0x100" >> gl/lib/stdio-impl.h
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:07:01 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:29:40 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:56:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

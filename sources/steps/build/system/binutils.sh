@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 16:35:07 by felix             #+#    #+#              #
-#    Updated: 2022/10/25 17:20:26 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:04:46 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,10 @@ cd       build
 # Build
 make tooldir=/usr
 
-# Run test
-make -k check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make -k check
+fi
 
 # Install
 make tooldir=/usr install

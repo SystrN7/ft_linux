@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:07:33 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 16:00:25 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:11:33 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,12 @@ sed -i '/int Guess/a \
 # Build
 python3 configure.py --bootstrap
 
-# Run test
-python3 configure.py
-./ninja ninja_test
-./ninja_test --gtest_filter=-SubprocessTest.SetWithLots
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+  # Run test
+  python3 configure.py
+  ./ninja ninja_test
+  ./ninja_test --gtest_filter=-SubprocessTest.SetWithLots
+fi
 
 # Install
 install -vm755 ninja /usr/bin/

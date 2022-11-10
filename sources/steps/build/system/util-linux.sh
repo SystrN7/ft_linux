@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:32 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:44:27 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:12:51 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,11 @@ rm -vf /usr/include/{blkid,libmount,uuid}
 # Build
 make
 
-# Run test
-# chown -Rv nobody .
-# su nobody -s /bin/bash -c "PATH=$PATH make -k check"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test (Don't run on unfinish lfs)
+    # chown -Rv nobody .
+    # su nobody -s /bin/bash -c "PATH=$PATH make -k check"
+fi
 
 # Install
 make install

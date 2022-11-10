@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:05:58 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:06:13 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:02:00 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ perl Makefile.PL
 # Build
 make
 
-# Run test
-make test
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

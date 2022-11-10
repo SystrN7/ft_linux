@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:03:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 10:59:15 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:57:56 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,10 @@ pushd /build/man-db-2.8.5
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

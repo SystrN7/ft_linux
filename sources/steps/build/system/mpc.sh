@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 17:03:30 by felix             #+#    #+#              #
-#    Updated: 2022/10/26 17:04:21 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 10:58:14 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ make
 # Build docs
 make html
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install

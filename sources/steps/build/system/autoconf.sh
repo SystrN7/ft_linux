@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 14:06:12 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 15:12:41 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:20:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ sed '361 s/{/\\{/' -i bin/autoscan.in
 # Build
 make
 
-# Run test
-make check || echo "Test faild : $?"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check || echo "Test Faild : $?"
+fi
 
 # Install
 make install

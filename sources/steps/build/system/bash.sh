@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 09:59:29 by felix             #+#    #+#              #
-#    Updated: 2022/10/27 11:23:06 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:04:15 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ make
 # Allow nobody to write into the source folder
 chown -Rv nobody .
 
-# Run test
-su nobody -s /bin/bash -c "PATH=$PATH HOME=/home make tests"
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    su nobody -s /bin/bash -c "PATH=$PATH HOME=/home make tests"
+fi
 
 # Install
 make install

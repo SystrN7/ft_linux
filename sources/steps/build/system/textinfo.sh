@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:04:09 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 11:12:07 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 11:36:07 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ sed -i '5481,5485 s/({/(\\{/' tp/Texinfo/Parser.pm
 # Build
 make
 
-# Run test
-make check
+if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+    # Run test
+    make check
+fi
 
 # Install
 make install
