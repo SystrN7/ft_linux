@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 14:17:26 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 15:16:45 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 19:33:08 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,6 @@ sudo mount -vt sysfs sysfs $LFS_PATH/sys
 sudo mount -vt tmpfs tmpfs $LFS_PATH/run
 
 # Mount other system directory if exist
-if [ -h $LFS/dev/shm ]; then
-  mkdir -pv $LFS/$(readlink $LFS/dev/shm)
+if [ -h $LFS_PATH/dev/shm ]; then
+    mkdir -pv $LFS_PATH/$(readlink $LFS_PATH/dev/shm)
 fi
