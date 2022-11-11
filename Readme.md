@@ -19,11 +19,15 @@ List of all resources i use during this project
 
 Available in this repository
 
-	- [Subject](./subject.pdf)
-	- [Linux from scratch](./documentations/linux-from-scratch/index.html)
-	- [Filesystem Hierarchy Standard](./documentations/fhs-3.0.pdf)
+- [Subject](./subject.pdf)
+- [Linux from scratch](./documentations/linux-from-scratch/index.html)
+- [Filesystem Hierarchy Standard](./documentations/fhs-3.0.pdf)
 
 ### Useful
 
-	- [Adding virtual hard drive to wls](https://joeferguson.me/adding-another-disk-to-wsl2/) is not work for windows 10
-	- [Create virtual hard drive](https://superuser.com/questions/868117/layouting-a-disk-image-and-copying-files-into-it)
+- [Adding virtual hard drive to wls](https://joeferguson.me/adding-another-disk-to-wsl2/) is not work for windows 10
+- [Create virtual hard drive](https://superuser.com/questions/868117/layouting-a-disk-image-and-copying-files-into-it)
+- [Fix grub install on loop device](https://askubuntu.com/questions/1161746/grub-install-error-will-not-proceed-with-blocklists)
+- [Linux kernel docs](https://docs.kernel.org/)
+- [Linux book](http://www.kroah.com/lkn/)
+- [Qemu info](https://documentation.suse.com/sles/12-SP4/html/SLES-all/cha-qemu-running.html)
