@@ -6,7 +6,7 @@ cp --remove-destination ./sources/steps/prepare-system.sh $LFS_PATH/script/prepa
 cp --remove-destination ./sources/steps/build-system.sh $LFS_PATH/script/build-system.sh
 cp --remove-destination ./sources/steps/configure-system.sh $LFS_PATH/script/configure-system.sh
 cp --remove-destination ./sources/steps/final.sh $LFS_PATH/script/final.sh
-cp -r --remove-destination ./sources/steps/final-system/ $LFS_PATH/script/
+cp -r --remove-destination ./sources/steps/prepare-system/ $LFS_PATH/script/
 cp -r --remove-destination ./sources/steps/build/system/* $LFS_PATH/script/build
 cp -r --remove-destination ./sources/steps/configure-system/* $LFS_PATH/script/
 cp -r --remove-destination ./sources/steps/final/. $LFS_PATH/script/

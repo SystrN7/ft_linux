@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 16:56:29 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 21:50:09 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,13 +49,13 @@ cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
 cp ./sources/steps/build-system.sh $LFS_PATH/script/build-system.sh
 cp ./sources/steps/configure-system.sh $LFS_PATH/script/configure-system.sh
 cp ./sources/steps/final.sh $LFS_PATH/script/final.sh
-cp -r ./sources/steps/final-system/ $LFS_PATH/script/final-system/
+cp -r ./sources/steps/prepare-system/ $LFS_PATH/script/prepare-system/
 cp -r ./sources/steps/build/system $LFS_PATH/script/build
 cp -r ./sources/steps/configure-system/* $LFS_PATH/script/
 cp -r ./sources/steps/final/. $LFS_PATH/script/
 
 # Mouting host system device and other requirement
-source ./sources/steps/final-system/create-system-directory.sh
+source ./sources/steps/prepare-system/create-system-directory.sh
 
 # Mounting the lfs img as root of file system to prepare file system
 sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
