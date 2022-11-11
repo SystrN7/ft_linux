@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:22 by felix             #+#    #+#              #
-#    Updated: 2022/10/21 21:49:41 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 18:11:19 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/util-linu
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/vim-8.1.tar.bz2
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/xz-5.2.4.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/zlib-1.2.11.tar.xz
+tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/curl-7.86.0.tar.xz
 
 mkdir -pv $LFS_SOURCES_PATH/tzdata2018i
 tar --extract --directory=$LFS_SOURCES_PATH/tzdata2018i --file=./sources/downloads/tzdata2018i.tar.gz

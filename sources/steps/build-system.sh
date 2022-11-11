@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 10:34:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 16:55:15 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 18:12:57 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -212,6 +212,9 @@ source /script/build/texinfo.sh
 
 # Build & Install Vim
 source /script/build/vim.sh
+
+# Build CURL
+source /script/build/curl.sh
 
 # Build & Install ProcPs
 source /script/build/procps.sh
