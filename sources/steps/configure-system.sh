@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:33:31 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 11:36:04 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 17:43:54 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,3 +41,6 @@ source /script/configure-shell.sh
 
 # Configure File System loading
 source /script/configure-file-system-load.sh
+
+# Configure system info file
+source /script/configure-system-info.sh

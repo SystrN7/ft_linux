@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 11:39:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 14:46:11 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 21:55:06 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ make modules_install
 # Install linux kernel
 # Move kernel binary to the boot fs
 # ??? Require change for lfs subject
-cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.20.12-lfs-8.4
+cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.20.12-$LFS_KERNEL_BINARY_CODENAME
 
 # Add kernel debug symbole
 cp -iv System.map /boot/System.map-4.20.12
@@ -67,4 +67,5 @@ EOF
 
 popd
 
-rm -rf /build/linux-4.20.12
+# Not remove is for ft_linux subject complience
+mv /build/linux-4.20.12 /usr/src

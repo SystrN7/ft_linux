@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 21:50:09 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/10 22:20:31 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,8 @@ sudo chroot $(pwd)"/$LFS_PATH" /tools/bin/env -i \
 
 # Mounting the lfs img as root of file system to configure the system
 sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
+    LFS_KERNEL_CODENAME=$LFS_KERNEL_CODENAME \
+    LFS_HOSTNAME=$LFS_HOSTNAME         \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
@@ -86,6 +88,7 @@ sudo mount --bind $LFS_BOOT_PATH $LFS_PATH/boot
 
 # Mounting the lfs img as root of file system to build & install linux and grub
 sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
+    LFS_KERNEL_BINARY_CODENAME=$LFS_KERNEL_BINARY_CODENAME \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
