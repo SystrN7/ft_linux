@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 22:20:31 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 17:33:55 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,9 @@ source ./sources/steps/prepare-host.sh
 
 # Login with lfs user and build the linux from scratch toolchain
 su --command="$(pwd)/sources/steps/build-toolchain.sh" $LFS_USER -
+
+# Change tools file owner to prevent problem of missing user om lfs system
+sudo chown -R root:root $LFS_PATH/tools
 
 # Copy lfs sripts
 mkdir $LFS_PATH/script
