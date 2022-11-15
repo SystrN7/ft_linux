@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:17:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/11 17:29:05 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 19:20:39 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ EOF
 
 
 # Configure DNS
-echo
-"# Début de /etc/resolv.conf
+echo "# Début de /etc/resolv.conf
 
 domain $LFS_HOSTNAME.ndaln.com
 nameserver 1.1.1.1
@@ -46,8 +45,7 @@ echo "$LFS_HOSTNAME" > /etc/hostname
 # Create host file
 # 127.0.1.1 <FQDN> <HOSTNAME>
 # <192.168.1.1> <FQDN> <HOSTNAME> [alias1] [alias2 ...]
-echo
-"# Begin /etc/hosts
+echo "# Begin /etc/hosts
 
 127.0.0.1 localhost
 127.0.1.1 $LFS_HOSTNAME.ndaln.com $LFS_HOSTNAME
