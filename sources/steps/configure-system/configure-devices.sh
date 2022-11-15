@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:17:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 18:41:55 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 18:42:45 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ EOF
 
 
 # Configure DNS
-echo
-"# Begin /etc/resolv.conf
+echo "# Begin /etc/resolv.conf
 
 # domain $LFS_HOSTNAME.ndaln.com
 nameserver 1.1.1.1
