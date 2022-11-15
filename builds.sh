@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/11 17:33:55 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/11 18:23:32 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,12 @@ sudo umount $LFS_PATH/boot
 # Clean Step : Close all and clean the system.		#
 # ================================================= #
 
-exit 0; # TODO remove when script is finish
+sudo umount -v $LFS_PATH/boot
+sudo umount -v $LFS_PATH/dev/pts
+sudo umount -v $LFS_PATH/dev
+sudo umount -v $LFS_PATH/run
+sudo umount -v $LFS_PATH/proc
+sudo umount -v $LFS_PATH/sys
 
 # Clean User
 source ./sources/steps/user-env/clean-user-env.sh
