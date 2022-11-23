@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:17:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/11 19:20:39 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 18:41:55 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@
 
 # Create default network insterface configuration
 cd /etc/sysconfig/
-cat > ifconfig.eth0 << "EOF"
+cat > ifconfig.enp0s3 << "EOF"
 ONBOOT=yes
-IFACE=eth0
+IFACE=enp0s3
 SERVICE=ipv4-static
 IP=192.168.1.2
 GATEWAY=192.168.1.1
@@ -29,13 +29,14 @@ EOF
 
 
 # Configure DNS
-echo "# Début de /etc/resolv.conf
+echo
+"# Begin /etc/resolv.conf
 
-domain $LFS_HOSTNAME.ndaln.com
+# domain $LFS_HOSTNAME.ndaln.com
 nameserver 1.1.1.1
 nameserver 8.8.8.8
 
-# Fin de /etc/resolv.conf" > /etc/resolv.config
+# End /etc/resolv.conf" > /etc/resolv.config
 
 
 # Configure hostname
@@ -48,8 +49,7 @@ echo "$LFS_HOSTNAME" > /etc/hostname
 echo "# Begin /etc/hosts
 
 127.0.0.1 localhost
-127.0.1.1 $LFS_HOSTNAME.ndaln.com $LFS_HOSTNAME
-<192.168.1.1> $LFS_HOSTNAME.ndaln.com $LFS_HOSTNAME
+192.168.1.2 $LFS_HOSTNAME
 ::1       localhost ip6-localhost ip6-loopback
 ff02::1   ip6-allnodes
 ff02::2   ip6-allrouters
