@@ -85,3 +85,4 @@ http://www.linuxfromscratch.org/patches/lfs/8.4/kbd-2.0.4-backspace-1.patch
 http://www.linuxfromscratch.org/patches/lfs/8.4/sysvinit-2.93-consolidated-1.patch
 http://www.linuxfromscratch.org/patches/lfs/8.4/systemd-240-security_fixes-2.patch
 https://curl.se/download/curl-7.86.0.tar.xz
+https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
