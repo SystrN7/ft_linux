@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 11:39:18 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 21:55:06 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:28:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,12 +57,12 @@ cp -r Documentation/* /usr/share/doc/linux-4.20.12
 # Configure module loading to fix some issue
 install -v -m755 -d /etc/modprobe.d
 cat > /etc/modprobe.d/usb.conf << "EOF"
-# Début de /etc/modprobe.d/usb.conf
+# Begin /etc/modprobe.d/usb.conf
 
 install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
 install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 
-# Fin de /etc/modprobe.d/usb.conf
+# End /etc/modprobe.d/usb.conf
 EOF
 
 popd

@@ -6,12 +6,12 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 16:05:52 by felix             #+#    #+#              #
-#    Updated: 2022/11/02 16:13:53 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:28:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 cat > /etc/inittab << "EOF"
-# Début de /etc/inittab
+# Begin /etc/inittab
 
 id:3:initdefault:
 
@@ -36,18 +36,18 @@ su:S016:once:/sbin/sulogin
 5:2345:respawn:/sbin/agetty tty5 9600
 6:2345:respawn:/sbin/agetty tty6 9600
 
-# Fin de /etc/inittab
+# End /etc/inittab
 EOF
 
 # Configure the system clock (getting info from harware clock)
 cat > /etc/sysconfig/clock << "EOF"
-# Début de /etc/sysconfig/clock
+# Begin /etc/sysconfig/clock
 
 UTC=1
 
-# Mettez ici les options que vous pourriez devoir donner à hwclock,
-# comme le type de l'horloge matérielle de la machine pour les Alphas.
+# Set this to any options you might need to give to hwclock,
+# such as machine hardware clock type for Alphas.
 CLOCKPARAMS=
 
-# Fin de /etc/sysconfig/clock
+# End /etc/sysconfig/clock
 EOF

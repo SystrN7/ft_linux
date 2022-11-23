@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 15:01:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 21:58:01 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:28:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ grub-install --force --target i386-pc /dev/$LINUX_LOOP
 
 # Create grub config
 cat > /boot/grub/grub.cfg << "EOF"
-# Début de /boot/grub/grub.cfg
+# Begin /boot/grub/grub.cfg
 set default=0
 set timeout=5
 

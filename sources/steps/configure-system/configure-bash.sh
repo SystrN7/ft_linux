@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 10:14:59 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:32:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:20:50 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ unset LC_ALL
 
 # Create default sub bash configuration
 cat > /etc/profile << "EOF"
-# Début de /etc/profile
+# Begin /etc/profile
 
 export LANG=fr_FR.ISO-8859-1@euro
 
-# Fin de /etc/profile
+# End /etc/profile
 EOF

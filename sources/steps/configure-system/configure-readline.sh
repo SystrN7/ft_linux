@@ -6,37 +6,36 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 10:34:48 by felix             #+#    #+#              #
-#    Updated: 2022/11/03 10:35:03 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:19:39 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 cat > /etc/inputrc << "EOF"
-# Début de /etc/inputrc
-# Modifié par Chris Lynn <roryo@roryo.dynup.net>
+# Begin /etc/inputrc
+# Modified by Chris Lynn <roryo@roryo.dynup.net>
 
-# Permettre à l'invite de commande d'aller à la ligne
+# Allow the command prompt to wrap to the next line
 set horizontal-scroll-mode Off
 
-# Activer l'entrée sur 8 bits
+# Enable 8bit input
 set meta-flag On
 set input-meta On
 
-# Ne pas supprimer le 8ème bit
+# Turns off 8th bit stripping
 set convert-meta Off
 
-# Conserver le 8ème bit à l'affichage
+# Keep the 8th bit for display
 set output-meta On
 
-# none, visible ou audible
+# none, visible or audible
 set bell-style none
 
-# Toutes les indications qui suivent font correspondre la séquence
-# d'échappement contenue dans le 1er argument à la fonction
-# spécifique de readline
+# All of the following map the escape sequence of the value
+# contained in the 1st argument to the readline specific functions
 "\eOd": backward-word
 "\eOc": forward-word
 
-# Pour la console linux
+# for linux console
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\e[5~": beginning-of-history
@@ -44,13 +43,13 @@ set bell-style none
 "\e[3~": delete-char
 "\e[2~": quoted-insert
 
-# pour xterm
+# for xterm
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
-# pour Konsole
+# for Konsole
 "\e[H": beginning-of-line
 "\e[F": end-of-line
 
-# Fin de /etc/inputrc
+# End /etc/inputrc
 EOF

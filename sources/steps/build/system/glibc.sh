@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 10:38:00 by felix             #+#    #+#              #
-#    Updated: 2022/11/10 11:18:12 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 15:28:05 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,7 +151,7 @@ cp -v /usr/share/zoneinfo/Europe/Paris /etc/localtime
 ### Configure dynamic linking ###
 # create dynamic linker file
 cat > /etc/ld.so.conf << "EOF"
-# Début de /etc/ld.so.conf
+# Begin /etc/ld.so.conf
 /usr/local/lib
 /opt/lib
 
