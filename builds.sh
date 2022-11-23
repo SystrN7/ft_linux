@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/11 18:23:32 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 22:03:16 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,12 @@ sudo chown -R root:root $LFS_PATH/tools
 mkdir $LFS_PATH/script
 cp ./sources/steps/prepare-system.sh $LFS_PATH/script/prepare-system.sh
 cp ./sources/steps/build-system.sh $LFS_PATH/script/build-system.sh
+cp ./sources/steps/build-extra.sh $LFS_PATH/script/build-extra.sh
 cp ./sources/steps/configure-system.sh $LFS_PATH/script/configure-system.sh
 cp ./sources/steps/final.sh $LFS_PATH/script/final.sh
 cp -r ./sources/steps/prepare-system/ $LFS_PATH/script/prepare-system/
 cp -r ./sources/steps/build/system $LFS_PATH/script/build
+cp -r ./sources/steps/build/extra $LFS_PATH/script/build
 cp -r ./sources/steps/configure-system/* $LFS_PATH/script/
 cp -r ./sources/steps/final/. $LFS_PATH/script/
 
@@ -97,6 +99,14 @@ sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     LINUX_LOOP=$LINUX_LOOP             \
     /bin/bash --login -e +h /script/final.sh
+
+# Mounting the lfs img as root of file system to build & install extra packet
+sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
+    LFS_TEST_RUN=$LFS_TEST_RUN         \
+    HOME=/root TERM="$TERM"            \
+    PS1='(lfs chroot) \u:\w\$ '        \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login -e +h /script/build-extra.sh
 
 sudo umount $LFS_PATH/boot
 
