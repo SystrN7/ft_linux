@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 15:59:39 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 22:36:19 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 23:27:41 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ source /script/build/curl.sh
 source /script/build/gdb.sh
 
 # Build & Install Openssh
+source /script/build/openssh.sh
 
 # Build & Install DHCP (Client)
 

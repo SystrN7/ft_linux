@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 12:54:20 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 22:03:16 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 23:25:20 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ cp ./sources/steps/configure-system.sh $LFS_PATH/script/configure-system.sh
 cp ./sources/steps/final.sh $LFS_PATH/script/final.sh
 cp -r ./sources/steps/prepare-system/ $LFS_PATH/script/prepare-system/
 cp -r ./sources/steps/build/system $LFS_PATH/script/build
-cp -r ./sources/steps/build/extra $LFS_PATH/script/build
+cp -r ./sources/steps/build/extra/* $LFS_PATH/script/build
 cp -r ./sources/steps/configure-system/* $LFS_PATH/script/
 cp -r ./sources/steps/final/. $LFS_PATH/script/
 

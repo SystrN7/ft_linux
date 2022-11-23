@@ -80,3 +80,4 @@ f75cca16a38da6caa7d52151f7136895  kbd-2.0.4-backspace-1.patch
 10abebce8ff5d9fd402623ace39b5ab8  systemd-240-security_fixes-2.patch
 19a2165f37941a6f412afc924e750568  curl-7.86.0.tar.xz
 f8b2562e830a4098dd5b5ea9e9296c70  gdb-8.2.1.tar.xz
+c6af50b7a474d04726a5aa747a5dce8f  openssh-7.9p1.tar.gz
