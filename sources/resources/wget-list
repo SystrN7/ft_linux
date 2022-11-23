@@ -91,3 +91,4 @@ http://www.linuxfromscratch.org/patches/blfs/8.4/openssh-7.9p1-security_fix-1.pa
 https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
 https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz
 https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.1.tar.xz
+ftp://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz
