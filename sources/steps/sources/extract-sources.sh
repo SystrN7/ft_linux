@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 22:19:22 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 23:02:20 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/23 23:41:38 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,8 @@ tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/zlib-1.2.
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/curl-7.86.0.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/gdb-8.2.1.tar.xz
 tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/openssh-7.9p1.tar.gz
+tar --extract --directory=$LFS_SOURCES_PATH --file=./sources/downloads/git-2.20.1.tar.xz
+cp ./sources/downloads/git-manpages-2.20.1.tar.xz ./sources/downloads/git-htmldocs-2.20.1.tar.xz $LFS_SOURCES_PATH
 
 mkdir -pv $LFS_SOURCES_PATH/tzdata2018i
 tar --extract --directory=$LFS_SOURCES_PATH/tzdata2018i --file=./sources/downloads/tzdata2018i.tar.gz

@@ -88,3 +88,6 @@ https://curl.se/download/curl-7.86.0.tar.xz
 https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
 http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 http://www.linuxfromscratch.org/patches/blfs/8.4/openssh-7.9p1-security_fix-1.patch
+https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
+https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz
+https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.1.tar.xz
