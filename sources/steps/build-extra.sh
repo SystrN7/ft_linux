@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 15:59:39 by felix             #+#    #+#              #
-#    Updated: 2022/11/24 00:05:18 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/27 18:47:24 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,5 +33,6 @@ source /script/build/git.sh
 # Build & Install DHCP (Client)
 source /script/build/dhcp.sh
 
-# Remove build directory
-rm -rf /build
+
+# Clean System
+source /script/clean.sh

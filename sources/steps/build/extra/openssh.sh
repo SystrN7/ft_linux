@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 22:57:36 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 23:31:12 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/27 22:09:11 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,11 @@ patch -Np1 -i /sources/patchs/openssh-7.9p1-security_fix-1.patch
 # Build
 make
 
-if [[ "$LFS_TEST_RUN" == "true" ]]; then 
-    # Run test
-    # Need to copy scp program into binary
-    # make test
-fi
+# if [[ "$LFS_TEST_RUN" == "true" ]]; then 
+#     # Run test
+#     # Need to copy scp program into binary
+#     # make test
+# fi
 
 # Install
 make install
@@ -53,8 +53,8 @@ install -v -m755 -d /usr/share/doc/openssh-7.9p1
 install -v -m644    INSTALL LICENCE OVERVIEW README* \
                     /usr/share/doc/openssh-7.9p1
 
-# Install Deamon
-make install-sshd
+# Install Deamon (Require blfs bootscript)
+# make install-sshd
 
 popd
 

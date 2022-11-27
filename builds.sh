@@ -108,8 +108,6 @@ sudo chroot $(pwd)"/$LFS_PATH" /usr/bin/env -i \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login -e +h /script/build-extra.sh
 
-sudo umount $LFS_PATH/boot
-
 # ================================================= #
 # Clean Step : Close all and clean the system.		#
 # ================================================= #
