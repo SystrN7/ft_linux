@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      xfce4-session-4.12.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;35.&nbsp;Bureau Xfce
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfwm4.html" title=
+          "Xfwm4-4.12.5">Précédent</a>
+          <p>
+            Xfwm4-4.12.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xfce-apps.html" title=
+          "Applications Xfce">Suivant</a>
+          <p>
+            Applications Xfce
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-core.html" title=
+          "Chapitre&nbsp;35.&nbsp;Bureau Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="xfce4-session" name="xfce4-session"></a>xfce4-session-4.12.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Xfce4 Session
+        </h2>
+        <p>
+          <span class="application">Xfce4 Session</span> est un gestionnaire
+          de session pour <span class="application">Xfce</span>. Son boulot
+          consiste à sauvegarder l'état de votre bureau (applications
+          ouvertes et leur emplacement) et à le restaurer lors du redémarrage
+          suivant. Vous pouvez créer plusieurs sessions différentes et
+          choisir l'une d'entre elles au démarrage.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://archive.xfce.org/src/xfce/xfce4-session/4.12/xfce4-session-4.12.1.tar.bz2">
+                http://archive.xfce.org/src/xfce/xfce4-session/4.12/xfce4-session-4.12.1.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                f4921fb2e606e74643daf1212263076c
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 1.2 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 14 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Xfce4 Session
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="libwnck2.html" title=
+          "libwnck-2.30.7">libwnck-2.30.7</a>, <a class="xref" href=
+          "libxfce4ui.html" title="libxfce4ui-4.12.1">libxfce4ui-4.12.1</a>,
+          <a class="xref" href="../general/which.html" title=
+          "Which-2.21 et Alternatives">Which-2.21</a> et <a class="xref"
+          href="../x/x7app.html" title="Applications Xorg">Applications
+          Xorg</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a>, <a class=
+          "xref" href="../general/shared-mime-info.html" title=
+          "shared-mime-info-1.10">shared-mime-info-1.10</a> et <a class=
+          "xref" href="../gnome/polkit-gnome.html" title=
+          "polkit-gnome-0.105">polkit-gnome-0.105</a>
+        </p>
+        <h4>
+          Requises pour l'éxécution
+        </h4>
+        <p class="required">
+          <a class="xref" href="xfdesktop.html" title=
+          "Xfdesktop-4.12.4">Xfdesktop-4.12.4</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-session">http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-session</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Xfce4 Session
+        </h2>
+        <p>
+          Installez <span class="application">Xfce4 Session</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --disable-legacy-sm &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-legacy-sm</code></em>&nbsp;:
+          Ce paramètre désactive l'ancienne gestion des sessions qui n'est
+          pas utile sur un système moderne.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configurer la session Xfce4
+        </h2>
+        <p>
+          Il y a plusieurs dépendances d'exécution facultative pour
+          <span class="application">Xfce4</span>&nbsp;: <span class=
+          "phrase"><a class="xref" href="../postlfs/consolekit.html" title=
+          "ConsoleKit2-1.2.1">ConsoleKit2-1.2.1</a>,</span> <a class="xref"
+          href="../general/dbus.html" title="dbus-1.12.12">dbus-1.12.12</a>,
+          <a class="xref" href="../postlfs/gnupg.html" title=
+          "GnuPG-2.2.13">GnuPG-2.2.13</a>, <a class="xref" href=
+          "../x/hicolor-icon-theme.html" title=
+          "hicolor-icon-theme-0.17">hicolor-icon-theme-0.17</a> et <a class=
+          "xref" href="../postlfs/openssh.html" title=
+          "OpenSSH-7.9p1">OpenSSH-7.9p1</a>
+        </p>
+        <p>
+          Pendant la construction d'un paquet <span class=
+          "application">Xfce4</span>, certains fichiers de configuration sont
+          installés dans <code class=
+          "filename">/usr/share/applications</code>, <code class=
+          "filename">/usr/share/icons</code> et <code class=
+          "filename">/usr/share/mime</code>. Afin d'utiliser ces fichiers
+          dans votre session <span class="application">Xfce4</span>, vous
+          devez mettre à jour différentes bases de données. Faites cela en
+          lançant, en tant qu'utilisateur <code class=
+          "systemitem">root</code> (vous avez besoin d'avoir les dépendances
+          recommandées d'installées)&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">update-desktop-database &amp;&amp;
+update-mime-database /usr/share/mime</kbd></pre>
+      </div>
+      <div class="starting" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Démarrage de Xfce4
+        </h2>
+        <p>
+          Vous pouvez démarrer <span class="application">Xfce4</span> depuis
+          le niveau d'exécution 3, en utilisant <a class="xref" href=
+          "../x/xinit.html" title="xinit-1.4.0">xinit-1.4.0</a>, ou depuis le
+          niveau d'exécution 5, en utilisant un gestionnaire d'affichage,
+          comme <a class="xref" href="../x/lightdm.html" title=
+          "lightdm-1.28.0">lightdm-1.28.0</a>.
+        </p>
+        <p>
+          Pour démarrer <span class="application">Xfce4</span> en utilisant
+          <a class="xref" href="../x/xinit.html" title=
+          "xinit-1.4.0">xinit-1.4.0</a> lancez les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; ~/.xinitrc &lt;&lt; "EOF"
+<code class=
+"literal">ck-launch-session dbus-launch --exit-with-session startxfce4</code>
+EOF
+
+startx</kbd></pre>
+        <p>
+          La session X démarre dans le premier terminal virtuel inutilisé,
+          normalement vt7. Vous pouvez passer à vt<span class=
+          "emphasis"><em>n</em></span> en pressant simultanément les touches
+          Ctrl-Alt-F<span class="emphasis"><em>n</em></span> (<span class=
+          "emphasis"><em>n</em></span>=1, 2, ...). Pour retourner à la
+          session X, normalement démarrée dans vt7, utilisez Ctrl-Alt-F7. Le
+          Vt où la commande <span class=
+          "command"><strong>startx</strong></span> est exécutée affichera
+          beaucoup de messages, dont les messages de démarrage de X, les
+          applications automatiquement démarrée avec la session, et
+          éventuellement, quelques avertissements et erreurs. Vous pouvez
+          préférer rediriger ces messages dans un fichier log, qui non
+          seulement laissera vt1 propre, mais aussi pourra servir pour le
+          débogage. Cela peut être fait en démarrant X avec&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">startx &amp;&gt; ~/.x-session-errors</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Vous pouvez souhaiter abandonner consolekit ou dbus-launch, par
+            exemple, en utilisant juste startxfce4 dans .~/.xinitrc, mais
+            quelques fonctionnalités comme mount/umount des systèmes de
+            fichier depuis un gestionnaire de fichiers ne seront pas
+            disponibles, ou les options de redémarrage seront absente ou non
+            fonctionnelles, entre autres problèmes.
+          </p>
+        </div>
+        <p>
+          Quand vous arrêtez ou redémarrez, les messages d'arrêt apparaissent
+          sur le vt ou X était lancé. Si vous souhaitez voir ses messages
+          appuyez simultanément sur Alt-F7 (en considérant que X était lancé
+          sur vt7).
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">xfce4-session, xfce4-session-logout,
+              xfce4-session-settings et xfce4-tips</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libxfsm-4.6.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/xfce4/xfce4-session-4.6,
+              /usr/share/xfce4/tips et
+              /usr/share/doc/xfce4-session-4.12.1</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-session-prog" name=
+                    "xfce4-session-prog"></a><span class="term"><span class=
+                    "command"><strong>xfce4-session</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    démarre l'environnement de bureau <span class=
+                    "application">Xfce</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-session-logout" name=
+                    "xfce4-session-logout"></a><span class=
+                    "term"><span class="command"><strong>xfce4-session-logout</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    se déconnecte de <span class="application">Xfce</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-session-settings" name=
+                    "xfce4-session-settings"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfce4-session-settings</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface <span class="application">Gtk+ 2</span>
+                    qui vous permet de modifier vos préférences pour votre
+                    <span class="application">Xfce Session</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-tips" name="xfce4-tips"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfce4-tips</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface graphique <span class=
+                    "application">Gtk+ 2</span> qui affiche des astuces
+                    lorsque vous vous connectez à une <span class=
+                    "application">Xfce Session</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libxfsm-4" name="libxfsm-4"></a><span class=
+                    "term"><code class=
+                    "filename">libxfsm-4.6.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contient les fonctions de l'API de <span class=
+                    "application">Xfce Session</span>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-19 09:13:15 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfwm4.html" title=
+          "Xfwm4-4.12.5">Précédent</a>
+          <p>
+            Xfwm4-4.12.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xfce-apps.html" title=
+          "Applications Xfce">Suivant</a>
+          <p>
+            Applications Xfce
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-core.html" title=
+          "Chapitre&nbsp;35.&nbsp;Bureau Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

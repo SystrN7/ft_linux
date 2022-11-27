@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      JS-38.2.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-04-17">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-04-17
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="icu.html" title="ICU-61.1">Précédent</a>
+          <p>
+            ICU-61.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="js52.html" title=
+          "JS-52.2.1gnome1">Suivant</a>
+          <p>
+            JS-52.2.1gnome1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-04-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="js38" name="js38"></a>JS-38.2.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction JS
+        </h2>
+        <p>
+          <span class="application">JS</span> est le moteur JavaScript de
+          Mozilla écrit en C.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Tlchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://anduin.linuxfromscratch.org/BLFS/mozjs/mozjs-38.2.1.rc0.tar.bz2">
+                http://anduin.linuxfromscratch.org/BLFS/mozjs/mozjs-38.2.1.rc0.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Tlchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrle MD5 du tlchargement&nbsp;:
+                cb602e21f5fc798b88163a3aa4e03e0a
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du tlchargement&nbsp;: 24 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 896 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 3.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Tlchargements supplmentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif requis&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/js38-38.2.1-upstream_fixes-2.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/js38-38.2.1-upstream_fixes-2.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dpendances de JS38
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="autoconf213.html" title=
+          "Autoconf2.13">Autoconf-2.13</a>, <a class="xref" href="icu.html"
+          title="ICU-61.1">ICU-61.1</a>, <a class="xref" href="nspr.html"
+          title="NSPR-4.19">NSPR-4.19</a>, <a class="xref" href=
+          "python2.html" title="Python-2.7.14">Python-2.7.14</a> et <a class=
+          "xref" href="zip.html" title="Zip-3.0">Zip-3.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="doxygen.html" title=
+          "Doxygen-1.8.14">Doxygen-1.8.14</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/js38">http://wiki.linuxfromscratch.org/blfs/wiki/js38</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de JS
+        </h2>
+        <div class="admon warning">
+          <img alt="[Avertissement]" src="../images/warning.png" />
+          <h3>
+            Avertissement
+          </h3>
+          <p>
+            L'archive s'extrait en mozjs-38.0.0 plutôt qu'en ce qui est listé
+            dans la partie téléchargement.
+          </p>
+        </div>
+        <p>
+          En premier, appliquez le correctif pour corriger la construction et
+          empêcher une erreur de segmentation.
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../js38-38.2.1-upstream_fixes-2.patch</kbd></pre>
+        <p>
+          Installez <span class="application">JS</span> en lanant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cd js/src &amp;&amp;
+autoconf2.13 &amp;&amp;
+
+./configure --prefix=/usr       \
+            --with-intl-api     \
+            --with-system-zlib  \
+            --with-system-ffi   \
+            --with-system-nspr  \
+            --with-system-icu   \
+            --enable-threadsafe \
+            --enable-readline   &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet ne contient pas de suite de tests utilisable.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+pushd /usr/include/mozjs-38 &amp;&amp;
+for link in `find . -type l`; do
+    header=`readlink $link`
+    rm -f $link
+    cp -pv $header $link
+    chmod 644 $link
+done &amp;&amp;
+popd &amp;&amp;
+
+chown -Rv root.root /usr/include/mozjs-38</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>autoconf2.13</strong></span>&nbsp;:
+          Cette commande régénère le script de configuration avec les
+          modifications du correctif.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-*</code></em>&nbsp;: Ces
+          paramètres permettent au système de construction d'utiliser les
+          versions système des bibliothèques précédentes. Ils sont requis
+          pour la stabilité.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-readline</code></em>: Ce
+          paramètre utilise le support Readline dans le shell JS.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-threadsafe</code></em>: Ce
+          paramètre active le support pour les threads multiples en une fois.
+          Cela augmente la performance aussi bien que la stabilité.
+        </p>
+        <p>
+          <span class="command"><strong>for link in</strong></span>...: Cette
+          commande remplace les liens vers le répertoire de construction,
+          avec des fichiers copiés depuis le répertoire de construction.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installs:</strong>
+              <span class="segbody">js38 et js38-config</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées):</strong>
+              <span class="segbody">libmozjs-38.so et libjs_static.ajs</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Rpertoires installs:</strong>
+              <span class="segbody">/usr/include/mozjs-38</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="js3-js38" name="js3-js38"></a><span class=
+                    "term"><span class=
+                    "command"><strong>js38</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    fournit une interface en ligne de commande pour le moteur
+                    <span class="application">JavaScript</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="js38-config" name="js38-config"></a><span class=
+                    "term"><span class=
+                    "command"><strong>js38-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour trouver le compilateur JS et les
+                    drapeaux de l'éditeur de liens.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libmozjs-38" name="libmozjs-38"></a><span class=
+                    "term"><code class=
+                    "filename">libmozjs-38.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de l'API de JavaScript de Mozilla.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-17 23:35:13 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="icu.html" title="ICU-61.1">Précédent</a>
+          <p>
+            ICU-61.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="js52.html" title=
+          "JS-52.2.1gnome1">Suivant</a>
+          <p>
+            JS-52.2.1gnome1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-04-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

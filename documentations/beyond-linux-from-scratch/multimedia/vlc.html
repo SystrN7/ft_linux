@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      VLC-3.0.6
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;44.&nbsp;Outils vidéos
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="transcode.html" title=
+          "Transcode-1.1.7">Précédent</a>
+          <p>
+            Transcode-1.1.7
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xine-ui.html" title=
+          "xine-ui-0.99.10">Suivant</a>
+          <p>
+            xine-ui-0.99.10
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="videoutils.html" title=
+          "Chapitre&nbsp;44.&nbsp;Outils vidéos">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="vlc" name="vlc"></a>VLC-3.0.6
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à VLC
+        </h2>
+        <p>
+          <span class="application">VLC</span> est un lecteur de média, un
+          générateur de flux, et un encodeur. Il peut afficher depuis
+          différentes entrées comme des fichiers, des flux réseaux, des
+          périphériques de capture, des ordinateurs, ou des DVD, des SVCD,
+          des VCD, et des CD audio. Il peut lire la plupart des CODEC audio
+          et vidéo (MPEG 1/2/4, H264, VC-1, DivX, WMV, Vorbis, AC3, AAC,
+          etc.), et il peut aussi convertir en différents formats et envoyer
+          les flux au travers du réseau.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz">https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                4ff71d262e070fd19f86a1c3542c7b4e
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 25 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 714 Mo (plus 13
+                Mo pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 2.1 SBU (en
+                utilisant le parallélisme à 4&nbsp;; plus 0.2 SBU pour les
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de VLC
+        </h3>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="alsa-lib.html" title=
+          "alsa-lib-1.1.8">alsa-lib-1.1.8</a>, <a class="xref" href=
+          "ffmpeg.html" title="FFmpeg-4.1.1">FFmpeg-4.1.1</a>, <a class=
+          "xref" href="liba52.html" title="Liba52-0.7.4">liba52-0.7.4</a>,
+          <a class="xref" href="../general/libgcrypt.html" title=
+          "libgcrypt-1.8.4">libgcrypt-1.8.4</a> <a class="xref" href=
+          "libmad.html" title="libmad-0.15.1b">libmad-0.15.1b</a>, <a class=
+          "xref" href="../general/lua.html" title="Lua-5.3.5">Lua-5.3.5</a>
+          et <a class="xref" href="../x/installing.html" title=
+          "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Système X
+          Window</a>,
+        </p>
+        <h4>
+          Fonctionnalités facultatives et paquets
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/dbus.html" title=
+          "dbus-1.12.12">dbus-1.12.12</a>
+        </p>
+        <h4>
+          Greffons d'entrée facultatifs
+        </h4>
+        <p class="optional">
+          <a class="xref" href="libcddb.html" title=
+          "libcddb-1.3.2">libcddb-1.3.2</a>, <a class="xref" href=
+          "libdv.html" title="Libdv-1.0.0">libdv-1.0.0</a>, <a class="xref"
+          href="libdvdcss.html" title="libdvdcss-1.4.2">libdvdcss-1.4.2</a>,
+          <a class="xref" href="libdvdread.html" title=
+          "Libdvdread-6.0.1">libdvdread-6.0.1</a>, <a class="xref" href=
+          "libdvdnav.html" title="Libdvdnav-6.0.0">libdvdnav-6.0.0</a>,
+          <a class="xref" href="../general/opencv.html" title=
+          "opencv-4.0.1">opencv-4.0.1</a> (actuellement cassé), <a class=
+          "xref" href="../basicnet/samba.html" title=
+          "Samba-4.9.4">Samba-4.9.4</a>, <a class="xref" href=
+          "v4l-utils.html" title="v4l-utils-1.16.3">v4l-utils-1.16.3</a>,
+          <a class="ulink" href=
+          "http://www.videolan.org/developers/libbluray.html">libbluray</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/libdc1394/">libdc1394</a>,
+          <a class="ulink" href=
+          "https://github.com/libproxy/libproxy">libproxy</a>, <a class=
+          "ulink" href="http://www.live555.com/">Live555</a> et <a class=
+          "ulink" href="http://www.gnu.org/software/vcdimager/">VCDImager</a>
+          (requiert <a class="xref" href="libcdio.html" title=
+          "libcdio-2.0.0">libcdio-2.0.0</a>)
+        </p>
+        <h4>
+          Greffons facultatifs de multiplexage/demultiplexage
+        </h4>
+        <p class="optional">
+          <a class="xref" href="libogg.html" title=
+          "libogg-1.3.3">libogg-1.3.3</a>, <a class="ulink" href=
+          "https://github.com/kode54/Game_Music_Emu">Game Music Emu</a>,
+          <a class="ulink" href=
+          "http://www.videolan.org/developers/libdvbpsi.html">libdvbpsi</a>,
+          <a class="ulink" href=
+          "http://downloads.xiph.org/releases/libshout/">libshout</a>,
+          <a class="ulink" href=
+          "http://dl.matroska.org/downloads/libmatroska/">libmatroska</a>
+          (requiert <a class="ulink" href=
+          "http://dl.matroska.org/downloads/libebml/">libebml</a>), <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/modplug-xmms/">libmodplug</a>,
+          <a class="ulink" href="http://www.musepack.net/">Musepack</a> et
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/sidplay2/">sidplay-libs</a>
+        </p>
+        <h4>
+          Greffons codec facultatifs
+        </h4>
+        <p class="optional">
+          <a class="xref" href="faad2.html" title=
+          "FAAD2-2.8.8">FAAD2-2.8.8</a>, <a class="xref" href="flac.html"
+          title="FLAC-1.3.2">FLAC-1.3.2</a>, <a class="xref" href=
+          "libass.html" title="libass-0.14.0">libass-0.14.0</a>, <a class=
+          "xref" href="libmpeg2.html" title=
+          "libmpeg2-0.5.1">libmpeg2-0.5.1</a>, <a class="xref" href=
+          "../general/libpng.html" title="libpng-1.6.36">libpng-1.6.36</a>,
+          <a class="xref" href="libtheora.html" title=
+          "libtheora-1.1.1">libtheora-1.1.1</a>, <a class="xref" href=
+          "../x/x7driver.html#libva" title="libva-2.4.0">libva-2.4.0</a>,
+          <a class="xref" href="libvorbis.html" title=
+          "libvorbis-1.3.6">libvorbis-1.3.6</a>, <a class="xref" href=
+          "opus.html" title="Opus-1.3">Opus-1.3</a>, <a class="xref" href=
+          "speex.html" title="Speex-1.2.0">Speex-1.2.0</a>, <a class="xref"
+          href="x264.html" title="x264-20190209-2245">x264-20190209-2245</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/dirac/">Dirac</a>, <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/fluidsynth/">FluidSynth</a>,
+          <a class="ulink" href=
+          "http://www.videolan.org/developers/libdca.html">libdca</a>,
+          <a class="ulink" href=
+          "http://code.google.com/p/libkate/">libkate</a>, <a class="ulink"
+          href="http://www.khronos.org/openmax/">OpenMAX</a>, <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/schrodinger/">Schroedinger</a>,
+          <a class="ulink" href="http://wiki.xiph.org/Tremor">Tremor</a>,
+          <a class="ulink" href="http://www.twolame.org/">Twolame</a> et
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/zapping/">Zapping VBI</a>
+        </p>
+        <h4>
+          Greffons vidéo facultatifs
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/aalib.html" title=
+          "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
+          "../general/fontconfig.html" title=
+          "Fontconfig-2.13.1">Fontconfig-2.13.1</a>, <a class="xref" href=
+          "../general/freetype2.html" title=
+          "FreeType-2.9.1">FreeType-2.9.1</a>, <a class="xref" href=
+          "../general/fribidi.html" title="FriBidi-1.0.5">FriBidi-1.0.5</a>,
+          <a class="xref" href="../general/librsvg.html" title=
+          "librsvg-2.44.12">librsvg-2.44.12</a>, <a class="xref" href=
+          "../x/x7driver.html#libvdpau" title=
+          "libvdpau-1.1.1">libvdpau-1.1.1</a>, <a class="xref" href=
+          "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a> (avec <a class="ulink"
+          href="http://www.libsdl.org/projects/SDL_image/">SDL_image</a>) et
+          <a class="ulink" href="http://caca.zoy.org/">libcaca</a>
+        </p>
+        <h4>
+          Greffons audio facultatifs
+        </h4>
+        <p class="optional">
+          <a class="xref" href="pulseaudio.html" title=
+          "PulseAudio-12.2">PulseAudio-12.2</a>, <a class="xref" href=
+          "libsamplerate.html" title=
+          "libsamplerate-0.1.9">libsamplerate-0.1.9</a> et <a class="ulink"
+          href="http://jackaudio.org/">JACK</a>
+        </p>
+        <h4>
+          Greffons d'interface facultatifs
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/qt5.html" title=
+          "Qt-5.12.1">Qt-5.12.1</a> (requis pour l'interface utilisateur
+          graphique), <a class="ulink" href=
+          "http://pkgbuild.com/~giovanni/libtar/">libtar</a> et <a class=
+          "ulink" href="http://www.lirc.org/">LIRC</a>
+        </p>
+        <h4>
+          Greffons de visualisation de filtre vidéo facultatifs
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/goom/">Goom</a> et <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/projectm/">projectM</a>
+        </p>
+        <h4>
+          Greffons facultatifs de découverte de service
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../basicnet/avahi.html" title=
+          "Avahi-0.7">Avahi-0.7</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/libmtp/">libmtp</a> et <a class=
+          "ulink" href="http://sourceforge.net/projects/pupnp/">libupnp</a>
+        </p>
+        <h4>
+          Options diverses
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../postlfs/gnutls.html" title=
+          "GnuTLS-3.6.6">GnuTLS-3.6.6</a>, <a class="xref" href=
+          "../x/libnotify.html" title="libnotify-0.7.7">libnotify-0.7.7</a>,
+          <a class="xref" href="../general/libxml2.html" title=
+          "libxml2-2.9.9">libxml2-2.9.9</a>, <a class="xref" href=
+          "taglib.html" title="Taglib-1.11.1">taglib-1.11.1</a>, <a class=
+          "xref" href="../xsoft/xdg-utils.html" title=
+          "xdg-utils-1.1.3">xdg-utils-1.1.3</a> (exécution) et <a class=
+          "ulink" href=
+          "http://www.ambilight4pc.com/atmolight.html">AtmoLight</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/vlc">http://wiki.linuxfromscratch.org/blfs/wiki/vlc</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de VLC
+        </h2>
+        <p>
+          Installez <span class="application">VLC</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &amp;&amp;
+
+BUILDCC=gcc ./configure --prefix=/usr    \
+                        --disable-opencv \
+                        --disable-vpx    &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make check</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">make docdir=/usr/share/doc/vlc-3.0.6 install</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Ce paquet installe des fichiers d'icônes dans la hiérarchie
+            <code class="filename">/usr/share/icons/hicolor</code> et des
+            fichiers du bureau dans la hiérarchie <code class=
+            "filename">/usr/share/applications</code>. Vous pouvez améliorer
+            les performances du système et l'utilisation de la mémoire en
+            mettant à jour <code class=
+            "filename">/usr/share/icons/hicolor/index.theme</code> et
+            <code class=
+            "filename">/usr/share/applications/mimeinfo.cache</code>. Pour
+            réaliser la mise à jour vous devez avoir installé <a class="xref"
+            href="../x/gtk2.html" title="GTK+-2.24.32">GTK+-2.24.32</a> ou
+            <a class="xref" href="../x/gtk3.html" title=
+            "GTK+-3.24.5">GTK+-3.24.5</a> (pour le cache des icônes) et
+            <a class="xref" href="../general/desktop-file-utils.html" title=
+            "desktop-file-utils-0.23">desktop-file-utils-0.23</a> (pour le
+            cache du bureau) et taper la commande suivante en tant
+            qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">gtk-update-icon-cache &amp;&amp;
+update-desktop-database</kbd></pre>
+        </div>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed ...
+          modules/lua/...</strong></span>&nbsp;: Cette commande permet de
+          construire le paquet avec la version actuelle de <a class="xref"
+          href="../general/lua.html" title="Lua-5.3.5">Lua-5.3.5</a>.
+        </p>
+        <p>
+          <code class="option">--disable-opencv</code>&nbsp;: Ce paramètre
+          est requis pour désactiver le support d'<span class=
+          "application">opencv</span> qui n'est pas compatible avec cette
+          version de <span class="application">vlc</span>.
+        </p>
+        <p>
+          <code class="option">--disable-vpx</code>&nbsp;: Ce paramètre est
+          requis pour désactiver le support de <span class=
+          "application">libvpx</span> qui n'est pas compatible avec cette
+          version de <span class="application">vlc</span>.
+        </p>
+        <p>
+          <code class="option">--disable-lua</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class=
+          "application">Lua</span>.
+        </p>
+        <p>
+          <code class="option">--disable-mad</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class=
+          "application">libmad</span>
+        </p>
+        <p>
+          <code class="option">--disable-avcodec
+          --disable-swscale</code>&nbsp;: Utilisez ces paramètres si vous
+          n'avez pas installé <span class="application">FFmpeg</span>
+        </p>
+        <p>
+          <code class="option">--disable-a52</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class=
+          "application">liba52</span>
+        </p>
+        <p>
+          <code class="option">--disable-xcb</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class="application">X
+          Window System</span>
+        </p>
+        <p>
+          <code class="option">--disable-alsa</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class=
+          "application">ALSA</span>
+        </p>
+        <p>
+          <code class="option">--disable-libgcrypt</code>&nbsp;: Utilisez ce
+          paramètre si vous n'avez pas installé <span class=
+          "application">libgcrypt</span>
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Il y a beaucoup d'options dans la commande <span class=
+            "command"><strong>configure</strong></span> de <span class=
+            "application">VLC</span>. Regardez la sortie de <span class=
+            "command"><strong>configure --help</strong></span> pour la liste
+            complète.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">cvlc, nvlc, qvlc, rvlc, svlc, vlc et
+              vlc-wrapper</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libvlccore.so, libvlc.so et plusieurs
+              greffons dans /usr/lib/vlc/plugins</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/{include,lib,share}/vlc et
+              /usr/share/doc/vlc-3.0.6</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cvlc" name="cvlc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cvlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour lancer VLC avec une interface fictive.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nvlc" name="nvlc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nvlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour lancer VLC avec une interface ncurses.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qvlc" name="qvlc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>qvlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour lancer <span class=
+                    "application">VLC</span> avec une interface <span class=
+                    "application">Qt</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rvlc" name="rvlc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rvlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour lancer <span class=
+                    "application">VLC</span> avec une interface en ligne de
+                    commande.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="svlc" name="svlc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>svlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour lancer <span class=
+                    "application">VLC</span> avec une interface skinnée.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="vlc-prog" name="vlc-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>vlc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le lecteur média <span class=
+                    "application">VLC</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="vlc-wrapper" name="vlc-wrapper"></a><span class=
+                    "term"><span class=
+                    "command"><strong>vlc-wrapper</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une enveloppe pour abandonner les privilèges avec
+                    <span class="application">VLC</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-18 00:28:59 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="transcode.html" title=
+          "Transcode-1.1.7">Précédent</a>
+          <p>
+            Transcode-1.1.7
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xine-ui.html" title=
+          "xine-ui-0.99.10">Suivant</a>
+          <p>
+            xine-ui-0.99.10
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="videoutils.html" title=
+          "Chapitre&nbsp;44.&nbsp;Outils vidéos">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

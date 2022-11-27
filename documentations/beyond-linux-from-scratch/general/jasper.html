@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      JasPer-2.0.14
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;10.&nbsp;Bibliothèques de graphismes et de polices
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ijs.html" title="IJS-0.35">Précédent</a>
+          <p>
+            IJS-0.35
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lcms.html" title=
+          "Little CMS-1.19">Suivant</a>
+          <p>
+            Little CMS-1.19
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphlib.html" title=
+          "Chapitre&nbsp;10.&nbsp;Bibliothèques de graphismes et de polices">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="jasper" name="jasper"></a>JasPer-2.0.14
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à JasPer
+        </h2>
+        <p>
+          Le projet <span class="application">JasPer</span> est une
+          initiative libre pour fournir une implémentation de référence du
+          codec JPEG-2000 basée sur le logiciel libre.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz">
+                http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                23561b51da8eb5d0dc85b91eff3d9a7f
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 1.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 11 Mo (avec les
+                tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU (avec les
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de JasPer
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="cmake.html" title=
+          "CMake-3.13.4">CMake-3.13.4</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="libjpeg.html" title=
+          "libjpeg-turbo-2.0.2">libjpeg-turbo-2.0.2</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/freeglut.html" title=
+          "Freeglut-3.0.0">Freeglut-3.0.0</a> (requis pour <span class=
+          "command"><strong>jiv</strong></span>), <a class="xref" href=
+          "doxygen.html" title="Doxygen-1.8.15">Doxygen-1.8.15</a> (requis
+          pour générer la documentation html) et <a class="xref" href=
+          "../pst/texlive.html" title=
+          "texlive-20180414-source">texlive-20180414</a> (requis pour
+          régénérer la documentation pdf)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/jasper">http://wiki.linuxfromscratch.org/blfs/wiki/jasper</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de JasPer
+        </h2>
+        <pre class="userinput"><kbd class="command">mkdir BUILD &amp;&amp;
+cd    BUILD &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -DCMAKE_SKIP_INSTALL_RPATH=YES \
+      -DJAS_ENABLE_DOC=NO            \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
+      ..  &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make test</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <code class="option">-DCMAKE_SKIP_INSTALL_RPATH=YES</code>&nbsp;:
+          Ce paramètre supprime les chemins de recherche des bibliothèques
+          inclus.
+        </p>
+        <p>
+          <code class="option">-DJAS_ENABLE_DOC=NO</code>&nbsp;: Cette option
+          désactive la reconstruction de la documentation pdf si <a class=
+          "xref" href="../pst/texlive.html" title=
+          "texlive-20180414-source">texlive-20180414</a> est installé.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">imgcmp, imginfo, jasper et jiv</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libjasper.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/jasper et
+              /usr/share/doc/jasper-2.0.14</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="imgcmp" name="imgcmp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>imgcmp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    compare deux images de la même géométrie.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="imginfo" name="imginfo"></a><span class=
+                    "term"><span class=
+                    "command"><strong>imginfo</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affiche des informations sur une image.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jasper-command" name=
+                    "jasper-command"></a><span class="term"><span class=
+                    "command"><strong>jasper</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    convertit des images entre des formats (BMP, JPS, JPC,
+                    JPG, PGX, PNM, MIF, et RAS).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jiv" name="jiv"></a><span class=
+                    "term"><span class="command"><strong>jiv</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affiche des images.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jasper-lib" name="jasper-lib"></a><span class=
+                    "term"><code class="filename">libjasper.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    une bibliothèque utilisée par des programmes de lecture
+                    et d'écriture de fichiers au format JPEG2000.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-16 22:03:30 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ijs.html" title="IJS-0.35">Précédent</a>
+          <p>
+            IJS-0.35
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lcms.html" title=
+          "Little CMS-1.19">Suivant</a>
+          <p>
+            Little CMS-1.19
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphlib.html" title=
+          "Chapitre&nbsp;10.&nbsp;Bibliothèques de graphismes et de polices">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

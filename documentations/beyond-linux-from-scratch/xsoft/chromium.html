@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chromium-64.0.3282.186
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphweb.html" title=
+          "Navigateurs Internet graphiques">Précédent</a>
+          <p>
+            Navigateurs Internet graphiques
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="epiphany.html" title=
+          "Epiphany-3.28.1">Suivant</a>
+          <p>
+            Epiphany-3.28.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="chromium" name="chromium"></a>Chromium-64.0.3282.186
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Chromium
+        </h2>
+        <p>
+          <span class="application">Chormium</span> est un projet de
+          navigateur libre qui a pour but de construire une expérience
+          utilisateur plus sure, plus rapide et plus stable sur le web.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://commondatastorage.googleapis.com/chromium-browser-official/chromium-64.0.3282.186.tar.xz">
+                https://commondatastorage.googleapis.com/chromium-browser-official/chromium-64.0.3282.186.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                0c361a429c5dcea568cbc7b001a82d92
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 460 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 6.0 Go
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 120 SBU (avec
+                parallélisme = 4)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <h4>
+          Correctif requis&nbsp;:
+        </h4>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/chromium-64.0.3282.186-constexpr-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/chromium-64.0.3282.186-constexpr-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h4>
+          Binaires de Chrome facultatifs pour extraire le support du greffon
+          (Netflix) <span class="application">WideVine</span>&nbsp;:
+        </h4>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_64.0.3282.186-1_amd64.deb">
+                http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_64.0.3282.186-1_amd64.deb</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                1caee436e3dc8fda6560a421e60717e4
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 49.1 MB
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://mirror.retrosnub.co.uk/apt/google/pool/main/g/google-chrome-stable/google-chrome-stable_48.0.2564.116-1_i386.deb">
+                http://mirror.retrosnub.co.uk/apt/google/pool/main/g/google-chrome-stable/google-chrome-stable_48.0.2564.116-1_i386.deb</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                895e877b9bfe5da05a061369c2078626
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 45.3 MB
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Chromium
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../multimedia/alsa-lib.html" title=
+          "alsa-lib-1.1.6">alsa-lib-1.1.6</a>, <a class="xref" href=
+          "../pst/cups.html" title="Cups-2.2.8">Cups-2.2.8</a>, <a class=
+          "xref" href="../general/desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a>, <a class=
+          "xref" href="../general/dbus.html" title=
+          "dbus-1.12.8">dbus-1.12.8</a>, <a class="xref" href=
+          "../general/perl-modules.html#perl-file-basedir" title=
+          "File::BaseDir-0.08">File::BaseDir-0.08</a>, <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.22.30">GTK+-3.22.30</a>, <a class=
+          "xref" href="../x/hicolor-icon-theme.html" title=
+          "hicolor-icon-theme-0.17">hicolor-icon-theme-0.17</a>, <a class=
+          "xref" href="../postlfs/mitkrb.html" title=
+          "MIT Kerberos V5-1.16.1">MIT Kerberos V5-1.16.1</a>, <a class=
+          "xref" href="../x/mesa.html" title="Mesa-18.1.1">Mesa-18.1.1</a>,
+          <a class="xref" href="../general/nodejs.html" title=
+          "Node.js-9.11.1">nodejs-9.11.1</a>, <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.37.3">NSS-3.37.3</a>, <a class=
+          "xref" href="../general/python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a>, <a class="xref" href=
+          "../general/usbutils.html" title="usbutils-010">usbutils-010</a> et
+          <a class="xref" href="../x/installing.html" title=
+          "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Système X
+          Window</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../postlfs/make-ca.html" title=
+          "make-ca-0.8">make-ca-0.8</a> (exécution), <a class="xref" href=
+          "../multimedia/flac.html" title="FLAC-1.3.2">FLAC-1.3.2</a>,
+          <a class="xref" href="../general/git.html" title=
+          "Git-2.17.1">git-2.17.1</a>, <a class="xref" href=
+          "../x/TTF-and-OTF-fonts.html#liberation-fonts" title=
+          "Polices Liberation">Liberation fonts</a> <a class="xref" href=
+          "../general/libexif.html" title=
+          "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
+          "../general/libjpeg.html" title=
+          "libjpeg-turbo-1.5.3">libjpeg-turbo-1.5.3</a>, <a class="xref"
+          href="../gnome/libsecret.html" title=
+          "libsecret-0.18.6">libsecret-0.18.6</a>, <a class="xref" href=
+          "../general/libwebp.html" title="libwebp-1.0.0">libwebp-1.0.0</a>,
+          <a class="xref" href="../general/pciutils.html" title=
+          "pciutils-3.6.1">pciutils-3.6.1</a>, <a class="xref" href=
+          "../multimedia/pulseaudio.html" title=
+          "PulseAudio-11.1">PulseAudio-11.1</a>, <a class="xref" href=
+          "xdg-utils.html" title="xdg-utils-1.1.3">xdg-utils-1.1.3</a> et
+          <a class="xref" href="../general/yasm.html" title=
+          "yasm-1.3.0">yasm-1.3.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../multimedia/ffmpeg.html" title=
+          "FFmpeg-4.0">FFmpeg-4.0</a> (actuellement cassé), <a class="xref"
+          href="../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a>,
+          <a class="xref" href="../general/icu.html" title=
+          "ICU-61.1">ICU-61.1</a> (actuellement cassé), <a class="xref" href=
+          "../gnome/gnome-keyring.html" title=
+          "gnome-keyring-3.28.0.2">gnome-keyring-3.28.0.2</a>, <a class=
+          "xref" href="../basicnet/libevent.html" title=
+          "libevent-2.1.8">libevent-2.1.8</a>, <a class="xref" href=
+          "../general/libpng.html" title="libpng-1.6.34">libpng-1.6.34</a>
+          (actuellement cassé), <a class="xref" href=
+          "../multimedia/libvpx.html" title="libvpx-1.7.0">libvpx-1.7.0</a>
+          (actuellement cassé), <a class="xref" href=
+          "../general/libxml2.html" title="libxml2-2.9.8">libxml2-2.9.8</a>
+          (actuellement cassé), <a class="xref" href="../general/upower.html"
+          title="UPower-0.99.7">UPower-0.99.7</a> (exécution), <a class=
+          "ulink" href=
+          "https://devel.freebsoft.org/speechd">speech-dispatcher</a> (pour
+          le lecteur d'écran) et <a class="ulink" href=
+          "https://google.github.io/snappy">snappy</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/chromium">http://wiki.linuxfromscratch.org/blfs/wiki/chromium</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Chromium
+        </h2>
+        <p>
+          Activez l'utilisation du greffon <a class="ulink" href=
+          "http://www.widevine.com/">WideVine</a>, requis pour le support de
+          Netflix (voyez la section WideVine ci-dessous). Définissez un nom
+          de produit disponible ("Pinkie Pie" dans ce cas) avec la commande
+          suivante&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">line='#define WIDEVINE_CDM_VERSION_STRING "Pinkie Pie"' 
+sed "/WIDEVINE_CDM_AVAILABLE/a$line" \
+    -i third_party/widevine/cdm/stub/widevine_cdm_version.h</kbd></pre>
+        <p>
+          Éventuellement ignorez plusieurs (2000+) avertissements
+          invalides&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed '/static_assert/s:^://:' \
+    -i third_party/WebKit/Source/platform/wtf/text/TextCodec.h</kbd></pre>
+        <p>
+          Corrigez un problème de construction avec la version actuelle de
+          GCC&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../chromium-64.0.3282.186-constexpr-1.patch</kbd></pre>
+        <p>
+          Supprimez les fichiers de construction tiers qui interfèrent avec
+          les versions du système&nbsp;:
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Chromium utilise plusieurs projets externes, les sélections
+            ci-dessous ne sont pas gravées dans le marbre, cependant elles
+            ont été testées soigneusement. Avec Chromium 64.0.3282.186, les
+            versions systèmes de libvpx, libxml2 et zlib sont connues pour
+            casser actuellement la construction.
+          </p>
+        </div>
+        <pre class="userinput">
+
+
+
+
+
+
+
+
+<kbd class="command">for LIB in flac freetype harfbuzz-ng libjpeg \
+           libjpeg_turbo libwebp libxslt yasm; do
+    find -type f -path "*third_party/$LIB/*"      \
+        \! -path "*third_party/$LIB/chromium/*"   \
+        \! -path "*third_party/$LIB/google/*"     \
+        \! -path "*base/third_party/icu/*"        \
+        \! -path './third_party/yasm/run_yasm.py' \
+        \! -regex '.*\.\(gn\|gni\|isolate\|py\)'  \
+        \! -path './third_party/freetype/src/src/psnames/pstables.h' \
+        -delete
+done &amp;&amp;
+
+python build/linux/unbundle/replace_gn_files.py     \
+    --system-libraries flac libjpeg libxml libevent \
+                       libwebp libxslt opus yasm     &amp;&amp;
+
+python third_party/libaddressinput/chromium/tools/update-strings.py</kbd></pre>
+        <p>
+          <span class="application">Chromium</span> utilise un outil interne,
+          <a class="ulink" href=
+          "https://chromium.googlesource.com/chromium/src/tools/gn">gn</a>,
+          pour générer les fichiers de construction <span class=
+          "application">Ninja</span>. La configuration complète de la
+          construction se fait avec les commandes suivantes&nbsp;:
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Les clefs API de Google et les jetons OAuth ci-dessous sont
+            spécifiques à LFS. Si vous utilisez ces instructions pour une
+            autre distribution, ou si vous souhaitez distribuer des copies
+            binaires de ce logiciel en utilisant ces instructions, merci
+            d'obtenir vos propres clefs en suivant les instructions
+            disponibles sur <a class="ulink" href=
+            "http://www.chromium.org/developers/how-tos/api-keys">http://www.chromium.org/developers/how-tos/api-keys</a>.
+          </p>
+        </div>
+        <pre class="userinput"><kbd class=
+        "command">GN_CONFIG=('google_api_key="AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ"'
+'google_default_client_id="595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com"'
+'google_default_client_secret="5ntt6GbbkjnTVXx-MSxbmx5e"'
+'clang_use_chrome_plugins=false'
+'enable_hangout_services_extension=true'
+'enable_nacl=false'
+'enable_nacl_nonsfi=false'
+'enable_swiftshader=false'
+'enable_widevine=true'
+'fatal_linker_warnings=false'
+'ffmpeg_branding="Chrome"'
+'fieldtrial_testing_like_official_build=true'
+'is_debug=false'
+'is_clang=false'
+'link_pulseaudio=true'
+'linux_use_bundled_binutils=false'
+'proprietary_codecs=true'
+'remove_webcore_debug_symbols=true'
+'symbol_level=0'
+'treat_warnings_as_errors=false'
+'use_allocator="none"'
+'use_cups=true'
+'use_gconf=false'
+'use_gnome_keyring=false'
+'use_gold=false'
+'use_gtk3=true'
+'use_kerberos=true'
+'use_pulseaudio=true'
+'use_sysroot=false'
+'use_system_freetype=true'
+'use_system_harfbuzz=true')</kbd></pre>
+        <p>
+          Construisez <span class="application">gn</span> et utilisez-le pour
+          préparer les fichiers de construction <span class=
+          "application">Ninja</span>&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">python tools/gn/bootstrap/bootstrap.py --gn-gen-args "${GN_CONFIG[*]}" &amp;&amp;
+out/Release/gn gen out/Release --args="${GN_CONFIG[*]}"</kbd></pre>
+        <div class="admon warning">
+          <img alt="[Avertissement]" src="../images/warning.png" />
+          <h3>
+            Avertissement
+          </h3>
+          <p>
+            Ninja, par défaut, initialise le nombre de travaux au nombre de
+            threads disponibles. Si la mémoire de votre machine est réduite,
+            comparée au nombre de threads, vous devriez réduire le nombre de
+            travaux en passant le paramètre <em class=
+            "parameter"><code>-j#</code></em> à la commande <span class=
+            "command"><strong>ninja</strong></span> ci-dessous. Prévoyez
+            environ 1.25 Go par thread pendant l'édition des liens de
+            <span class="application">WebKit</span> pour éviter les erreurs
+            de mémoire.
+          </p>
+        </div>
+        <p>
+          Construisez <span class="application">Chromium</span> en utilisant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -p third_party/node/linux/node-linux-x64/bin &amp;&amp;
+ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/ &amp;&amp;
+ninja -C out/Release chrome chrome_sandbox chromedriver widevinecdmadapter</kbd></pre>
+        <p>
+          Ce paquet a déjà été testé pendant la construction.
+        </p>
+        <p>
+          Maintenant en tant qu'utilisateur <code class=
+          "systemitem">root</code>, installez le paquet&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class="command">install -vDm755  out/Release/chrome \
+                 /usr/lib/chromium/chromium                   &amp;&amp;
+
+install -vDm4755 out/Release/chrome_sandbox \
+                 /usr/lib/chromium/chrome-sandbox             &amp;&amp;
+
+install -vDm755  out/Release/chromedriver \
+                 /usr/lib/chromium/chromedriver               &amp;&amp;
+
+ln -svf /usr/lib/chromium/chromium     /usr/bin               &amp;&amp;
+ln -svf /usr/lib/chromium/chromedriver /usr/bin               &amp;&amp;
+
+install -vDm644 out/Release/gen/content/content_resources.pak \
+                /usr/lib/chromium/                            &amp;&amp;
+
+install -vDm644 out/Release/icudtl.dat \
+                /usr/lib/chromium/icudtl.dat                  &amp;&amp;
+
+install -vDm644 out/Release/{*.pak,*.bin} \
+                /usr/lib/chromium/                            &amp;&amp;
+
+sed -i \
+    -e "s/@@MENUNAME@@/Chromium/g" \
+    -e "s/@@PACKAGE@@/chromium/g" \
+    -e "s/@@USR_BIN_SYMLINK_NAME@@/chromium/g" \
+    chrome/installer/linux/common/desktop.template \
+    chrome/app/resources/manpage.1.in                         &amp;&amp;
+
+install -vDm644 chrome/installer/linux/common/desktop.template \
+                /usr/share/applications/chromium.desktop      &amp;&amp;
+
+install -vDm644 chrome/app/resources/manpage.1.in \
+                /usr/share/man/man1/chromium.1                &amp;&amp;
+
+cp -av out/Release/locales /usr/lib/chromium/                 &amp;&amp;
+chown -Rv root:root /usr/lib/chromium/locales                 &amp;&amp;
+
+for size in 16 32; do
+    install -vDm644 \
+        "chrome/app/theme/default_100_percent/chromium/product_logo_$size.png" \
+        "/usr/share/icons/hicolor/${size}x${size}/apps/chromium.png"
+done &amp;&amp;
+
+for size in 22 24 48 64 128 256; do
+    install -vDm644 "chrome/app/theme/chromium/product_logo_$size.png" \
+        "/usr/share/icons/hicolor/${size}x${size}/apps/chromium.png"
+done</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Si vous mettez à jour depuis une construction précédente de
+            chromium qui utilisait gtk+-2.x, vous pourriez devoir supprimer
+            le répertoire <code class="filename">~/.config/chromium</code>.
+          </p>
+        </div>
+        <h3>
+          Extraction du greffon WideVine de Chrome
+        </h3>
+        <p>
+          Extrayez le fichier deb téléchargé avec les commandes
+          suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir temp                                         &amp;&amp;
+cd temp                                            &amp;&amp;
+case $(uname -m) in
+    x86_64) ar -x ../../google-chrome-stable_64.0.3282.186-1_amd64.deb
+    ;;
+    i?86)   ar -x ../../google-chrome-stable_48.0.2564.116-1_i386.deb
+    ;;
+esac</kbd></pre>
+        <p>
+          En tant qu'utilisateur <code class="systemitem">root</code>,
+          installez le greffon WideVine avec les commandes suivantes&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">tar -xf data.tar.xz                                                        &amp;&amp;
+install -vm755 ../out/Release/libwidevinecdmadapter.so /usr/lib/chromium/  &amp;&amp;
+install -vm755 opt/google/chrome/libwidevinecdm.so  /usr/lib/chromium/</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class=
+          "command"><strong>GN_CONFIG=(...)</strong></span>&nbsp;: ce tableau
+          contient toutes les définitions utilisées dans la construction.
+        </p>
+        <p>
+          <span class="command"><strong>python
+          tools/gn/bootstrap/bootstrap.py --gn-gen-args
+          "${GN_CONFIG[*]}"</strong></span>&nbsp;: cette commande remplace
+          les définitions dans les fichiers gn avec les valeurs contenues
+          dans <code class="envar">${GN_CONFIG[@]}</code>.
+        </p>
+        <p>
+          <span class="command"><strong>out/Release/gn gen out/Release
+          --args="${GN_CONFIG[*]}"</strong></span>&nbsp;: cette commande
+          lance un script de configuration fournit par Google, <span class=
+          "application">gn</span>, dans l'arborescence des sources pour
+          produire une configuration <span class="application">Ninja</span>
+          appropriée pour la machine qui construit.
+        </p>
+        <p>
+          <span class="command"><strong>mkdir...ln -s /usr/bin/node
+          third_party/node/linux/node-linux-x64/bin/</strong></span>&nbsp;:
+          Ces commandes remplacent le <span class=
+          "application">Node.js</span> local (qui n'est plus disponible) avec
+          le <span class="application">Node.js</span> installé sur le
+          système.
+        </p>
+        <p>
+          <span class="command"><strong>ar -x
+          ../../google-chrome-stable*.deb</strong></span>&nbsp;: l'utilitaire
+          <span class="command"><strong>ar</strong></span> est utilisé pour
+          extraire les archives Debian.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">/usr/lib/chromium/chromium,
+              /usr/lib/chromium/chromedriver, et
+              /usr/lib/chromium/chrome-sandbox</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">none</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/lib/chromium</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chromium-lib" name="chromium-lib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>/usr/lib/chromium/chromium</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est l'exécutable chromium principal.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chromedriver" name="chromedriver"></a><span class=
+                    "term"><span class=
+                    "command"><strong>/usr/lib/chromium/chromedriver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un <a class="ulink" href=
+                    "http://www.seleniumhq.org/projects/webdriver/">WebDriver</a>
+                    pour chromium.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chrome-sandbox" name=
+                    "chrome-sandbox"></a><span class="term"><span class=
+                    "command"><strong>/usr/lib/chromium/chrome-sandbox</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    crée un environnement de bac à sable pour lancer du code
+                    auquel on ne fait pas confiance (les greffons).
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-03-03 01:58:04 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphweb.html" title=
+          "Navigateurs Internet graphiques">Précédent</a>
+          <p>
+            Navigateurs Internet graphiques
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="epiphany.html" title=
+          "Epiphany-3.28.1">Suivant</a>
+          <p>
+            Epiphany-3.28.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

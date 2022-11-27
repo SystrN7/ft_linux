@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      GDB-8.2.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gc.html" title="GC-8.0.2">Précédent</a>
+          <p>
+            GC-8.0.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="git.html" title="Git-2.20.1">Suivant</a>
+          <p>
+            Git-2.20.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="gdb" name="gdb"></a>GDB-8.2.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à GDB
+        </h2>
+        <p>
+          <span class="application">GDB</span>, le débogueur du projet GNU,
+          permet de voir ce qu'il se passe <span class=
+          "quote">«&nbsp;<span class="quote">à
+          l'intérieur</span>&nbsp;»</span> d'un autre programme, pendant
+          qu'il s'exécute —&nbsp;ou ce que faisait un autre programme au
+          moment où il a planté. Notez que <span class=
+          "application">GDB</span> est plus performant quand les programmes
+          et les bibliothèques tracées sont construits avec les symboles de
+          débogage et qu'ils n'ont pas été nettoyés.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz">https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz">ftp://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                f8b2562e830a4098dd5b5ea9e9296c70
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 19 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 599 Mo (plus 55
+                Mo pour les tests et 723 Mo pour la doc)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 1.8 SBU (avec
+                parallélisme = 4&nbsp;; plus 66 SBU pour les tests et 0.6
+                pour la doc)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de GDB
+        </h3>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="dejagnu.html" title=
+          "DejaGnu-1.6.2">DejaGnu-1.6.2</a> (pour les tests), <a class="xref"
+          href="doxygen.html" title="Doxygen-1.8.15">Doxygen-1.8.15</a>,
+          <a class="xref" href="gcc.html" title="GCC-8.2.0">GCC-8.2.0</a>
+          (ada et gfortran sont utilisés pour certains tests), <a class=
+          "xref" href="guile.html" title="Guile-2.2.4">Guile-2.2.4</a>
+          (actuellement cassé), <a class="xref" href="python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a>, <a class="xref" href="rust.html"
+          title="Rustc-1.32.0">rustc-1.32.0</a> (pour certains tests),
+          <a class="xref" href="valgrind.html" title=
+          "Valgrind-3.14.0">Valgrind-3.14.0</a> et <a class="ulink" href=
+          "https://sourceware.org/systemtap/">SystemTap</a> (dépendance
+          d'exécution, aussi utilisé pour quelques tests)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gdb">http://wiki.linuxfromscratch.org/blfs/wiki/gdb</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de GDB
+        </h2>
+        <p>
+          Installez <span class="application">GDB</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr --with-system-readline &amp;&amp;
+make</kbd></pre>
+        <p>
+          Facultativement, pour construire la documentation de l'API en
+          utilisant <a class="xref" href="doxygen.html" title=
+          "Doxygen-1.8.15">Doxygen-1.8.15</a>, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">make -C gdb/doc doxy</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">pushd gdb/testsuite &amp;&amp;
+make  site.exp      &amp;&amp;
+echo  "set gdb_test_timeout 120" &gt;&gt; site.exp &amp;&amp;
+runtest
+popd</kbd></pre>
+        <p>
+          Voir <span class="emphasis"><em>gdb/testsuite/README</em></span> et
+          <a class="ulink" href=
+          "https://sourceware.org/gdb/wiki/TestingGDB">TestingGDB</a>. Il y a
+          plein de problème avec la suite de tests&nbsp;:
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li class="listitem">
+              <p>
+                Des répertoires propres sont requis si vous relancez les
+                tests. Pour cette raison, il est recommandé de créer une
+                copie du répertoire des codes sources compilés avant les
+                tests au cas où vous devriez relancer les tests.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Les résultats dépendent des compilateurs installés.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Il y a beaucoup de dépassement de délai (il y a une variable
+                qui peut être initialisée pour augmenter le délai, mais la
+                changer changera le nombre de tests lancés).
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Il y a des échecs associés avec readline 6.x du système.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Quelques tests supposent les le fichier d'en-tête
+                <code class="filename">&lt;sys/sdt.h&gt;</code>, faisant
+                partie de <a class="ulink" href=
+                "https://sourceware.org/systemtap/">SystemTap</a> est
+                présent.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Environ 1-3&nbsp;% des tests échouent (sur plus de 56000
+                tests).
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">make -C gdb install</kbd></pre>
+        <p>
+          Si vous avez construit la documentation de l'API, c'est maintenant
+          dans gdb/doc/doxy. Vous pouvez l'installer (en tant qu'utilisateur
+          <code class="systemitem">root</code>)&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -d /usr/share/doc/gdb-8.2.1 &amp;&amp;
+rm -rf gdb/doc/doxy/xml &amp;&amp;
+cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.2.1</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>--with-system-readline</code></em>&nbsp;: Ce
+          paramètre force <span class="application">GDB</span> a utiliser la
+          copie de <span class="application">Readline</span> installée dans
+          LFS.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">gcore, gdb et gdbserver</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libinproctrace.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/{include,share}/gdb and
+              /usr/share/doc/gdb-8.2.1</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcore" name="gcore"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcore</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    génère un «&nbsp;core dump&nbsp;» d'un programme en cours
+                    d'exécution.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdb-prog" name="gdb-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le débogueur GNU.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdbserver" name="gdbserver"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdbserver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un serveur distant pour le débogueur GNU (il permet
+                    de déboguer des programmes depuis une autre machine).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libinproctrace" name=
+                    "libinproctrace"></a><span class="term"><code class=
+                    "filename">libinproctrace.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions pour l'agent de traçage dans les
+                    processus. L'agent autorise l'installation rapide de
+                    balises, le listage des marqueurs statiques de balises,
+                    et le démarrage de la surveillance.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-16 04:56:11 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gc.html" title="GC-8.0.2">Précédent</a>
+          <p>
+            GC-8.0.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="git.html" title="Git-2.20.1">Suivant</a>
+          <p>
+            Git-2.20.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

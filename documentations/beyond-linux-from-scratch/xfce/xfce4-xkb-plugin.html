@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      xfce4-xkb-plugin-0.7.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;35.&nbsp;Bureau Xfce
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfce4-panel.html" title=
+          "xfce4-panel-4.12.2">Précédent</a>
+          <p>
+            xfce4-panel-4.12.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="thunar.html" title=
+          "Thunar-1.8.4">Suivant</a>
+          <p>
+            Thunar-1.8.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-core.html" title=
+          "Chapitre&nbsp;35.&nbsp;Bureau Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="xfce4-xkb-plugin" name=
+        "xfce4-xkb-plugin"></a>xfce4-xkb-plugin-0.7.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Xfce4 Keyboard Plugin
+        </h2>
+        <p>
+          Si votre système a un clavier standard (US), vous n'avez
+          probablement pas besoin d'installer ce greffon.
+        </p>
+        <p>
+          Le paquet de <span class="application">greffon de clavier
+          Xfce4</span> contient un greffon qui ajoute un écran de
+          <span class="application">Xfce4</span> très personnalisable et
+          pratique pour initialiser et utiliser plusieurs claviers
+          (actuellement jusqu'à 4 à cause d'une limite du protocole X11) et
+          passer de l'un à l'autre, individuellement pour chaque application,
+          individuellement pour chaque fenêtre, ou globalement pour le bureau
+          et toutes les applications et fenêtres.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://archive.xfce.org/src/panel-plugins/xfce4-xkb-plugin/0.7/xfce4-xkb-plugin-0.7.1.tar.bz2">
+                http://archive.xfce.org/src/panel-plugins/xfce4-xkb-plugin/0.7/xfce4-xkb-plugin-0.7.1.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                2f68e0d53baf68ecc1a7165ad33c26a9
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 820 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 7.8 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Xfce4 Keyboard Plugin
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/librsvg.html" title=
+          "librsvg-2.44.12">librsvg-2.44.12</a>, <a class="xref" href=
+          "../x/libxklavier.html" title="libxklavier-5.4">libxklavier-5.4</a>
+          et <a class="xref" href="xfce4-panel.html" title=
+          "xfce4-panel-4.12.2">xfce4-panel-4.12.2</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-xkb-plugin">http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-xkb-plugin</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Xfce4 Keyboard Plugin
+        </h2>
+        <p>
+          Installez <span class="application">Xfce4 Keyboard Plugin</span> en
+          lançant les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e 's|xfce4/panel-plugins|xfce4/panel/plugins|' \
+    -i panel-plugin/{Makefile.in,xkb-plugin.desktop.in.in} &amp;&amp;
+
+./configure --prefix=/usr         \
+            --libexecdir=/usr/lib \
+            --disable-debug       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e ...
+          xkb-plugin.desktop.in.in}</strong></span> et <em class=
+          "parameter"><code>--libexecdir=/usr/lib</code></em>&nbsp;: Le sed
+          et le paramètre sont nécessaires pour placer xkb-plugin dans le
+          répertoire par défaut des greffons de Xfce4.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-debug</code></em>&nbsp;: Ce
+          paramètre désactive le support de debogage.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">xfce4-xkb-plugin</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/share/xfce4/xkb</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-xkb-plugin-prog" name=
+                    "xfce4-xkb-plugin-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfce4-xkb-plugin</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le greffon de clavier de <span class=
+                    "application">Xfce</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-19 09:13:15 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfce4-panel.html" title=
+          "xfce4-panel-4.12.2">Précédent</a>
+          <p>
+            xfce4-panel-4.12.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="thunar.html" title=
+          "Thunar-1.8.4">Suivant</a>
+          <p>
+            Thunar-1.8.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-core.html" title=
+          "Chapitre&nbsp;35.&nbsp;Bureau Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

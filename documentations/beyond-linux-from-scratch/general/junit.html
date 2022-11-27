@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      JUnit-4.12
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2019-01-17">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2019-01-17
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="apache-ant.html" title=
+          "apache-ant-1.10.4">Précédent</a>
+          <p>
+            apache-ant-1.10.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../basicnet/basicnet.html" title=
+          "Réseau">Suivant</a>
+          <p>
+            Réseau
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="junit" name="junit"></a>JUnit-4.12
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à JUnit
+        </h2>
+        <p>
+          Le paquet <span class="application">JUnit</span> contient un
+          environnement de travail simple et libre pour écrire et lancer des
+          tests qu'on peut répéter. C'est un exemple de l'architecture xUnit
+          pour des environnements de test unitaires. Les fonctionnalités de
+          JUnit incluent des assertions pour tester les résultats attendus,
+          des équipements de tests pour le partage de données communes aux
+          tests, et des lanceurs de tests pour lancer des tests.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.3.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz">
+                https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                22578a9b35cbb71d556a2e625c576c81
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 433 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 27 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU (avec la
+                documentation, avec 4 cœurs&nbsp;; plus le temps de
+                téléchargement des <span class="quote">«&nbsp;<span class=
+                "quote">artéfacts</span>&nbsp;»</span> de maven)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif requis&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/junit4-r4.12-simplify_NoExitSecurityManager-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/junit4-r4.12-simplify_NoExitSecurityManager-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de JUnit
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="maven.html" title=
+          "Apache-Maven-3.5.4">Apache-Maven-3.5.4</a> et <a class="xref"
+          href="unzip.html" title="UnZip-6.0">UnZip-6.0</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/junit">http://wiki.linuxfromscratch.org/blfs/wiki/junit</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de JUnit
+        </h2>
+        <p>
+          Tout d'abord supprimez un test qui échoue avec <span class=
+          "application">Java 10</span>.
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e '/MethodsSorted/i    @Ignore' \
+    -i src/test/java/org/junit/runners/model/TestClassTest.java</kbd></pre>
+        <p>
+          Remplacez le code obsolète de SecurityManager&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../junit4-r4.12-simplify_NoExitSecurityManager-1.patch</kbd></pre>
+        <p>
+          Installez <span class="application">Junit</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mvn -DjdkVersion=1.6 install</kbd></pre>
+        <p>
+          Les tests sont lancés avec la commande au dessus.
+        </p>
+        <p>
+          Si vous souhaitez générer la documentation, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mvn site</kbd></pre>
+        <p>
+          Installez les fichiers dans l'endroit final en tant qu'utilisateur
+          <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m755 -d             /usr/share/java/junit-4.12 &amp;&amp;
+cp -v target/junit-4.12.jar     /usr/share/java/junit-4.12 &amp;&amp;
+cp -v lib/hamcrest-core-1.3.jar /usr/share/java/junit-4.12</kbd></pre>
+        <p>
+          si vous avez construit la documentation, installez-la en tant
+          qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m755 -d    /usr/share/doc/junit-4.12 &amp;&amp;
+cp -v -R target/site/* /usr/share/doc/junit-4.12</kbd></pre>
+        <p>
+          Si vous avez suivi les instructions dans <a class="xref" href=
+          "ojdk-conf.html" title=
+          "Configuration de l'environnement JAVA">Configuration de
+          l'environnement JAVA</a>, il n'y a rien à faire de plus; la
+          variable <code class="envar">CLASSPATH</code> sera automatiquement
+          mise à jour.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">le fichiers jar hamcrest-core et
+              junit</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/share/doc/junit-4.12 et
+              /usr/share/java/junit-4.12</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="junit.jar" name="junit.jar"></a><span class=
+                    "term"><code class=
+                    "filename">junit-4.12.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les classes java pour supporter l'architecture
+                    de tests du framework xUnit.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hamcrest-core" name=
+                    "hamcrest-core"></a><span class="term"><code class=
+                    "filename">hamcrest-core-1.3.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les classes java pour supporter le correspondeur
+                    des tests xUnit.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-08-28 04:20:16 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="apache-ant.html" title=
+          "apache-ant-1.10.4">Précédent</a>
+          <p>
+            apache-ant-1.10.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../basicnet/basicnet.html" title=
+          "Réseau">Suivant</a>
+          <p>
+            Réseau
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

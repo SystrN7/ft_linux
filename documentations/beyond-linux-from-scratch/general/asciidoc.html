@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Asciidoc-8.6.9
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;11.&nbsp;Outils généraux
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="genutils.html" title=
+          "Outils généraux">Précédent</a>
+          <p>
+            Outils généraux
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="compface.html" title=
+          "Compface-1.5.2">Suivant</a>
+          <p>
+            Compface-1.5.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapitre&nbsp;11.&nbsp;Outils généraux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="asciidoc" name="asciidoc"></a>Asciidoc-8.6.9
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Asciidoc
+        </h2>
+        <p>
+          Le paquet <span class="application">Asciidoc</span> est un format
+          de document texte pour écrire des notes, de la documentation, des
+          articles, des livres, des livres électroniques, des présentations,
+          des pages web et des blogs. Les fichiers AsciiDoc peuvent être
+          traduits en de nombreux formats dont HTML, PDF, EPUB et les pages
+          de manuel.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz">
+                https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                c59018f105be8d022714b826b0be130a
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 888 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.9 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Asciidoc
+        </h3>
+        <h4>
+          Requis (à l'exécution)
+        </h4>
+        <p class="required">
+          <a class="xref" href="python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/asciidoc">http://wiki.linuxfromscratch.org/blfs/wiki/asciidoc</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Asciidoc
+        </h2>
+        <p>
+          Installez <span class="application">Asciidoc</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/asciidoc-8.6.9 &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+make docs</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">a2x (lien symbolique vers a2x.py),
+              a2x.py, asciidoc (lien symbolique vers asciidoc.py) et
+              asciidoc.py</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/etc/asciidoc</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="a2x" name="a2x"></a><span class=
+                    "term"><span class="command"><strong>a2x</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un gestionnaire de chaine d'outils pour AsciiDoc
+                    (convertit les fichiers textes Asciidoc vers d'autres
+                    formats de fichier)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="asciidoc-prog" name=
+                    "asciidoc-prog"></a><span class="term"><span class=
+                    "command"><strong>asciidoc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    convertit un fichier texte AsciiDoc vers HTML ou DocBook
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="genutils.html" title=
+          "Outils généraux">Précédent</a>
+          <p>
+            Outils généraux
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="compface.html" title=
+          "Compface-1.5.2">Suivant</a>
+          <p>
+            Compface-1.5.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapitre&nbsp;11.&nbsp;Outils généraux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

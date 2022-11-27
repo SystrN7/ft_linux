@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Ark-18.12.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kf5-apps.html" title=
+          "Applications basées sur KDE Frameworks 5">Précédent</a>
+          <p>
+            Applications basées sur KDE Frameworks 5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="kdenlive.html" title=
+          "Kdenlive-18.12.2">Suivant</a>
+          <p>
+            Kdenlive-18.12.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="kf5-apps.html" title=
+          "Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="ark5" name="ark5"></a>Ark-18.12.2
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Ark
+        </h2>
+        <p>
+          Le paquet <span class="application">Ark</span> est un outil
+          d'archivage de KF5. Il s'agit d'une interface graphique à tar et
+          des outils similaires.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://download.kde.org/stable/applications/18.12.2/src/ark-18.12.2.tar.xz">
+                http://download.kde.org/stable/applications/18.12.2/src/ark-18.12.2.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                7f5229e7003df3dc66f5f7b1e928b950
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.5 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 25 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.4 SBU (avec
+                parallélisme = 4)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Ark
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="krameworks5.html" title=
+          "Constructions de KDE Frameworks 5 (KF5)">KDE Frameworks-5.55.0</a>
+          et <a class="xref" href="../general/libarchive.html" title=
+          "libarchive-3.3.3">libarchive-3.3.3</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/ark5">http://wiki.linuxfromscratch.org/blfs/wiki/ark5</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Ark
+        </h2>
+        <p>
+          Installez <span class="application">Ark</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DBUILD_TESTING=OFF                \
+      -Wno-dev .. &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">ark et arkprofile</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libkdeinit5_ark.so et
+              libarkprivate.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">$KF5_PREFIX/share/doc/HTML/*/ark,
+              $KF5_PREFIX/share/ark et $KF5_PREFIX/share/kxmlgui5/ark</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ark5-prog" name="ark5-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ark</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un émulateur de terminal X qui fournit une interface
+                    en ligne de commande.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="arkprofile5" name="arkprofile5"></a><span class=
+                    "term"><span class=
+                    "command"><strong>arkprofile</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil en ligne de commande qui change les options
+                    de profil de l'onglet actuel.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-18 21:50:23 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kf5-apps.html" title=
+          "Applications basées sur KDE Frameworks 5">Précédent</a>
+          <p>
+            Applications basées sur KDE Frameworks 5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="kdenlive.html" title=
+          "Kdenlive-18.12.2">Suivant</a>
+          <p>
+            Kdenlive-18.12.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="kf5-apps.html" title=
+          "Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      QtWebkit-5.9.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-05-16">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-05-16
+      </h4>
+      <h3>
+        Chapitre&nbsp;25.&nbsp;Bibliothèques X
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qtwebengine.html" title=
+          "QtWebEngine-5.10.1">Précédent</a>
+          <p>
+            QtWebEngine-5.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="startup-notification.html" title=
+          "startup-notification-0.12">Suivant</a>
+          <p>
+            startup-notification-0.12
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-05-16">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="qtwebkit5" name="qtwebkit5"></a>QtWebkit-5.9.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à QtWebkit
+        </h2>
+        <p>
+          <span class="application">Qtwebkit</span> est un moteur de
+          navigateur web basé sur Qt.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://download.qt.io/community_releases/5.9/5.9.0-final/qtwebkit-opensource-src-5.9.0.tar.xz">
+                https://download.qt.io/community_releases/5.9/5.9.0-final/qtwebkit-opensource-src-5.9.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                1fc0ed873cc9326b823a8a83126714f5
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 34 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 668 Mo (38 Mo
+                installés)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 11 SBU (avec
+                parallélisme=4)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif requis&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/qtwebkit-5.9.0-icu_59-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/qtwebkit-5.9.0-icu_59-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Qtwebkit
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/icu.html" title=
+          "ICU-61.1">ICU-61.1</a>, <a class="xref" href=
+          "../general/libjpeg.html" title=
+          "libjpeg-turbo-1.5.3">libjpeg-turbo-1.5.3</a>, <a class="xref"
+          href="../general/libpng.html" title=
+          "libpng-1.6.34">libpng-1.6.34</a>, <a class="xref" href=
+          "../general/libwebp.html" title="libwebp-1.0.0">libwebp-1.0.0</a>,
+          <a class="xref" href="../general/libxslt.html" title=
+          "libxslt-1.1.32">libxslt-1.1.32</a>, <a class="xref" href=
+          "qt5.html" title="Qt-5.10.1">Qt-5.10.1</a>, <a class="xref" href=
+          "../general/ruby.html" title="Ruby-2.5.1">Ruby-2.5.1</a> et
+          <a class="xref" href="../server/sqlite.html" title=
+          "SQLite-3.23.1">SQLite-3.23.1</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../multimedia/gst10-plugins-base.html" title=
+          "gst-plugins-base-1.14.0">gst-plugins-base-1.14.0</a> (Support des
+          vidéos HTML5)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/qtwebkit">http://wiki.linuxfromscratch.org/blfs/wiki/qtwebkit</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Qtwebkit
+        </h2>
+        <p>
+          Tout d'abord, corrigez un problème de construction avec
+          <span class="application">ICU</span> &gt;= 59&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../qtwebkit-5.9.0-icu_59-1.patch</kbd></pre>
+        <p>
+          Si vous le souhaitez, ajustez les paramètres de construction pour
+          éviter littéralement des milliers de messages inutiles&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e '/CONFIG/a QMAKE_CXXFLAGS += -Wno-expansion-to-defined' \
+    -i Tools/qmake/mkspecs/features/unix/default_pre.prf</kbd></pre>
+        <p>
+          Installez <span class="application">Qtwebkit</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -p build        &amp;&amp;
+cd       build        &amp;&amp;
+
+qmake ../WebKit.pro   &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            L'installation est automatiquement faite dans l'arborescence
+            $QT5DIR.
+          </p>
+        </div>
+        <p>
+          Supprimez les références au répertoire de construction des fichiers
+          de dépendances de bibliothèques installées (prl) en lançant la
+          commande suivante en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">find $QT5DIR/ -name \*.prl \
+   -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>qmake</strong></span>&nbsp;: est un
+          outil Qt qui automatise la génération de Makefiles.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libQt5WebKit.so et
+              libQt5WebKitWidgets.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">$QT5PREFIX/qml/QtWebKit,
+              $QT5PREFIX/lib/cmake/Qt5WebKit{,Widgets},
+              $QT5PREFIX/include/QtWebKit{,Widgets) et
+              $QT5PREFIX/plugins/webkit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-25 04:27:10 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qtwebengine.html" title=
+          "QtWebEngine-5.10.1">Précédent</a>
+          <p>
+            QtWebEngine-5.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="startup-notification.html" title=
+          "startup-notification-0.12">Suivant</a>
+          <p>
+            startup-notification-0.12
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-05-16">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

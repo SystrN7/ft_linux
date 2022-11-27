@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Partie&nbsp;II.&nbsp;Configuration Post LFS et logiciels
+      supplémentaires
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../introduction/beyond.html" title=
+          "Aller au-delà de BLFS">Précédent</a>
+          <p>
+            Aller au-delà de BLFS
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title=
+          "Questions de configuration après LFS">Suivant</a>
+          <p>
+            Questions de configuration après LFS
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="part">
+      <h1 class="part">
+        <a id="postlfs" name="postlfs"></a>Configuration Post LFS et
+        logiciels supplémentaires
+      </h1>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="chapter">
+            <h4>
+              <a href="config.html">3. Questions de configuration après
+              LFS</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="bootdisk.html">Créer un périphérique de démarrage
+                personnalisé</a>
+              </li>
+              <li class="sect1">
+                <a href="console-fonts.html">À propos des polices de
+                console</a>
+              </li>
+              <li class="sect1">
+                <a href="firmware.html">À propos des Firmwares</a>
+              </li>
+              <li class="sect1">
+                <a href="devices.html">À propos des périphériques</a>
+              </li>
+              <li class="sect1">
+                <a href="skel.html">Configuration de l'ajout
+                d'utilisateurs</a>
+              </li>
+              <li class="sect1">
+                <a href="users.html">À propos des utilisateurs et des groupes
+                systèmes</a>
+              </li>
+              <li class="sect1">
+                <a href="profile.html">Les fichiers de démarrage du shell
+                Bash</a>
+              </li>
+              <li class="sect1">
+                <a href="vimrc.html">Les fichiers /etc/vimrc et ~/.vimrc</a>
+              </li>
+              <li class="sect1">
+                <a href="logon.html">Personnaliser votre écran de connexion
+                avec /etc/issue</a>
+              </li>
+              <li class="sect1">
+                <a href="random.html">Génération de nombres aléatoires</a>
+              </li>
+              <li class="sect1">
+                <a href="lsb-release.html">lsb_release-1.4</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="security.html">4. Sécurité</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="vulnerabilities.html">Failles de sécurité</a>
+              </li>
+              <li class="sect1">
+                <a href="make-ca.html">make-ca-1.2</a>
+              </li>
+              <li class="sect1">
+                <a href="consolekit.html">ConsoleKit2-1.2.1</a>
+              </li>
+              <li class="sect1">
+                <a href="cracklib.html">CrackLib-2.9.6</a>
+              </li>
+              <li class="sect1">
+                <a href="cryptsetup.html">cryptsetup-2.0.6</a>
+              </li>
+              <li class="sect1">
+                <a href="cyrus-sasl.html">Cyrus SASL-2.1.27</a>
+              </li>
+              <li class="sect1">
+                <a href="gnupg.html">GnuPG-2.2.13</a>
+              </li>
+              <li class="sect1">
+                <a href="gnutls.html">GnuTLS-3.6.6</a>
+              </li>
+              <li class="sect1">
+                <a href="gpgme.html">GPGME-1.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="haveged.html">Haveged-1.9.2</a>
+              </li>
+              <li class="sect1">
+                <a href="iptables.html">Iptables-1.8.2</a>
+              </li>
+              <li class="sect1">
+                <a href="firewall.html">Paramétrer un pare-feu réseau</a>
+              </li>
+              <li class="sect1">
+                <a href="libcap.html">libcap-2.26 avec PAM</a>
+              </li>
+              <li class="sect1">
+                <a href="linux-pam.html">Linux-PAM-1.3.0</a>
+              </li>
+              <li class="sect1">
+                <a href="liboauth.html">liboauth-1.0.3</a>
+              </li>
+              <li class="sect1">
+                <a href="libpwquality.html">libpwquality-1.4.0</a>
+              </li>
+              <li class="sect1">
+                <a href="mitkrb.html">MIT Kerberos V5-1.17</a>
+              </li>
+              <li class="sect1">
+                <a href="nettle.html">Nettle-3.4.1</a>
+              </li>
+              <li class="sect1">
+                <a href="nss.html">NSS-3.42.1</a>
+              </li>
+              <li class="sect1">
+                <a href="openssh.html">OpenSSH-7.9p1</a>
+              </li>
+              <li class="sect1">
+                <a href="p11-kit.html">p11-kit-0.23.15</a>
+              </li>
+              <li class="sect1">
+                <a href="polkit.html">Polkit-0.115</a>
+              </li>
+              <li class="sect1">
+                <a href="shadow.html">Shadow-4.6</a>
+              </li>
+              <li class="sect1">
+                <a href="ssh-askpass.html">ssh-askpass-7.9p1</a>
+              </li>
+              <li class="sect1">
+                <a href="stunnel.html">stunnel-5.50</a>
+              </li>
+              <li class="sect1">
+                <a href="sudo.html">Sudo-1.8.27</a>
+              </li>
+              <li class="sect1">
+                <a href="tripwire.html">Tripwire-2.4.3.7</a>
+              </li>
+              <li class="sect1">
+                <a href="volume_key.html">volume_key-0.3.12</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="filesystems.html">5. Systèmes de fichiers et gestion
+              de disque</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="initramfs.html">À propos de initramfs</a>
+              </li>
+              <li class="sect1">
+                <a href="btrfs-progs.html">btrfs-progs-4.20.1</a>
+              </li>
+              <li class="sect1">
+                <a href="dosfstools.html">dosfstools-4.1</a>
+              </li>
+              <li class="sect1">
+                <a href="fuse.html">Fuse-3.4.1</a>
+              </li>
+              <li class="sect1">
+                <a href="fuse2.html">Fuse-2.9.7</a>
+              </li>
+              <li class="sect1">
+                <a href="jfsutils.html">jfsutils-1.1.15</a>
+              </li>
+              <li class="sect1">
+                <a href="lvm2.html">LVM2-2.03.02</a>
+              </li>
+              <li class="sect1">
+                <a href="aboutlvm.html">À propos de la gestion des volumes
+                logiques (LVM)</a>
+              </li>
+              <li class="sect1">
+                <a href="raid.html">À propos du RAID</a>
+              </li>
+              <li class="sect1">
+                <a href="mdadm.html">mdadm-4.0</a>
+              </li>
+              <li class="sect1">
+                <a href="ntfs-3g.html">ntfs-3g-2017.3.23</a>
+              </li>
+              <li class="sect1">
+                <a href="gptfdisk.html">gptfdisk-1.0.4</a>
+              </li>
+              <li class="sect1">
+                <a href="parted.html">parted-3.2</a>
+              </li>
+              <li class="sect1">
+                <a href="reiserfs.html">reiserfsprogs-3.6.27</a>
+              </li>
+              <li class="sect1">
+                <a href="smartmontools.html">smartmontools-7.0</a>
+              </li>
+              <li class="sect1">
+                <a href="sshfs.html">sshfs-3.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="xfsprogs.html">xfsprogs-4.19.0</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="editors.html">6. Éditeurs</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="bluefish.html">Bluefish-2.2.10</a>
+              </li>
+              <li class="sect1">
+                <a href="ed.html">Ed-1.15</a>
+              </li>
+              <li class="sect1">
+                <a href="emacs.html">Emacs-26.1</a>
+              </li>
+              <li class="sect1">
+                <a href="gedit.html">Gedit-3.22.1</a>
+              </li>
+              <li class="sect1">
+                <a href="joe.html">JOE-4.6</a>
+              </li>
+              <li class="sect1">
+                <a href="kate5.html">Kate-18.12.2</a>
+              </li>
+              <li class="sect1">
+                <a href="mousepad.html">Mousepad-0.4.1</a>
+              </li>
+              <li class="sect1">
+                <a href="nano.html">Nano-3.2</a>
+              </li>
+              <li class="sect1">
+                <a href="vim.html">Vim-8.1</a>
+              </li>
+              <li class="sect1">
+                <a href="others.html">Autres éditeurs</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="shells.html">7. Shells</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="dash.html">Dash-0.5.10.2</a>
+              </li>
+              <li class="sect1">
+                <a href="tcsh.html">Tcsh-6.20.00</a>
+              </li>
+              <li class="sect1">
+                <a href="zsh.html">zsh-5.7.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="virtualization.html">8. Virtualisation</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="qemu.html">qemu-3.1.0</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../introduction/beyond.html" title=
+          "Aller au-delà de BLFS">Précédent</a>
+          <p>
+            Aller au-delà de BLFS
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title=
+          "Questions de configuration après LFS">Suivant</a>
+          <p>
+            Questions de configuration après LFS
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

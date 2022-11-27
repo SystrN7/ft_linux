@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      lxqt-session-0.12.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-powermanagement.html" title=
+          "lxqt-powermanagement-0.12.0">Précédent</a>
+          <p>
+            lxqt-powermanagement-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-kguiaddons.html" title=
+          "Kguiaddons-5.46.0 pour lxqt">Suivant</a>
+          <p>
+            Kguiaddons-5.46.0 pour lxqt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-session" name="lxqt-session"></a>lxqt-session-0.12.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à lxqt-session
+        </h2>
+        <p>
+          Le paquet <span class="application">lxqt-session</span> contient le
+          gestionnaire de session par défaut de <span class=
+          "application">LXQT</span>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/lxde/lxqt-session/releases/download/0.12.0/lxqt-session-0.12.0.tar.xz">
+                https://github.com/lxde/lxqt-session/releases/download/0.12.0/lxqt-session-0.12.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                b5d10deb6ccc964b14f93c3a6451b069
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 131 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 7.7 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de lxqt-session
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="liblxqt.html" title=
+          "liblxqt-0.12.0">liblxqt-0.12.0</a>, (<a class="xref" href=
+          "lxqt-kwindowsystem.html" title=
+          "Kwindowsystem-5.46.0 pour lxqt">kwindowsystem-5.46.0 for lxqt</a>
+          ou <a class="xref" href="../kde/krameworks5.html" title=
+          "Constructions de KDE Frameworks 5 (KF5)">KDE
+          Frameworks-5.46.0</a>) et <a class="xref" href=
+          "../general/xdg-user-dirs.html" title=
+          "Xdg-user-dirs-0.17">Xdg-user-dirs-0.17</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/git.html" title=
+          "Git-2.17.1">git-2.17.1</a> (pour télécharger les fichiers de
+          traduction) ou <a class="xref" href="lxqt-l10n.html" title=
+          "lxqt-l10n-0.12.0">lxqt-l10n-0.12.0</a> (pour ajouter les fichiers
+          de localisation)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-session">http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-session</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de lxqt-session
+        </h2>
+        <p>
+          Installez <span class="application">lxqt-session</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e '/TryExec/s@=@='$LXQT_PREFIX'/bin/@' \
+    -i xsession/lxqt.desktop.in &amp;&amp;
+
+mkdir -v build &amp;&amp;
+cd       build &amp;&amp;
+
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DPULL_TRANSLATIONS=no              \
+      ..       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e
+          '/TryExec/s@=@='$LXQT_PREFIX'/bin/@' -i
+          xsessions/lxqt.desktop.in</strong></span>&nbsp;: Si vous utilisez
+          un gestionnaire d'affichage, le chemin complet de la directive
+          <span class="quote">«&nbsp;<span class=
+          "quote">TryExec</span>&nbsp;»</span> doit être donné pour que le
+          bureau <span class="application">LXQt</span> apparaisse dans la
+          liste des sessions.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>-DPULL_TRANSLATIONS=no</code></em>&nbsp;:
+          Supprime le besoin de <a class="xref" href="../general/git.html"
+          title="Git-2.17.1">git-2.17.1</a>, qui serait sinon demandé pour
+          télécharger les fichiers de traduction.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de lxqt-session
+        </h2>
+        <p>
+          Des gestionnaires de fenêtres autres que <a class="xref" href=
+          "../x/openbox.html" title="openbox-3.6.1">openbox-3.6.1</a> peuvent
+          être utilisés, par exemple <a class="xref" href=
+          "../xfce/xfwm4.html" title="Xfwm4-4.12.4">Xfwm4-4.12.4</a>. Notez
+          que <a class="xref" href="../x/icewm.html" title=
+          "IceWM-1.4.2">IceWM-1.4.2</a> n'est pas un remplaçant valide.
+          <span class="application">Fluxbox</span> fonctionne, cependant dans
+          ce contexte (avec <a class="xref" href="lxqt-config.html" title=
+          "lxqt-config-0.12.0">lxqt-config-0.12.0</a>) <a class="xref" href=
+          "../x/openbox.html" title="openbox-3.6.1">openbox-3.6.1</a> est
+          meilleur. Le fichier de configuration <code class=
+          "filename">/etc/xdg/lxqt/windowmanagers.conf</code> a plusieurs
+          exemples de gestionnaires de fenêtres et ceux qui sont installés
+          apparaîtront dans une liste déroulante de <span class=
+          "command"><strong>lxqt-config-session</strong></span>. Pour ceux
+          qui ne sont pas dans <code class=
+          "filename">/etc/xdg/lxqt/windowmanagers.conf</code>, vous pouvez
+          utiliser le bouton «&nbsp;recherche&nbsp;» de <span class=
+          "command"><strong>lxqt-config-session</strong></span>, par exemple
+          pour <a class="xref" href="../x/fluxbox.html" title=
+          "Fluxbox-1.3.7">Fluxbox-1.3.7</a>, en naviguant dans les fichiers
+          système jusqu'à ce que vous choisissiez <span class=
+          "command"><strong>fluxbox</strong></span>. Autrement, si vous
+          voulez que le gestionnaire de fenêtres de votre choix apparaisse
+          dans la liste, ajoutez-le dans <code class=
+          "filename">/etc/xdg/lxqt/windowmanagers.conf</code>. Pour <a class=
+          "xref" href="../x/fluxbox.html" title=
+          "Fluxbox-1.3.7">Fluxbox-1.3.7</a>, ajoutez la ligne&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command"><code class=
+        "literal">fluxbox/Name=Fluxbox</code></kbd></pre>
+        <p>
+          et il apparaîtra comme une option dans la liste déroulante. Pour
+          changer de gestionnaire de fenêtre, après en avoir sélectionné un,
+          vous devez redémarrer la session.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">lxqt-config-session, lxqt-leave,
+              lxqt-session et startlxqt</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-config-session-prog" name=
+                    "lxqt-config-session-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lxqt-config-session</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de configuration graphique pour les
+                    paramètres de <span class=
+                    "command"><strong>lxqt-session</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-leave-prog" name=
+                    "lxqt-leave-prog"></a><span class="term"><span class=
+                    "command"><strong>lxqt-leave</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une boîte de dialogue graphique pour terminer la
+                    session.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-session-prog" name=
+                    "lxqt-session-prog"></a><span class="term"><span class=
+                    "command"><strong>lxqt-session</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un gestionnaire de session X léger.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="startlxqt" name="startlxqt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>startlxqt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    utilisé pour démarrer la session graphique pour
+                    <span class="application">LXQT</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-21 12:35:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-powermanagement.html" title=
+          "lxqt-powermanagement-0.12.0">Précédent</a>
+          <p>
+            lxqt-powermanagement-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-kguiaddons.html" title=
+          "Kguiaddons-5.46.0 pour lxqt">Suivant</a>
+          <p>
+            Kguiaddons-5.46.0 pour lxqt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

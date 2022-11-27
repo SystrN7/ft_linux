@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Tracker-2.2.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;33.&nbsp;<span class="phrase">Bibliothèques et
+        utilitaires GNOME</span>
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libwnck.html" title=
+          "libwnck-3.30.0">Précédent</a>
+          <p>
+            libwnck-3.30.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dconf.html" title=
+          "DConf-0.30.1 / DConf-Editor-3.30.2">Suivant</a>
+          <p>
+            DConf-0.30.1 / DConf-Editor-3.30.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapitre&nbsp;33.&nbsp;Bibliothèques et utilitaires GNOME ">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="tracker" name="tracker"></a>Tracker-2.2.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Tracker
+        </h2>
+        <p>
+          <span class="application">Tracker</span> est le moteur de recherche
+          et d'indexage utilisé dans l’environnement de bureau <span class=
+          "application">GNOME</span>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                e4c637cbc1aa2f4d03e09c8e6b318d6d
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.7 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 211 Mo (avec les
+                tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 1.0 SBU (avec les
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Tracker
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/json-glib.html" title=
+          "JSON-GLib-1.4.4">JSON-GLib-1.4.4</a>, <a class="xref" href=
+          "../general/libseccomp.html" title=
+          "libseccomp-2.3.3">libseccomp-2.3.3</a>, <a class="xref" href=
+          "../basicnet/libsoup.html" title=
+          "libsoup-2.64.2">libsoup-2.64.2</a> et <a class="xref" href=
+          "../general/vala.html" title="Vala-0.42.5">Vala-0.42.5</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.58.3">gobject-introspection-1.58.3</a>,
+          <a class="xref" href="../general/icu.html" title=
+          "ICU-63.1">ICU-63.1</a>, <a class="xref" href=
+          "../basicnet/networkmanager.html" title=
+          "NetworkManager-1.14.6">NetworkManager-1.14.6</a>, <a class="xref"
+          href="../server/sqlite.html" title=
+          "SQLite-3.27.1">SQLite-3.27.1</a> et <a class="xref" href=
+          "../general/upower.html" title="UPower-0.99.9">UPower-0.99.9</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.29">GTK-Doc-1.29</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.15">Python-2.7.15</a>
+          (pour les tests <span class="quote">«&nbsp;<span class=
+          "quote">fonctionnels</span>&nbsp;»</span>) et <a class="ulink"
+          href="https://github.com/snowballstem/snowball/">Snowball</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/tracker">http://wiki.linuxfromscratch.org/blfs/wiki/tracker</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Tracker
+        </h2>
+        <p>
+          Installez <span class="application">Tracker</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd build &amp;&amp;
+
+meson --prefix=/usr --sysconfdir=/etc .. &amp;&amp;
+ninja</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;: <span class=
+          "command"><strong>ninja test</strong></span>. Les tests devraient
+          être lancés depuis une session graphique. Plusieurs tests peuvent
+          afficher une erreur si le module Python 2 de PyGObject3 n'est pas
+          disponible.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">ninja install</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">tracker</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libtracker-control.so,
+              libtracker-miner.so et libtracker-sparql.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/{include,lib}/tracker-2.0,
+              /usr/share/tracker et
+              /usr/share/gtk-doc/libtracker-{control,miner,sparql}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tracker-prog" name="tracker-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tracker</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le programme de contrôle de l'indexeur
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtracker-control" name=
+                    "libtracker-control"></a><span class="term"><code class=
+                    "filename">libtracker-control.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de contrôle et de surveillance des
+                    mineurs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtracker-miner" name=
+                    "libtracker-miner"></a><span class="term"><code class=
+                    "filename">libtracker-miner.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de fouille de données.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtracker-sparql" name=
+                    "libtracker-sparql"></a><span class="term"><code class=
+                    "filename">libtracker-sparql.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de gestion de ressources et de
+                    bases de données.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-21 07:16:01 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libwnck.html" title=
+          "libwnck-3.30.0">Précédent</a>
+          <p>
+            libwnck-3.30.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dconf.html" title=
+          "DConf-0.30.1 / DConf-Editor-3.30.2">Suivant</a>
+          <p>
+            DConf-0.30.1 / DConf-Editor-3.30.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapitre&nbsp;33.&nbsp;Bibliothèques et utilitaires GNOME ">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

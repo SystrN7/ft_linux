@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      PSUtils-p17
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;50.&nbsp;PostScript
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="enscript.html" title=
+          "Enscript-1.6.6">Précédent</a>
+          <p>
+            Enscript-1.6.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="epdfview.html" title=
+          "ePDFView-0.1.8">Suivant</a>
+          <p>
+            ePDFView-0.1.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapitre&nbsp;50.&nbsp;PostScript">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="psutils" name="psutils"></a>PSUtils-p17
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à PSUtils
+        </h2>
+        <p>
+          <span class="application">PSUtils</span> est un ensemble
+          d'utilitaires pour manipuler des fichiers PostScript.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://pkgs.fedoraproject.org/repo/pkgs/psutils/psutils-p17.tar.gz/b161522f3bd1507655326afa7db4a0ad/psutils-p17.tar.gz">
+                http://pkgs.fedoraproject.org/repo/pkgs/psutils/psutils-p17.tar.gz/b161522f3bd1507655326afa7db4a0ad/psutils-p17.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                b161522f3bd1507655326afa7db4a0ad
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 68 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 740 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/psutils">http://wiki.linuxfromscratch.org/blfs/wiki/psutils</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de PSUtils
+        </h2>
+        <p>
+          Installez <span class="application">PSUtils</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed 's@/usr/local@/usr@g' Makefile.unix &gt; Makefile &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed 's@/usr/local@/usr@g'
+          Makefile.unix &gt; Makefile</strong></span>&nbsp;: Cette commande
+          crée un <code class="filename">Makefile</code> qui installe le
+          programme dans le préfixe <code class="filename">/usr</code> plutôt
+          que <code class="filename">/usr/local</code>.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">epsffit, extractres, fixdlsrps, fixfmps,
+              fixmacps, fixpsditps, fixpspps, fixscribeps, fixtpps, fixwfwps,
+              fixwpps, fixwwps, getafm, includeres, psbook, psmerge, psnup,
+              psresize, psselect, pstops et showchar</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/share/psutils</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Parfois, <span class="command"><strong>psnup</strong></span> et
+          d'autres outils de ce paquet produisent des fichiers PostScript qui
+          ne respectent pas le standard DSC d'Adobe. Il se peut que
+          <span class="application">CUPS</span> ne les imprime pas
+          correctement. D'un autre côté, <span class=
+          "application">CUPS</span> a des remplaçants intégrés pour la
+          plupart des commandes de ce paquet. Par exemple, pour imprimer un
+          document en deux pages par page, vous pouvez exécuter cette
+          commande&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">lp -o number-up=2 <em class=
+        "replaceable"><code>&lt;filename&gt;</code></em></kbd></pre>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="epsffit" name="epsffit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>epsffit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    adapte un fichier EPSF à un cadre délimitant donnée.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="extractres" name="extractres"></a><span class=
+                    "term"><span class=
+                    "command"><strong>extractres</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un filtre pour extraire des ressources depuis un
+                    document PostScript.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fixprogs" name="fixprogs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fix*</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    sont des filtres pour des documents de différentes sortes
+                    pour fonctionner avec PSUtils.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="getafm" name="getafm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>getafm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    crée un fichier AFM pour une police PostScript.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="includeres" name="includeres"></a><span class=
+                    "term"><span class=
+                    "command"><strong>includeres</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un filtre pour ajouter des ressources dans un
+                    document PostScript.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psbook" name="psbook"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psbook</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    réaménage les pages en signatures.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psmerge" name="psmerge"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psmerge</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un filtre pour combiner plusieurs fichiers PostScript
+                    en un seul.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psnup" name="psnup"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psnup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    met plusieurs pages sur une feuille physique d'un papier.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psresize" name="psresize"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psresize</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    modifie la taille du papier du document.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psselect" name="psselect"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psselect</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    sélectionne des pages et les organise.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pstops" name="pstops"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pstops</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    effectue des réorganisations et des sélections généraux
+                    de pages.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="showchar" name="showchar"></a><span class=
+                    "term"><span class=
+                    "command"><strong>showchar</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    indique à PostScript de dessiner un caractère avec des
+                    infos métriques.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-18 18:44:04 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="enscript.html" title=
+          "Enscript-1.6.6">Précédent</a>
+          <p>
+            Enscript-1.6.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="epdfview.html" title=
+          "ePDFView-0.1.8">Suivant</a>
+          <p>
+            ePDFView-0.1.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapitre&nbsp;50.&nbsp;PostScript">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

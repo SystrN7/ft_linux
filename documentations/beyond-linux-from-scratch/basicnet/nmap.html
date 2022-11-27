@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Nmap-7.70
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;16.&nbsp;Outils réseaux
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="networkmanager.html" title=
+          "NetworkManager-1.14.6">Précédent</a>
+          <p>
+            NetworkManager-1.14.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="traceroute.html" title=
+          "Traceroute-2.1.0">Suivant</a>
+          <p>
+            Traceroute-2.1.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapitre&nbsp;16.&nbsp;Outils réseaux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="nmap" name="nmap"></a>Nmap-7.70
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Nmap
+        </h2>
+        <p>
+          <span class="application">Nmap</span> est un utilitaire
+          d'exploration de réseaux et d'audit de sécurité. Il supporte le
+          scan par ping, le scan de ports et les empreintes TCP/IP.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://nmap.org/dist/nmap-7.70.tar.bz2">http://nmap.org/dist/nmap-7.70.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                84eb6fbe788e0d4918c2b1e39421bf79
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 10 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 116 Mo (plus 21
+                Mo pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.9 SBU (plus 0.2
+                SBU pour les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Nmap
+        </h3>
+        <h4>
+          Recommandées
+        </h4>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Ces paquets sont recommandés car s'ils ne sont pas installés, le
+            processus de construction compilera et se liera contre ses
+            propres (souvent anciennes) versions.
+          </p>
+        </div>
+        <p class="recommended">
+          <a class="xref" href="libpcap.html" title=
+          "libpcap-1.9.0">libpcap-1.9.0</a>, <a class="xref" href=
+          "../general/pcre.html" title="PCRE-8.42">PCRE-8.42</a> et <a class=
+          "xref" href="../general/liblinear.html" title=
+          "liblinear-221">liblinear-221</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/python-modules.html#pygtk" title=
+          "PyGTK-2.24.0">PyGTK-2.24.0</a> (requis pour <span class=
+          "command"><strong>zenmap</strong></span>), <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.15">Python-2.7.15</a>
+          (requis pour <span class="command"><strong>ndiff</strong></span>)
+          et <a class="xref" href="../general/subversion.html" title=
+          "Subversion-1.11.1">Subversion-1.11.1</a> (requis pour <span class=
+          "command"><strong>nmap-update</strong></span>) et <a class="xref"
+          href="../general/libssh2.html" title=
+          "libssh2-1.8.0">libssh2-1.8.0</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/nmap">http://wiki.linuxfromscratch.org/blfs/wiki/nmap</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Nmap
+        </h2>
+        <p>
+          Installez <span class="application">Nmap</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr --with-liblua=included &amp;&amp;
+make</kbd></pre>
+        <p>
+          Si vous voulez lancer la suite de tests, lancez la commande
+          suivante&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i 's/lib./lib/' zenmap/test/run_tests.py</kbd></pre>
+        <p>
+          Pour tester les résultats, tapez&nbsp;: <span class=
+          "command"><strong>make check</strong></span> en tant qu'utilisateur
+          <code class="systemitem">root</code>. Les tests nécessitent une
+          session graphique.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>--with-liblua=included</code></em>&nbsp;: Ce
+          paramètre est requis pour corriger la compilation avec <span class=
+          "application">lua</span> 5.3.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">ncat, ndiff, nmap, nmapfe, nmap-update,
+              nping, uninstall_ndiff, uninstall_zenmap, xnmap et
+              zenmap</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class=
+              "segbody">/usr/lib/python2.7/site-packages/{radialnet,zenmapCore,zenmapGUI},
+              et /usr/share/{ncat,nmap,zenmap}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ncat" name="ncat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ncat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil pour lire et écrire des données à travers
+                    des réseaux à partir de la ligne de commande.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ndiff" name="ndiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ndiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil pour vous aider à comparer des analyses de
+                    Nmap.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nmap-prog" name="nmap-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nmap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un utilitaire d'exploration de réseaux et d'audit de
+                    sécurité. Il supporte le scan par ping, le scan de ports
+                    et les empreintes TCP/IP.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nmapfe" name="nmapfe"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nmapfe</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un lien symbolique vers <span class=
+                    "command"><strong>zenmap</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nmap-update" name="nmap-update"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nmap-update</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un programme de mise à jour pour les fichiers Nmap
+                    indépendants de l'architecture.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nping" name="nping"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nping</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil libre pour la génération de paquet réseau,
+                    l'analyse de temps de réponse et la mesure du temps de
+                    réponse.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uninstall_ndiff" name=
+                    "uninstall_ndiff"></a><span class="term"><span class=
+                    "command"><strong>uninstall_ndiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script Python pour désinstaller <span class=
+                    "command"><strong>ndiff</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uninstall_zenmap" name=
+                    "uninstall_zenmap"></a><span class="term"><span class=
+                    "command"><strong>uninstall_zenmap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script Python pour désinstaller <span class=
+                    "command"><strong>zenmap</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xnmap" name="xnmap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xnmap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un lien symbolique vers <span class=
+                    "command"><strong>zenmap</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zenmap" name="zenmap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zenmap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface graphique Python de visualisation nmap.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-19 06:16:11 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="networkmanager.html" title=
+          "NetworkManager-1.14.6">Précédent</a>
+          <p>
+            NetworkManager-1.14.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="traceroute.html" title=
+          "Traceroute-2.1.0">Suivant</a>
+          <p>
+            Traceroute-2.1.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapitre&nbsp;16.&nbsp;Outils réseaux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      lxqt-l10n-0.12.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libfm-qt.html" title=
+          "libfm-qt-0.12.0">Précédent</a>
+          <p>
+            libfm-qt-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-themes.html" title=
+          "lxqt-themes-0.12.0">Suivant</a>
+          <p>
+            lxqt-themes-0.12.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-l10n" name="lxqt-l10n"></a>lxqt-l10n-0.12.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à lxqt-l10n
+        </h2>
+        <p>
+          Le paquet <span class="application">lxqt-l10n</span> fournit des
+          traductions pour tous les composants du bureau <span class=
+          "application">LXQT</span>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/lxde/lxqt-l10n/releases/download/0.12.0/lxqt-l10n-0.12.0.tar.xz">
+                https://github.com/lxde/lxqt-l10n/releases/download/0.12.0/lxqt-l10n-0.12.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                7f562caa4ad504f80f15985f1d48290d
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 679 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 37 Mo pour
+                l'ensemble complet des traductions
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de lxqt-l10n
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="liblxqt.html" title=
+          "liblxqt-0.12.0">liblxqt-0.12.0</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-l10n">http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-l10n</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de lxqt-l10n
+        </h2>
+        <p>
+          Installez <span class="application">lxqt-l10n</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -v build &amp;&amp;
+cd       build &amp;&amp;
+
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      ..       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <code class="option">-DWITH_&lt;PACKAGE&gt;=no</code>&nbsp;: Ne pas
+          installer de traductions pour PACKAGE, où PACKAGE est COMPTON_CONF,
+          LIBFM_QT, LIBLXQT, LXIMAGE_QT, LXQT_ABOUT, LXQT_ADMIN, LXQT_CONFIG,
+          LXQT_GLOBALKEYS, LXQT_NOTIFICATIOND, LXQT_OPENSSH_ASKPASS,
+          LXQT_PANEL, LXQT_POLICYKIT, LXQT_POWERMANAGEMENT, LXQT_RUNNER,
+          LXQT_SESSION, LXQT_SUDO, OBCONF_QT, PCMANFM_QT ou QTERMINAL.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class=
+              "segbody">$LXQT_PREFIX/share/compton-conf/translations,
+              $LXQT_PREFIX/share/libfm-qt/translations,
+              $LXQT_PREFIX/share/lximage-qt/translations,
+              $LXQT_PREFIX/share/lxqt/translations,
+              $LXQT_PREFIX/share/obconf-qt/translations,
+              $LXQT_PREFIX/share/pavucontrol-qt/translations,
+              $LXQT_PREFIX/share/pcmanfm-qt/translations,
+              $LXQT_PREFIX/share/qterminal/translations et
+              $LXQT_PREFIX/share/qterwidget/translations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-21 12:35:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libfm-qt.html" title=
+          "libfm-qt-0.12.0">Précédent</a>
+          <p>
+            libfm-qt-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-themes.html" title=
+          "lxqt-themes-0.12.0">Suivant</a>
+          <p>
+            lxqt-themes-0.12.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

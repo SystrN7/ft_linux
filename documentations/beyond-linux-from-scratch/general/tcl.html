@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Tcl-8.6.9
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="swig.html" title="SWIG-3.0.12">Précédent</a>
+          <p>
+            SWIG-3.0.12
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="tk.html" title="Tk-8.6.9">Suivant</a>
+          <p>
+            Tk-8.6.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="tcl" name="tcl"></a>Tcl-8.6.9
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Tcl
+        </h2>
+        <p>
+          Le paquet <span class="application">Tcl</span> contient le
+          <span class="foreignphrase"><em class="foreignphrase">Tool Command
+          Language</em></span>, (outil de langage de commande), un langage de
+          script robuste et généraliste.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/tcl/tcl8.6.9-src.tar.gz">https://downloads.sourceforge.net/tcl/tcl8.6.9-src.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                aa0a121d95a0e7b73a036f26028538d4
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 9.5 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 84 Mo (inclut la
+                documentation html)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.6 SBU (plus 3.0
+                SBU pour les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <p class="title">
+            <strong>Documentation Facultative</strong>
+          </p>
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/tcl/tcl8.6.9-html.tar.gz">https://downloads.sourceforge.net/tcl/tcl8.6.9-html.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                243da67cca49b9bac0dc6c06fdb42896
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 1.2 Mo
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/tcl">http://wiki.linuxfromscratch.org/blfs/wiki/tcl</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Tcl
+        </h2>
+        <p>
+          Ce paquet est aussi installé par LFS dans l'étape du bootstrap.
+          Comme il n'est pas installé au chapitre 6 de LFS, les instructions
+          d'installation sont incluses dans BLFS.
+        </p>
+        <p>
+          Si vous avez téléchargé la documentation facultative, déballez
+          l'archive tar en exécutant la commande suivante&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">tar -xf ../tcl8.6.9-html.tar.gz --strip-components=1</kbd></pre>
+        <p>
+          Installez <span class="application">Tcl</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export SRCDIR=`pwd` &amp;&amp;
+
+cd unix &amp;&amp;
+
+./configure --prefix=/usr           \
+            --mandir=/usr/share/man \
+            $([ $(uname -m) = x86_64 ] &amp;&amp; echo --enable-64bit) &amp;&amp;
+make &amp;&amp;
+
+sed -e "s#$SRCDIR/unix#/usr/lib#" \
+    -e "s#$SRCDIR#/usr/include#"  \
+    -i tclConfig.sh               &amp;&amp;
+
+sed -e "s#$SRCDIR/unix/pkgs/tdbc1.1.0#/usr/lib/tdbc1.1.0#" \
+    -e "s#$SRCDIR/pkgs/tdbc1.1.0/generic#/usr/include#"    \
+    -e "s#$SRCDIR/pkgs/tdbc1.1.0/library#/usr/lib/tcl8.6#" \
+    -e "s#$SRCDIR/pkgs/tdbc1.1.0#/usr/include#"            \
+    -i pkgs/tdbc1.1.0/tdbcConfig.sh                        &amp;&amp;
+
+sed -e "s#$SRCDIR/unix/pkgs/itcl4.1.2#/usr/lib/itcl4.1.2#" \
+    -e "s#$SRCDIR/pkgs/itcl4.1.2/generic#/usr/include#"    \
+    -e "s#$SRCDIR/pkgs/itcl4.1.2#/usr/include#"            \
+    -i pkgs/itcl4.1.2/itclConfig.sh                        &amp;&amp;
+
+unset SRCDIR</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make test</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+make install-private-headers &amp;&amp;
+ln -v -sf tclsh8.6 /usr/bin/tclsh &amp;&amp;
+chmod -v 755 /usr/lib/libtcl8.6.so</kbd></pre>
+        <p>
+          Si vous avez téléchargé la documentation facultative, installez-la
+          en exécutant les commandes suivantes en tant qu'utilisateur
+          <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">mkdir -v -p /usr/share/doc/tcl-8.6.9 &amp;&amp;
+cp -v -r  ../html/* /usr/share/doc/tcl-8.6.9</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>$([ $(uname -m) = x86_64 ] &amp;&amp;
+          echo --enable-64bit)</code></em>&nbsp;: Ce paramètre est utilisé
+          pour activer le support 64 bits dans <span class=
+          "application">Tcl</span> sur les OS 64 bits.
+        </p>
+        <p>
+          <span class="command"><strong>make
+          install-private-headers</strong></span>&nbsp;: Cette commande est
+          utilisée pour installer les en-têtes de l'interface bibliothèque
+          <span class="application">Tcl</span> utilisées par d'autres paquets
+          s'ils se lient à la bibliothèque <span class=
+          "application">Tcl</span>.
+        </p>
+        <p>
+          <span class="command"><strong>ln -v -sf tclsh8.6
+          /usr/bin/tclsh</strong></span>: Cette commande est utilisée pour
+          créer un lien symbolique de compatibilité vers le fichier
+          <span class="command"><strong>tclsh8.6</strong></span> vu que de
+          nombreux paquets s'attentent à trouver un fichier appelé
+          <span class="command"><strong>tclsh</strong></span>.
+        </p>
+        <p>
+          <span class="command"><strong>sed -e ...</strong></span>&nbsp;: Le
+          paquet <span class="application">Tcl</span> s'attend à ce que
+          l'arborescence de ses sources soit préservée afin que les paquets
+          qui en dépendent pour leur compilation puissent les utiliser. Ces
+          <span class="command"><strong>sed</strong></span> suppriment les
+          références au répertoire de construction et il les remplace par des
+          emplacements plus sains du système.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">sqlite3_analyzer, tclsh et
+              tclsh8.6</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libtcl8.6.so et libtclstub8.6.a</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/lib/itcl4.1.2, /usr/lib/sqlite3.25.3
+              /usr/lib/tcl8, /usr/lib/tcl8.6, /usr/lib/tdbc1.1.0,
+              /usr/lib/tdbcmysql1.1.0, /usr/lib/tdbcodbc1.1.0,
+              /usr/lib/tdbcpostgres1.1.0, /usr/lib/thread2.8.4,
+              /usr/share/doc/tcl-8.6.9 et /usr/share/man/mann</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sqlite3_analyzer" name=
+                    "sqlite3_analyzer"></a><span class="term"><span class=
+                    "command"><strong>sqlite3_analyzer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un programme pour analyser des fichiers de bases de
+                    données sqlite3 et écrire un rapport qui donne les
+                    informations sur la taille et l'efficacité du stockage
+                    pour la base de données, ses tables et ses index.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tclsh" name="tclsh"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tclsh</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un lien symbolique vers le programme <span class=
+                    "command"><strong>tclsh8.6</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tclsh-eight" name="tclsh-eight"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tclsh8.6</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un simple shell contenant l'interpréteur <span class=
+                    "application">Tcl</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtcl" name="libtcl"></a><span class=
+                    "term"><code class="filename">libtcl8.6.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de l'API requise par <span class=
+                    "application">Tcl</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 20:47:31 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="swig.html" title="SWIG-3.0.12">Précédent</a>
+          <p>
+            SWIG-3.0.12
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="tk.html" title="Tk-8.6.9">Suivant</a>
+          <p>
+            Tk-8.6.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapitre&nbsp;12.&nbsp;Outils systèmes
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xdg-user-dirs.html" title=
+          "Xdg-user-dirs-0.17">Précédent</a>
+          <p>
+            Xdg-user-dirs-0.17
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="acpid.html" title="acpid-2.0.31">Suivant</a>
+          <p>
+            acpid-2.0.31
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="fr" xml:lang="fr">
+      <h1 class="chapter">
+        <a id="general-sysutils" name="general-sysutils"></a>Outils systèmes
+      </h1>
+      <p>
+        Ce paquet contient des outils principalement matériel. Il contient
+        aussi des applications utilisées par d'autres applications du livre
+        pour de l'installation et de la configuration.
+      </p>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="acpid.html">acpid-2.0.31</a>
+          </li>
+          <li class="sect1">
+            <a href="at.html">at-3.1.23</a>
+          </li>
+          <li class="sect1">
+            <a href="autofs.html">autofs-5.1.5</a>
+          </li>
+          <li class="sect1">
+            <a href="bluez.html">BlueZ-5.50</a>
+          </li>
+          <li class="sect1">
+            <a href="bubblewrap.html">Bubblewrap-0.3.1</a>
+          </li>
+          <li class="sect1">
+            <a href="colord.html">Colord-1.4.3</a>
+          </li>
+          <li class="sect1">
+            <a href="cpio.html">cpio-2.12</a>
+          </li>
+          <li class="sect1">
+            <a href="dbus.html">dbus-1.12.12</a>
+          </li>
+          <li class="sect1">
+            <a href="fcron.html">Fcron-3.2.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gpm.html">GPM-1.20.7</a>
+          </li>
+          <li class="sect1">
+            <a href="hdparm.html">Hdparm-9.58</a>
+          </li>
+          <li class="sect1">
+            <a href="initd-tools.html">Initd-tools-0.1.3</a>
+          </li>
+          <li class="sect1">
+            <a href="lm_sensors.html">lm_sensors-3.4.0</a>
+          </li>
+          <li class="sect1">
+            <a href="logrotate.html">Logrotate-3.15.0</a>
+          </li>
+          <li class="sect1">
+            <a href="mc.html">MC-4.8.22</a>
+          </li>
+          <li class="sect1">
+            <a href="ModemManager.html">ModemManager-1.10.0</a>
+          </li>
+          <li class="sect1">
+            <a href="p7zip.html">p7zip-16.02</a>
+          </li>
+          <li class="sect1">
+            <a href="pax.html">Pax-20161104</a>
+          </li>
+          <li class="sect1">
+            <a href="pciutils.html">pciutils-3.6.2</a>
+          </li>
+          <li class="sect1">
+            <a href="pm-utils.html">pm-utils-1.4.1</a>
+          </li>
+          <li class="sect1">
+            <a href="raptor.html">Raptor-2.0.15</a>
+          </li>
+          <li class="sect1">
+            <a href="rasqal.html">Rasqal-0.9.33</a>
+          </li>
+          <li class="sect1">
+            <a href="redland.html">Redland-1.0.17</a>
+          </li>
+          <li class="sect1">
+            <a href="sg3_utils.html">sg3_utils-1.44</a>
+          </li>
+          <li class="sect1">
+            <a href="sysstat.html">Sysstat-12.1.2</a>
+          </li>
+          <li class="sect1">
+            <a href="udisks2.html">UDisks-2.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="unrar.html">UnRar-5.7.2</a>
+          </li>
+          <li class="sect1">
+            <a href="unzip.html">UnZip-6.0</a>
+          </li>
+          <li class="sect1">
+            <a href="upower.html">UPower-0.99.9</a>
+          </li>
+          <li class="sect1">
+            <a href="usbutils.html">usbutils-010</a>
+          </li>
+          <li class="sect1">
+            <a href="which.html">Which-2.21 et Alternatives</a>
+          </li>
+          <li class="sect1">
+            <a href="zip.html">Zip-3.0</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xdg-user-dirs.html" title=
+          "Xdg-user-dirs-0.17">Précédent</a>
+          <p>
+            Xdg-user-dirs-0.17
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="acpid.html" title="acpid-2.0.31">Suivant</a>
+          <p>
+            acpid-2.0.31
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

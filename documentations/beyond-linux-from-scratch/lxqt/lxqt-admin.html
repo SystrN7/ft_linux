@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      lxqt-admin-0.12.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-about.html" title=
+          "lxqt-about-0.12.0">Précédent</a>
+          <p>
+            lxqt-about-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-kwayland.html" title=
+          "Kwayland-5.46.0 pour lxqt">Suivant</a>
+          <p>
+            Kwayland-5.46.0 pour lxqt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-admin" name="lxqt-admin"></a>lxqt-admin-0.12.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à lxqt-admin
+        </h2>
+        <p>
+          Le paquet <span class="application">lxqt-admin</span> fournit deux
+          outils en interfaces graphiques pour ajuster les options du système
+          d'exploitation sur lequel tourne <span class=
+          "application">LXQT</span>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/lxde/lxqt-admin/releases/download/0.12.0/lxqt-admin-0.12.0.tar.xz">
+                https://github.com/lxde/lxqt-admin/releases/download/0.12.0/lxqt-admin-0.12.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                66792de0ff5b7eb41b7f382a46a772a6
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 113 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.5 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de lxqt-admin
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="liblxqt.html" title=
+          "liblxqt-0.12.0">liblxqt-0.12.0</a> et <a class="xref" href=
+          "../postlfs/polkit.html" title="Polkit-0.114">Polkit-0.114</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/git.html" title=
+          "Git-2.17.1">git-2.17.1</a> (pour télécharger les fichiers de
+          traductions) ou <a class="xref" href="lxqt-l10n.html" title=
+          "lxqt-l10n-0.12.0">lxqt-l10n-0.12.0</a> (pour ajouter les fichiers
+          de localisations)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-admin">http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-admin</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de lxqt-admin
+        </h2>
+        <p>
+          Installez <span class="application">lxqt-admin</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -v build &amp;&amp;
+cd       build &amp;&amp;
+
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DPULL_TRANSLATIONS=no              \
+      ..       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>-DPULL_TRANSLATIONS=no</code></em>&nbsp;:
+          Supprime le besoin de <a class="xref" href="../general/git.html"
+          title="Git-2.17.1">git-2.17.1</a>, qui serait sinon demandé pour
+          télécharger les fichiers de traduction.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">lxqt-admin-time, lxqt-admin-user et
+              lxqt-admin-user-helper</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-admin-time" name=
+                    "lxqt-admin-time"></a><span class="term"><span class=
+                    "command"><strong>lxqt-admin-time</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface graphique qui permet d'ajuster la date
+                    et l'heure.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-admin-user" name=
+                    "lxqt-admin-user"></a><span class="term"><span class=
+                    "command"><strong>lxqt-admin-user</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface graphique pour gérer les groupes et les
+                    utilisateurs.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-21 12:35:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-about.html" title=
+          "lxqt-about-0.12.0">Précédent</a>
+          <p>
+            lxqt-about-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-kwayland.html" title=
+          "Kwayland-5.46.0 pour lxqt">Suivant</a>
+          <p>
+            Kwayland-5.46.0 pour lxqt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

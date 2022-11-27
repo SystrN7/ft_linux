@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Instruction de pré-installation du bureau LXQt
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-desktop.html" title=
+          "Bureau LXQt">Précédent</a>
+          <p>
+            Bureau LXQt
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libqtxdg.html" title=
+          "libqtxdg-3.1.0">Suivant</a>
+          <p>
+            libqtxdg-3.1.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-pre-install" name="lxqt-pre-install"></a>Instruction de
+        pré-installation du bureau LXQt
+      </h1>
+      <div class="admon caution">
+        <img alt="[Attention]" src="../images/caution.png" />
+        <h3>
+          Attention
+        </h3>
+        <p>
+          À cause de changements récents dans <span class=
+          "command"><strong>grep</strong></span>, il est nécessaire que le
+          système d'installation soit configuré avec une locale UTF-8. Par
+          exemple, utilisez <span class="command"><strong>export
+          LANG=fr_FR.utf8</strong></span>, mais toute locale UTF-8 fera
+          l'affaire. Si vous ne le faites pas, votre installation sera
+          incorrecte.
+        </p>
+      </div>
+      <p>
+        LXQt peut être installé dans /usr ou /opt/lxqt.
+      </p>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation dans /usr
+        </h2>
+        <p>
+          Installer dans <code class="filename">/usr</code> crée une
+          installation plus simple. Lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export LXQT_PREFIX=/usr</kbd></pre>
+        <p>
+          Ajoutez-le à votre propre <code class=
+          "filename">.bash_profile</code> pour qu'il soit toujours activé si
+          vous construisez les paquets sur une longue période de temps, ou
+          ajoutez-le au profil du système en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">cat &gt; /etc/profile.d/lxqt.sh &lt;&lt; "EOF"
+<code class="literal"># Begin LXQt profile
+
+export LXQT_PREFIX=/usr
+
+# End LXQt profile</code>
+EOF</kbd></pre>
+        <p>
+          Il n'y a pas d'autre configuration requise pour installer LXQt dans
+          <code class="filename">/usr</code>.
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation dans /opt/lxqt
+        </h2>
+        <p>
+          Installer dans <code class="filename">/opt/lxqt</code> peut
+          simplifier la mise à jour vers une version ultérieure de LXQt.
+        </p>
+        <p>
+          Certaines variables doivent être définie dans votre profil système,
+          en tant qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -vdm755 /opt/lxqt/{bin,lib,share/man}
+
+cat &gt; /etc/profile.d/lxqt.sh &lt;&lt; "EOF"
+<code class="literal"># Begin LXQt profile
+
+export LXQT_PREFIX=/opt/lxqt
+
+pathappend /opt/lxqt/bin           PATH
+pathappend /opt/lxqt/share/man/    MANPATH
+pathappend /opt/lxqt/lib/pkgconfig PKG_CONFIG_PATH
+pathappend /opt/lxqt/lib/plugins   QT_PLUGIN_PATH
+
+# End LXQt profile</code>
+EOF
+
+cat &gt;&gt; /etc/profile.d/qt5.sh &lt;&lt; "EOF"
+<code class="literal">
+# Begin Qt5 changes for LXQt
+
+pathappend $QT5DIR/plugins         QT_PLUGIN_PATH
+
+# End Qt5 changes for LXQt</code>
+EOF</kbd></pre>
+        <p>
+          Étoffez votre fichier <code class=
+          "filename">etc/ld.so.conf</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
+<code class="literal">
+# Begin LXQt addition
+
+/opt/lxqt/lib
+
+# End LXQt addition
+</code>
+EOF</kbd></pre>
+        <p>
+          Avant de commencer à installer les paquets dans les pages
+          suivantes, rappelez-vous d'exécuter&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">source /etc/profile</kbd></pre>
+        <p>
+          Certains paquets de l'ensemble KDE Frameworks 5 installent des
+          fichiers dans les répertoires D-Bus. Pour que D-Bus trouve ces
+          fichiers, la manière la plus simple est de créer un lien
+          symbolique. Certains paquets peuvent aussi installer des icônes de
+          l'ensemble <span class="quote">«&nbsp;<span class=
+          "quote">hicolor</span>&nbsp;»</span>. Comme cet ensemble d'icônes
+          est utilisé par beaucoup de paquets, c'est une bonne idée de créer
+          un lien symbolique vers celui de <code class=
+          "filename">/usr/share</code> pour éviter d'avoir des installations
+          multiples de <a class="xref" href="../x/hicolor-icon-theme.html"
+          title="hicolor-icon-theme-0.17">hicolor-icon-theme-0.17</a>. Lancez
+          la commande suivante en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">source /etc/profile                                       &amp;&amp;
+install -v -dm755                $LXQT_PREFIX/share/icons &amp;&amp;
+ln -sfv /usr/share/icons/hicolor $LXQT_PREFIX/share/icons &amp;&amp;
+ln -sfv /usr/share/dbus-1        $LXQT_PREFIX/share </kbd></pre>
+        <div class="admon tip">
+          <img alt="[Astuce]" src="../images/tip.png" />
+          <h3>
+            Astuce
+          </h3>
+          <p>
+            Parfois, les chemins d'installation sont codés en dur dans les
+            fichiers installés. C'est pourquoi <code class=
+            "filename">/opt/lxqt</code> est utilisé comme préfixe
+            d'installation au lieu de <code class=
+            "filename">/opt/lxqt-0.12.0</code>. Après l'installation de
+            <span class="application">LXQt Desktop</span>, vous pouvez
+            renommer le répertoire et créer un lien symbolique&nbsp;:
+          </p>
+          <pre class="root"><kbd class="command">mv /opt/lxqt{,-0.12.0}
+ln -sfv lxqt-0.12.0 /opt/lxqt</kbd></pre>
+          <p>
+            Ensuite, vous pourriez vouloir installer d'autres versions de
+            <span class="application">LXQt Desktop</span>. Pour cela,
+            supprimez simplement le lien symbolique et utilisez de nouveau
+            <code class="filename">/opt/lxqt</code> comme préfixe. La version
+            de <span class="application">LXQt Desktop</span> que vous
+            utilisez dépend seulement du répertoire pointé par le lien
+            symbolique. Aucune autre reconfiguration ne sera nécessaire.
+          </p>
+        </div>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Remarques à propos de la construction des dépendances de LXQt
+        </h2>
+        <p>
+          <span class="application">LXQt</span> a évidemment besoin de
+          <a class="xref" href="../x/qt5.html" title=
+          "Qt-5.11.1">Qt-5.11.1</a>, mais tous les modules Qt5 et ses
+          dépendances ne sont pas requis. Comme le but de <span class=
+          "application">LXQt</span> est d'être léger, il peut être
+          intéressant de réduire la taille de Qt5 et de n'en construire que
+          certaines parties. Pour construire les dépendances de Qt et LXQt,
+          l'ordre proposé est le suivant&nbsp;:
+        </p>
+        <div class="procedure">
+          <ol class="procedure" type="1">
+            <li class="step">
+              <p>
+                Construisez <a class="xref" href="../postlfs/linux-pam.html"
+                title="Linux-PAM-1.3.0">Linux-PAM-1.3.0</a>, <a class="xref"
+                href="../postlfs/shadow.html" title=
+                "Shadow-4.6">Shadow-4.6</a> et <a class="xref" href=
+                "../postlfs/sudo.html" title="Sudo-1.8.23">Sudo-1.8.23</a>
+                avec leurs dépendances
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez tout le chapitre <a class="xref" href=
+                "../x/installing.html" title=
+                "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Système
+                X Window</a>, avec le support de Wayland en remplaçant twm
+                par <a class="xref" href="../x/openbox.html" title=
+                "openbox-3.6.1">openbox-3.6.1</a> (et ses dépendances
+                requises). Certaines applications et polices Xorg peuvent
+                être oubliées, mais elles ont un impact négligeable sur le
+                temps de construction et la taille.
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez <a class="xref" href="../x/gtk2.html" title=
+                "GTK+-2.24.32">GTK+-2.24.32</a> et ses dépendances requises
+                et recommandées. GTK+2 est requis pour <a class="xref" href=
+                "../lxde/libfm.html" title="libfm-1.3.0.2">libfm-1.3.0.2</a>,
+                et apporte l'exécutable <span class=
+                "command"><strong>gtk-update-icon-cache</strong></span> qui
+                est requis par libqtxdg.
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez les dépendances requises de Qt et certaines des
+                dépendances recommandées ou facultatives, c'est-à-dire&nbsp;:
+                <a class="xref" href="../postlfs/openssl10.html" title=
+                "OpenSSL-1.0.2o">OpenSSL-1.0.2o Libraries</a>, <a class=
+                "xref" href="../general/dbus.html" title=
+                "dbus-1.12.8">dbus-1.12.8</a>, <a class="xref" href=
+                "../multimedia/alsa-lib.html" title=
+                "alsa-lib-1.1.6">alsa-lib-1.1.6</a>, <a class="xref" href=
+                "../multimedia/pulseaudio.html" title=
+                "PulseAudio-11.1">PulseAudio-11.1</a> et <a class="xref"
+                href="../general/libxkbcommon.html" title=
+                "libxkbcommon-0.8.0">libxkbcommon-0.8.0</a>
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez les parties requises de <a class="xref" href=
+                "../x/qt5.html" title="Qt-5.11.1">Qt-5.11.1</a>. Pour passer
+                tous les modules sauf les quatre requis par LXQt,
+                faîtes&nbsp;:
+              </p>
+              <pre class="userinput"><kbd class=
+              "command">ls -Fd qt* | grep / | sed 's/^/-skip /;s/qt//;s@/@@' &gt; tempconf
+sed -i '/base/d;/tools/d;/x11extras/d;/svg/d' tempconf
+# if you plan to build SDDM, add:
+sed -i '/declarative/d' tempconf
+./configure &lt;book flags&gt; $(cat tempconf)</kbd></pre>
+              <p>
+                Le temps demandé pour finir l'installation de Qt est ainsi
+                réduit à environ 6 SBU
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez diverses dépendances (avec leurs dépendances
+                requises)&nbsp;: <a class="xref" href=
+                "../general/libexif.html" title=
+                "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
+                "../general/libstatgrab.html" title=
+                "libstatgrab-0.91">libstatgrab-0.91</a>, <a class="xref"
+                href="../postlfs/polkit.html" title=
+                "Polkit-0.114">Polkit-0.114</a>, <span class=
+                "phrase"><a class="xref" href="../postlfs/consolekit.html"
+                title="ConsoleKit2-1.0.2">ConsoleKit2-1.0.2</a>, <a class=
+                "xref" href="../general/pm-utils.html" title=
+                "pm-utils-1.4.1">pm-utils-1.4.1</a>,</span> <a class="xref"
+                href="../general/lm_sensors.html" title=
+                "lm_sensors-3.4.0">lm_sensors-3.4.0</a>, <a class="xref"
+                href="../general/upower.html" title=
+                "UPower-0.99.7">UPower-0.99.7</a> et <a class="xref" href=
+                "../lxde/libfm.html" title="libfm-1.3.0.2">libfm-1.3.0.2</a>.
+                Si <a class="xref" href="../general/cmake.html" title=
+                "CMake-3.12.0">CMake-3.12.0</a> n'a pas été construit durant
+                les étapes précédentes, construisez-le maintenant.
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Construisez les dépendances de KDE frameworks&nbsp;:
+                <a class="xref" href="../kde/extra-cmake-modules.html" title=
+                "extra-cmake-modules-5.46.0">extra-cmake-modules-5.46.0</a>,
+                <a class="xref" href="../kde/libdbusmenu-qt.html" title=
+                "libdbusmenu-qt-0.9.3+16.04.20160218">libdbusmenu-qt-0.9.3+16.04.20160218</a>
+                et <a class="xref" href="../kde/polkit-qt.html" title=
+                "Polkit-Qt-0.112.0">polkit-qt-0.112.0</a>
+              </p>
+            </li>
+            <li class="step">
+              <p>
+                Enfin, construisez certains utilitaires du bureau&nbsp;:
+                <a class="xref" href="../xsoft/xdg-utils.html" title=
+                "xdg-utils-1.1.3">xdg-utils-1.1.3</a> (requiert seulement
+                xmlto), <a class="xref" href="../general/xdg-user-dirs.html"
+                title="Xdg-user-dirs-0.17">Xdg-user-dirs-0.17</a>, <a class=
+                "xref" href="../x/oxygen-icons5.html" title=
+                "oxygen-icons5-5.46.0">oxygen-icons5-5.46.0</a> ou d'autres
+                ensembles d'icônes.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2017-10-27 16:21:45 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-desktop.html" title=
+          "Bureau LXQt">Précédent</a>
+          <p>
+            Bureau LXQt
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libqtxdg.html" title=
+          "libqtxdg-3.1.0">Suivant</a>
+          <p>
+            libqtxdg-3.1.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

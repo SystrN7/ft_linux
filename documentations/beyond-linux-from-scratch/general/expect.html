@@ -1,0 +1,636 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Expect-5.45.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="doxygen.html" title=
+          "Doxygen-1.8.15">Précédent</a>
+          <p>
+            Doxygen-1.8.15
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcc.html" title="GCC-8.2.0">Suivant</a>
+          <p>
+            GCC-8.2.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="expect" name="expect"></a>Expect-5.45.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Expect
+        </h2>
+        <p>
+          Le paquet <span class="application">Expect</span> a été installé
+          dans le répertoire des outils temporaires de LFS pour tester
+          d'autres paquets. Ces procédures l'installent de manière
+          permanente. Il contient des outils pour automatiser des
+          applications interactives telles que <span class=
+          "command"><strong>telnet</strong></span>, <span class=
+          "command"><strong>ftp</strong></span>, <span class=
+          "command"><strong>passwd</strong></span>, <span class=
+          "command"><strong>fsck</strong></span>, <span class=
+          "command"><strong>rlogin</strong></span>, <span class=
+          "command"><strong>tip</strong></span>, etc. <span class=
+          "application">Expect</span> est également utile pour tester ces
+          mêmes applications et pour faciliter toutes sortes de tâches
+          difficiles au point d'en être prohibitives avec autre chose.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz">
+                https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                00fce8de158422f5ccd2666512329bd2
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 624 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.2 Mo (avec les
+                tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU (avec les
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Expect
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="tcl.html" title="Tcl-8.6.9">Tcl-8.6.9</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="tk.html" title="Tk-8.6.9">Tk-8.6.9</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/expect">http://wiki.linuxfromscratch.org/blfs/wiki/expect</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Expect
+        </h2>
+        <p>
+          Installez <span class="application">Expect</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr           \
+            --with-tcl=/usr/lib     \
+            --enable-shared         \
+            --mandir=/usr/share/man \
+            --with-tclinclude=/usr/include &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make test</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+ln -svf expect5.45.4/libexpect5.45.4.so /usr/lib</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>-with-tcl=/usr/lib</code></em>&nbsp;:
+          Ce paramètre est utilisé pour dire au script <span class=
+          "command"><strong>configure</strong></span> où se trouve
+          <span class="command"><strong>tclConfig.sh</strong></span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-shared</code></em>&nbsp;:
+          Cette option active la construction de la bibliothèque partagée.
+        </p>
+        <p>
+          <span class="command"><strong>ln -sf ...</strong></span>&nbsp;:
+          Cette commande crée un lien requis vers la bibliothèque partagée.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de Expect
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="expect-config" name="expect-config"></a>Fichiers de
+            configuration
+          </h3>
+          <p>
+            <code class="filename">$exp_library/expect.rc</code> et
+            <code class="filename">~/.expect.rc</code>
+          </p>
+        </div>
+        <div class="sect3">
+          <h3 class="sect3">
+            Informations sur la configuration
+          </h3>
+          <p>
+            Référez-vous à la page de man de <span class=
+            "command"><strong>expect</strong></span> pour des informations
+            sur l'utilisation des fichiers de configuration de <code class=
+            "filename">expect.rc</code>. En outre, beaucoup d'outils contenus
+            dans le paquet <span class="application">Expect</span> vont
+            utiliser leurs propres fichiers de configuration. Référez-vous
+            aux pages de man qui les concerne, ou examinez le script
+            directement pour des informations sur le fichier de
+            configuration.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">autoexpect, autopasswd, cryptdir,
+              decryptdir, dislocate, expect, ftp-rfc, kibitz, lpunlock,
+              mkpasswd, passmass, rftp, rlogin-cwd, timed-read, timed-run,
+              unbuffer, weather, et potentiellement (si <span class=
+              "application">Expect</span> a été lié à <span class=
+              "application">Tk</span>), multixterm, tknewsbiff, tkpasswd,
+              xkibitz et xpstat</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libexpect5.45.4.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/lib/expect5.45.4</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="autoexpect" name="autoexpect"></a><span class=
+                    "term"><span class=
+                    "command"><strong>autoexpect</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    génère un script <span class="application">Expect</span>
+                    à partir de l'observation d'une session.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="autopasswd" name="autopasswd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>autopasswd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une enveloppe pour rendre <span class=
+                    "command"><strong>passwd</strong></span>(1) non
+                    interactif.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cryptdir" name="cryptdir"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cryptdir</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    chiffre tous les fichiers dans un répertoire.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="decryptdir" name="decryptdir"></a><span class=
+                    "term"><span class=
+                    "command"><strong>decryptdir</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    déchiffre tous les fichiers d'un répertoire.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dislocate" name="dislocate"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dislocate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    autorise les processus à être déconnectés et reconnectés
+                    à un terminal.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="expect-prog" name="expect-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>expect</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un programme qui <span class=
+                    "quote">«&nbsp;<span class=
+                    "quote">parle</span>&nbsp;»</span> à d'autres programmes
+                    interactifs selon un script.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ftp-rfc" name="ftp-rfc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ftp-rfc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    récupère le une RFC (ou l'index) depuis UUNET.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kibitz" name="kibitz"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kibitz</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    permet à deux personnes (ou plus) d'interagir avec un
+                    shell (ou un programme de leur choix).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lpunlock" name="lpunlock"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lpunlock</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    décroche une imprimante qui est suspendue sur
+                    <span class="quote">«&nbsp;<span class="quote">En attente
+                    de verrouillage</span>&nbsp;»</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkpasswd" name="mkpasswd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkpasswd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    génère des mots de passe et peut les appliquer
+                    automatiquement aux utilisateurs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="passmass" name="passmass"></a><span class=
+                    "term"><span class=
+                    "command"><strong>passmass</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    modifie un mot de passe sur plusieurs machines.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rftp" name="rftp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rftp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    ressemble beaucoup à <span class=
+                    "command"><strong>ftp</strong></span> sauf qu'il utilise
+                    <code class="option">~g</code> et <code class=
+                    "option">~p</code> au lieu de <code class=
+                    "option">mget</code> et <code class="option">mput</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rlogin-cwd" name="rlogin-cwd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rlogin-cwd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est <span class="command"><strong>rlogin</strong></span>
+                    sauf qu'il utilise le répertoire local actuel en tant que
+                    répertoire de travail actuel sur la machine distante.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="timed-read" name="timed-read"></a><span class=
+                    "term"><span class=
+                    "command"><strong>timed-read</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lit une ligne complète à partir de stdin et s'arrête
+                    après un nombre de secondes donné.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="timed-run" name="timed-run"></a><span class=
+                    "term"><span class=
+                    "command"><strong>timed-run</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lance un programme pour une durée donnée.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="unbuffer" name="unbuffer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>unbuffer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    désactive la mise en tampon de sortie qui se produit
+                    lorsque la sortie du programme est redirigée.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="weather" name="weather"></a><span class=
+                    "term"><span class=
+                    "command"><strong>weather</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    récupère un bulletin météo (merci à l'université du
+                    Michigan) pour une ville ou une zone géographique
+                    données.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="multixterm" name="multixterm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>multixterm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    crée plusieurs <span class=
+                    "command"><strong>xterms</strong></span> qui peuvent être
+                    pilotés ensemble ou séparément.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tknewsbiff" name="tknewsbiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tknewsbiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affiche une fenêtre lorsqu'il y a des nouvelles non lues
+                    sur vos newsgroups favoris et supprime la fenêtre après
+                    que vous avez lu les nouvelles.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tkpasswd" name="tkpasswd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tkpasswd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour modifier des mots de passe en
+                    utilisant <span class=
+                    "command"><strong>expect</strong></span> et <span class=
+                    "application">Tk</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xkibitz" name="xkibitz"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xkibitz</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    permet aux utilisateurs dans des <span class=
+                    "command"><strong>xterms</strong></span> séparés de
+                    partager un shell (ou n'importe quel programme qui
+                    s'exécute sur <span class=
+                    "command"><strong>xterm</strong></span>).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xpstat" name="xpstat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xpstat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script qui agit comme un front-end pour
+                    <span class="command"><strong>xpilot</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libexpect" name="libexpect"></a><span class=
+                    "term"><code class=
+                    "filename">libexpect5.45.4.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient des fonctions qui permettent à <span class=
+                    "application">Expect</span> d'être utilisées comme une
+                    extension <span class="application">Tcl</span> ou
+                    directement à partir de C ou de C++ (sans <span class=
+                    "application">Tcl</span>).
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 20:47:31 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="doxygen.html" title=
+          "Doxygen-1.8.15">Précédent</a>
+          <p>
+            Doxygen-1.8.15
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcc.html" title="GCC-8.2.0">Suivant</a>
+          <p>
+            GCC-8.2.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      libESMTP-1.0.6
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libdaemon.html" title=
+          "libdaemon-0.14">Précédent</a>
+          <p>
+            libdaemon-0.14
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libgcrypt.html" title=
+          "libgcrypt-1.8.4">Suivant</a>
+          <p>
+            libgcrypt-1.8.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="libesmtp" name="libesmtp"></a>libESMTP-1.0.6
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à libESMTP
+        </h2>
+        <p>
+          Le paquet <span class="application">libESMTP</span> contient les
+          bibliothèques <span class="application">libESMTP</span> qui sont
+          utilisées par certains programmes pour gérer l'envoi de messages
+          électroniques à un transporteur de messages.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2">http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                bf3915e627fd8f35524a8fdfeed979c8
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 364 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 7.1 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libesmtp">http://wiki.linuxfromscratch.org/blfs/wiki/libesmtp</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de libESMTP
+        </h2>
+        <p>
+          Corrigez un problème de construction avec OpenSSL-1.1.0&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed 's@SSL_library_init@SSL_new@g' -i configure.ac &amp;&amp;
+autoreconf -fi</kbd></pre>
+        <p>
+          Installez <span class="application">libESMTP</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">libesmtp-config</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libesmtp.{so,a} et les greffons SASL de
+              <span class="application">libESMTP</span></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/lib/esmtp-plugins</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libesmtp-config" name=
+                    "libesmtp-config"></a><span class="term"><span class=
+                    "command"><strong>libesmtp-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affiche des informations de version et les options
+                    utilisées pour compiler <span class=
+                    "application">libESMTP</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libesmtp-lib" name="libesmtp-lib"></a><span class=
+                    "term"><code class=
+                    "filename">libesmtp.{so,a}</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour gérer l'envoi de messages électroniques
+                    à un agent de transport du courrier.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libesmtp-plugins" name=
+                    "libesmtp-plugins"></a><span class="term"><code class=
+                    "filename">greffons SASL de libesmtp</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    sont utilisées pour intégrer <span class=
+                    "application">libesmtp</span> à l'authentification SASL.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-17 03:14:14 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libdaemon.html" title=
+          "libdaemon-0.14">Précédent</a>
+          <p>
+            libdaemon-0.14
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libgcrypt.html" title=
+          "libgcrypt-1.8.4">Suivant</a>
+          <p>
+            libgcrypt-1.8.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

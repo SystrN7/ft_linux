@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="general.html" title=
+          "Bibliothèques et outils généraux">Précédent</a>
+          <p>
+            Bibliothèques et outils généraux
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="apr.html" title="Apr-1.6.5">Suivant</a>
+          <p>
+            Apr-1.6.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="fr" xml:lang="fr">
+      <h1 class="chapter">
+        <a id="general-genlib" name="general-genlib"></a>Bibliothèques
+        générales
+      </h1>
+      <p>
+        Les bibliothèques contiennent du code qui est souvent exigé par un ou
+        plusieurs programmes. Ceci a l'avantage que chaque programme n'a pas
+        besoin de dupliquer du code (risquant d'introduire des bogues), il
+        n'a qu'à appeler des fonctions de la bibliothèque installée sur le
+        système. L'exemple le plus parlant d'un ensemble de bibliothèques est
+        <span class="application">Glibc</span> qui est installée dans le
+        livre LFS. Elle contient toutes les fonctions de la bibliothèque
+        <span class="application">C</span> utilisées par les programmes.
+      </p>
+      <p>
+        Il y a deux types de bibliothèques&nbsp;: celles statiques et celles
+        partagées. Les bibliothèques partagées (en général <code class=
+        "filename">libXXX.so</code>) sont chargées en mémoire à partir d'une
+        copie partagée au moment de l'exécution (d'où leur nom). Les
+        bibliothèques statiques (<code class="filename">libXXX.a</code>) sont
+        liées en définitive au fichier exécutable du programme lui-même,
+        rendant ainsi le fichier du programme plus gros. Le plus souvent,
+        vous trouverez à la fois des copies statiques et partagées de la même
+        bibliothèque sur votre système.
+      </p>
+      <p>
+        En général, vous n'avez besoin d'installer des bibliothèques que
+        lorsque vous installez un logiciel qui a besoin de la fonctionnalité
+        qu'elle fournit. Dans le livre BLFS, chaque paquet est présenté avec
+        une liste de dépendances (connues). Ainsi, vous pouvez savoir de
+        quelles bibliothèques vous avez besoin avant l'installation de tel
+        programme. Si vous installez quelque chose sans utiliser les
+        instructions de BLFS, le fichier <code class="filename">README</code>
+        ou <code class="filename">INSTALL</code> contiendra généralement les
+        détails des prérequis du programme.
+      </p>
+      <p>
+        Il y a des bibliothèques dont presque <span class="emphasis"><em>tout
+        le monde</em></span> aura besoin à un moment ou un autre. Dans ce
+        chapitre, celles-ci ainsi que d'autres sont listés et il est expliqué
+        pourquoi il se peut que vous vouliez les installer.
+      </p>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="apr.html">Apr-1.6.5</a>
+          </li>
+          <li class="sect1">
+            <a href="apr-util.html">Apr-Util-1.6.1</a>
+          </li>
+          <li class="sect1">
+            <a href="aspell.html">Aspell-0.60.6.1</a>
+          </li>
+          <li class="sect1">
+            <a href="boost.html">Boost-1.69.0</a>
+          </li>
+          <li class="sect1">
+            <a href="clucene.html">CLucene-2.3.3.4</a>
+          </li>
+          <li class="sect1">
+            <a href="dbus-glib.html">dbus-glib-0.110</a>
+          </li>
+          <li class="sect1">
+            <a href="enchant.html">enchant-2.2.3</a>
+          </li>
+          <li class="sect1">
+            <a href="exempi.html">Exempi-2.5.0</a>
+          </li>
+          <li class="sect1">
+            <a href="fftw.html">fftw-3.3.8</a>
+          </li>
+          <li class="sect1">
+            <a href="glib2.html">GLib-2.58.3</a>
+          </li>
+          <li class="sect1">
+            <a href="glibmm.html">GLibmm-2.58.0</a>
+          </li>
+          <li class="sect1">
+            <a href="gmime.html">GMime-2.6.23</a>
+          </li>
+          <li class="sect1">
+            <a href="gmime3.html">GMime-3.2.3</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gobject-introspection.html">gobject-introspection-1.58.3</a>
+          </li>
+          <li class="sect1">
+            <a href="grantlee.html">Grantlee-5.1.0</a>
+          </li>
+          <li class="sect1">
+            <a href="gsl.html">Gsl-2.5</a>
+          </li>
+          <li class="sect1">
+            <a href="icu.html">ICU-63.1</a>
+          </li>
+          <li class="sect1">
+            <a href="jansson.html">Jansson-2.12</a>
+          </li>
+          <li class="sect1">
+            <a href="js52.html">JS-52.2.1gnome1</a>
+          </li>
+          <li class="sect1">
+            <a href="js60.html">JS-60.1.0</a>
+          </li>
+          <li class="sect1">
+            <a href="json-c.html">JSON-C-0.13.1</a>
+          </li>
+          <li class="sect1">
+            <a href="json-glib.html">JSON-GLib-1.4.4</a>
+          </li>
+          <li class="sect1">
+            <a href="keyutils.html">keyutils-1.6</a>
+          </li>
+          <li class="sect1">
+            <a href="libaio.html">libaio-0.3.111</a>
+          </li>
+          <li class="sect1">
+            <a href="libarchive.html">libarchive-3.3.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libassuan.html">libassuan-2.5.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libatasmart.html">libatasmart-0.19</a>
+          </li>
+          <li class="sect1">
+            <a href="libatomic_ops.html">libatomic_ops-7.6.8</a>
+          </li>
+          <li class="sect1">
+            <a href="libblockdev.html">libblockdev-2.20</a>
+          </li>
+          <li class="sect1">
+            <a href="libbytesize.html">libbytesize-1.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libcroco.html">libcroco-0.6.12</a>
+          </li>
+          <li class="sect1">
+            <a href="libdaemon.html">libdaemon-0.14</a>
+          </li>
+          <li class="sect1">
+            <a href="libesmtp.html">libESMTP-1.0.6</a>
+          </li>
+          <li class="sect1">
+            <a href="libgcrypt.html">libgcrypt-1.8.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libgpg-error.html">libgpg-error-1.35</a>
+          </li>
+          <li class="sect1">
+            <a href="libgsf.html">libgsf-1.14.45</a>
+          </li>
+          <li class="sect1">
+            <a href="libgudev.html">libgudev-232</a>
+          </li>
+          <li class="sect1">
+            <a href="libgusb.html">libgusb-0.3.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libical.html">libical-3.0.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libidn.html">libidn-1.35</a>
+          </li>
+          <li class="sect1">
+            <a href="libidn2.html">libidn2-2.1.1</a>
+          </li>
+          <li class="sect1">
+            <a href="libiodbc.html">libiodbc-3.52.12</a>
+          </li>
+          <li class="sect1">
+            <a href="libksba.html">libksba-1.3.5</a>
+          </li>
+          <li class="sect1">
+            <a href="liblinear.html">liblinear-221</a>
+          </li>
+          <li class="sect1">
+            <a href="libmbim.html">libmbim-1.18.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libpaper.html">libpaper-1.1.24+nmu5</a>
+          </li>
+          <li class="sect1">
+            <a href="libqmi.html">libqmi-1.22.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libseccomp.html">libseccomp-2.3.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libsigc.html">libsigc++-2.10.1</a>
+          </li>
+          <li class="sect1">
+            <a href="libsigsegv.html">libsigsegv-2.12</a>
+          </li>
+          <li class="sect1">
+            <a href="libssh2.html">libssh2-1.8.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libstatgrab.html">libstatgrab-0.91</a>
+          </li>
+          <li class="sect1">
+            <a href="libtasn1.html">libtasn1-4.13</a>
+          </li>
+          <li class="sect1">
+            <a href="libunique.html">libunique-1.1.6</a>
+          </li>
+          <li class="sect1">
+            <a href="libunistring.html">libunistring-0.9.10</a>
+          </li>
+          <li class="sect1">
+            <a href="libusb.html">libusb-1.0.22</a>
+          </li>
+          <li class="sect1">
+            <a href="libuv.html">libuv-1.26.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libxkbcommon.html">libxkbcommon-0.8.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libxml2.html">libxml2-2.9.9</a>
+          </li>
+          <li class="sect1">
+            <a href="libxslt.html">libxslt-1.1.33</a>
+          </li>
+          <li class="sect1">
+            <a href="lzo.html">LZO-2.10</a>
+          </li>
+          <li class="sect1">
+            <a href="mtdev.html">mtdev-1.1.5</a>
+          </li>
+          <li class="sect1">
+            <a href="nodejs.html">Node.js-10.15.1</a>
+          </li>
+          <li class="sect1">
+            <a href="npth.html">npth-1.6</a>
+          </li>
+          <li class="sect1">
+            <a href="nspr.html">NSPR-4.20</a>
+          </li>
+          <li class="sect1">
+            <a href="pcre.html">PCRE-8.42</a>
+          </li>
+          <li class="sect1">
+            <a href="pcre2.html">PCRE2-10.32</a>
+          </li>
+          <li class="sect1">
+            <a href="popt.html">Popt-1.16</a>
+          </li>
+          <li class="sect1">
+            <a href="pth.html">Pth-2.0.7</a>
+          </li>
+          <li class="sect1">
+            <a href="ptlib.html">Ptlib-2.10.11</a>
+          </li>
+          <li class="sect1">
+            <a href="qca.html">Qca-2.1.3</a>
+          </li>
+          <li class="sect1">
+            <a href="talloc.html">Talloc-2.1.15</a>
+          </li>
+          <li class="sect1">
+            <a href="wayland.html">Wayland-1.16.0</a>
+          </li>
+          <li class="sect1">
+            <a href="wayland-protocols.html">Wayland-Protocols-1.17</a>
+          </li>
+          <li class="sect1">
+            <a href="wv.html">wv-1.2.9</a>
+          </li>
+          <li class="sect1">
+            <a href="xapian.html">Xapian-1.4.10</a>
+          </li>
+          <li class="sect1">
+            <a href="yaml.html">YAML-0.2.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="general.html" title=
+          "Bibliothèques et outils généraux">Précédent</a>
+          <p>
+            Bibliothèques et outils généraux
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="apr.html" title="Apr-1.6.5">Suivant</a>
+          <p>
+            Apr-1.6.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Partie&nbsp;III.&nbsp;Bibliothèques et outils généraux">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

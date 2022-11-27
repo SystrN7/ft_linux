@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      ConsoleKit2-1.2.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;4.&nbsp;Sécurité
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="make-ca.html" title=
+          "make-ca-1.2">Précédent</a>
+          <p>
+            make-ca-1.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cracklib.html" title=
+          "CrackLib-2.9.6">Suivant</a>
+          <p>
+            CrackLib-2.9.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="consolekit" name="consolekit"></a>ConsoleKit2-1.2.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à ConsoleKit
+        </h2>
+        <p>
+          Le paquet <span class="application">ConsoleKit</span> est un
+          environnement pour garder une trace des différents utilisateurs,
+          des sessions, et des places présents sur un système. Il offre aux
+          logiciels un mécanisme pour réagir aux modifications de ces
+          éléments ou d'une des métadonnées qui y est associées.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/Consolekit2/ConsoleKit2/releases/download/1.2.1/ConsoleKit2-1.2.1.tar.bz2">
+                https://github.com/Consolekit2/ConsoleKit2/releases/download/1.2.1/ConsoleKit2-1.2.1.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                17d31475f9b08969e55ea60750f4f219
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 1.1 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 18 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de ConsoleKit
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.110">dbus-glib-0.110</a> et <a class="xref" href=
+          "../x/x7lib.html" title="Bibliothèques Xorg">Bibliothèques Xorg</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="linux-pam.html" title=
+          "Linux-PAM-1.3.0">Linux-PAM-1.3.0</a>, <a class="xref" href=
+          "polkit.html" title="Polkit-0.115">Polkit-0.115</a> et <a class=
+          "xref" href="../general/pm-utils.html" title=
+          "pm-utils-1.4.1">pm-utils-1.4.1</a> (dépendance à l'exécution qui
+          permet à ConsoleKit2 de mettre le système en veille (<span class=
+          "quote">«&nbsp;<span class="quote">Suspend</span>&nbsp;»</span>) ou
+          en <span class="quote">«&nbsp;<span class=
+          "quote">Hibernation</span>&nbsp;»</span>)
+        </p>
+        <div class="admon warning">
+          <img alt="[Avertissement]" src="../images/warning.png" />
+          <h3>
+            Avertissement
+          </h3>
+          <p>
+            Si vous prévoyez de <span class="strong"><strong>NE
+            PAS</strong></span> installer <span class=
+            "application">polkit</span>, vous devrez éditer le fichier
+            ConsoleKit.conf à la main pour verrouiller le service. Ne pas le
+            faire peut être un énorme TROU DE SÉCURITÉ.
+          </p>
+        </div>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../pst/xmlto.html" title=
+          "xmlto-0.0.28">xmlto-0.0.28</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/consolekit">http://wiki.linuxfromscratch.org/blfs/wiki/consolekit</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de ConsoleKit
+        </h2>
+        <p>
+          Installez <span class="application">ConsoleKit</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --enable-udev-acl    \
+            --enable-pam-module  \
+            --enable-polkit      \
+            --with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
+            --docdir=/usr/share/doc/ConsoleKit-1.2.1           \
+            --with-systemdsystemunitdir=no                     &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+
+mv -v /etc/X11/app-defaults/xinitrc.d/90-consolekit{,.sh}</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--enable-udev-acl</code></em>&nbsp;: Ce
+          paramètre active la construction des outils <span class=
+          "command"><strong>udev-acl</strong></span> qui sont utilisés pour
+          autoriser les utilisateurs normaux à accéder aux noeuds de
+          périphérique qui sont normalement accessibles seulement pas
+          l'utilisateur <code class="systemitem">root</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-pam-module</code></em>&nbsp;:
+          Ce paramètre active la construction du module <span class=
+          "application">PAM</span> de <span class=
+          "application">ConsoleKit</span> qui est nécessaire à <span class=
+          "application">ConsoleKit</span> pour fonctionner correctement avec
+          <span class="application">PAM</span>. Supprimez cette option si
+          <span class="application">Linux-PAM</span> n'est <span class=
+          "strong"><strong>PAS</strong></span> installé.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-polkit</code></em>&nbsp;:
+          Active le support PolicyKit.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d</code></em>&nbsp;:
+          Corrige l’emplacement du script 90-consolekit.sh. Notez que le
+          script a été renommé, après l'installation car xinitrc source les
+          noms de scripts se terminant avec l'extension <span class=
+          "emphasis"><em>.sh</em></span>.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--with-systemdsystemunitdir=no</code></em>&nbsp;:
+          Désactive la construction avec les bibliothèques systemd.
+        </p>
+        <p>
+          <code class="option">--enable-docbook-docs</code>&nbsp;: Utilisez
+          ce paramètre si <span class="application">xmlto</span> est installé
+          et si vous souhaitez construire la documentation de l'API.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configurer ConsoleKit
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            Configuration du module PAM
+          </h3>
+          <p>
+            Si vous utilisez <span class="application">Linux PAM</span>, il
+            est nécessaire de le configurer pour activer <span class=
+            "application">ConsoleKit</span> lors de la connexion de
+            l'utilisateur. Cela peut être fait en éditant le fichier
+            <code class="filename">/etc/pam.d/system-session</code> en tant
+            qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt;&gt; /etc/pam.d/system-session &lt;&lt; "EOF"
+<code class="literal"># Begin ConsoleKit addition
+
+session   optional    pam_loginuid.so
+session   optional    pam_ck_connector.so nox11
+
+# End ConsoleKit addition</code>
+EOF</kbd></pre>
+          <p>
+            Vous aurez également besoin d'un script d'aide qui crée un
+            fichier dans <code class="filename">/var/run/console</code>
+            appelé avec l'utilisateur actuellement connecté et qui contient
+            l'adresse <span class="application">D-Bus</span> de la session.
+            Vous pouvez créer le script avec les commandes suivantes en tant
+            qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt; /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck &lt;&lt; "EOF"
+#!/bin/sh
+TAGDIR=/var/run/console
+
+[ -n "$CK_SESSION_USER_UID" ] || exit 1
+[ "$CK_SESSION_IS_LOCAL" = "true" ] || exit 0
+
+TAGFILE="$TAGDIR/`getent passwd $CK_SESSION_USER_UID | cut -f 1 -d:`"
+
+if [ "$1" = "session_added" ]; then
+    mkdir -p "$TAGDIR"
+    echo "$CK_SESSION_ID" &gt;&gt; "$TAGFILE"
+fi
+
+if [ "$1" = "session_removed" ] &amp;&amp; [ -e "$TAGFILE" ]; then
+    sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
+    [ -s "$TAGFILE" ] || rm -f "$TAGFILE"
+fi
+EOF
+chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd></pre>
+          <p>
+            Voyez /usr/share/doc/ConsoleKit/spec/ConsoleKit.html pour plus de
+            détails.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">ck-history, ck-launch-session et
+              ck-list-sessions</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libconsolekit.so, libck-connector.so et
+              pam_ck_connector.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/etc/ConsoleKit,
+              /usr/{include,lib}/ConsoleKit,
+              /usr/share/doc/ihtml/ConsoleKit-1.2.1 et
+              /var/{log,run}/ConsoleKit</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-history" name="ck-history"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ck-history</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un utilitaire qui fournit des informations sur la
+                    base de données ConsoleKit pour savoir qui est identifié
+                    sur le système.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-launch-session" name=
+                    "ck-launch-session"></a><span class="term"><span class=
+                    "command"><strong>ck-launch-session</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un utilitaire pour démarrer une commande dans sa
+                    propre session ConsoleKit.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-list-sessions" name=
+                    "ck-list-sessions"></a><span class="term"><span class=
+                    "command"><strong>ck-list-sessions</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    liste les sessions avec leurs propriétés respectives.
+                    Également bien pour le débogage.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-log-system-restart" name=
+                    "ck-log-system-restart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ck-log-system-restart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    écrit le redémarrage du système dans le log.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-log-system-start" name=
+                    "ck-log-system-start"></a><span class="term"><span class=
+                    "command"><strong>ck-log-system-start</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    écrit le démarrage du système dans le log.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-log-system-stop" name=
+                    "ck-log-system-stop"></a><span class="term"><span class=
+                    "command"><strong>ck-log-system-stop</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    écrit l'arrêt du système dans le log.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="console-kit-daemon" name=
+                    "console-kit-daemon"></a><span class="term"><span class=
+                    "command"><strong>console-kit-daemon</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le démon <span class="application">ConsoleKit</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-17 18:23:01 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="make-ca.html" title=
+          "make-ca-1.2">Précédent</a>
+          <p>
+            make-ca-1.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cracklib.html" title=
+          "CrackLib-2.9.6">Suivant</a>
+          <p>
+            CrackLib-2.9.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

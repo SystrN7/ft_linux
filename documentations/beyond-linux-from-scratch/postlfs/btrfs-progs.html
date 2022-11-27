@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      btrfs-progs-4.20.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;5.&nbsp;Systèmes de fichiers et gestion de disque
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="initramfs.html" title=
+          "À propos de initramfs">Précédent</a>
+          <p>
+            À propos de initramfs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dosfstools.html" title=
+          "dosfstools-4.1">Suivant</a>
+          <p>
+            dosfstools-4.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="filesystems.html" title=
+          "Chapitre&nbsp;5.&nbsp;Systèmes de fichiers et gestion de disque">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="btrfs-progs" name="btrfs-progs"></a>btrfs-progs-4.20.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à btrfs-progs
+        </h2>
+        <p>
+          Le paquet <span class="application">btrfs-progs</span> contient les
+          outils d'administration et de débogage pour le système de fichier
+          en B-arbre (btrfs).
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.20.1.tar.xz">
+                https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.20.1.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                9aa0a16236c7087ded08425c7256044f
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 1.9 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 55 Mo (plus 105
+                Mo pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU (plus 10
+                SBU pour les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Btrfs-progs
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/lzo.html" title=
+          "LZO-2.10">LZO-2.10</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/asciidoc.html" title=
+          "Asciidoc-8.6.9">asciidoc-8.6.9</a> et <a class="xref" href=
+          "../pst/xmlto.html" title="xmlto-0.0.28">xmlto-0.0.28</a> (les deux
+          requièrent de générer les pages de manuel)
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="lvm2.html" title=
+          "LVM2-2.03.02">LVM2-2.03.02</a> (<span class=
+          "command"><strong>dmsetup</strong></span> est utilisé dans les
+          tests), <a class="xref" href="../general/python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a> (pour les liaisons python),
+          <a class="xref" href="reiserfs.html" title=
+          "reiserfsprogs-3.6.27">reiserfsprogs-3.6.27</a> (pour les tests) et
+          <a class="ulink" href=
+          "https://github.com/facebook/zstd/releases/">zstd</a> (pour les
+          tests)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xfs">http://wiki.linuxfromscratch.org/blfs/wiki/xfs</a>
+        </p>
+      </div>
+      <div class="kernel" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="btrfs-progs-kernel" name=
+          "btrfs-progs-kernel"></a>Configuration du noyau
+        </h2>
+        <p>
+          Activez les options suivantes dans la configuration du noyau et
+          recompilez le noyau&nbsp;:
+        </p>
+        <pre class="screen"><code class="literal">File systems ---&gt;
+  &lt;*/M&gt; Btrfs filesystem support [CONFIG_BTRFS_FS]</code></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            CONFIG_BTRFS_FS_POSIX_ACL et CONFIG_REISERFS_FS_XATTR sont requis
+            pour certains tests. Les autres options Btrfs dans le noyau sont
+            facultatives.
+          </p>
+        </div>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de btrfs-progs
+        </h2>
+        <p>
+          Installez <span class="application">btrfs-progs</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr  \
+            --bindir=/bin  \
+            --libdir=/lib  \
+            --disable-zstd &amp;&amp;
+make</kbd></pre>
+        <p>
+          Avant de lancer les tests, construisez un programme support et
+          désactivez certains qui échouent&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">make fssum &amp;&amp;
+
+sed -i '/found/s/^/: #/' tests/convert-tests.sh &amp;&amp;
+
+mv tests/mkfs-tests/013-reserved-1M-for-single/test.sh{,.broken}          &amp;&amp;
+mv tests/convert-tests/010-reiserfs-basic/test.sh{,.broken}               &amp;&amp;
+mv tests/convert-tests/011-reiserfs-delete-all-rollback/test.sh{,.broken} &amp;&amp;
+mv tests/convert-tests/012-reiserfs-large-hole-extent/test.sh{,.broken}   &amp;&amp;
+mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken}  &amp;&amp;
+mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken}       &amp;&amp;
+mv tests/misc-tests/004-shrink-fs/test.sh{,.broken}                       &amp;&amp;
+mv tests/misc-tests/013-subvolume-sync-crash/test.sh{,.broken}            &amp;&amp;
+mv tests/misc-tests/025-zstd-compression/test.sh{,.broken}                &amp;&amp;
+mv tests/fuzz-tests/003-multi-check-unmounted/test.sh{,.broken}           &amp;&amp;
+mv tests/fuzz-tests/009-simple-zero-log/test.sh{,.broken}</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez (en tant qu'utilisateur
+          <code class="systemitem">root</code>)&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">pushd tests
+   ./fsck-tests.sh
+   ./mkfs-tests.sh
+   ./cli-tests.sh
+   ./convert-tests.sh
+   ./misc-tests.sh
+   ./fuzz-tests.sh
+popd</kbd></pre>
+        <p>
+          Installez le paquet en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+
+ln -sfv ../../lib/$(readlink /lib/libbtrfs.so) /usr/lib/libbtrfs.so &amp;&amp;
+ln -sfv ../../lib/$(readlink /lib/libbtrfsutil.so) /usr/lib/libbtrfsutil.so &amp;&amp;
+rm -fv /lib/libbtrfs.{a,so} /lib/libbtrfsutil.{a,so} &amp;&amp;
+mv -v /bin/{mkfs,fsck}.btrfs /sbin</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <code class="option">--disable-documentation</code>&nbsp;: Cette
+          option est requise si les dépendances recommandées ne sont pas
+          installées.
+        </p>
+        <p>
+          <span class="command"><strong>mv
+          tests/{cli,convert,misc,fuzz}-tests/ ...</strong></span>&nbsp;:
+          Désactive des tests qui échouent et empêchent la suite de tests de
+          se terminer.
+        </p>
+        <p>
+          <span class="command"><strong>ln -s ...
+          /usr/lib/libbtrfs.so</strong></span>&nbsp;: Crée un lien symbolique
+          dans le répertoire où il est attendu.
+        </p>
+        <p>
+          <span class="command"><strong>rm
+          /lib/libbtrfs.{a,so}</strong></span>&nbsp;: Supprime des entrées de
+          bibliothèques inutiles.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">btrfs, btrfs-convert, btrfs-find-root,
+              btrfs-image, btrfs-map-logical, btrfs-select-super, btrfsck
+              (lien vers btrfs), btrfstune, fsck.btrfs et mkfs.btrfs</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libbtrfs.so et libbtrfsutil.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/btrfs</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfs-prog" name="btrfs-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>btrfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est l'interface principale dans les opérations du système
+                    de fichiers btrfs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfs-convert" name=
+                    "btrfs-convert"></a><span class="term"><span class=
+                    "command"><strong>btrfs-convert</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    convertit un système de fichier depuis ext2/3/4 vers
+                    btrfs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfs-find-root" name=
+                    "btrfs-find-root"></a><span class="term"><span class=
+                    "command"><strong>btrfs-find-root</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un filtre pour trouver la racine btrfs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfs-map-logical" name=
+                    "btrfs-map-logical"></a><span class="term"><span class=
+                    "command"><strong>btrfs-map-logical</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    relie les espaces logiques btrfs aux espaces physiques.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfs-select-super" name=
+                    "btrfs-select-super"></a><span class="term"><span class=
+                    "command"><strong>btrfs-select-super</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    écrase les super-blocs principaux avec une copie de
+                    sauvegarde.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="btrfstune" name="btrfstune"></a><span class=
+                    "term"><span class=
+                    "command"><strong>btrfstune</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affine divers paramètres du système de fichier
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fsck.btrfs" name="fsck.btrfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fsck.btrfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    ne fait rien, mais est présent pour être cohérent avec
+                    fstab.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkfs.btrfs" name="mkfs.btrfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkfs.btrfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    crée un système de fichier btrfs.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-17 03:14:14 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="initramfs.html" title=
+          "À propos de initramfs">Précédent</a>
+          <p>
+            À propos de initramfs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dosfstools.html" title=
+          "dosfstools-4.1">Suivant</a>
+          <p>
+            dosfstools-4.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="filesystems.html" title=
+          "Chapitre&nbsp;5.&nbsp;Systèmes de fichiers et gestion de disque">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

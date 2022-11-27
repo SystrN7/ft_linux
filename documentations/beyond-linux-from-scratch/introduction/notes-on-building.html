@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Remarques sur la construction de logiciels
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;2.&nbsp;Informations importantes
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="important.html" title=
+          "Informations importantes">Précédent</a>
+          <p>
+            Informations importantes
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="position.html" title=
+          "Le débat /usr contre /usr/local">Suivant</a>
+          <p>
+            Le débat /usr contre /usr/local
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapitre&nbsp;2.&nbsp;Informations importantes">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="unpacking" name="unpacking"></a>Remarques sur la construction
+        de logiciels
+      </h1>
+      <p>
+        Il se peut que les gens qui ont construit un système LFS connaissent
+        les principes généraux du téléchargement et du déballage de logiciel.
+        Certaines de ces informations sont répétées ici pour les nouveaux qui
+        construisent leurs propres logiciels.
+      </p>
+      <p>
+        Chaque groupe d'instructions d'installation contient une adresse Web
+        depuis laquelle vous pouvez télécharger le paquet. Les correctifs
+        cependant, sont enregistrés sur les serveurs LFS et sont disponibles
+        via HTTP. Ils sont référencés comme nécessaires dans les instructions
+        d'installation.
+      </p>
+      <p>
+        Si vous pouvez mettre les fichiers sources là où vous voulez, nous
+        supposons que vous avez déballé le paquet et êtes allé dans le
+        répertoire créé par le processus de déballage (le répertoire de
+        'construction'). Nous supposons aussi que vous avez décompressé les
+        correctifs requis et qu'ils sont dans le répertoire de niveau
+        immédiatement supérieur au répertoire de 'construction'.
+      </p>
+      <p>
+        Nous ne saurions que trop vous recommander de démarrer àpartir d'une
+        <span class="emphasis"><em>arborescence de sources propre</em></span>
+        à chaque fois. Cela veut dire que si vous avez eu une erreur lors de
+        la configuration ou de la compilation, il est généralement préférable
+        d'effacer l'arborescence des sources et de la redéballer <span class=
+        "emphasis"><em>avant</em></span> de réessayer. Cela ne s'applique
+        évidemment pas si vous êtes un utilisateur avancé habitué à modifier
+        les <code class="filename">Makefile</code>s et le code C, mais si
+        vous avez un doute, commencez à partir d'une arborescence propre.
+      </p>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Construction de logiciels en tant qu'utilisateur non privilégié
+          (non root)
+        </h2>
+        <p>
+          La règle d'or de l'administration d'un système Unix est de
+          n'utiliser vos super-pouvoirs que si nécessaire. D'où la
+          recommandation de BLFS de construire les logiciels en tant
+          qu'utilisateur non privilégié et de ne devenir l'utilisateur
+          <code class="systemitem">root</code> que lors de l'installation du
+          logiciel. On suit cette philosophie dans tous les paquets du livre.
+          Sauf spécifications contraires, toutes les instructions devraient
+          être exécutées en tant qu'utilisateur non privilégié. Le livre vous
+          conseillera sur les instructions qui ont besoin des privilèges
+          <code class="systemitem">root</code>.
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Déballer le logiciel
+        </h2>
+        <p>
+          S'il y a un fichier compressé au format <code class=
+          "filename">.tar</code>, on le déballe en utilisant une des
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">tar -xvf filename.tar.gz
+tar -xvf filename.tgz
+tar -xvf filename.tar.Z
+tar -xvf filename.tar.bz2</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Vous pouvez ne pas utiliser le paramètre <code class=
+            "option">v</code> dans les commandes décrites ci-dessus et
+            ci-dessous si vous souhaitez supprimer le listage verbeux de tous
+            les fichiers de l'archive au fur et à mesure qu'ils sont
+            extraits. Cela peut aider à accélérer l'extraction mais aussi
+            rendre la compréhension des erreurs produites pendant
+            l'extraction moins évidentes.
+          </p>
+        </div>
+        <p>
+          Vous pouvez utiliser aussi une méthode légèrement différente&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">bzcat filename.tar.bz2 | tar -xv</kbd></pre>
+        <p>
+          Enfin, vous avez parfois besoin de déballer des correctifs qui ne
+          sont généralement pas au format <code class="filename">.tar</code>.
+          La meilleure manière de faire cela est de copier le chemin du
+          fichier dans le parent du répertoire de 'construction' puis
+          d'exécuter une des commandes suivantes selon que le fichier est un
+          <code class="filename">.gz</code> ou un <code class=
+          "filename">.bz2</code>&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">gunzip -v patchname.gz
+bunzip2 -v patchname.bz2</kbd></pre>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Vérifier l'intégrité des fichiers en utilisant 'md5sum'
+        </h2>
+        <p>
+          En général, pour vérifier que le fichier téléchargé est authentique
+          et complet, de nombreux mainteneurs de paquets distribuent aussi
+          des sommes md5 des fichiers. Pour vérifier la somme md5 des
+          fichiers téléchargés, téléchargez à la fois le fichier et le
+          fichier md5sum correspondant dans le même répertoire (de préférence
+          à partir d'emplacements différents en ligne) et (en supposant que
+          <code class="filename">file.md5sum</code> est le fichier md5sum
+          téléchargé), lancez la commande suivante&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">md5sum -c file.md5sum</kbd></pre>
+        <p>
+          S'il y a une erreur, elle sera signalée. Remarquez que le livre
+          BLFS comprend les sommes md5 de tous les fichiers sources. Pour
+          utiliser les sommes md5 fournies par BLFS, vous pouvez créer un
+          <code class="filename">file.md5sum</code> (mettez les données
+          md5sum et le nom exact du fichier téléchargé sur la même ligne d'un
+          fichier, séparés par un espace blanc), et lancez la commande
+          montrée ci-dessus. Sinon, lancez simplement la commande décrite
+          ci-dessus et comparez la sortie avec les données de somme md5
+          inscrites dans le livre BLFS.
+        </p>
+        <pre class="userinput"><kbd class="command">md5sum <em class=
+        "replaceable"><code>&lt;name_of_downloaded_file&gt;</code></em></kbd></pre>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Créer des fichiers journaux pendant l'installation
+        </h2>
+        <p>
+          Pour les gros paquets, il est commode de créer des fichiers
+          journaux plutôt que de dévisager l'écran en espérant récupérer une
+          erreur ou un avertissement particulier. Les fichiers journaux sont
+          aussi utiles pour déboguer et garder des enregistrements. La
+          commande suivante vous permet de créer un journal d'installation.
+          Remplacez <em class=
+          "replaceable"><code>&lt;commande&gt;</code></em> par la commande
+          que vous cherchez à exécuter.
+        </p>
+        <pre class="userinput"><kbd class="command">( <em class=
+        "replaceable"><code>&lt;command&gt;</code></em> 2&gt;&amp;1 | tee compile.log &amp;&amp; exit $PIPESTATUS )</kbd></pre>
+        <p>
+          <code class="option">2&gt;&amp;1</code> redirige les messages
+          d'erreur vers le même endroit que la sortie standard. La commande
+          <span class="command"><strong>tee</strong></span> vous permet de
+          voir la sortie en journalisant les résultats dans un fichier. Les
+          parenthèses autour de la commande exécutent toute la commande dans
+          un sous-shell et, enfin, la commande <span class=
+          "command"><strong>exit $PIPESTATUS</strong></span> s'assure que
+          c'est bien le résultat de <em class=
+          "replaceable"><code>&lt;commande&gt;</code></em> qui est retourné
+          et pas le résultat de la commande <span class=
+          "command"><strong>tee</strong></span>.
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="parallel-builds" name="parallel-builds"></a>Utilisation de
+          processeurs multiples
+        </h2>
+        <p>
+          Pour la plupart des systèmes modernes avec des processeurs
+          multiples (ou cœurs) le temps de compilation pour un paquet peut
+          être réduit en effectuant une «&nbsp;construction parallèle&nbsp;»
+          soit en initialisant une variable d'environnement, soit en disant
+          au programme make combien de processeurs sont disponibles. Par
+          exemple, un Core2Duo peut supporter deux processus simultanés
+          avec&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export MAKEFLAGS='-j2'</kbd></pre>
+        <p>
+          ou en compilant simplement avec&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">make -j2</kbd></pre>
+        <p>
+          Généralement le nombre de processus ne doit pas dépasser le nombre
+          de cœurs supportés par le CPU. Pour lister les processeurs de votre
+          système, tapez : <strong class="userinput"><code>grep processor
+          /proc/cpuinfo</code></strong>.
+        </p>
+        <p>
+          Dans certains cas, l'utilisation de processeurs multiples peut
+          amener dans une sorte de «&nbsp;course&nbsp;» où le succès de la
+          construction dépend de l'ordre des commandes lancées par le
+          programme <span class="command"><strong>make</strong></span>. Par
+          exemple, si un exécutable demande un fichier A et un fichier B,
+          essayer de lier le programme avant qu'un des composants dépendants
+          ne soit disponible aboutira à un échec. Cela arrive en général
+          quand les développeurs n'ont pas correctement désigné tous les
+          prérequis utiles pour accomplir une étape du Makefile.
+        </p>
+        <p>
+          Si cela arrive, la meilleure chose à faire est de recommencer la
+          construction avec un seul processeur. En ajoutant «&nbsp;-j1&nbsp;»
+          à une commande make, cela écrasera l'initialisation similaire dans
+          une variable d'environnement MAKEFLAGS.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Lorsque vous lancez les tests du paquet ou l'installation du
+            paquet, nous ne recommandons pas d'utiliser une option plus
+            grande que «&nbsp;-j1&nbsp;» à moins que cela ne soit indiqué. La
+            procédure d'installation et les tests n'ont pas été validés avec
+            des processus en parallèle et peuvent échouer avec des problème
+            difficiles à déboguer.
+          </p>
+        </div>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="automating-builds" name="automating-builds"></a>Procédures
+          de construction automatique
+        </h2>
+        <p>
+          Il y a des fois où automatiser la construction d'un paquet peut
+          s'avérer utile. Chacun a ses raisons de vouloir automatiser la
+          construction, et chacun le fait par ses propres moyens. Soit en
+          créant des <code class="filename">Makefile</code>s, des scripts
+          <span class="application">Bash</span>, des scripts <span class=
+          "application">Perl</span> ou simplement une liste de commandes
+          utilisées à copier-coller, sont des méthodes que vous pouvez
+          utiliser pour automatiser la construction de paquets BLFS.
+          Détailler et donner des exemples sur les nombreuses manières
+          d'automatiser la construction de paquets va au-delà des objectifs
+          de cette section. Cette section vous présentera l'utilisation de la
+          redirection de fichiers et de la commande <span class=
+          "command"><strong>yes</strong></span> pour vous donner des idées
+          sur la façon d'automatiser vos constructions.
+        </p>
+        <h3>
+          Redirection de fichier pour automatiser l'entrée
+        </h3>
+        <p>
+          Il y aura des moments, pendant votre aventure BLFS, où vous
+          tomberez sur un paquet ayant une invite de commande vous demandant
+          des informations. Ces informations peuvent être des détails de
+          configuration, un chemin de répertoire ou une réponse à un accord
+          de licence. Il peut être un challenge d'automatiser la construction
+          de ce paquet. On vous demandera occasionnellement des informations
+          via une série de questions. Une méthode pour automatiser ce type de
+          scénario est de mettre les réponses désirées dans un fichier et
+          d'utiliser la redirection pour que le programme utilise les données
+          du fichier comme réponses aux questions.
+        </p>
+        <p>
+          La construction du paquet <span class="application">CUPS</span> est
+          un bon exemple de la façon de rediriger un fichier comme entrée aux
+          invites, cela peut vous aider à automatiser la construction. Si
+          vous lancez la suite de test, on vous demande de répondre à une
+          série de questions concernant le type de test à exécuter et si vous
+          avez un programme auxiliaire que le test peut utiliser. Vous pouvez
+          créer un fichier avec vos réponses, une par ligne, et utiliser une
+          commande ressemblant à celle indiquée ci-dessous pour automatiser
+          l'exécution de la suite de tests&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">make check &lt; ../cups-1.1.23-testsuite_parms</kbd></pre>
+        <p>
+          Cela fait que la suite de tests utilise les réponses du fichier
+          comme entrée pour les questions. Vous pouvez finir par faire des
+          essais et des erreurs pour déterminer le format exact de votre
+          fichier d'entrée pour certaines choses, mais une fois expérimenté
+          et documenté, vous pouvez utiliser cela pour automatiser la
+          construction du paquet.
+        </p>
+        <h3>
+          Utiliser <span class="command"><strong>yes</strong></span> pour
+          automatiser l'entrée
+        </h3>
+        <p>
+          Vous n'aurez parfois besoin que de fournir une réponse ou une même
+          réponse à de nombreuses invites. Dans ces cas-là, la commande
+          <span class="command"><strong>yes</strong></span> fonctionne
+          vraiment bien. On peut utiliser la commande <span class=
+          "command"><strong>yes</strong></span> pour fournir une réponse (la
+          même) à une ou plusieurs questions. On peut l'utiliser pour simuler
+          un simple appui sur la touche <span class=
+          "keycap"><strong>Entrée</strong></span>, l'entrée de la touche
+          <span class="keycap"><strong>Y</strong></span> ou l'entrée d'une
+          chaîne de texte. La manière la plus facile de montrer son
+          utilisation est peut-être de prendre un exemple.
+        </p>
+        <p>
+          Créez tout d'abord un petit script <span class=
+          "application">Bash</span> en entrant les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; blfs-yes-test1 &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
+
+echo -n -e "\n\nPlease type something (or nothing) and press Enter ---&gt; "
+
+read A_STRING
+
+if test "$A_STRING" = ""; then A_STRING="Just the Enter key was pressed"
+else A_STRING="You entered '$A_STRING'"
+fi
+
+echo -e "\n\n$A_STRING\n\n"</code>
+EOF
+chmod 755 blfs-yes-test1</kbd></pre>
+        <p>
+          Maintenant, lancez le script en lançant <span class=
+          "command"><strong>./blfs-yes-test1</strong></span> depuis la ligne
+          de commande. Il attendra une réponse, qui peut être n'importe quoi
+          (ou rien) suivi de la touche <span class=
+          "keycap"><strong>Entrée</strong></span>. Après avoir entré quelque
+          chose, le résultat sera affiché à l'écran. Utilisez maintenant la
+          commande <span class="command"><strong>yes</strong></span> pour
+          automatiser l'entrée d'une réponse&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">yes | ./blfs-yes-test1</kbd></pre>
+        <p>
+          Remarquez que la redirection (le piping) de <span class=
+          "command"><strong>yes</strong></span> en lui-même vers le script
+          aboutit à ce que <span class="keycap"><strong>y</strong></span> est
+          passé au script. Essayez-la maintenant avec une chaîne de
+          texte&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">yes 'This is some text' | ./blfs-yes-test1</kbd></pre>
+        <p>
+          La chaîne exacte était utilisée comme réponse au script. Enfin,
+          essayez-la en utilisant une chaîne vide (null)&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">yes '' | ./blfs-yes-test1</kbd></pre>
+        <p>
+          Remarquez que cela aboutit à ne passer au script que l'appui sur la
+          touche <span class="keycap"><strong>Entrée</strong></span>. C'est
+          utile parfois quand la réponse par défaut à l'invite est
+          suffisante. Cette syntaxe est utilisée dans les instructions de
+          <a class="xref" href=
+          "../basicnet/net-tools.html#net-tools-automate-example">Net-tools</a>
+          pour accepter tous les réglages par défaut à toutes les invites
+          lors de l'étape de configuration. Vous pouvez maintenant supprimer
+          le script de test si vous le désirez.
+        </p>
+        <h3>
+          Redirection de fichiers pour automatiser la sortie
+        </h3>
+        <p>
+          Pour automatiser la construction de certains paquets, surtout ceux
+          qui vous demandent de lire un accord de licence page après page, il
+          faut utiliser une méthode qui évite de devoir appuyer sur une
+          touche pour afficher chaque page. On peut utiliser la redirection
+          de sortie vers un fichier dans ce cas-là pour vous aider à
+          automatiser. La section précédente de cette page a visé à créer des
+          fichiers journaux de la sortie de la construction. La méthode de
+          redirection qui y est décrite utilisait la commande <span class=
+          "command"><strong>tee</strong></span> pour rediriger la sortie tout
+          en affichant aussi la sortie à l'écran. Ici on ne verra la sortie
+          que dans un fichier.
+        </p>
+        <p>
+          De nouveau, la manière la plus facile de montrer la technique est
+          de présenter un exemple. Lancez d'abord la commande&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">ls -l /usr/bin | more</kbd></pre>
+        <p>
+          Bien entendu, vous devrez voir la sortie page par page car on a
+          utilisé le filtre <span class=
+          "command"><strong>more</strong></span>. Essayez maintenant la même
+          commande, mais en redirigeant cette fois la sortie vers un fichier.
+          Le fichier spécial <code class="filename">/dev/null</code> peut
+          être utilisé à la place du fichier indiqué, mais vous n'aurez pas
+          de fichier journal à examiner&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">ls -l /usr/bin | more &gt; redirect_test.log 2&gt;&amp;1</kbd></pre>
+        <p>
+          Remarquez que cette fois, la commande est immédiatement revenue à
+          l'invite du shell sans devoir parcourir la sortie page par page.
+          Vous pouvez supprimer maintenant le fichier journal.
+        </p>
+        <p>
+          Le dernier exemple utilisera la commande <span class=
+          "command"><strong>yes</strong></span> associée à la redirection de
+          sortie pour éviter de naviguer page par page dans la sortie, puis
+          de fournir un <span class="keycap"><strong>y</strong></span> à
+          l'invite. Cette technique peut être utilisée dans les cas où vous
+          devriez, sans elle, naviguer page par page dans la sortie d'un
+          fichier (tel qu'un accord de licence), puis répondre à la question
+          <span class="quote">«&nbsp;<span class="quote">Acceptez-vous ce qui
+          précède&nbsp;?</span>&nbsp;»</span>. Pour cet exemple, on a besoin
+          d'un autre petit script <span class=
+          "application">Bash</span>&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; blfs-yes-test2 &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
+
+ls -l /usr/bin | more
+
+echo -n -e "\n\nDid you enjoy reading this? (y,n) "
+
+read A_STRING
+
+if test "$A_STRING" = "y"; then A_STRING="You entered the 'y' key"
+else A_STRING="You did NOT enter the 'y' key"
+fi
+
+echo -e "\n\n$A_STRING\n\n"</code>
+EOF
+chmod 755 blfs-yes-test2</kbd></pre>
+        <p>
+          On peut utiliser ce script pour simuler un programme qui demande
+          que vous lisiez un accord de licence et que vous acceptiez le
+          contrat avant que le programme n'installe quoique ce soit. Lancez
+          d'abord le script sans techniques d'automatisation en exécutant
+          <span class="command"><strong>./blfs-yes-test2</strong></span>.
+        </p>
+        <p>
+          Maintenant lancez la commande suivante qui utilise les techniques
+          d'automatisation, rendant l'utilisation convenable dans un script
+          de construction automatisé&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">yes | ./blfs-yes-test2 &gt; blfs-yes-test2.log 2&gt;&amp;1</kbd></pre>
+        <p>
+          Si vous le désirez, lancez <span class="command"><strong>tail
+          blfs-yes-test2.log</strong></span> pour voir la fin de la sortie
+          paginée et la confirmation que <span class=
+          "keycap"><strong>y</strong></span> a été passé au script. Une fois
+          que cela marche comme cela devrait, vous pouvez supprimer le script
+          et le fichier journal.
+        </p>
+        <p>
+          Enfin, gardez à l'esprit qu'il y a de nombreux moyens d'automatiser
+          ou de scripter les commandes de construction. Il n'y a pas
+          <span class="quote">«&nbsp;<span class="quote">une
+          seule</span>&nbsp;»</span> manière de procéder. Votre imagination
+          est la seule limite.
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Dépendances
+        </h2>
+        <p>
+          Pour chaque paquet décrit, BLFS liste les dépendances connues.
+          Elles sont listées sous plusieurs en-têtes, dont la signification
+          est la suivante&nbsp;:
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li class="listitem">
+              <p>
+                <span class="emphasis"><em>Requis</em></span> signifie que le
+                paquet cible ne peut pas se construire correctement sans
+                avoir d'abord installé la dépendance.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <span class="emphasis"><em>Recommandées</em></span> signifie
+                que BLFS suggère fortement d'installer préalablement ce
+                paquet pour une construction propre et sans problème, ni
+                pendant le processus de construction ni au moment de
+                l'exécution. Les instructions dans le livre considèrent que
+                ses paquets sont installés. Des modifications ou
+                contournements peuvent être requis si ces paquets ne sont pas
+                installés.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <span class="emphasis"><em>Facultatives</em></span> signifie
+                que ce paquet pourrait être installé pour ajouter des
+                fonctions. BLFS décrira souvent la dépendance pour expliquer
+                la fonctionnalité supplémentaire résultante.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="package_updates" name="package_updates"></a>Utilisation de
+          paquets sources plus récents
+        </h2>
+        <p>
+          Occasionnellement, dans le livre, vous pourrez être dans la
+          situation ou un paquet ne se construit pas ou ne fonctionne pas
+          correctement. Bien que les éditeurs tentent de faire en sorte que
+          chaque paquet dans le livre se construise et fonctionne
+          correctement, parfois un paquet a été oublié ou n'a pas été testé
+          avec cette version particulière de BLFS.
+        </p>
+        <p>
+          Si vous découvrez un paquet qui ne se construit pas ou ne
+          fonctionne pas correctement, vous pouvez regarder s'il s'agit de la
+          version la plus récente du paquet. Typiquement, cela signifie que
+          vous irez sur le site web du mainteneur et téléchargerez l'archive
+          la plus récente et tenterez de construire le paquet. Si vous ne
+          pouvez pas déterminer le site web du mainteneur en regardant l'URL
+          de chargement, utilisez Google et cherchez le nom du paquet. Par
+          exemple, dans la barre de recherche de Google tapez: 'nom_du_paquet
+          download' (sans les guillemets) ou quelque chose de similaire.
+          Parfois en tapant&nbsp;: 'nom_du_paquet home page' vous trouverez
+          le site web du mainteneur.
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="stripping" name="stripping"></a>Nettoyage une fois de plus
+        </h2>
+        <p>
+          Dans LFS, le nettoyage des symboles de déboguage a été discuté de
+          nombreuses fois. Pour la construction des paquets BLFS, il n'y a
+          généralement pas d'instructions qui discute de nouveau du
+          nettoyage. Ce n'est probablement pas une bonne idée de nettoyer un
+          exécutable ou une bibliothèque tant qu'ils sont utilisés, alors
+          sortir des environnements de fenêtrage est une bonne idée. Ensuite
+          vous pouvez faire&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">find /{,usr/}{bin,lib,sbin} \
+    -type f \( -name \*.so* -a ! -name \*dbg \) \
+    -exec strip --strip-unneeded {} \;</kbd></pre>
+        <p>
+          Si vous installez des programmes dans d'autres répertoires tels que
+          <code class="filename">/opt</code> ou <code class=
+          "filename">/usr/local</code>, vous pouvez vouloir nettoyer les
+          fichiers ici aussi.
+        </p>
+        <p>
+          Pour plus d'information sur le nettoyage, regardez <a class="ulink"
+          href=
+          "http://www.technovelty.org/linux/stripping-shared-libraries.html">http://www.technovelty.org/linux/stripping-shared-libraries.html</a>.
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-27 04:49:50 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="important.html" title=
+          "Informations importantes">Précédent</a>
+          <p>
+            Informations importantes
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="position.html" title=
+          "Le débat /usr contre /usr/local">Suivant</a>
+          <p>
+            Le débat /usr contre /usr/local
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapitre&nbsp;2.&nbsp;Informations importantes">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

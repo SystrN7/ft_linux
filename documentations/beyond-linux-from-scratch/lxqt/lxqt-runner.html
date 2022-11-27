@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      lxqt-runner-0.12.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-panel.html" title=
+          "lxqt-panel-0.12.0">Précédent</a>
+          <p>
+            lxqt-panel-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="post-install.html" title=
+          "Instructions finales du bureau LXQt">Suivant</a>
+          <p>
+            Instructions finales du bureau LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-runner" name="lxqt-runner"></a>lxqt-runner-0.12.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à lxqt-runner
+        </h2>
+        <p>
+          Le paquet <span class="application">lxqt-runner</span> fournit un
+          outil utilisé pour lancer les programmes rapidement en tapant leur
+          nom.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/lxde/lxqt-runner/releases/download/0.12.0/lxqt-runner-0.12.0.tar.xz">
+                https://github.com/lxde/lxqt-runner/releases/download/0.12.0/lxqt-runner-0.12.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                b15f2d698bbe89a4e391a56bb55e892d
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 207 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de lxqt-runner
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="lxqt-globalkeys.html" title=
+          "lxqt-globalkeys-0.12.0">lxqt-globalkeys-0.12.0</a> et <a class=
+          "xref" href="../lxde/menu-cache.html" title=
+          "menu-cache-1.1.0">menu-cache-1.1.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/git.html" title=
+          "Git-2.17.1">git-2.17.1</a> (pour télécharger les fichiers de
+          traduction) ou <a class="xref" href="lxqt-l10n.html" title=
+          "lxqt-l10n-0.12.0">lxqt-l10n-0.12.0</a> (pour ajouter les fichiers
+          de localisation) et <a class="ulink" href=
+          "http://muparser.beltoforion.de">muparser</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-runner">http://wiki.linuxfromscratch.org/blfs/wiki/lxqt-runner</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de lxqt-runner
+        </h2>
+        <p>
+          Installez <span class="application">lxqt-runner</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -v build &amp;&amp;
+cd       build &amp;&amp;
+
+cmake -DCMAKE_BUILD_TYPE=Release          \
+      -DRUNNER_MATH=OFF                   \
+      -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DPULL_TRANSLATIONS=no              \
+      ..       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>-DRUNNER_MATH=OFF</code></em>&nbsp;:
+          Supprime la dépendance à <span class="application">muparser</span>.
+          Si vous voulez le support des expressions Math dans <span class=
+          "application">lxqt-runner</span>, installez <span class=
+          "application">muparesr</span> et supprimez ce paramètre.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>-DPULL_TRANSLATIONS=no</code></em>&nbsp;:
+          Supprime le besoin de <a class="xref" href="../general/git.html"
+          title="Git-2.17.1">git-2.17.1</a>, qui serait sinon demandé pour
+          télécharger les fichiers de traduction.
+        </p>
+      </div>
+      <div class="use" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Utiliser lxqt-runner
+        </h2>
+        <p>
+          Pour utiliser <span class="application">lxqt-runner</span>, appuyez
+          simultanément sur les touches Alt-F2. Une fenêtre de dialogue
+          apparaît au centre en haut de l'écran. Quand vous commencez de
+          taper la commande, une liste des possibilités apparaît et change en
+          fonction de ce que vous tapez.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">lxqt-runner</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lxqt-runner-prog" name=
+                    "lxqt-runner-prog"></a><span class="term"><span class=
+                    "command"><strong>lxqt-runner</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lance une boîte de dialogue pour exécuter rapidement un
+                    programme.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-21 12:35:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-panel.html" title=
+          "lxqt-panel-0.12.0">Précédent</a>
+          <p>
+            lxqt-panel-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="post-install.html" title=
+          "Instructions finales du bureau LXQt">Suivant</a>
+          <p>
+            Instructions finales du bureau LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

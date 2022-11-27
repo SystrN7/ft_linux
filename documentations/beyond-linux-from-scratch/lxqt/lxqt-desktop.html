@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapitre&nbsp;39.&nbsp;Bureau LXQt
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Partie&nbsp;XI.&nbsp;LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt.html" title="LXQt">Précédent</a>
+          <p>
+            LXQt
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pre-install.html" title=
+          "Instruction de pré-installation du bureau LXQt">Suivant</a>
+          <p>
+            Instruction de pré-installation du bureau LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt.html" title=
+          "Partie&nbsp;XI.&nbsp;LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="fr" xml:lang="fr">
+      <h1 class="chapter">
+        <a id="lxqt-desktop" name="lxqt-desktop"></a>Bureau LXQt
+      </h1>
+      <p>
+        LXQt est un environnement de bureau très rapide et économe en
+        énergie.
+      </p>
+      <p>
+        <span class="application">LXQt</span> est un environnement de bureau
+        basé sur <span class="application">Qt</span>. Il a une interface
+        jolie, le support multi-langue, les raccourcis clavier standard et
+        des fonctionnalités supplémentaires comme la navigation de fichier
+        tabulée. <span class="application">LXQt</span> utilise moins de CPU
+        et moins de mémoire que la plupart des autres environnements. Il est
+        particulièrement utile pour les ordinateurs en réseau avec un
+        matériel léger, comme les netbooks, les périphériques mobiles (par
+        exemple les MID) ou les vieux ordinateurs, mais peut être utilisé
+        avec du matériel moderne.
+      </p>
+      <p>
+        Construisez les paquets du cœur de LXQt dans l'ordre présenté dans le
+        livre pour une résolution facile des dépendances.
+      </p>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="pre-install.html">Instruction de pré-installation du
+            bureau LXQt</a>
+          </li>
+          <li class="sect1">
+            <a href="libqtxdg.html">libqtxdg-3.1.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-build-tools.html">lxqt-build-tools-0.4.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libsysstat.html">libsysstat-0.4.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-kwindowsystem.html">Kwindowsystem-5.46.0 pour
+            lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href="liblxqt.html">liblxqt-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libfm-qt.html">libfm-qt-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-l10n.html">lxqt-l10n-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-themes.html">lxqt-themes-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-qtplugin.html">lxqt-qtplugin-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-about.html">lxqt-about-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-admin.html">lxqt-admin-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-kwayland.html">Kwayland-5.46.0 pour lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-libkscreen.html">Libkscreen-5.12.5 pour lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-config.html">lxqt-config-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-globalkeys.html">lxqt-globalkeys-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-notificationd.html">lxqt-notificationd-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-policykit.html">lxqt-policykit-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-kidletime.html">Kidletime-5.46.0 pour lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-solid.html">Solid-5.46.0 pour lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "lxqt-powermanagement.html">lxqt-powermanagement-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-session.html">lxqt-session-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-kguiaddons.html">Kguiaddons-5.46.0 pour lxqt</a>
+          </li>
+          <li class="sect1">
+            <a href="pcmanfm-qt.html">pcmanfm-qt-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-panel.html">lxqt-panel-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="lxqt-runner.html">lxqt-runner-0.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="post-install.html">Instructions finales du bureau
+            LXQt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt.html" title="LXQt">Précédent</a>
+          <p>
+            LXQt
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pre-install.html" title=
+          "Instruction de pré-installation du bureau LXQt">Suivant</a>
+          <p>
+            Instruction de pré-installation du bureau LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt.html" title=
+          "Partie&nbsp;XI.&nbsp;LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

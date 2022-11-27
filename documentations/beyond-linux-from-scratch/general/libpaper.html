@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      libpaper-1.1.24+nmu5
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libmbim.html" title=
+          "libmbim-1.18.0">Précédent</a>
+          <p>
+            libmbim-1.18.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libqmi.html" title=
+          "libqmi-1.22.0">Suivant</a>
+          <p>
+            libqmi-1.22.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="libpaper" name="libpaper"></a>libpaper-1.1.24+nmu5
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à libpaper
+        </h2>
+        <p>
+          Ce paquet est prévu pour fournir une façon simple aux applications
+          pour faire des actions basées sur une dimension de papier du
+          système ou donnée par l'utilisateur.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz">
+                http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                38bc55688c0fc5544edaa5a951a45fbd
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 48 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.5 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libpaper">http://wiki.linuxfromscratch.org/blfs/wiki/libpaper</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de libpaper
+        </h2>
+        <p>
+          Installez <span class="application">libpaper</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">autoreconf -fi                &amp;&amp;
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+mkdir -vp /etc/libpaper.d &amp;&amp;
+
+cat &gt; /usr/bin/run-parts &lt;&lt; "EOF"
+#!/bin/sh
+# run-parts:  Runs all the scripts found in a directory.
+# from Slackware, by Patrick J. Volkerding with ideas borrowed
+# from the Red Hat and Debian versions of this utility.
+
+# keep going when something fails
+set +e
+
+if [ $# -lt 1 ]; then
+  echo "Usage: run-parts &lt;directory&gt;"
+  exit 1
+fi
+
+if [ ! -d $1 ]; then
+  echo "Not a directory: $1"
+  echo "Usage: run-parts &lt;directory&gt;"
+  exit 1
+fi
+
+# There are several types of files that we would like to
+# ignore automatically, as they are likely to be backups
+# of other scripts:
+IGNORE_SUFFIXES="~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp"
+
+# Main loop:
+for SCRIPT in $1/* ; do
+  # If this is not a regular file, skip it:
+  if [ ! -f $SCRIPT ]; then
+    continue
+  fi
+  # Determine if this file should be skipped by suffix:
+  SKIP=false
+  for SUFFIX in $IGNORE_SUFFIXES ; do
+    if [ ! "$(basename $SCRIPT $SUFFIX)" = "$(basename $SCRIPT)" ]; then
+      SKIP=true
+      break
+    fi
+  done
+  if [ "$SKIP" = "true" ]; then
+    continue
+  fi
+  # If we've made it this far, then run the script if it's executable:
+  if [ -x $SCRIPT ]; then
+    $SCRIPT || echo "$SCRIPT failed."
+  fi
+done
+
+exit 0
+EOF
+
+chmod -v 755 /usr/bin/run-parts</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>&nbsp;: Ce
+          paramètre empêche l'installation des versions statiques des
+          bibliothèques.
+        </p>
+        <p>
+          <span class="command"><strong>mkdir -pv
+          /etc/libpaper.d</strong></span>&nbsp;: <span class=
+          "application">libpaper</span> fait que les paquets installeront les
+          fichiers dans ce répertoire.
+        </p>
+        <p>
+          <span class="command"><strong>cat &gt; /usr/bin/run-parts &lt;&lt;
+          "EOF"</strong></span>&nbsp;: <code class=
+          "filename">paperconfig</code> est un script qui appellera
+          <span class="command"><strong>run-parts</strong></span> si
+          <code class="filename">/etc/libpaper.d</code> existe. Pas d'autre
+          paquet de BLFS l’installe, donc nous le créons ici.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de libpaper
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            Information de configuration
+          </h3>
+          <p>
+            Créez <code class="filename">/etc/papersize</code> pour
+            initialiser la taille de papier par défaut. Tapez les commandes
+            suivantes en tant qu'utilisateur <code class=
+            "systemitem">root</code> pour l'initialiser à 'A4' (libpaper
+            préfère la forme en minuscule). Vous pouvez vouloir utiliser une
+            taille différente, comme letter.
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt; /etc/papersize &lt;&lt; "EOF"
+a4
+EOF</kbd></pre>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">paperconf, paperconfig, run-parts</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libpaper.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/etc/libpaper.d</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="paperconf" name="paperconf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>paperconf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    affiche les informations de configuration du papier.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="paperconfig" name="paperconfig"></a><span class=
+                    "term"><span class=
+                    "command"><strong>paperconfig</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    configure la taille par défaut du papier pour le système.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="run-parts" name="run-parts"></a><span class=
+                    "term"><span class=
+                    "command"><strong>run-parts</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lance tous les scripts trouvés dans un répertoire.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libpaper-lib" name="libpaper-lib"></a><span class=
+                    "term"><code class="filename">libpaper.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient des fonctions pour interroger la bibliothèque
+                    paper.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libmbim.html" title=
+          "libmbim-1.18.0">Précédent</a>
+          <p>
+            libmbim-1.18.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libqmi.html" title=
+          "libqmi-1.22.0">Suivant</a>
+          <p>
+            libqmi-1.22.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

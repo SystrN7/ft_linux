@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapitre&nbsp;33.&nbsp;Bibliothèques et utilitaires GNOME
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Partie&nbsp;VIII.&nbsp;<span class="phrase">Applications GNOME
+        sélectionnées</span>
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome.html" title=
+          "Applications GNOME sélectionnées ">Précédent</a>
+          <p>
+            Applications GNOME sélectionnées
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcr.html" title="Gcr-3.28.1">Suivant</a>
+          <p>
+            Gcr-3.28.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="gnome.html" title=
+          "Partie&nbsp;VIII.&nbsp;Applications GNOME sélectionnées ">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="fr" xml:lang="fr">
+      <h1 class="chapter">
+        <a id="gnome-core" name="gnome-core"></a>Bibliothèques et utilitaires
+        GNOME
+      </h1>
+      <p>
+        L'objectif de ce chapitre n'est pas de construire un bureau
+        <span class="application">GNOME</span>, car il dépend de <span class=
+        "application">Systemd</span>, que BLFS ne supporte pas. Seulement, il
+        fournit des paquets requis par des applications <span class=
+        "application">GNOME</span> indépendantes du bureau qui peuvent se
+        construire et se lancer parfaitement dans tous les gestionnaires de
+        fenêtres (par exemple <span class="application">Fluxbox</span>,
+        <span class="application">Icewm</span>, <span class=
+        "application">Openbox</span>, <span class=
+        "application">Sawfish</span>), ou des environnements de bureau (par
+        exemple <span class="application">KDE</span>, <span class=
+        "application">XFCE</span>, <span class="application">LXDE</span>).
+      </p>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="sect1">
+            <span class="dummy">Bibliothèques</span>
+          </li>
+          <li class="sect1">
+            <a href="gcr.html">Gcr-3.28.1</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gsettings-desktop-schemas.html">gsettings-desktop-schemas-3.28.1</a>
+          </li>
+          <li class="sect1">
+            <a href="libsecret.html">libsecret-0.18.7</a>
+          </li>
+          <li class="sect1">
+            <a href="totem-pl-parser.html">totem-pl-parser-3.26.2</a>
+          </li>
+          <li class="sect1">
+            <a href="vte.html">VTE-0.54.3</a>
+          </li>
+          <li class="sect1">
+            <a href="yelp-xsl.html">yelp-xsl-3.30.1</a>
+          </li>
+          <li class="sect1">
+            <a href="GConf.html">GConf-3.2.6</a>
+          </li>
+          <li class="sect1">
+            <a href="gjs.html">gjs-1.54.3</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-autoar.html">gnome-autoar-0.2.3</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-desktop.html">gnome-desktop-3.30.2.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-video-effects.html">gnome-video-effects-0.4.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libgtop.html">libgtop-2.38.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libpeas.html">libpeas-1.22.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libwnck.html">libwnck-3.30.0</a>
+          </li>
+          <li class="sect1">
+            <a href="tracker.html">Tracker-2.2.0</a>
+          </li>
+          <li class="sect1">
+            <span class="dummy">Dépendances de Required Runtime</span>
+          </li>
+          <li class="sect1">
+            <a href="dconf.html">DConf-0.30.1 / DConf-Editor-3.30.2</a>
+          </li>
+          <li class="sect1">
+            <a href="gvfs.html">Gvfs-1.38.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gexiv2.html">gexiv2-0.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="nautilus.html">Nautilus-3.30.5</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-keyring.html">gnome-keyring-3.28.2</a>
+          </li>
+          <li class="sect1">
+            <a href="yelp.html">Yelp-3.30.0</a>
+          </li>
+          <li class="sect1">
+            <a href="notification-daemon.html">notification-daemon-3.20.0</a>
+          </li>
+          <li class="sect1">
+            <a href="polkit-gnome.html">polkit-gnome-0.105</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome.html" title=
+          "Applications GNOME sélectionnées ">Précédent</a>
+          <p>
+            Applications GNOME sélectionnées
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcr.html" title="Gcr-3.28.1">Suivant</a>
+          <p>
+            Gcr-3.28.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="gnome.html" title=
+          "Partie&nbsp;VIII.&nbsp;Applications GNOME sélectionnées ">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      OpenSSL-1.0.2p
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-11-16">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-11-16
+      </h4>
+      <h3>
+        Chapitre&nbsp;4.&nbsp;Sécurité
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="openssh.html" title=
+          "OpenSSH-7.9p1">Précédent</a>
+          <p>
+            OpenSSH-7.9p1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="p11-kit.html" title=
+          "p11-kit-0.23.14">Suivant</a>
+          <p>
+            p11-kit-0.23.14
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-11-16">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="openssl10" name="openssl10"></a>OpenSSL-1.0.2p
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à OpenSSL-1.0.2p Libraries
+        </h2>
+        <p>
+          Le paquet <span class="application">OpenSSL-1.0.2p</span> contient
+          des bibliothèques liées à la cryptographie. Elles sont utiles pour
+          fournir des fonctions cryptographiques à d'autres programmes, comme
+          des applications de courriels et des navigateurs web (pour accéder
+          aux sites HTTPS). Ce paquet fournit seulement les bibliothèques et
+          les en-têtes pour les paquets qui n'ont pas encore été portés vers
+          openssl-1.1.x ou plus.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.3.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://openssl.org/source/openssl-1.0.2p.tar.gz">https://openssl.org/source/openssl-1.0.2p.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://openssl.org/source/openssl-1.0.2p.tar.gz">ftp://openssl.org/source/openssl-1.0.2p.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                ac5eb30bf5798aa14b1ae6d0e7da58df
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 5.1 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 72 Mo (avec les
+                tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 1.2 SBU (avec les
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif requis&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.2p-compat_versioned_symbols-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.2p-compat_versioned_symbols-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de OpenSSL-1.0.2p
+        </h3>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="mitkrb.html" title=
+          "MIT Kerberos V5-1.16.2">MIT Kerberos V5-1.16.2</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/OpenSSL">http://wiki.linuxfromscratch.org/blfs/wiki/OpenSSL</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de OpenSSL-1.0.2p Libraries
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Ce paquet ne supporte pas la construction en parallèle.
+          </p>
+        </div>
+        <p>
+          Installez les bibliothèques <span class=
+          "application">OpenSSL-1.0.2p</span> avec les commandes
+          suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command"> patch -Np1 -i ../openssl-1.0.2p-compat_versioned_symbols-1.patch &amp;&amp;
+
+./config --prefix=/usr            \
+         --openssldir=/etc/ssl    \
+         --libdir=lib/openssl-1.0 \
+         shared                   \
+         zlib-dynamic             &amp;&amp;
+
+make depend                       &amp;&amp;
+make -j1</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;: <span class=
+          "command"><strong>make -j1 test</strong></span>. La suite de test
+          ne supporte pas le parallélisme.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">make INSTALL_PREFIX=$PWD/Dest install_sw                      &amp;&amp;
+
+rm -rf /usr/lib/openssl-1.0                                   &amp;&amp;
+install -vdm755                   /usr/lib/openssl-1.0        &amp;&amp;
+cp -Rv Dest/usr/lib/openssl-1.0/* /usr/lib/openssl-1.0        &amp;&amp;
+
+mv -v  /usr/lib/openssl-1.0/lib{crypto,ssl}.so.1.0.0 /usr/lib &amp;&amp;
+ln -sv ../libssl.so.1.0.0         /usr/lib/openssl-1.0        &amp;&amp;
+ln -sv ../libcrypto.so.1.0.0      /usr/lib/openssl-1.0        &amp;&amp;
+
+install -vdm755                   /usr/include/openssl-1.0    &amp;&amp;
+cp -Rv Dest/usr/include/openssl   /usr/include/openssl-1.0    &amp;&amp;
+
+sed 's@/include$@/include/openssl-1.0@' -i /usr/lib/openssl-1.0/pkgconfig/*.pc</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>shared</code></em>&nbsp;: Ce paramètre
+          force la création de bibliothèques partagées avec les bibliothèques
+          statiques.
+        </p>
+        <p>
+          <em class="parameter"><code>zlib-dynamic</code></em>&nbsp;: Ce
+          paramètre ajoute les fonctionnalités de compression/décopression
+          avec la bibliothèque <code class="filename">libz</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>rm -rf
+          /usr/lib/openssl-1.0</code></em>&nbsp;: Cela ne fera rien sur une
+          première installation, mais permet une mise à jour ultérieure.
+          Pendant l'installation, les bibliothèques sont déplacées et
+          remplacées par des liens symboliques. Si vous mettez à jour vers
+          une version ultérieure d'<span class=
+          "application">openssl-1.0.2</span> pour corriger des
+          vulnérabilités, sans cette commande l'instruction de déplacement
+          échouera car les liens symboliques signifient que la source et la
+          destination sont identiques.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libcrypto.so.1.0.0 et
+              libssl.so.1.0.0</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/lib/openssl-1.0 et
+              /usr/include/openssl-1.0</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcrypto10" name="libcrypto10"></a><span class=
+                    "term"><code class=
+                    "filename">libcrypto.so.1.0.0</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    implémente une large variété d'algorithmes
+                    cryptographiques utilisés dans divers standards Internet.
+                    Les services fournis par cette bibliothèque sont utilisés
+                    par les implémentations <span class=
+                    "application">OpenSSL</span> de SSL, TLS et S/MIME et ils
+                    ont aussi été utilisés pour implémenter <span class=
+                    "application">OpenSSH</span>, <span class=
+                    "application">OpenPGP</span> et d'autres standards de
+                    cryptographie.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libssl10" name="libssl10"></a><span class=
+                    "term"><code class=
+                    "filename">libssl.so.1.0.0</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    implémente le protocole Transport Layer Security (TLS
+                    v1). Elle fournit une API riche, et sa documentation peut
+                    être trouvée en lançant <span class="command"><strong>man
+                    3 ssl</strong></span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-08-17 05:28:07 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="openssh.html" title=
+          "OpenSSH-7.9p1">Précédent</a>
+          <p>
+            OpenSSH-7.9p1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="p11-kit.html" title=
+          "p11-kit-0.23.14">Suivant</a>
+          <p>
+            p11-kit-0.23.14
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-11-16">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

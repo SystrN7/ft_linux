@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      xfce4-terminal-0.8.7.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;36.&nbsp;Applications Xfce
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="parole.html" title=
+          "Parole-1.0.1">Précédent</a>
+          <p>
+            Parole-1.0.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xfburn.html" title=
+          "Xfburn-0.5.5">Suivant</a>
+          <p>
+            Xfburn-0.5.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapitre&nbsp;36.&nbsp;Applications Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="xfce4-terminal" name=
+        "xfce4-terminal"></a>xfce4-terminal-0.8.7.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Xfce4 Terminal
+        </h2>
+        <p>
+          <span class="application">Xfce4 Terminal</span> est un émulateur de
+          terminal <span class="application">Gtk+3</span>. Il sert à lancer
+          des commandes ou des programmes avec l'avantage d'une fenêtre Xorg,
+          vous pouvez glisser-déposer des fichiers dans le <span class=
+          "application">terminal xfce4</span> ou copier-coller du texte avec
+          votre souris.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.7.4.tar.bz2">
+                http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.7.4.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                c861540dd1dd05f56e62382b3851cf66
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 864 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 13 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Xfce4 Terminal
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="libxfce4ui.html" title=
+          "libxfce4ui-4.12.1">libxfce4ui-4.12.1</a> et <a class="xref" href=
+          "../gnome/vte.html" title="VTE-0.54.3">VTE-0.54.3</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-terminal">http://wiki.linuxfromscratch.org/blfs/wiki/xfce4-terminal</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Xfce4 Terminal
+        </h2>
+        <p>
+          Installez <span class="application">Xfce4 Terminal</span> en
+          lançant les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">xfce4-terminal</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/share/xfce4/terminal</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfce4-terminal-prog" name=
+                    "xfce4-terminal-prog"></a><span class="term"><span class=
+                    "command"><strong>xfce4-terminal</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un émulateur de terminal <span class=
+                    "application">GTK+ 3</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-19 09:13:15 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="parole.html" title=
+          "Parole-1.0.1">Précédent</a>
+          <p>
+            Parole-1.0.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xfburn.html" title=
+          "Xfburn-0.5.5">Suivant</a>
+          <p>
+            Xfburn-0.5.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapitre&nbsp;36.&nbsp;Applications Xfce">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

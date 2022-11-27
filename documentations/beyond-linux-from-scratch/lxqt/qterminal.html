@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      qterminal-0.8.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;40.&nbsp;Applications LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qtermwidget.html" title=
+          "qtermwidget-0.8.0">Précédent</a>
+          <p>
+            qtermwidget-0.8.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../xsoft/xsoft.html" title=
+          "Logiciels X">Suivant</a>
+          <p>
+            Logiciels X
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-apps.html" title=
+          "Chapitre&nbsp;40.&nbsp;Applications LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="qterminal" name="qterminal"></a>qterminal-0.8.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à qterminal
+        </h2>
+        <p>
+          Le paquet <span class="application">qterminal</span> contient un
+          émulateur de terminal basé sur les widgets de Qt pour <span class=
+          "application">qt</span> avec le support des onglets multiples.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/lxde/qterminal/releases/download/0.8.0/qterminal-0.8.0.tar.xz">
+                https://github.com/lxde/qterminal/releases/download/0.8.0/qterminal-0.8.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                1ce5911e0959da75e6742f10a36b73e4
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 102 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 6.3 Mo (plus 1.3
+                Mo pour la documentation de l'API)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU (avec la
+                documentation de l'API)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de qterminal
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="lxqt-build-tools.html" title=
+          "lxqt-build-tools-0.4.0">lxqt-build-tools-0.4.0</a> et <a class=
+          "xref" href="qtermwidget.html" title=
+          "qtermwidget-0.8.0">qtermwidget-0.8.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/doxygen.html" title=
+          "Doxygen-1.8.14">Doxygen-1.8.14</a> et <a class="xref" href=
+          "../pst/texlive.html" title=
+          "texlive-20180414-source">texlive-20180414</a> (ou <a class="xref"
+          href="../pst/tl-installer.html" title=
+          "install-tl-unx">install-tl-unx</a>), pour la documentation et
+          <a class="xref" href="../general/git.html" title=
+          "Git-2.17.1">git-2.17.1</a> (pour télécharger les fichiers de
+          traduction) ou <a class="xref" href="lxqt-l10n.html" title=
+          "lxqt-l10n-0.12.0">lxqt-l10n-0.12.0</a> (pour ajouter les fichiers
+          de localisation)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/qterminal">http://wiki.linuxfromscratch.org/blfs/wiki/qterminal</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de qterminal
+        </h2>
+        <p>
+          Installez <span class="application">qterminal</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -v build &amp;&amp;
+cd       build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=$LXQT_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release          \
+      -DPULL_TRANSLATIONS=no              \
+      ..       &amp;&amp;
+
+make</kbd></pre>
+        <p>
+          Si vous avez installé <a class="xref" href=
+          "../general/doxygen.html" title=
+          "Doxygen-1.8.14">Doxygen-1.8.14</a>, et souhaitez créer la
+          documentation de l'API, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">doxygen ../Doxyfile</kbd></pre>
+        <p>
+          La documentation de l'API en HTML a été généré avec la commande
+          précédente. Maintenant, si vous avez aussi installé <a class="xref"
+          href="../pst/texlive.html" title=
+          "texlive-20180414-source">texlive-20180414</a> (ou <a class="xref"
+          href="../pst/tl-installer.html" title=
+          "install-tl-unx">install-tl-unx</a>) et souhaitez créer le manuel
+          de référence de l'API en pdf, lancez&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">make -C docs/latex</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+        <p>
+          Pour installer la documentation de l'API, si vous avez décidé de la
+          générer, lancez en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m755 -d /usr/share/doc/qterminal-0.8.0/{html,pdf} &amp;&amp;
+cp -vr docs/html/* /usr/share/doc/qterminal-0.8.0/html</kbd></pre>
+        <p>
+          Le manuel de référence de l'API en pdf peut être installé avec, en
+          tant qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m644    docs/latex/refman.pdf \
+                    /usr/share/doc/qterminal-0.8.0/pdf</kbd></pre>
+        <p>
+          Si vous installez dans /opt, de nouveau en tant qu'utilisateur
+          <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">if [ "$LXQT_PREFIX" != /usr ]; then
+  ln -svf $LXQT_PREFIX/share/applications/qterminal.desktop \
+          /usr/share/applications
+  ln -svf $LXQT_PREFIX/share/applications/qterminal_drop.desktop \
+          /usr/share/applications
+fi</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>-DPULL_TRANSLATIONS=no</code></em>&nbsp;:
+          Supprime le besoin de <a class="xref" href="../general/git.html"
+          title="Git-2.17.1">git-2.17.1</a>, qui serait sinon demandé pour
+          télécharger les fichiers de traduction.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">qterminal</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/share/doc/qterminal-0.8.0 (si la
+              documentation est installée)</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qterminal-prog" name=
+                    "qterminal-prog"></a><span class="term"><span class=
+                    "command"><strong>qterminal</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un émulateur de terminal léger basé sur <span class=
+                    "application">Qt</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-21 12:35:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qtermwidget.html" title=
+          "qtermwidget-0.8.0">Précédent</a>
+          <p>
+            qtermwidget-0.8.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../xsoft/xsoft.html" title=
+          "Logiciels X">Suivant</a>
+          <p>
+            Logiciels X
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-apps.html" title=
+          "Chapitre&nbsp;40.&nbsp;Applications LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

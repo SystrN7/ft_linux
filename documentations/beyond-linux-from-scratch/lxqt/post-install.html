@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Instructions finales du bureau LXQt
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;39.&nbsp;Bureau LXQt
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-runner.html" title=
+          "lxqt-runner-0.12.0">Précédent</a>
+          <p>
+            lxqt-runner-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-apps.html" title=
+          "Applications LXQt">Suivant</a>
+          <p>
+            Applications LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lxqt-post-install" name="lxqt-post-install"></a>Instructions
+        finales du bureau LXQt
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Instructions de Post-Installalation
+        </h2>
+        <p>
+          Étape finale, avant de démarrer <span class=
+          "application">LXQT</span>.
+        </p>
+        <h3>
+          Dépendances pour démarrer LXQT
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/openbox.html" title=
+          "openbox-3.6.1">openbox-3.6.1</a>, ou un autre gestionnaire de
+          fenêtre, comme <a class="xref" href="../xfce/xfwm4.html" title=
+          "Xfwm4-4.12.4">Xfwm4-4.12.4</a>, ou kwin de <a class="xref" href=
+          "../kde/plasma-all.html" title=
+          "Construction de Plasma 5">Plasma-5.12.5</a>. Remarquez que
+          <a class="xref" href="../x/icewm.html" title=
+          "IceWM-1.4.2">IceWM-1.4.2</a> n'est pas adapté à LXQt
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <span class="phrase"><a class="xref" href=
+          "../postlfs/consolekit.html" title=
+          "ConsoleKit2-1.0.2">ConsoleKit2-1.0.2</a> avec <a class="xref"
+          href="../general/pm-utils.html" title=
+          "pm-utils-1.4.1">pm-utils-1.4.1</a>,</span> <a class="xref" href=
+          "../x/lightdm.html" title="lightdm-1.24.0">lightdm-1.24.0</a> ou un
+          autre gestionnaire d'affichage, par exemple <a class="xref" href=
+          "../x/lxdm.html" title="lxdm-0.5.3">lxdm-0.5.3</a>, <a class="xref"
+          href="../general/desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a>, <a class=
+          "xref" href="../general/shared-mime-info.html" title=
+          "shared-mime-info-1.9">shared-mime-info-1.9</a>, <a class="xref"
+          href="../xsoft/xdg-utils.html" title=
+          "xdg-utils-1.1.3">xdg-utils-1.1.3</a> et <a class="xref" href=
+          "../xsoft/xscreensaver.html" title=
+          "XScreenSaver-5.39">XScreenSaver-5.39</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/post-install">http://wiki.linuxfromscratch.org/blfs/wiki/post-install</a>
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration finale
+        </h2>
+        <p>
+          Si <span class="application">LXQt</span> est installé dans
+          <code class="filename">/usr</code>, sautez directement à <a class=
+          "xref" href="post-install.html#lxqt-final-updates" title=
+          "Mises à jour finales de LXQt">LXQt Final Updates</a>, sinon lancez
+          les commandes dans la section suivante.
+        </p>
+        <div class="sect3">
+          <h3 class="sect3">
+            Configuration requise si vous installez dans /opt
+          </h3>
+          <p>
+            Si <span class="application">LXQt</span> est installé dans
+            <code class="filename">/opt</code>, certains fichiers doivent
+            être copié dans <code class="filename">/usr/share</code> pour que
+            le système puisse les trouver. Lancez les commandes suivantes en
+            tant qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">ln -svfn $LXQT_PREFIX/share/lxqt /usr/share/lxqt &amp;&amp;
+
+cp -v {$LXQT_PREFIX,/usr}/share/xsessions/lxqt.desktop &amp;&amp;
+
+for i in $LXQT_PREFIX/share/applications/*
+do
+  ln -svf $i /usr/share/applications/
+done
+
+for i in $LXQT_PREFIX/share/desktop-directories/*
+do
+  ln -svf $i /usr/share/desktop-directories/
+done
+
+unset i
+
+ldconfig</kbd></pre>
+        </div>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="lxqt-final-updates" name="lxqt-final-updates"></a>Mises à
+            jour finales de LXQt
+          </h3>
+          <p>
+            Les bases de données du bureau doivent être créées ou mises à
+            jour maintenant. Lancez les commandes suivantes, en tant
+            qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">update-mime-database /usr/share/mime          &amp;&amp;
+xdg-icon-resource forceupdate --theme hicolor &amp;&amp;
+update-desktop-database -q</kbd></pre>
+        </div>
+      </div>
+      <div class="starting" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Démarrer LXQt
+        </h2>
+        <p>
+          Vous pouvez démarrer <span class="application">LXQt</span> depuis
+          le niveau d'exécution 3, en utilisant <a class="xref" href=
+          "../x/xinit.html" title="xinit-1.4.0">xinit-1.4.0</a>, ou depuis le
+          niveau d'exécution 5 en utilisant un gestionnaire d'affichage comme
+          <a class="xref" href="../x/lightdm.html" title=
+          "lightdm-1.24.0">lightdm-1.24.0</a>.
+        </p>
+        <p>
+          Pour démarrer <span class="application">LXQt</span> avec <a class=
+          "xref" href="../x/xinit.html" title="xinit-1.4.0">xinit-1.4.0</a>,
+          lancez les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; ~/.xinitrc &lt;&lt; "EOF"
+<code class=
+"literal">ck-launch-session dbus-launch --exit-with-session startlxqt</code>
+EOF
+
+startx</kbd></pre>
+        <p>
+          La session X démarre dans le premier terminal virtuel inutilisé,
+          normalement vt7. Vous pouvez passer à un autre vt<span class=
+          "emphasis"><em>n</em></span> en appuyant simultanément sur les
+          touches Ctrl-Alt-F<span class="emphasis"><em>n</em></span>
+          (<span class="emphasis"><em>n</em></span>=1, 2, ...). Pour aller
+          sur la session X, normalement démarrée sur vt7, utilisez
+          Ctrl-Alt-F7. Le vt où la commande <span class=
+          "command"><strong>startx</strong></span> est exécuté affichera
+          beaucoup de messages, incluant les messages de démarrage de X, les
+          applications automatiquement démarrées avec la session, et
+          éventuellement, quelques avertissements et messages d'erreur. Vous
+          pouvez préférer rediriger ces messages dans un fichier de log, qui
+          non seulement laissera le vt initial propre, mais pourra aussi être
+          utilisé pour des questions de débogage. Cela peut être fait en
+          démarrant X avec&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">startx &amp;&gt; ~/.x-session-errors</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Vous pouvez souhaiter éviter consolekit ou dbus-launch, par
+            exemple, en utilisant juste startlxqt dans ~/.xinitrc. Cependant
+            quelques fonctionnalités comme le montage ou le démontage des
+            systèmes de fichiers depuis un gestionnaire de fichiers ne seront
+            pas possibles, ou l'option de redémarrage peut être absente ou
+            inopérant, en plus d'autres problèmes.
+          </p>
+        </div>
+        <p>
+          Au redémarrage ou à l'arrêt, les messages d'arrêt apparaissent sur
+          le vt où X était lancé. Si vous voulez voir ces messages, appuyez
+          simultanément sur Alt-F7 (en considérant que X était lancé sur
+          vt7).
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2018-01-05 22:14:37 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxqt-runner.html" title=
+          "lxqt-runner-0.12.0">Précédent</a>
+          <p>
+            lxqt-runner-0.12.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-apps.html" title=
+          "Applications LXQt">Suivant</a>
+          <p>
+            Applications LXQt
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxqt-desktop.html" title=
+          "Chapitre&nbsp;39.&nbsp;Bureau LXQt">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

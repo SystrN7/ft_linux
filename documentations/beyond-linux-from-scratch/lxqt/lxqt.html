@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Partie&nbsp;XI.&nbsp;LXQt
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-07-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-07-28
+      </h4>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../lxde/lxterminal.html" title=
+          "LXTerminal-0.3.1">Précédent</a>
+          <p>
+            LXTerminal-0.3.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-desktop.html" title=
+          "Bureau LXQt">Suivant</a>
+          <p>
+            Bureau LXQt
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="part">
+      <h1 class="part">
+        <a id="lxqt" name="lxqt"></a>LXQt
+      </h1>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="chapter">
+            <h4>
+              <a href="lxqt-desktop.html">39. Bureau LXQt</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="pre-install.html">Instruction de pré-installation du
+                bureau LXQt</a>
+              </li>
+              <li class="sect1">
+                <a href="libqtxdg.html">libqtxdg-3.1.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-build-tools.html">lxqt-build-tools-0.4.0</a>
+              </li>
+              <li class="sect1">
+                <a href="libsysstat.html">libsysstat-0.4.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-kwindowsystem.html">Kwindowsystem-5.46.0 pour
+                lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href="liblxqt.html">liblxqt-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="libfm-qt.html">libfm-qt-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-l10n.html">lxqt-l10n-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-themes.html">lxqt-themes-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-qtplugin.html">lxqt-qtplugin-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-about.html">lxqt-about-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-admin.html">lxqt-admin-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-kwayland.html">Kwayland-5.46.0 pour lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-libkscreen.html">Libkscreen-5.12.5 pour
+                lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-config.html">lxqt-config-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-globalkeys.html">lxqt-globalkeys-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href=
+                "lxqt-notificationd.html">lxqt-notificationd-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-policykit.html">lxqt-policykit-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-kidletime.html">Kidletime-5.46.0 pour lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-solid.html">Solid-5.46.0 pour lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href=
+                "lxqt-powermanagement.html">lxqt-powermanagement-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-session.html">lxqt-session-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-kguiaddons.html">Kguiaddons-5.46.0 pour
+                lxqt</a>
+              </li>
+              <li class="sect1">
+                <a href="pcmanfm-qt.html">pcmanfm-qt-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-panel.html">lxqt-panel-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="lxqt-runner.html">lxqt-runner-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="post-install.html">Instructions finales du bureau
+                LXQt</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="lxqt-apps.html">40. Applications LXQt</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="lximage-qt.html">lximage-qt-0.6.0</a>
+              </li>
+              <li class="sect1">
+                <a href="obconf-qt.html">obconf-qt-0.12.0</a>
+              </li>
+              <li class="sect1">
+                <a href="pavucontrol-qt.html">pavucontrol-qt-0.3.0</a>
+              </li>
+              <li class="sect1">
+                <a href="qtermwidget.html">qtermwidget-0.8.0</a>
+              </li>
+              <li class="sect1">
+                <a href="qterminal.html">qterminal-0.8.0</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../lxde/lxterminal.html" title=
+          "LXTerminal-0.3.1">Précédent</a>
+          <p>
+            LXTerminal-0.3.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxqt-desktop.html" title=
+          "Bureau LXQt">Suivant</a>
+          <p>
+            Bureau LXQt
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-07-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

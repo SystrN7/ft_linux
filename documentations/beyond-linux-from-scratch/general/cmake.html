@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      CMake-3.13.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="clisp.html" title="Clisp-2.49">Précédent</a>
+          <p>
+            Clisp-2.49
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title=
+          "DejaGnu-1.6.2">Suivant</a>
+          <p>
+            DejaGnu-1.6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="cmake" name="cmake"></a>CMake-3.13.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à CMake
+        </h2>
+        <p>
+          Le paquet <span class="application">CMake</span> contient un
+          ensemble d'outils modernes utilisés pour générer des fichiers
+          Makefile. C'est le successeur du script <span class=
+          "command"><strong>configure</strong></span> auto-généré et souhaite
+          être indépendant de la plate-forme et du compilateur. Un
+          utilisateur significatif de <span class="application">CMake</span>
+          est <span class="application">KDE</span> depuis la version 4.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://cmake.org/files/v3.13/cmake-3.13.4.tar.gz">https://cmake.org/files/v3.13/cmake-3.13.4.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                b5a544ffc73f6922a6cf371fcb6bae22
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 8.2 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 407 Mo (plus 485
+                Mo pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 2.6 SBU (plus 4.3
+                SBU pour les tests, en utilisant parallélisme = 4 pour les
+                deux)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de CMake
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="libuv.html" title=
+          "libuv-1.26.0">libuv-1.26.0</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../basicnet/curl.html" title=
+          "cURL-7.64.0">cURL-7.64.0</a> et <a class="xref" href=
+          "libarchive.html" title="libarchive-3.3.3">libarchive-3.3.3</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/qt5.html" title=
+          "Qt-5.12.1">Qt-5.12.1</a> (pour l'interface graphique basée sur
+          Qt), <a class="xref" href="subversion.html" title=
+          "Subversion-1.11.1">Subversion-1.11.1</a> (pour tester) et
+          <a class="ulink" href=
+          "https://pypi.python.org/pypi/Sphinx">Sphinx</a> (pour construire
+          la documentation)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/cmake">http://wiki.linuxfromscratch.org/blfs/wiki/cmake</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de CMake
+        </h2>
+        <p>
+          Installez <span class="application">CMake</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &amp;&amp;
+
+./bootstrap --prefix=/usr        \
+            --system-libs        \
+            --mandir=/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-librhash \
+            --docdir=/share/doc/cmake-3.13.4 &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;: <span class=
+          "command"><strong>bin/ctest -j<em class=
+          "replaceable"><code>&lt;N&gt;</code></em> -O
+          cmake-3.13.4-test.log</strong></span>, où <em class=
+          "replaceable"><code>&lt;N&gt;</code></em> et un entier entre 1 et
+          le nombre de cœurs du système.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed ...
+          Modules/GNUInstallDirs.cmake</strong></span>&nbsp;: Cette commande
+          empêche les applications utilisant cmake de tenter d'installer des
+          fichiers dans /usr/lib64.
+        </p>
+        <p>
+          <em class="parameter"><code>--system-libs</code></em>&nbsp;: Ce
+          paramètre oblige le système de construction à se lier à
+          <span class="application">Zlib</span>, <span class=
+          "application">Bzip2</span>, <span class="application">cURL</span>,
+          <span class="application">Expat</span> et <span class=
+          "application">libarchive</span> installés sur le système.
+        </p>
+        <p>
+          <em class="parameter"><code>--no-system-jsoncpp</code></em>&nbsp;:
+          Ce paramètre enlève la bibliothèque <span class=
+          "application">JSON-C++</span> de la liste des bibliothèques
+          systèmes. Une version empaquetée de cette bibliothèque est utilisé
+          à la place.
+        </p>
+        <p>
+          <code class="option">--qt-gui</code>&nbsp;: Ce paramètre construit
+          une interface graphique basée sur <span class=
+          "application">Qt</span> pour <span class=
+          "application">CMake</span>.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">ccmake, cmake, cmake-gui (facultatif),
+              cpack et ctest</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/share/cmake-3.13 et
+              /usr/share/doc/cmake-3.13.4</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ccmake" name="ccmake"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ccmake</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface interactive pour <span class=
+                    "command"><strong>cmake</strong></span> basée sur curses.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cmake-prog" name="cmake-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cmake</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le générateur de makefile.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cmake-gui" name="cmake-gui"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cmake-gui</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    (facultatif) est l'interface basée sur <span class=
+                    "application">Qt</span> de <span class=
+                    "command"><strong>cmake</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cpack" name="cpack"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cpack</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le programme d'empaquetage de <span class=
+                    "application">CMake</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ctest" name="ctest"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ctest</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de test des arborescences des constructions
+                    générées par cmake.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="clisp.html" title="Clisp-2.49">Précédent</a>
+          <p>
+            Clisp-2.49
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title=
+          "DejaGnu-1.6.2">Suivant</a>
+          <p>
+            DejaGnu-1.6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

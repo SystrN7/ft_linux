@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      IcedTea-Web-1.7.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-08-30">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-08-30
+      </h4>
+      <h3>
+        Chapitre&nbsp;41.&nbsp;Autres programmes basés sur X
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="hexchat.html" title=
+          "HexChat-2.14.1">Précédent</a>
+          <p>
+            HexChat-2.14.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="inkscape.html" title=
+          "Inkscape-0.92.3">Suivant</a>
+          <p>
+            Inkscape-0.92.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapitre&nbsp;41.&nbsp;Autres programmes basés sur X">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-08-30">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="icedtea-web" name="icedtea-web"></a>IcedTea-Web-1.7.1
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à IcedTea-Web
+        </h2>
+        <p>
+          Le paquet <span class="application">IcedTea-Web</span> contient un
+          greffon <span class="application">Java</span> pour le navigateur,
+          et une nouvelle implémentation webstart, sous licence GPLV3.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://icedtea.wildebeest.org/download/source/icedtea-web-1.7.1.tar.gz">
+                http://icedtea.wildebeest.org/download/source/icedtea-web-1.7.1.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                f55d3b47c657a3603b05c637ca8a4572
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.0 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 35 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de IcedTea-Web
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/npapi-sdk.html" title=
+          "NPAPI-SDK-0.27.2">NPAPI-SDK-0.27.2</a> et <a class="xref" href=
+          "../general/openjdk.html" title="OpenJDK-10.0.2">OpenJDK-10.0.2</a>
+          ou <a class="xref" href="../general/java.html" title=
+          "Java-10.0.2">Java-10.0.2</a> (rappelez-vous de le configurer comme
+          décrit dans <a class="xref" href="../general/ojdk-conf.html" title=
+          "Configuration de l'environnement JAVA">Configuration de
+          l'environnement JAVA</a>),
+        </p>
+        <h4>
+          Requis pour l'exécution, un navigateur web, comme&nbsp;:
+        </h4>
+        <p class="required">
+          <a class="xref" href="epiphany.html" title=
+          "Epiphany-3.28.3.1">Epiphany-3.28.3.1</a> ou <a class="xref" href=
+          "seamonkey.html" title="SeaMonkey-2.49.4">SeaMonkey-2.49.4</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/libxslt.html" title=
+          "libxslt-1.1.32">libxslt-1.1.32</a>, <a class="xref" href=
+          "../general/mercurial.html" title=
+          "Mercurial-4.7">Mercurial-4.7</a>, <a class="ulink" href=
+          "http://emma.sourceforge.net/">EMMA</a> et <a class="ulink" href=
+          "http://www.eclemma.org/jacoco/">JACOCO</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/icedtea-web">http://wiki.linuxfromscratch.org/blfs/wiki/icedtea-web</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de IcedTea-Web
+        </h2>
+        <p>
+          Installez <span class="application">IcedTea-Web</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=${JAVA_HOME}/jre    \
+            --with-jdk-home=${JAVA_HOME} \
+            --disable-docs               \
+            --mandir=${JAVA_HOME}/man &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+        <p>
+          Pour tester que les pages de man sont correctement installées,
+          tapez <span class="command"><strong>man
+          policyeditor</strong></span> pour afficher la page de man.
+        </p>
+        <p>
+          si vous le souhaitez, vous pouvez installer un fichier .desktop
+          correspondant à une entrée dans un menu de bureau pour <span class=
+          "command"><strong>policyeditor</strong></span>, en tant
+          qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -Dm0644 itweb-settings.desktop /usr/share/applications/itweb-settings.desktop &amp;&amp;
+install -v -Dm0644 javaws.png /usr/share/pixmaps/javaws.png</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--with-jdk-home</code></em>&nbsp;: Ce
+          paramètre fournit l'emplacement du <span class=
+          "application">JDK</span> installé.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-docs</code></em>&nbsp;: Ce
+          paramètre désactive l'installation de la documentation
+          supplémentaire pour les développeurs. Enlevez-le si vous souhaitez
+          faire du développement sur <span class=
+          "application">IcedTea-Web</span>.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Informations sur la configuration
+        </h2>
+        <p>
+          En tant qu'utilisateur <code class="systemitem">root</code>, créez
+          un lien symbolique vers le greffon depuis le répertoire des
+          greffons de votre navigateur. Par exemple pour <a class="xref"
+          href="seamonkey.html" title=
+          "SeaMonkey-2.49.4">SeaMonkey-2.49.4</a>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -dm755 /usr/lib/mozilla/plugins &amp;&amp;
+ln -s ${JAVA_HOME}/jre/lib/IcedTeaPlugin.so /usr/lib/mozilla/plugins/</kbd></pre>
+        <div class="admon important">
+          <img alt="[Important]" src="../images/important.png" />
+          <h3>
+            Important
+          </h3>
+          <p>
+            Le greffon doit être un lien symbolique pour fonctionner. Sinon,
+            les navigateurs crasheront en tentant de charger l'application
+            <span class="application">Java</span>.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">itweb-settings, javaws et
+              policyeditor</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">IcedTeaPlugin.so, jsobject.jar, netx.jar,
+              plugin.jar</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">${JAVA_HOME}/jre/share/icedtea-web</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="itweb-settings" name=
+                    "itweb-settings"></a><span class="term"><span class=
+                    "command"><strong>itweb-settings</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    permet la personnalisation du greffon navigateur et de
+                    <span class="application">javaws</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="javaws-itweb" name="javaws-itweb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>javaws</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lance des applications/applets Java hébergées sur un
+                    réseau.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="policyeditor-itweb" name=
+                    "policyeditor-itweb"></a><span class="term"><span class=
+                    "command"><strong>policyeditor</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    visualise et modifie les paramètre de politique de
+                    sécurité, dont les certificats, pour javaws et le greffon
+                    de navigateur.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="IcedTeaPlugin" name=
+                    "IcedTeaPlugin"></a><span class="term"><code class=
+                    "filename">IcedTeaPlugin.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le greffon de navigateur <span class=
+                    "application">Java</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jsobjectjar" name="jsobjectjar"></a><span class=
+                    "term"><code class="filename">jsobject.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions pour manipuler des objets
+                    JavaScript depuis du code JAVA.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="netxjar" name="netxjar"></a><span class=
+                    "term"><code class="filename">netx.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions pour l'implémentation webstart de
+                    <span class="application">IcedTea-Web</span> (NetX)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pluginjar" name="pluginjar"></a><span class=
+                    "term"><code class="filename">plugin.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions pour le greffon <span class=
+                    "application">Java</span> de <span class=
+                    "application">IcedTea-Web</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-08-24 16:22:14 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="hexchat.html" title=
+          "HexChat-2.14.1">Précédent</a>
+          <p>
+            HexChat-2.14.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="inkscape.html" title=
+          "Inkscape-0.92.3">Suivant</a>
+          <p>
+            Inkscape-0.92.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapitre&nbsp;41.&nbsp;Autres programmes basés sur X">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-08-30">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

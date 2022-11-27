@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      QupZilla-2.2.6
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-06-17">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-06-17
+      </h4>
+      <h3>
+        Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="midori.html" title=
+          "Midori-0.5.11">Précédent</a>
+          <p>
+            Midori-0.5.11
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="seamonkey.html" title=
+          "SeaMonkey-2.49.3">Suivant</a>
+          <p>
+            SeaMonkey-2.49.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-06-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="qupzilla" name="qupzilla"></a>QupZilla-2.2.6
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à QupZilla
+        </h2>
+        <p>
+          <span class="application">QupZilla</span> est un navigateur léger
+          et complet basé sur <span class="application">QtWebEngine</span>, à
+          l'origine conçu pour l'éducation.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://github.com/QupZilla/qupzilla/releases/download/v2.2.6/QupZilla-2.2.6.tar.xz">
+                https://github.com/QupZilla/qupzilla/releases/download/v2.2.6/QupZilla-2.2.6.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                869448eadaef62f1b2e31bf038f33f52
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.4 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 81 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 5.4 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de QupZilla
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/qtwebengine.html" title=
+          "QtWebEngine-5.11.0">qtwebengine-5.11.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gdb.html" title=
+          "GDB-8.1">GDB-8.1</a>, <a class="ulink" href=
+          "ftp://ftp.gnome.org/pub/gnome/sources/libgnome-keyring/">libgnome-keyring</a>
+          (greffon Gnome-Keyring)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/qupzilla">http://wiki.linuxfromscratch.org/blfs/wiki/qupzilla</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de QupZilla
+        </h2>
+        <p>
+          Installez <span class="application">QupZilla</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export QUPZILLA_PREFIX=/usr &amp;&amp;
+qmake                       &amp;&amp;
+make</kbd></pre>
+        <p>
+          La commande <span class="command"><strong>export</strong></span>
+          est utilisée pour configurer la construction. Autrement, vous
+          pouvez ajouter la variable d'environnement à <code class=
+          "filename">src/defines.pri</code>.
+        </p>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd></pre>
+        <p>
+          Si <a class="xref" href="../general/desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a> et <a class=
+          "xref" href="xdg-utils.html" title=
+          "xdg-utils-1.1.3">xdg-utils-1.1.3</a> sont installé, lancez en tant
+          qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">xdg-icon-resource forceupdate --theme hicolor &amp;&amp;
+update-desktop-database -q</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Si vous souhaitez utiliser l'une de ces variables, elles doivent
+            être exportées. Vous pouvez les ajouter au bloc <span class=
+            "command"><strong>export</strong></span> dans les instructions
+            principales. Autrement, plutôt que de les exporter, elles peuvent
+            être ajoutées, une par ligne, dans <code class=
+            "filename">src/defines.pri</code>.
+          </p>
+        </div>
+        <p>
+          <code class="envar">CONFIG += debug</code>&nbsp;: Utilisez-la si
+          vous voulez construire QupZilla avec les symboles de débogage.
+        </p>
+        <p>
+          <code class="envar">GNOME_INTEGRATION=true</code>&nbsp;: Active
+          l'intégration Gnome, ce qui signifie la construction du greffon
+          Gnome-Keyring Password, qui fournit un support pour sauvegarder les
+          mots de passe dans Gnome-Keyring.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">qupzilla</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libQupZilla.so et des greffons dans
+              /usr/lib/qupzilla/</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/{lib,share}/qupzilla</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qupzilla-prog" name=
+                    "qupzilla-prog"></a><span class="term"><span class=
+                    "command"><strong>qupzilla</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un navigateur web <span class=
+                    "application">QtWebEngine</span> léger.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libQupZilla" name="libQupZilla"></a><span class=
+                    "term"><code class=
+                    "filename">libQupZilla.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contient les fonctions de l'API de <span class=
+                    "application">libQupZilla</span>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-03-22 18:35:13 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="midori.html" title=
+          "Midori-0.5.11">Précédent</a>
+          <p>
+            Midori-0.5.11
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="seamonkey.html" title=
+          "SeaMonkey-2.49.3">Suivant</a>
+          <p>
+            SeaMonkey-2.49.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapitre&nbsp;42.&nbsp;Navigateurs Internet graphiques">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-06-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

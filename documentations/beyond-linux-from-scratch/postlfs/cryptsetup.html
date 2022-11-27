@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      cryptsetup-2.0.6
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;4.&nbsp;Sécurité
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cracklib.html" title=
+          "CrackLib-2.9.6">Précédent</a>
+          <p>
+            CrackLib-2.9.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cyrus-sasl.html" title=
+          "Cyrus SASL-2.1.27">Suivant</a>
+          <p>
+            Cyrus SASL-2.1.27
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="cryptsetup" name="cryptsetup"></a>cryptsetup-2.0.6
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à cryptsetup
+        </h2>
+        <p>
+          cryptsetup est utilisé pour mettre en place le chiffrement
+          transparent de périphériques blocs avec l'API cryptographique du
+          noyau.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6.tar.xz">
+                https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                ec03e09cbe978a19fa6d6194ac642bae
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 10 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 25 Mo (plus 9 Mo
+                pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.2 SBU (plus 12
+                SBU pour les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de cryptsetup
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/json-c.html" title=
+          "JSON-C-0.13.1">JSON-C-0.13.1</a>, <a class="xref" href=
+          "../general/libgcrypt.html" title=
+          "libgcrypt-1.8.4">libgcrypt-1.8.4</a>, <a class="xref" href=
+          "lvm2.html" title="LVM2-2.03.02">LVM2-2.03.02</a> et <a class=
+          "xref" href="../general/popt.html" title="Popt-1.16">popt-1.16</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="libpwquality.html" title=
+          "libpwquality-1.4.0">libpwquality-1.4.0</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.15">Python-2.7.15</a>
+          et <a class="ulink" href=
+          "http://www.openwall.com/passwdqc/">passwdqc</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/cryptsetup">http://wiki.linuxfromscratch.org/blfs/wiki/cryptsetup</a>
+        </p>
+      </div>
+      <div class="kernel" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          <a id="cryptsetup-kernel" name=
+          "cryptsetup-kernel"></a>Configuration du noyau
+        </h2>
+        <p>
+          Les périphériques blocs chiffrés requièrent le support du noyau.
+          Pour les utiliser, les paramètres appropriés doivent être
+          utilisés&nbsp;:
+        </p>
+        <pre class="screen"><code class=
+        "literal">Device Drivers  ---&gt;          
+  [*] Multiple devices driver support (RAID and LVM) ---&gt; [CONFIG_MD]
+       &lt;*/M&gt; Device mapper support                        [CONFIG_BLK_DEV_DM]
+       &lt;*/M&gt; Crypt target support                         [CONFIG_DM_CRYPT]
+
+Cryptographic API  ---&gt;                                    
+  &lt;*/M&gt; XTS support                                       [CONFIG_CRYPTO_XTS]
+  &lt;*/M&gt; SHA224 and SHA256 digest algorithm                [CONFIG_CRYPTO_SHA256]
+  &lt;*/M&gt; AES cipher algorithms                             [CONFIG_CRYPTO_AES]
+  &lt;*/M&gt; AES cipher algorithms (x86_64)                    [CONFIG_CRYPTO_AES_X86_64] 
+  &lt;*/M&gt; User-space interface for symmetric key cipher algorithms
+                                                          [CONFIG_CRYPTO_USER_API_SKCIPHER]
+  For tests:
+  &lt;*/M&gt; Twofish cipher algorithm                          [CONFIG_CRYPTO_TWOFISH]</code></pre>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de cryptsetup
+        </h2>
+        <p>
+          Installez <span class="application">cryptsetup</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+            --with-crypto_backend=openssl &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultat, lancez en tant qu'utilisateur
+          <code class="systemitem">root</code>&nbsp;: <span class=
+          "command"><strong>make check</strong></span>. Certains tests
+          peuvent échouer si les paramètres de la configuration du noyau
+          présentés avant ne sont pas appliqués. Un test (sur 12) est connu
+          pour échouer.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>--with-crypto_backend=openssl</code></em>&nbsp;:
+          Ce paramètre définie les bibliothèques cryptographiques à utiliser
+          avec l'application. <span class="application">gcrypt</span> par
+          défaut.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de cryptsetup
+        </h2>
+        <p>
+          À cause du nombre de configurations possibles, la mise en place de
+          volumes chiffrés va au delà de la portée du livre BLFS. Merci de
+          regarder le guide de configuration dans la <a class="ulink" href=
+          "https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions#2-setup">
+          FAQ</a> de cryptsetup.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">cryptsetup, cryptsetup-reencrypt,
+              integritysetup et veritysetup</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libcryptsetup.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cryptsetup-prog" name=
+                    "cryptsetup-prog"></a><span class="term"><span class=
+                    "command"><strong>cryptsetup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour mettre en place des liaisons
+                    device-mapper gérées par dm-crypt.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cryptsetup-reencrypt" name=
+                    "cryptsetup-reencrypt"></a><span class=
+                    "term"><span class="command"><strong>cryptsetup-reencrypt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil pour le re-chiffrement de périphériques
+                    LUKS.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="integritysetup" name=
+                    "integritysetup"></a><span class="term"><span class=
+                    "command"><strong>integritysetup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil pour gérer les volumes dm-integrity
+                    (intégrité au niveau du bloc).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="veritysetup" name="veritysetup"></a><span class=
+                    "term"><span class=
+                    "command"><strong>veritysetup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour configurer les liaisons device-mapper
+                    gérées par dm-verity. Les cibles device-mapper verity
+                    fournissent une vérification d’intégrité transparente en
+                    lecture-seule des périphériques blocs avec l'API
+                    cryptographique du noyau.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-17 03:14:14 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cracklib.html" title=
+          "CrackLib-2.9.6">Précédent</a>
+          <p>
+            CrackLib-2.9.6
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cyrus-sasl.html" title=
+          "Cyrus SASL-2.1.27">Suivant</a>
+          <p>
+            Cyrus SASL-2.1.27
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="security.html" title=
+          "Chapitre&nbsp;4.&nbsp;Sécurité">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

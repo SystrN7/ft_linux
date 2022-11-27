@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      W3m-0.5.3
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;18.&nbsp;Navigateurs web en mode texte
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lynx.html" title=
+          "Lynx-2.8.9rel.1">Précédent</a>
+          <p>
+            Lynx-2.8.9rel.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="mailnews.html" title=
+          "Clients de courrier et de nouvelles">Suivant</a>
+          <p>
+            Clients de courrier et de nouvelles
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="textweb.html" title=
+          "Chapitre&nbsp;18.&nbsp;Navigateurs web en mode texte">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="w3m" name="w3m"></a>W3m-0.5.3
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à W3m
+        </h2>
+        <p>
+          <span class="application">w3m</span> est initialement un pageur
+          mais il peut être utilisé en tant que navigateur WWW en mode texte.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/w3m/w3m-0.5.3.tar.gz">https://downloads.sourceforge.net/w3m/w3m-0.5.3.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                1b845a983a50b8dec0169ac48479eacc
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.1 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 26 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif requis&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/8.4/w3m-0.5.3-bdwgc72-2.patch">
+                http://www.linuxfromscratch.org/patches/blfs/8.4/w3m-0.5.3-bdwgc72-2.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de W3m
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/gc.html" title=
+          "GC-8.0.2">GC-8.0.2</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gpm.html" title=
+          "GPM-1.20.7">GPM-1.20.7</a>, <a class="xref" href=
+          "../x/imlib2.html" title="imlib2-1.5.1">imlib2-1.5.1</a>, <a class=
+          "xref" href="../x/gtk2.html" title="GTK+-2.24.32">GTK+-2.24.32</a>,
+          <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/imlib/1.9/">Imlib</a> (non
+          recommandé&nbsp;: obsolète, abandonné en amont, <a class="ulink"
+          href="http://bugs.debian.org/448360">buggy</a>, et ne fournit pas
+          plus de fonctionnalité que d'autres bibliothèques de chargement
+          d'images), <a class="xref" href="../x/gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.38.0">gdk-pixbuf-2.38.0</a>, <a class="xref" href=
+          "../general/compface.html" title=
+          "Compface-1.5.2">Compface-1.5.2</a> et <a class="ulink" href=
+          "http://packages.debian.org/unstable/text/nkf">nkf</a>, un MUA
+          (Mail User Agent) et un navigateur externe
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/W3M">http://wiki.linuxfromscratch.org/blfs/wiki/W3M</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de W3m
+        </h2>
+        <p>
+          Installez <span class="application">w3m</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../w3m-0.5.3-bdwgc72-2.patch      &amp;&amp;
+sed -i 's/file_handle/file_foo/' istream.{c,h}  &amp;&amp;
+sed -i 's#gdk-pixbuf-xlib-2.0#&amp; x11#' configure &amp;&amp;
+sed -i '/USE_EGD/s/define/undef/' config.h.in   &amp;&amp;
+
+
+./configure --prefix=/usr --sysconfdir=/etc  &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install &amp;&amp;
+install -v -m644 -D doc/keymap.default /etc/w3m/keymap &amp;&amp;
+install -v -m644    doc/menu.default /etc/w3m/menu &amp;&amp;
+install -v -m755 -d /usr/share/doc/w3m-0.5.3 &amp;&amp;
+install -v -m644    doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
+                    /usr/share/doc/w3m-0.5.3</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>patch -p1 &lt;
+          ../w3m-0.5.3-bdwgc72-2.patch</strong></span>&nbsp;: Ce correctif
+          corrige la compilation de w3m avec GC-7.2 et supérieur installé.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i 's/file_handle/file_foo/'
+          istream.{c,h}</strong></span>&nbsp;: Ce sed renomme la fonction
+          file_handle function pour éviter un conflit une fonction de glibc
+          qui porte le même nom, définie dans /usr/include/bits/fcntl.h.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i 's#gdk-pixbuf-xlib-2.0#&amp;
+          x11#' configure</strong></span>&nbsp;: Ce sed corrige la
+          compilation de <span class="application">w3m</span> en utilisant
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.32">GTK+-2.24.32</a> comme bibliothèque image. Cela n'a
+          aucune conséquence si <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.32">GTK+-2.24.32</a> n'est pas installé.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i '/USE_EGD/s/define/undef/'
+          config.h.in</strong></span>&nbsp;: Vous permet de construire avec
+          <span class="application">openssl-1.1</span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--sysconfdir=/etc</code></em>&nbsp;:
+          Cette option place les fichiers de configuration dans /etc.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de W3m
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="w3m-config" name="w3m-config"></a>Fichiers de
+            configuration
+          </h3>
+          <p>
+            <code class="filename">/etc/w3m/*</code> et <code class=
+            "filename">~/.w3m/*</code>
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">w3m et w3mman</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/libexec/w3m, /usr/share/w3m et
+              /usr/share/doc/w3m-0.5.3</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="w3m-prog" name="w3m-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>w3m</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un navigateur web texte et un pageur.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="w3mman" name="w3mman"></a><span class=
+                    "term"><span class=
+                    "command"><strong>w3mman</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface pour le manuel en ligne de <span class=
+                    "command"><strong>w3m</strong></span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lynx.html" title=
+          "Lynx-2.8.9rel.1">Précédent</a>
+          <p>
+            Lynx-2.8.9rel.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="mailnews.html" title=
+          "Clients de courrier et de nouvelles">Suivant</a>
+          <p>
+            Clients de courrier et de nouvelles
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="textweb.html" title=
+          "Chapitre&nbsp;18.&nbsp;Navigateurs web en mode texte">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

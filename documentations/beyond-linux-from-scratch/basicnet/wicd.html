@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Wicd-1.7.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2019-01-27">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2019-01-27
+      </h4>
+      <h3>
+        Chapitre&nbsp;16.&nbsp;Outils réseaux
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="whois.html" title=
+          "Whois-5.4.1">Précédent</a>
+          <p>
+            Whois-5.4.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="wireshark.html" title=
+          "Wireshark-2.6.6">Suivant</a>
+          <p>
+            Wireshark-2.6.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapitre&nbsp;16.&nbsp;Outils réseaux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-27">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="wicd" name="wicd"></a>Wicd-1.7.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Wicd
+        </h2>
+        <p>
+          <span class="application">Wicd</span> est un gestionnaire de réseau
+          écrit en Python. Il simplifie le paramétrage du réseau en détectant
+          et en se connectant automatiquement à des réseaux sans fil et
+          filaires. Wicd inclut le support de l'authentification WPA et la
+          configuration DHCP. Il offre des interfaces Curses et graphiques
+          basées sur GTK pour un contrôle convivial. Une excellente interface
+          basée sur KDE est également disponible sur <a class="ulink" href=
+          "http://projects.kde.org/projects/extragear/network/wicd-kde">http://projects.kde.org/projects/extragear/network/wicd-kde</a>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.3.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://launchpad.net/wicd/1.7/1.7.4/+download/wicd-1.7.4.tar.gz">
+                https://launchpad.net/wicd/1.7/1.7.4/+download/wicd-1.7.4.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                aaa2e9f5320849e0b5d053099a6f0007
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 536 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 4.2 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Wicd
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a>, <a class="xref" href=
+          "../general/python-modules.html#dbus-python" title=
+          "D-Bus Python-1.2.8">D-Bus Python-1.2.8</a>, <a class="xref" href=
+          "wireless_tools.html" title="Wireless Tools-29">Wireless
+          Tools-29</a> et <a class="xref" href="net-tools.html" title=
+          "Net-tools-CVS_20101030">Net-tools-CVS_20101030</a> (Wicd a besoin
+          de <span class="command"><strong>mii-tool</strong></span> de ce
+          paquet)
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/python-modules.html#pygtk" title=
+          "PyGTK-2.24.0">PyGTK-2.24.0</a> (pour l'interface GTK), <a class=
+          "xref" href="wpa_supplicant.html" title=
+          "wpa_supplicant-2.7">wpa_supplicant-2.7</a> (pour le support de
+          WPA) et <a class="xref" href="dhcpcd.html" title=
+          "dhcpcd-7.1.0">dhcpcd-7.1.0</a> ou <a class="xref" href="dhcp.html"
+          title="DHCP-4.4.1">DHCP-4.4.1</a> (pour le support de DHCP)
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/pm-utils.html" title=
+          "pm-utils-1.4.1">pm-utils-1.4.1</a> (pour l'intégration de
+          "suspend/resume"), <a class="ulink" href=
+          "http://urwid.org/">Urwid</a> (pour l'interface basé sur Curses),
+          and <a class="ulink" href="http://babel.edgewall.org/">Babel</a>
+          (pour l'internationalisation)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/wicd">http://wiki.linuxfromscratch.org/blfs/wiki/wicd</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Wicd
+        </h2>
+        <p>
+          Installez <span class="application">Wicd</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e "/wpath.logrotate\|wpath.systemd/d" \
+    -e "/detection failed/ a\                self.init='init/default/wicd'" \
+    -i.orig setup.py &amp;&amp;
+
+rm po/*.po           &amp;&amp;
+
+python setup.py configure --no-install-kde     \
+                          --no-install-acpi    \
+                          --no-install-pmutils \
+                          --no-install-init    \
+                          --no-install-gnome-shell-extensions \
+                          --docdir=/usr/share/doc/wicd-1.7.4</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>, installez le paquet&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">python setup.py install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e ... -i
+          setup.py</strong></span>&nbsp;: La première expression dans cette
+          commande <span class="command"><strong>sed</strong></span> empêche
+          l'installation des fichiers de configuration de logrotate et
+          systemd. Vous pouvez l'oublier si vous utilisez ces utilitaires. La
+          seconde expression corrige la construction avec BLFS.
+        </p>
+        <p>
+          <span class="command"><strong>rm po/*.po</strong></span>&nbsp;:
+          Cette commande enlève les messages internationaux associés avec ce
+          paquet. La commande est requise si Babel n'est pas installé. S'il
+          est installé, po/ast.po doit être effacé pour que la construction
+          se termine.
+        </p>
+        <p>
+          <em class="parameter"><code>--no-install-kde</code></em>&nbsp;:
+          Empêche l'installation du fichier de démarrage automatique sur le
+          bureau pour KDE. Si vous utilisez KDE, vous devriez installer
+          plutôt le <a class="ulink" href=
+          "http://projects.kde.org/projects/extragear/network/wicd-kde">Client
+          Wicd KDE</a>.
+        </p>
+        <p>
+          <em class="parameter"><code>--no-install-acpi</code></em>&nbsp;:
+          Empêche l'installation des scripts <span class=
+          "command"><strong>suspend</strong></span> et <span class=
+          "command"><strong>resume</strong></span> pour acpid. Enlevez cette
+          option si vous utilisez acpid
+        </p>
+        <p>
+          <em class="parameter"><code>--no-install-pmutils</code></em>&nbsp;:
+          Empêche l'installation de repères pour pm-utils. Enlevez cette
+          option si vous utilisez pm-utils.
+        </p>
+        <p>
+          <em class="parameter"><code>--no-install-init</code></em>&nbsp;:
+          Empêche l'installation d'un script de démarrage comme les scripts
+          de démarrage sont installés plus tard dans les instructions.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--no-install-gnome-shell-extensions</code></em>&nbsp;:
+          Empêche l'installation des extensions respectives. Supprimez ce
+          paramètre si vous utilisez Gnome Shell.
+        </p>
+        <p>
+          <code class="option">--wicdgroup=<em class=
+          "replaceable"><code>&lt;group&gt;</code></em></code>&nbsp;: Le
+          groupe qui aura le droit d'utiliser le client Wicd (par défaut, il
+          s'agit du groupe <code class="systemitem">users</code>).
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de Wicd
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="wicd-config" name="wicd-config"></a>Fichiers de
+            configuration
+          </h3>
+          <p>
+            <code class="filename">/etc/wicd/manager-settings.conf</code>,
+            <code class="filename">/etc/wicd/wired-settings.conf</code> et
+            <code class="filename">/etc/wicd/wireless-settings.conf</code>
+          </p>
+        </div>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="wicd-init" name="wicd-init"></a>Informations sur la
+            configuration
+          </h3>
+          <p>
+            Pour démarrer automatiquement Wicd au moment de l'amorçage, vous
+            devez d'abord installer le script de démarrage Wicd, <code class=
+            "filename">/etc/rc.d/init.d/wicd</code>, fourni dans le paquet
+            <a class="xref" href="../introduction/bootscripts.html" title=
+            "Scripts de démarrage BLFS">blfs-bootscripts-20180105</a> (en
+            tant qu'utilisateur <code class="systemitem">root</code>)&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">make install-wicd</kbd></pre>
+          <p>
+            Vu que Wicd prendra désormais en charge toute la configuration
+            des périphériques réseaux, le script de démarrage du réseau
+            installé par LFS devrait être désactivé. Vous pouvez faire cela
+            en supprimant tous les liens symboliques <code class=
+            "filename">S*network</code> et <code class=
+            "filename">K*network</code> des répertoires <code class=
+            "filename">/etc/rc*.d</code> ou en réglant <code class=
+            "literal">ONBOOT=no</code> dans les fichiers <code class=
+            "filename">/etc/sysconfig/ifconfig.*</code>.
+          </p>
+          <p>
+            Aucune configuration manuelle de Wicd n'est nécessaire si vous
+            utilisez les interfaces graphiques. Si vous n'allez utiliser Wicd
+            qu'en ligne de commandes, vous pouvez le configurer en utilisant
+            les fichiers de configuration de <code class=
+            "filename">/etc/wicd</code>. Pour une liste des options
+            disponibles, regardez les pages de man de
+            wicd-manager-settings.conf, wicd-wired-settings.conf et
+            wicd-wireless-settings.conf.
+          </p>
+          <p>
+            Assurez-vous d'ajouter tous les utilisateurs qui doivent avoir
+            les droits pour ouvrir et fermer les connexions réseaux avec Wicd
+            au groupe <code class="systemitem">users</code> (ou au groupe
+            spécifié avec l'option de configuration <code class=
+            "option">--wicdgroup</code>).
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">wicd, wicd-cli, wicd-client, wicd-curses
+              (pas fonctionnel si <a class="ulink" href=
+              "http://urwid.org/">Urwid</a> n'est pas installé), et
+              wicd-gtk</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class=
+              "segbody">/{etc,usr/share,var/lib,var/log,var/run}/wicd,
+              /usr/lib/python2.7/site-packages/wicd et
+              /usr/share/doc/wicd-1.7.4</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicdd" name="wicdd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le démon wicd.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-cli" name="wicd-cli"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-cli</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface en ligne de commande pour configurer le
+                    démon wicd.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-client" name="wicd-client"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-client</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le client wicd. Ce script tente de choisir
+                    automatiquement l'interface de configuration pertinente.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-curses" name="wicd-curses"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-curses</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface curses pour configurer le démon wicd.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-gtk" name="wicd-gtk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-gtk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une interface GTK pour configurer le démon wicd
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-08-26 04:43:33 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="whois.html" title=
+          "Whois-5.4.1">Précédent</a>
+          <p>
+            Whois-5.4.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="wireshark.html" title=
+          "Wireshark-2.6.6">Suivant</a>
+          <p>
+            Wireshark-2.6.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapitre&nbsp;16.&nbsp;Outils réseaux">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-27">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

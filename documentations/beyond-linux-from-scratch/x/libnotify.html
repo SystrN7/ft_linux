@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      libnotify-0.7.7
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;25.&nbsp;Bibliothèques X
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libglade.html" title=
+          "libglade-2.6.4">Précédent</a>
+          <p>
+            libglade-2.6.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libxklavier.html" title=
+          "libxklavier-5.4">Suivant</a>
+          <p>
+            libxklavier-5.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="libnotify" name="libnotify"></a>libnotify-0.7.7
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à libnotify
+        </h2>
+        <p>
+          La bibliothèque <span class="application">libnotify</span> est
+          utilisé pour envoyer des notifications de bureau à un démon de
+          notification, tel que défini dans la spécification Desktop
+          Notifications. Ces notifications peuvent être utilisées pour
+          informer l'utilisateur sur un événement ou afficher une certaine
+          forme d'information sans gêner l'utilisateur.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                e9d911f6a22435e0b922f2fe71212b59
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 280 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 4.8 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de libnotify
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="gtk3.html" title=
+          "GTK+-3.24.5">GTK+-3.24.5</a>
+        </p>
+        <h4>
+          Facultatives (Requises pour construire GNOME)
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.58.3">gobject-introspection-1.58.3</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.29">GTK-Doc-1.29</a>
+        </p>
+        <h4>
+          Requises (environnement d'exécution)
+        </h4>
+        <p class="required">
+          <a class="xref" href="../gnome/notification-daemon.html" title=
+          "notification-daemon-3.20.0">notification-daemon-3.20.0</a> ou
+          <a class="xref" href="../xfce/xfce4-notifyd.html" title=
+          "xfce4-notifyd-0.4.3">xfce4-notifyd-0.4.3</a>
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="application">GNOME Shell</span> et <span class=
+            "application">KDE KWin</span> fournissent leurs propres démons de
+            notification.
+          </p>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libnotify">http://wiki.linuxfromscratch.org/blfs/wiki/libnotify</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de libnotify
+        </h2>
+        <p>
+          Installez <span class="application">libnotify</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr --disable-static &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>&nbsp;: Ce
+          paramètre empêche l'installation des versions statiques des
+          bibliothèques.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>&nbsp;: Utilisez ce
+          paramètre si <span class="application">GTK-Doc</span> est installé
+          et si vous souhaitez reconstruire et installer la documentation de
+          l'API.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">notify-send</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libnotify.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/libnotify and
+              /usr/share/gtk-doc/html/libnotify</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="notify-send" name="notify-send"></a><span class=
+                    "term"><span class=
+                    "command"><strong>notify-send</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une commande utilisée pour envoyer des notifications.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libnotify-lib" name=
+                    "libnotify-lib"></a><span class="term"><code class=
+                    "filename">libnotify.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contient les fonctions de l'API de <span class=
+                    "application">libnotify</span>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libglade.html" title=
+          "libglade-2.6.4">Précédent</a>
+          <p>
+            libglade-2.6.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libxklavier.html" title=
+          "libxklavier-5.4">Suivant</a>
+          <p>
+            libxklavier-5.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

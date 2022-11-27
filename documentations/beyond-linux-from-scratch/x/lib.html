@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapitre&nbsp;25.&nbsp;Bibliothèques X
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Partie&nbsp;VI.&nbsp;X et gestionnaires de fenêtres et d'affichage
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="x7legacy.html" title=
+          "Xorg Legacy">Précédent</a>
+          <p>
+            Xorg Legacy
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="atk.html" title="ATK-2.30.0">Suivant</a>
+          <p>
+            ATK-2.30.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="x.html" title=
+          "Partie&nbsp;VI.&nbsp;X et gestionnaires de fenêtres et d'affichage">
+          Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="fr" xml:lang="fr">
+      <h1 class="chapter">
+        <a id="x-lib" name="x-lib"></a>Bibliothèques X
+      </h1>
+      <p>
+        Ce chapitre ne contient pas de bibliothèques exigées pour lancer
+        <span class="application">X</span>. Il contient des bibliothèques qui
+        améliorent <span class="application">X</span>. Dans certains cas,
+        l'amélioration est aussi simple que le support des polices. Dans
+        d'autres cas, elle est aussi complexe que des bibliothèques qui se
+        placent entre <span class="application">X</span> et les applications
+        s'exécutant sur <span class="application">X</span> dont le but est de
+        standardiser l'aspect et la sensation et les communications
+        inter-processus pour différentes applications. Elles aident aussi les
+        programmeurs en leur offrant des éléments courants.
+      </p>
+      <div class="toc">
+        <h3>
+          Table des matières
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="atk.html">ATK-2.30.0</a>
+          </li>
+          <li class="sect1">
+            <a href="atkmm.html">Atkmm-2.28.0</a>
+          </li>
+          <li class="sect1">
+            <a href="at-spi2-core.html">at-spi2-core-2.30.0</a>
+          </li>
+          <li class="sect1">
+            <a href="at-spi2-atk.html">at-spi2-atk-2.30.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cairo.html">Cairo-1.16.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cairomm.html">Cairomm-1.12.2</a>
+          </li>
+          <li class="sect1">
+            <a href="cogl.html">Cogl-1.22.2</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter.html">Clutter-1.26.2</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter-gst.html">clutter-gst-3.0.27</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter-gtk.html">clutter-gtk-1.8.4</a>
+          </li>
+          <li class="sect1">
+            <a href="colord-gtk.html">colord-gtk-0.1.26</a>
+          </li>
+          <li class="sect1">
+            <a href="fltk.html">FLTK-1.3.4-2</a>
+          </li>
+          <li class="sect1">
+            <a href="freeglut.html">Freeglut-3.0.0</a>
+          </li>
+          <li class="sect1">
+            <a href="gdk-pixbuf.html">gdk-pixbuf-2.38.0</a>
+          </li>
+          <li class="sect1">
+            <a href="glu.html">GLU-9.0.0</a>
+          </li>
+          <li class="sect1">
+            <a href="goffice010.html">GOffice-0.10.44</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk2.html">GTK+-2.24.32</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk3.html">GTK+-3.24.5</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk-engines.html">GTK Engines-2.20.2</a>
+          </li>
+          <li class="sect1">
+            <a href="gtkmm2.html">Gtkmm-2.24.5</a>
+          </li>
+          <li class="sect1">
+            <a href="gtkmm3.html">Gtkmm-3.24.0</a>
+          </li>
+          <li class="sect1">
+            <a href="gtksourceview.html">gtksourceview-3.24.9</a>
+          </li>
+          <li class="sect1">
+            <a href="imlib2.html">imlib2-1.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="keybinder.html">keybinder-0.3.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libdazzle.html">libdazzle-3.30.2</a>
+          </li>
+          <li class="sect1">
+            <a href="libdrm.html">libdrm-2.4.97</a>
+          </li>
+          <li class="sect1">
+            <a href="libepoxy.html">libepoxy-1.5.3</a>
+          </li>
+          <li class="sect1">
+            <a href="libglade.html">libglade-2.6.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libnotify.html">libnotify-0.7.7</a>
+          </li>
+          <li class="sect1">
+            <a href="libxklavier.html">libxklavier-5.4</a>
+          </li>
+          <li class="sect1">
+            <a href="pango.html">Pango-1.42.4</a>
+          </li>
+          <li class="sect1">
+            <a href="pangomm.html">Pangomm-2.42.0</a>
+          </li>
+          <li class="sect1">
+            <a href="qt5.html">Qt-5.12.1</a>
+          </li>
+          <li class="sect1">
+            <a href="qtwebengine.html">QtWebEngine-5.12.1</a>
+          </li>
+          <li class="sect1">
+            <a href="startup-notification.html">startup-notification-0.12</a>
+          </li>
+          <li class="sect1">
+            <a href="webkitgtk.html">WebKitGTK+-2.22.6</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="x7legacy.html" title=
+          "Xorg Legacy">Précédent</a>
+          <p>
+            Xorg Legacy
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="atk.html" title="ATK-2.30.0">Suivant</a>
+          <p>
+            ATK-2.30.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="x.html" title=
+          "Partie&nbsp;VI.&nbsp;X et gestionnaires de fenêtres et d'affichage">
+          Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      colord-gtk-0.1.26
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;25.&nbsp;Bibliothèques X
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="clutter-gtk.html" title=
+          "clutter-gtk-1.8.4">Précédent</a>
+          <p>
+            clutter-gtk-1.8.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="fltk.html" title="FLTK-1.3.4-2">Suivant</a>
+          <p>
+            FLTK-1.3.4-2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="colord-gtk" name="colord-gtk"></a>colord-gtk-0.1.26
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Colord GTK
+        </h2>
+        <p>
+          Le paquet <span class="application">Colord GTK</span> contient les
+          liaisons <span class="application">GTK+</span> pour <span class=
+          "application">Colord</span>.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz">
+                https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                bb9d6f3c037152ad791003375aa6c16c
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 276 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 4.2 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Colord GTK
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/colord.html" title=
+          "Colord-1.4.3">colord-1.4.3</a> et <a class="xref" href="gtk3.html"
+          title="GTK+-3.24.5">GTK+-3.24.5</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.58.3">gobject-introspection-1.58.3</a> et
+          <a class="xref" href="../general/vala.html" title=
+          "Vala-0.42.5">Vala-0.42.5</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../pst/docbook-utils.html" title=
+          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
+          href="gtk2.html" title="GTK+-2.24.32">GTK+-2.24.32</a> et <a class=
+          "xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.29">GTK-Doc-1.29</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/colord-gtk">http://wiki.linuxfromscratch.org/blfs/wiki/colord-gtk</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Colord GTK
+        </h2>
+        <div class="admon warning">
+          <img alt="[Avertissement]" src="../images/warning.png" />
+          <h3>
+            Avertissement
+          </h3>
+          <p>
+            Si vous construisez la documentation, vous devez utiliser
+            <span class="command"><strong>make -j1</strong></span>.
+          </p>
+        </div>
+        <p>
+          Installez <span class="application">Colord GTK</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr    \
+            --enable-vala    \
+            --disable-static &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make check</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>--enable-vala</code></em>&nbsp;: Ce
+          paramètre active la construction des liaisons Vala. Supprimez-le si
+          vous n'avez pas installé <a class="xref" href=
+          "../general/vala.html" title="Vala-0.42.5">Vala-0.42.5</a>.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>&nbsp;: Ce
+          paramètre empêche l'installation des versions statiques des
+          bibliothèques.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>&nbsp;: Utilisez ce
+          paramètre si <span class="application">GTK-Doc</span> est installé
+          et si vous souhaitez reconstruire et installer la documentation de
+          l'API.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">cd-convert</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libcolord-gtk.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/colord-1/colord-gtk et
+              /usr/share/gtk-doc/html/colord-gtk</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cd-convert" name="cd-convert"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cd-convert</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de test de gestion de couleurs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcolord-gtk" name=
+                    "libcolord-gtk"></a><span class="term"><code class=
+                    "filename">libcolord-gtk.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les liaisons <span class=
+                    "application">GTK+</span> à <span class=
+                    "application">Colord</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-19 20:13:13 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="clutter-gtk.html" title=
+          "clutter-gtk-1.8.4">Précédent</a>
+          <p>
+            clutter-gtk-1.8.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="fltk.html" title="FLTK-1.3.4-2">Suivant</a>
+          <p>
+            FLTK-1.3.4-2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

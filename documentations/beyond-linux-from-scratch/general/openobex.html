@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      OpenOBEX-1.7.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-03-28">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-03-28
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="nspr.html" title="NSPR-4.19">Précédent</a>
+          <p>
+            NSPR-4.19
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pcre.html" title="PCRE-8.42">Suivant</a>
+          <p>
+            PCRE-8.42
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-03-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="openobex" name="openobex"></a>OpenOBEX-1.7.2
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à OpenOBEX
+        </h2>
+        <p>
+          Le paquet <span class="application">OpenOBEX</span> contient une
+          bibliothèque qui implémente le protocole d'échange d'objets utilisé
+          pour les transferts de fichiers binaires entre périphériques.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/openobex/openobex-1.7.2-Source.tar.gz">
+                https://downloads.sourceforge.net/openobex/openobex-1.7.2-Source.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                f6e0b6cb7dcfd731460a7e9a91429a3a
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 128 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 3.1 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de OpenOBEX
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="cmake.html" title=
+          "CMake-3.10.3">CMake-3.10.3</a> et <a class="xref" href=
+          "libusb.html" title="libusb-1.0.21">libusb-1.0.21</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="bluez.html" title="BlueZ-5.49">BlueZ-5.49</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="doxygen.html" title=
+          "Doxygen-1.8.14">Doxygen-1.8.14</a>, <a class="xref" href=
+          "libxslt.html" title="libxslt-1.1.32">libxslt-1.1.32</a>, <a class=
+          "xref" href="openjdk.html" title="OpenJDK-9.0.4">OpenJDK-9.0.4</a>
+          et <a class="xref" href="../pst/xmlto.html" title=
+          "xmlto-0.0.28">xmlto-0.0.28</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/openobex">http://wiki.linuxfromscratch.org/blfs/wiki/openobex</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de OpenOBEX
+        </h2>
+        <p>
+          <span class="application">OpenOBEX</span> installe une regle udev
+          qui demande un nom de groupe plugdev. Créez ce groupe en tant
+          qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">groupadd -g 90 plugdev</kbd></pre>
+        <p>
+          Installez <span class="application">OpenOBEX</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr      \
+      -DCMAKE_INSTALL_LIBDIR=/usr/lib  \
+      -DCMAKE_BUILD_TYPE=Release       \
+      -Wno-dev                         \
+      .. &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+if [ -d /usr/share/doc/openobex ]; then
+  mv -fv /usr/share/doc/{openobex,openobex-1.7.2}
+fi</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>-DCMAKE_BUILD_TYPE=Release</code></em>&nbsp;: Ce
+          paramètre est utilisé pour appliquer le plus haut niveau
+          d'optimisation du compilateur.
+        </p>
+        <p>
+          <em class="parameter"><code>-Wno-dev</code></em>&nbsp;: Ce
+          paramètre est utilisé pour supprimer les avertissements qui sont
+          destinés à l'auteur des fichiers CMakeLists.txt.
+        </p>
+        <p>
+          <span class="command"><strong>mv -fv ...</strong></span>&nbsp;:
+          Déplace la documentation dans un répertoire versionné s'il a été
+          créé.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programme installé:</strong>
+              <span class="segbody">obex-check-device</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libopenobex.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/include/openobex,
+              /usr/lib/cmake/OpenObex-1.7.1 et
+              /usr/share/doc/openobex-1.7.1</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="obex-check-device" name=
+                    "obex-check-device"></a><span class="term"><span class=
+                    "command"><strong>obex-check-device</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil qui aide <span class=
+                    "application">udev</span> à trouver les périphériques USB
+                    OBEX connectable.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libopenobex" name="libopenobex"></a><span class=
+                    "term"><code class=
+                    "filename">libopenobex.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient les fonctions de l'API de <span class=
+                    "application">OpenOBEX</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-25 23:41:39 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="nspr.html" title="NSPR-4.19">Précédent</a>
+          <p>
+            NSPR-4.19
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pcre.html" title="PCRE-8.42">Suivant</a>
+          <p>
+            PCRE-8.42
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-03-28">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      lsb_release-1.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;3.&nbsp;Questions de configuration après LFS
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="random.html" title=
+          "Génération de nombres aléatoires">Précédent</a>
+          <p>
+            Génération de nombres aléatoires
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="security.html" title="Sécurité">Suivant</a>
+          <p>
+            Sécurité
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="config.html" title=
+          "Chapitre&nbsp;3.&nbsp;Questions de configuration après LFS">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="lsb-release" name="lsb-release"></a>lsb_release-1.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à lsb_release
+        </h2>
+        <p>
+          Le script <span class="application">lsb_release</span> donne des
+          informations sur le status LSB (Linux Standards Base) de la
+          distribution.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz">
+                https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                30537ef5a01e0ca94b7b8eb6a36bb1e4
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 12 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 80 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: Moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lsb_release">http://wiki.linuxfromscratch.org/blfs/wiki/lsb_release</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de lsb_release
+        </h2>
+        <p>
+          En premier corrigez un problème d'affichage mineur&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i "s|n/a|unavailable|" lsb_release</kbd></pre>
+        <p>
+          Installez <span class="application">lsb_release</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./help2man -N --include ./lsb_release.examples \
+              --alt_version_key=program_version ./lsb_release &gt; lsb_release.1</kbd></pre>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m 644 lsb_release.1 /usr/share/man/man1 &amp;&amp;
+install -v -m 755 lsb_release   /usr/bin</kbd></pre>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Informations de configuration
+        </h2>
+        <p>
+          La configuration pour ce paquet est faite dans <a class="ulink"
+          href=
+          "http://www.linuxfromscratch.org/lfs/view/stable/chapter09/theend.html">
+          LFS</a>. Le fichier <code class="filename">/etc/lsb-release</code>
+          doit déjà exister. Soyez certain que le DISTRIB_CODENAME a été
+          correctement initialisé.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">lsb_release</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lsb_release-prog" name=
+                    "lsb_release-prog"></a><span class="term"><span class=
+                    "command"><strong>lsb_release</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script pour donner les données LSB.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 18:41:18 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="random.html" title=
+          "Génération de nombres aléatoires">Précédent</a>
+          <p>
+            Génération de nombres aléatoires
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="security.html" title="Sécurité">Suivant</a>
+          <p>
+            Sécurité
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="config.html" title=
+          "Chapitre&nbsp;3.&nbsp;Questions de configuration après LFS">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

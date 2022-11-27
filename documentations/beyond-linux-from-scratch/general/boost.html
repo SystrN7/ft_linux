@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Boost-1.69.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="aspell.html" title=
+          "Aspell-0.60.6.1">Précédent</a>
+          <p>
+            Aspell-0.60.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="clucene.html" title=
+          "CLucene-2.3.3.4">Suivant</a>
+          <p>
+            CLucene-2.3.3.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="boost" name="boost"></a>Boost-1.69.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Boost
+        </h2>
+        <p>
+          <span class="application">Boost</span> offre un ensemble de
+          bibliothèques sources libres, revues par les pairs et portables en
+          C++. Il inclut des bibliothèques d'algèbre linéaire, de génération
+          de nombres pseudo-aléatoires, de multithreading, de traitement
+          d'images, d'expressions régulières et de tests d'unités.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2">
+                https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                a1332494397bf48332cb152abfefcec2
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 91 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 927 Mo (168 Mo
+                installés)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 1.7 SBU (avec
+                parallélisme = 4, plus 1.1 SBU pour les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Boost
+        </h3>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="which.html" title=
+          "Which-2.21 et Alternatives">Which-2.21</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="icu.html" title="ICU-63.1">ICU-63.1</a>,
+          <a class="xref" href="python2.html" title=
+          "Python-2.7.15">Python-2.7.15</a> et <a class="ulink" href=
+          "https://www.open-mpi.org/">Open MPI</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/boost">http://wiki.linuxfromscratch.org/blfs/wiki/boost</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Boost
+        </h2>
+        <p>
+          Installez <span class="application">Boost</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./bootstrap.sh --prefix=/usr &amp;&amp;
+./b2 stage threading=multi link=shared</kbd></pre>
+        <p>
+          Pour lancer les tests de régression de Boost.Build, <a class="xref"
+          href="python2.html" title="Python-2.7.15">Python-2.7.15</a> est
+          requis. Lancez les tests avec&nbsp;: <span class=
+          "command"><strong>pushd tools/build/test; python test_all.py;
+          popd</strong></span>. Les 150 tests devraient tous réussir.
+        </p>
+        <p>
+          Pour lancer tous les tests de régression de chaque bibliothèque,
+          tapez <span class="command"><strong>pushd status; ../b2;
+          popd</strong></span>. Quelques tests peuvent échouer. Ils prennent
+          beaucoup de temps (plus de 119 SBU avec -j4) et utilisent un espace
+          disque volumineux (46 Go). Vous devriez utiliser le paramètre
+          <em class="parameter"><code>-jN</code></em> pour les accélérer.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">./b2 install threading=multi link=shared                 &amp;&amp;
+ln -svf detail/sha1.hpp /usr/include/boost/uuid/sha1.hpp</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>threading=multi</code></em>&nbsp;: ce
+          paramètre assure que <span class="application">Boost</span> soit
+          bien construit avec le support du multithreading.
+        </p>
+        <p>
+          <em class="parameter"><code>link=shared</code></em>&nbsp;: Ce
+          paramètre fait que seules les bibliothèques partagées sont créées,
+          excepté pour libboost_exception et libboost_test_exec_monitor qui
+          sont créés statiquement. La plupart des gens n'auront pas besoin
+          des bibliothèques statiques et la plupart des programmes utilisant
+          <span class="application">Boost</span> se servent uniquement des
+          en-têtes. Vous pouvez omettre ce paramètre si vous avez besoin des
+          bibliothèques statiques.
+        </p>
+        <p>
+          <em class="parameter"><code>ln -svf detail/sha1.hpp
+          ...</code></em>&nbsp;: Le fichier <code class=
+          "filename">uuid/sha1.hpp</code> était un en-tête normal, mais à
+          partir de boost_1_66_0 cela a été changé pour charger l'en-tête
+          <code class="filename">detail/sha1.hpp</code> similaire, avec un
+          message disant qu'il est obsolète. Il est maintenant supprimé, mais
+          tous les paquets qui l'utilisent n'ont pas été modifiés. Par
+          exemple c'est le cas d'une des bibliothèques téléchargées via sa
+          version git par libreoffice. Le lien symbolique permet à ce paquet
+          et d'autres similaires d'être construits.
+        </p>
+        <p>
+          <code class="option">-jN</code>&nbsp;: Ce paramètre peut être
+          utilisé dans la ligne de commande <span class=
+          "command"><strong>b2</strong></span>, pour lancer N processus en
+          parallèle.
+        </p>
+        <p>
+          <code class="option">--with-python=python3</code>&nbsp;: Ajoutez
+          cette option à la commande <span class=
+          "command"><strong>bootstrap</strong></span> si vous souhaitez que
+          Boost utilise Python3 à la place de Python2. L'utilisation de
+          Python3 est connue pour faire échouer l'installation sur certains
+          systèmes.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libboost_atomic.so, libboost_chrono.a,
+              libboost_chrono.so, libboost_container.so, libboost_context.so,
+              libboost_coroutine.so, libboost_date_time.so,
+              libboost_exception.a, libboost-fiber.so,
+              libboost_filesystem.so, libboost_graph.so,
+              libboost_iostreams.so, libboost_locale.so,
+              libboost_log_setup.so, libboost_log.so, libboost_math_c99.so,
+              libboost_math_c99f.so, libboost_math_c99l.so,
+              libboost_math_tr1.so, libboost_math_tr1f.so,
+              libboost_math_tr1l.so, libboost_prg_exec_monitor.so,
+              libboost_program_options.so, libboost_python27.so or
+              libboost_python3.so, libboost_random.so, libboost_regex.so,
+              libboost_serialization.so, libboost_signals.so,
+              libboost_stacktrace_addr2line.so, libboost_stacktrace_basic.so,
+              libboost_stacktrace_noop.so, libboost_system.a,
+              libboost_system.so, libboost_test_exec_monitor.a,
+              libboost_thread.so, libboost_timer.a, libboost_timer.so,
+              libboost_type_erasure.so, libboost_unit_test_framework.so,
+              libboost_wave.so et libboost_wserialization.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/usr/include/boost</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="aspell.html" title=
+          "Aspell-0.60.6.1">Précédent</a>
+          <p>
+            Aspell-0.60.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="clucene.html" title=
+          "CLucene-2.3.3.4">Suivant</a>
+          <p>
+            CLucene-2.3.3.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

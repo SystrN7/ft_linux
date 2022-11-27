@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      QScintilla-gpl-2.10.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-06-07">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-06-07
+      </h4>
+      <h3>
+        Chapitre&nbsp;25.&nbsp;Bibliothèques X
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pangomm.html" title=
+          "Pangomm-2.40.1">Précédent</a>
+          <p>
+            Pangomm-2.40.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="qt5.html" title="Qt-5.11.0">Suivant</a>
+          <p>
+            Qt-5.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-06-07">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="qscintilla" name="qscintilla"></a>QScintilla-gpl-2.10.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à QScintilla
+        </h2>
+        <p>
+          <span class="application">QScintilla</span> est un port de
+          <a class="ulink" href="http://www.scintilla.org/">Scintilla</a> sur
+          <span class="application">Qt</span>. En plus des fonctions trouvées
+          dans les composants standards d'édition de texte, il ajoute des
+          fonctions particulièrement utiles pour l'édition et le débogage de
+          code source&nbsp;: la coloration syntaxique, l'indication
+          d'erreurs, la complétion de code, un assistant fonction, le pliage
+          de code, des marqueurs dans les marges comme dans les débogueurs
+          pour indiquer les points d'arrêts et la ligne courante, les macros
+          enregistrables, les vues multiples et, bien sur, l'impression.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.10.4.tar.gz">
+                https://downloads.sourceforge.net/pyqt/QScintilla_gpl-2.10.4.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                48ef316ff1e2a4d45a65d42be146ca39
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 28 Mo (avec la
+                documentation)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.4 SBU (avec
+                parallélisme = 4&nbsp;; avec la documentation)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de QScintilla
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/chrpath.html" title=
+          "chrpath-0.16">chrpath-0.16</a> et <a class="xref" href="qt5.html"
+          title="Qt-5.11.0">Qt-5.11.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://riverbankcomputing.co.uk/software/pyqt/intro">PyQt</a>
+          (pour les liaisons <span class="application">Python</span> de
+          <span class="application">Qt</span>)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/qscintilla">http://wiki.linuxfromscratch.org/blfs/wiki/qscintilla</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de QScintilla
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Les instructions dans cette page sont juste pour l'application
+            <span class="application">QScintilla</span>. Le code est inclus
+            dans l'archive pour le greffon <span class=
+            "application">QScintilla Qt Designer</span> et les liaisons
+            <span class="application">Python</span>.
+          </p>
+        </div>
+        <p>
+          Installez <span class="application">QScintilla</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cd Qt4Qt5             &amp;&amp;
+qmake qscintilla.pro  &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+ln -sfv $(readlink $QT5DIR/lib/libqscintilla2_qt5.so) $QT5DIR/lib/libqt5scintilla2.so</kbd></pre>
+        <p>
+          Si vous souhaitez installer la documentation, tapez, en tant
+          qu'utilisateur <code class="systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -v -m755 -d $QT5DIR/share/doc/QScintilla-2.10.4/html &amp;&amp;
+install -v -m644    ../doc/html-Qt4Qt5/* \
+                    $QT5DIR/share/doc/QScintilla-2.10.4/html</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>ln -sfv ...</strong></span>&nbsp;:
+          Cette commande crée un lien symbolique de compatibilité utilisé par
+          certains programmes.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">$QT5DIR/lib/libqt5scintilla2.so (lien
+              vers libqscintilla2_qt5.so) et
+              $QT5DIR/lib/libqscintilla2_qt5.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class=
+              "segbody">$QT5DIR/{include/Qsci,qsci,share/doc/QScintilla-2.10.4}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libqscintilla2_qt5" name=
+                    "libqscintilla2_qt5"></a><span class="term"><code class=
+                    "filename">libqscintilla2_qt5.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contient les fonctions de l'API de <span class=
+                    "application">QScintilla</span> <span class=
+                    "application">Qt5</span>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-04-12 19:10:42 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pangomm.html" title=
+          "Pangomm-2.40.1">Précédent</a>
+          <p>
+            Pangomm-2.40.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="qt5.html" title="Qt-5.11.0">Suivant</a>
+          <p>
+            Qt-5.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapitre&nbsp;25.&nbsp;Bibliothèques X">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-06-07">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

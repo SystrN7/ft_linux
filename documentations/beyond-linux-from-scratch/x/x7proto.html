@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      En-têtes du protocole Xorg
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2018-03-05">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2018-03-05
+      </h4>
+      <h3>
+        Chapitre&nbsp;24.&nbsp;Environnement X Window System
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="util-macros.html" title=
+          "util-macros-1.19.2">Précédent</a>
+          <p>
+            util-macros-1.19.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libXau.html" title=
+          "libXau-1.0.8">Suivant</a>
+          <p>
+            libXau-1.0.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="installing.html" title=
+          "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-03-05">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="xorg7-proto" name="xorg7-proto"></a>En-têtes du protocole Xorg
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Xorg Protocol Headers
+        </h2>
+        <p>
+          Les en-têtes du protocole <span class="application">Xorg</span>
+          fournissent les fichiers d'en-tête requis pour construire le
+          système et pour permettre à d'autres applications de se construire
+          contre le système X Window installé.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.2.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://www.x.org/pub/individual/proto/">https://www.x.org/pub/individual/proto/</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.x.org/pub/individual/proto/">ftp://ftp.x.org/pub/individual/proto/</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 3.3 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 26 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.8 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Xorg Protocol Headers
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="util-macros.html" title=
+          "util-macros-1.19.2">util-macros-1.19.2</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../postlfs/sudo.html" title=
+          "Sudo-1.8.22">Sudo-1.8.22</a> et <a class="xref" href=
+          "../basicnet/wget.html" title="Wget-1.19.4">Wget-1.19.4</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../pst/fop.html" title="fop-2.2">fop-2.2</a>,
+          <a class="xref" href="../general/libxslt.html" title=
+          "libxslt-1.1.32">libxslt-1.1.32</a>, <a class="xref" href=
+          "../pst/xmlto.html" title="xmlto-0.0.28">xmlto-0.0.28</a> et
+          <a class="xref" href="../general/asciidoc.html" title=
+          "Asciidoc-8.6.9">asciidoc-8.6.9</a> (pour construire la
+          documentation supplémentaire)
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            C'est une dépendance réciproque avec <a class="xref" href=
+            "../pst/fop.html" title="fop-2.2">fop-2.2</a>. Si vous souhaitez
+            construire la documentation, vous devrez réinstaller les entêtes
+            de protocole après la fin de l'installation de ce paquet et de
+            <a class="xref" href="../pst/fop.html" title=
+            "fop-2.2">fop-2.2</a>.
+          </p>
+        </div>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/Xorg7ProtocolHeaders">http://wiki.linuxfromscratch.org/blfs/wiki/Xorg7ProtocolHeaders</a>
+        </p>
+      </div>
+      <div class="sect2" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Téléchargement des en-têtes du protocole Xorg
+        </h2>
+        <p>
+          Tout d'abord, créez une liste des fichiers à télécharger. Ce
+          fichier sera utilisé également pour vérifier l'intégrité des
+          téléchargements après leur accomplissement&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; proto-7.md5 &lt;&lt; "EOF"
+<code class=
+"literal">1a05fb01fa1d5198894c931cf925c025  bigreqsproto-1.1.2.tar.bz2
+98482f65ba1e74a08bf5b056a4031ef0  compositeproto-0.4.2.tar.bz2
+998e5904764b82642cc63d97b4ba9e95  damageproto-1.2.1.tar.bz2
+4ee175bbd44d05c34d43bb129be5098a  dmxproto-2.3.1.tar.bz2
+b2721d5d24c04d9980a0c6540cb5396a  dri2proto-2.8.tar.bz2
+a3d2cbe60a9ca1bf3aea6c93c817fee3  dri3proto-1.0.tar.bz2
+e7431ab84d37b2678af71e29355e101d  fixesproto-5.0.tar.bz2
+36934d00b00555eaacde9f091f392f97  fontsproto-2.1.3.tar.bz2
+5565f1b0facf4a59c2778229c1f70d10  glproto-1.4.17.tar.bz2
+b290a463af7def483e6e190de460f31a  inputproto-2.3.2.tar.bz2
+94afc90c1f7bef4a27fdd59ece39c878  kbproto-1.0.7.tar.bz2
+92f9dda9c870d78a1d93f366bcb0e6cd  presentproto-1.1.tar.bz2
+a46765c8dcacb7114c821baf0df1e797  randrproto-1.5.0.tar.bz2
+1b4e5dede5ea51906f1530ca1e21d216  recordproto-1.14.2.tar.bz2
+a914ccc1de66ddeb4b611c6b0686e274  renderproto-0.11.1.tar.bz2
+cfdb57dae221b71b2703f8e2980eaaf4  resourceproto-1.2.0.tar.bz2
+edd8a73775e8ece1d69515dd17767bfb  scrnsaverproto-1.2.2.tar.bz2
+fe86de8ea3eb53b5a8f52956c5cd3174  videoproto-2.3.3.tar.bz2
+5f4847c78e41b801982c8a5e06365b24  xcmiscproto-1.2.2.tar.bz2
+70c90f313b4b0851758ef77b95019584  xextproto-7.3.0.tar.bz2
+120e226ede5a4687b25dd357cc9b8efe  xf86bigfontproto-1.2.0.tar.bz2
+a036dc2fcbf052ec10621fd48b68dbb1  xf86dgaproto-2.1.tar.bz2
+1d716d0dac3b664e5ee20c69d34bc10e  xf86driproto-2.1.1.tar.bz2
+e793ecefeaecfeabd1aed6a01095174e  xf86vidmodeproto-2.3.1.tar.bz2
+9959fe0bfb22a0e7260433b8d199590a  xineramaproto-1.2.1.tar.bz2
+16791f7ca8c51a20608af11702e51083  xproto-7.0.31.tar.bz2</code>
+EOF</kbd></pre>
+        <p>
+          Pour télécharger les fichiers nécessaires en utilisant <span class=
+          "application">wget</span>, utilisez les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir proto &amp;&amp;
+cd proto &amp;&amp;
+grep -v '^#' ../proto-7.md5 | awk '{print $2}' | wget -i- -c \
+    -B https://www.x.org/pub/individual/proto/ &amp;&amp;
+md5sum -c ../proto-7.md5</kbd></pre>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Xorg Protocol Headers
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Pour l'installation de paquets multiples dans un script, les
+            installations doivent être faites en tant qu'utilisateur root. Il
+            y a trois options générales qui peuvent être utilisées pour faire
+            cela&nbsp;:
+          </p>
+          <div class="orderedlist">
+            <ol>
+              <li class="listitem">
+                <p>
+                  Lancer le script entièrement en tant qu'utilisateur root
+                  (pas recommandé).
+                </p>
+              </li>
+              <li class="listitem">
+                <p>
+                  Use the <span class="command"><strong>sudo</strong></span>
+                  command from the <a class="xref" href=
+                  "../postlfs/sudo.html" title="Sudo-1.8.22">Sudo-1.8.22</a>
+                  package.
+                </p>
+              </li>
+              <li class="listitem">
+                <p>
+                  Use <span class="command"><strong>su -c "command
+                  arguments"</strong></span> (guillemet requis) qui demandera
+                  le mot de passe root à chaque itération de la boucle.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <p>
+            Une façon de gérer cette situation est de créer une petite
+            fonction <span class="command"><strong>bash</strong></span> qui
+            sélectionne automatiquement la méthode appropriée. Une fois que
+            la commande est initialisée dans l'environnement, il n'est plus
+            nécessaire de le refaire.
+          </p>
+          <pre class="userinput">
+<kbd class="command">as_root()
+{
+  if   [ $EUID = 0 ];        then $*
+  elif [ -x /usr/bin/sudo ]; then sudo $*
+  else                            su -c \\"$*\\"
+  fi
+}
+export -f as_root</kbd>
+</pre>
+        </div>
+        <p>
+          Tout d'abord, démarrez un sous-shell d'où on sortira en cas
+          d'erreur&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">bash -e</kbd></pre>
+        <p>
+          Installez all of the packages en lançant les commandes
+          suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">for package in $(grep -v '^#' ../proto-7.md5 | awk '{print $2}')
+do
+  packagedir=${package%.tar.bz2}
+  tar -xf $package
+  pushd $packagedir
+  ./configure $XORG_CONFIG
+  as_root make install
+  popd
+  rm -rf $packagedir
+done</kbd></pre>
+        <p>
+          Enfin, quittez le shell démarré tout à l'heure&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">exit</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>bash -e</strong></span>&nbsp;: Cette
+          commande démarre un sous-shell qui quittera si une commande
+          retourne une autre valeur que 0, ce qui ferait sortir immédiatement
+          de la boucle loop si une erreur se produit. Ceci élimine aussi le
+          besoin d'utiliser <span class=
+          "command"><strong>&amp;&amp;</strong></span> partout dans le livre.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Aucune</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody"><code class=
+              "envar">$XORG_PREFIX</code>/include/GL, <code class=
+              "envar">$XORG_PREFIX</code>/include/X11, <code class=
+              "envar">$XORG_PREFIX</code>/share/doc/bigreqsproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/compositeproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/damageproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/dri2proto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/dri3proto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/fixesproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/fontsproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/kbproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/presentproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/randrproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/recordproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/renderproto,
+              <code class=
+              "envar">$XORG_PREFIX</code>/share/doc/resourceproto,
+              <code class=
+              "envar">$XORG_PREFIX</code>/share/doc/scrnsaverproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/videoproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/xcmiscproto,
+              <code class="envar">$XORG_PREFIX</code>/share/doc/xextproto et
+              <code class="envar">$XORG_PREFIX</code>/share/doc/xproto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2018-02-18 21:04:14 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="util-macros.html" title=
+          "util-macros-1.19.2">Précédent</a>
+          <p>
+            util-macros-1.19.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libXau.html" title=
+          "libXau-1.0.8">Suivant</a>
+          <p>
+            libXau-1.0.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="installing.html" title=
+          "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2018-03-05">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

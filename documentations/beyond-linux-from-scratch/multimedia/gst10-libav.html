@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      gst-libav-1.14.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;42.&nbsp;Bibliothèques et pilotes multimédia
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gst10-plugins-ugly.html" title=
+          "gst-plugins-ugly-1.14.4">Précédent</a>
+          <p>
+            gst-plugins-ugly-1.14.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gstreamer10-vaapi.html" title=
+          "gstreamer-vaapi-1.14.4">Suivant</a>
+          <p>
+            gstreamer-vaapi-1.14.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapitre&nbsp;42.&nbsp;Bibliothèques et pilotes multimédia">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="gst10-libav" name="gst10-libav"></a>gst-libav-1.14.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à GStreamer Libav
+        </h2>
+        <p>
+          Le paquet <span class="application">GStreamer Libav</span> contient
+          les greffons <span class="application">GStreamer</span> pour
+          <span class="application">Libav</span> (un fork de <span class=
+          "application">FFmpeg</span>).
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz">
+                https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                58342db11dbb201a66a62577dcf7bab5
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 8.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 634 Mo (avec les
+                tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 1.5 SBU (avec
+                parallélisme = 4&nbsp;; avec les tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de GStreamer Libav
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="gst10-plugins-base.html" title=
+          "gst-plugins-base-1.14.4">gst-plugins-base-1.14.4</a>
+        </p>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/yasm.html" title=
+          "yasm-1.3.0">yasm-1.3.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.14.0">Valgrind-3.14.0</a> et <a class="ulink" href=
+          "http://gstreamer.freedesktop.org/src/orc/">Orc</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gst10-libav">http://wiki.linuxfromscratch.org/blfs/wiki/gst10-libav</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de GStreamer Libav
+        </h2>
+        <p>
+          Installez <span class="application">GStreamer Libav</span> en
+          lançant les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+            --with-package-name="GStreamer Libav Plugins 1.14.4 BLFS" \
+            --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &amp;&amp;
+make</kbd></pre>
+        <p>
+          Pour tester les résultats lancez&nbsp;: <span class=
+          "command"><strong>make check</strong></span>.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <code class=
+          "option">--with-libav-extra-configure="--disable-yasm"</code>&nbsp;:
+          Utilisez ce paramètre si vous n'avez pas installé <span class=
+          "application">yasm</span>.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class=
+              "segbody">/usr/lib/gstreamer-1.0/libgstlibav.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class=
+              "segbody">/usr/share/gtk-doc/html/gst-libav-plugins-1.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-17 21:55:58 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gst10-plugins-ugly.html" title=
+          "gst-plugins-ugly-1.14.4">Précédent</a>
+          <p>
+            gst-plugins-ugly-1.14.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gstreamer10-vaapi.html" title=
+          "gstreamer-vaapi-1.14.4">Suivant</a>
+          <p>
+            gstreamer-vaapi-1.14.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapitre&nbsp;42.&nbsp;Bibliothèques et pilotes multimédia">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

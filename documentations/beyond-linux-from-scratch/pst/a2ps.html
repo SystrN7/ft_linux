@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      a2ps-4.14
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;50.&nbsp;PostScript
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ps.html" title="PostScript">Précédent</a>
+          <p>
+            PostScript
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="enscript.html" title=
+          "Enscript-1.6.6">Suivant</a>
+          <p>
+            Enscript-1.6.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapitre&nbsp;50.&nbsp;PostScript">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="a2ps" name="a2ps"></a>a2ps-4.14
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à a2ps
+        </h2>
+        <p>
+          <span class="application">a2ps</span> est un filtre utilisé
+          principalement en tâche de fond et d'abord par des scripts
+          d'impression pour convertir presque tous les formats d'entrée en
+          sortie PostScript. Le nom de l'application équivaut, lorsqu'on le
+          développe, à <span class="quote">«&nbsp;<span class="quote">all to
+          PostScript</span>&nbsp;»</span> (tout en PostScript).
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <div class="admon caution">
+          <img alt="[Attention]" src="../images/caution.png" />
+          <h3>
+            Attention
+          </h3>
+          <p>
+            <span class="application">a2ps</span> ne peut pas convertir de
+            texte encodé en UTF-8 en PostScript. La chose est traitée en
+            détails dans la section <a class="xref" href=
+            "../introduction/locale-issues.html#locale-not-valid-option"
+            title=
+            "L'encodage nécessaire n'est pas une option valide du programme">L'encodage
+            nécessaire n'est pas une option valide</a> de la page <a class=
+            "xref" href="../introduction/locale-issues.html" title=
+            "Problèmes liés aux locales">Problèmes liés aux locales</a>. La
+            solution est d'utiliser <a class="xref" href="paps.html" title=
+            "paps-0.6.8">paps-0.6.8</a> au lieu de <span class=
+            "application">a2ps</span> pour convertir du texte encodé en UTF-8
+            en PostScript.
+          </p>
+        </div>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz">https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz">ftp://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                781ac3d9b213fa3e1ed0d79f986dc8c7
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 22 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Polices internationales&nbsp;: <a class="ulink" href=
+                "http://anduin.linuxfromscratch.org/BLFS/i18n-fonts/i18n-fonts-0.1.tar.bz2">
+                http://anduin.linuxfromscratch.org/BLFS/i18n-fonts/i18n-fonts-0.1.tar.bz2</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de a2ps
+        </h3>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="psutils.html" title=
+          "PSUtils-p17">PSUtils-p17</a> et <a class="xref" href="cups.html"
+          title="Cups-2.2.10">Cups-2.2.10</a> (sinon, <span class=
+          "application">a2ps</span> utilisera la commande <span class=
+          "command"><strong>cat &gt;/dev/lp0</strong></span> à la place de
+          <span class="command"><strong>lpr</strong></span> pour envoyer sa
+          sortie vers l'imprimante)
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="gs.html" title=
+          "ghostscript-9.26">ghostscript-9.26</a>, <a class="xref" href=
+          "../general/libpaper.html" title=
+          "libpaper-1.1.24+nmu5">libpaper-1.1.24+nmu5</a>. <a class="xref"
+          href="texlive.html" title=
+          "texlive-20180414-source">texlive-20180414</a> (ou <a class="xref"
+          href="tl-installer.html" title="install-tl-unx">install-tl-unx</a>)
+          <a class="xref" href="../x/installing.html" title=
+          "Chapitre&nbsp;24.&nbsp;Environnement X Window System">Système X
+          Window</a>, <a class="ulink" href=
+          "http://www.adobe.com/products/acrobat/readstep2.html">Adobe
+          Reader</a> et <a class="ulink" href=
+          "http://www.gnu.org/software/ghostview/ghostview.html">Ghostview</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/A2PS">http://wiki.linuxfromscratch.org/blfs/wiki/A2PS</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de a2ps
+        </h2>
+        <p>
+          Installez <span class="application">a2ps</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">autoconf &amp;&amp;
+sed -i -e "s/GPERF --version |/&amp; head -n 1 |/" \
+       -e "s|/usr/local/share|/usr/share|" configure &amp;&amp;
+
+./configure --prefix=/usr  \
+    --sysconfdir=/etc/a2ps \
+    --enable-shared        \
+    --with-medium=letter   &amp;&amp;
+make                       &amp;&amp;
+touch doc/*.info</kbd></pre>
+        <p>
+          Pour tester les résultats, lancez&nbsp;: <span class=
+          "command"><strong>make check</strong></span>. Le test <code class=
+          "filename">printers.tst</code> échouera, vu qu'il n'y a pas de
+          d'imprimante de test par défaut. Il se peut que <code class=
+          "filename">styles.tst</code> échoue vu que tests signalent
+          certaines incohérences entre le postscript généré et les paramètres
+          de référence. Ceci est dû à des différences de numéros de versions
+          entre les fichiers de test postscript et ceux générés par les tests
+          — cela ne touche pas le déroulement du programme et cela peut être
+          ignoré.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+        <p>
+          Si vous le désirez, installez les polices internationales en
+          lançant les commandes suivantes en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">tar -xf ../i18n-fonts-0.1.tar.bz2 &amp;&amp;
+cp -v i18n-fonts-0.1/fonts/* /usr/share/a2ps/fonts               &amp;&amp;
+cp -v i18n-fonts-0.1/afm/* /usr/share/a2ps/afm                   &amp;&amp;
+pushd /usr/share/a2ps/afm    &amp;&amp;
+  ./make_fonts_map.sh        &amp;&amp;
+  mv fonts.map.new fonts.map &amp;&amp;
+popd</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>autoconf</strong></span>&nbsp;: Cette
+          commande est utilisée pour recréer un script <span class=
+          "command"><strong>configure</strong></span>. C'est nécessaire car
+          il y a un problème dans le test mktime qui aboutit à ce que le
+          script <span class="command"><strong>configure</strong></span> se
+          bloque pendant 60 secondes puis signale qu'il n'a trouvé aucune
+          fonction mktime.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i "s/GPERF --version |/&amp;
+          head -n 1 |/" configure</strong></span>&nbsp;: Ceci corrige un
+          bogue dans la gestion de la sortie de la version de <span class=
+          "command"><strong>gperf</strong></span>.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i
+          "s|/usr/local/share|/usr/share|" configure</strong></span>&nbsp;:
+          Cette commande modifie le script <span class=
+          "command"><strong>configure</strong></span> pour chercher des
+          polices <span class="application">Ghostscript</span> à l'endroit où
+          ils sont installés par les instructions de BLFS.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--sysconfdir=/etc/a2ps</code></em>&nbsp;: Les
+          données de configuration sont installées dans <code class=
+          "filename">/etc/a2ps</code> et non dans <code class=
+          "filename">/usr/etc</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-shared</code></em>&nbsp;: Ce
+          paramètre active la construction de la bibliothèque dynamique
+          <code class="filename">liba2ps</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-medium=letter</code></em>&nbsp;:
+          Ce paramètre modifie le format du papier par défaut en lettre
+          américaine. On peut soit le donner ici soit le paramétrer dans
+          <code class="filename">/etc/a2ps/a2ps-site.cfg</code> après
+          l'installation. Par défaut, il est en A4, mais il existe plusieurs
+          autres options, en particulier&nbsp;: A4dj ou letterdj sont de bons
+          réglages pour les HP Deskjet et d'autres imprimantes exigeant des
+          marges de papier plus larges. Voir <code class=
+          "filename">/etc/a2ps/a2ps.cfg</code> après l'installation.
+        </p>
+        <p>
+          <span class="command"><strong>touch doc/*.info</strong></span>:
+          Cette commande évite d'essayer de régénérer les fichiers info.
+          C'est un ancien paquet et les fichiers .texi actuels produiront des
+          erreurs empêchant <span class="command"><strong>make
+          install</strong></span> de travailler correctement.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de a2ps
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="a2ps-config" name="a2ps-config"></a>Fichiers de
+            configuration
+          </h3>
+          <p>
+            <code class="filename">/etc/a2ps/a2ps.cfg</code>, <code class=
+            "filename">/etc/a2ps/a2ps-site.cfg</code>
+          </p>
+        </div>
+        <div class="sect3">
+          <h3 class="sect3">
+            Informations sur la configuration
+          </h3>
+          <p>
+            Vous pouvez trouver des informations sur la configuration
+            d'<span class="application">a2ps</span> dans les commentaires
+            contenus dans les fichiers ci-dessous et également en lançant
+            <span class="command"><strong>info a2ps</strong></span>.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">a2ps, card, composeglyphs, fixnt, fixps,
+              ogonkify, pdiff, psmandup, psset, et texi2dvi4a2ps</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">liba2ps.{so,a} et filter data</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/etc/a2ps et /usr/share/a2ps</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="a2ps-prog" name="a2ps-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>a2ps</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un filtre, utilisé d'abord par des scripts
+                    d'impression, qui convertit l'entrée standard or des
+                    fichiers supportés en PostScript.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="card" name="card"></a><span class=
+                    "term"><span class=
+                    "command"><strong>card</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    imprime une carte de référence des options d'un programme
+                    donné.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="composeglyphs" name=
+                    "composeglyphs"></a><span class="term"><span class=
+                    "command"><strong>composeglyphs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    crée un programme de polices composites.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fixnt" name="fixnt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fixnt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est supposé corriger les problèmes dans les fichiers
+                    PostScript généré par le pilote Microsoft PostScript sous
+                    Windows NT (3.5 et 4.0).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fixps" name="fixps"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fixps</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    essaie de corriger des problèmes habituels PostScript qui
+                    cassent le traitement a posteriori.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ogonkify" name="ogonkify"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ogonkify</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    offre le support international pour Postscript en
+                    effectuant divers munging de fichiers PostScript liés à
+                    l'impression dans différentes langues.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pdiff" name="pdiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pdiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    fournit une comparaison jolie entre des fichiers.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psmandup" name="psmandup"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psmandup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    essaie de produire une version d'un fichier PostScript
+                    donné pour une impression en duplex manuel.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="psset" name="psset"></a><span class=
+                    "term"><span class=
+                    "command"><strong>psset</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    produit une version d'un fichier PostScript avec un appel
+                    protégé à l'opérateur PostScript 'setpagedevice'.
+                    L'utilisation classique est de faire une impression de
+                    fichiers en duplex, ou sur le plateau manuel, etc.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="texi2dvi4a2ps" name=
+                    "texi2dvi4a2ps"></a><span class="term"><span class=
+                    "command"><strong>texi2dvi4a2ps</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    compile des fichiers Texinfo et LaTeX en DVI ou PDF
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-18 18:44:04 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ps.html" title="PostScript">Précédent</a>
+          <p>
+            PostScript
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="enscript.html" title=
+          "Enscript-1.6.6">Suivant</a>
+          <p>
+            Enscript-1.6.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapitre&nbsp;50.&nbsp;PostScript">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

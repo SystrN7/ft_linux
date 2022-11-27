@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      GLib-2.58.3
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;9.&nbsp;Bibliothèques générales
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="fftw.html" title="fftw-3.3.8">Précédent</a>
+          <p>
+            fftw-3.3.8
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="glibmm.html" title=
+          "GLibmm-2.58.0">Suivant</a>
+          <p>
+            GLibmm-2.58.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="glib2" name="glib2"></a>GLib-2.58.3
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à GLib
+        </h2>
+        <p>
+          Le paquet <span class="application">GLib</span> contient des
+          bibliothèques de bas niveau utiles pour avoir la gestion de
+          structures de données pour le C, des enveloppes de portabilité et
+          des interfaces pour des fonctionnalités d'exécution telles qu'une
+          boucle d'événements, les fils d'exécution, le chargement dynamique
+          et un système d'objets.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                8058c7bde846dcffe5fa453eca366d73
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 4.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 190 Mo (plus 4 Mo
+                pour les tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.5 SBU (plus 1.6
+                SBU pour les tests&nbsp;; dans les deux cas avec parallélisme
+                = 4)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Correctif facultatif&nbsp;: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/8.4/glib-2.58.3-skip_warnings-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/8.4/glib-2.58.3-skip_warnings-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de GLib
+        </h3>
+        <h4>
+          Recommandées
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="libxslt.html" title=
+          "libxslt-1.1.33">libxslt-1.1.33</a> et <a class="xref" href=
+          "pcre.html" title="PCRE-8.42">PCRE-8.42</a> (construit avec les
+          propriétés Unicode)
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="dbus.html" title=
+          "dbus-1.12.12">dbus-1.12.12</a> et <a class="ulink" href=
+          "https://bindfs.org/">bindfs</a> (tous deux utilisés dans quelques
+          tests), <a class="xref" href="gdb.html" title=
+          "GDB-8.2.1">GDB-8.2.1</a> (pour les liaisons), <a class="xref"
+          href="../pst/docbook.html" title=
+          "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
+          "../pst/docbook-xsl.html" title=
+          "docbook-xsl-nons-1.79.2">docbook-xsl-1.79.2</a> et <a class="xref"
+          href="gtk-doc.html" title="GTK-Doc-1.29">GTK-Doc-1.29</a> (pour
+          construire la documentation de l'api)
+        </p>
+        <h4>
+          Dépendances de Additional Runtime
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="gobject-introspection.html" title=
+          "gobject-introspection-1.58.3">gobject-introspection-1.58.3</a>
+          (doit être installé avant gtk+, atk, etc.)
+        </p>
+        <p class="optional">
+          Cité directement depuis le fichier <code class=
+          "filename">INSTALL</code>&nbsp;: <span class=
+          "quote">«&nbsp;<span class="quote">Certaines fonctionnalités de GIO
+          liées aux types mime exigent <span class=
+          "command"><strong>update-mime-database</strong></span> et les
+          outils <span class=
+          "command"><strong>update-desktop-database</strong></span></span>&nbsp;»</span>,
+          qui font partie respectivement de <a class="xref" href=
+          "shared-mime-info.html" title=
+          "shared-mime-info-1.10">shared-mime-info-1.10</a> et de <a class=
+          "xref" href="desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a>. Ces deux
+          utilitaires sont aussi requis pour certains tests.
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/glib2">http://wiki.linuxfromscratch.org/blfs/wiki/glib2</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de GLib
+        </h2>
+        <p>
+          Si vous le souhaitez, appliquez le correctif facultatif. Dans
+          beaucoup de cas, les applications qui utilisent cette bibliothèque,
+          directement ou indirectement via d'autres bibliothèques comme
+          <a class="xref" href="../x/gtk3.html" title=
+          "GTK+-3.24.5">GTK+-3.24.5</a>, affichent de nombreux avertissements
+          lorsqu'ils sont lancés depuis la ligne de commande. Ce correctif
+          permet d'utiliser une variable d'environnement, GLIB_LOG_LEVEL, qui
+          supprime les messages non souhaités. La valeur de la variable est
+          un nombre qui correspond à&nbsp;:
+        </p>
+        <table border="0" summary="Simple list" class="simplelist">
+          <tr>
+            <td>
+              1 Alerte
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2 Critique
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3 Erreur
+            </td>
+          </tr>
+          <tr>
+            <td>
+              4 Avertissement
+            </td>
+          </tr>
+          <tr>
+            <td>
+              5 Remarque
+            </td>
+          </tr>
+        </table>
+        <p>
+          Par exemple GLIB_LOG_LEVEL=4 ignorera les sorties de messages
+          d'avertissement et de remarque (et les messages Info/Debug s'ils
+          sont activés). Si GLIB_LOG_LEVEL n'est pas défini, la sortie des
+          messages normaux ne sera pas affectée.
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../glib-2.58.3-skip_warnings-1.patch</kbd></pre>
+        <div class="admon warning">
+          <img alt="[Avertissement]" src="../images/warning.png" />
+          <h3>
+            Avertissement
+          </h3>
+          <p>
+            Si vous mettez à jour depuis une version précédente de GLib qui a
+            été construite avec les autotools, et que les archives
+            <span class="application">libtool</span> (les fichiers .la) ont
+            été installées, vous devrez ajuster toutes les archives libtool,
+            <code class=
+            "filename">/usr/lib/libg{io,lib,module,object,thread}-2.0.la</code>,
+            en remplaçant les références aux archives libtool de ce paquet
+            par le drapeau de l'éditeur de lien (-l) approprié, <span class=
+            "command"><strong>-lg{io,lib,module,object,thread}</strong></span>.
+            Plus de 600 fichiers doivent être modifiés sur un bureau gnome
+            complet.
+          </p>
+          <p>
+            Autrement, vous pouvez simplement supprimer les fichiers .la
+            inutiles avec le script de <a class="xref" href=
+            "../introduction/la-files.html" title=
+            "À porpos des fichiers d'archive libtool (.la)">Libtool archive
+            (.la) files</a>.
+          </p>
+        </div>
+        <p>
+          Installez <span class="application">GLib</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir build-glib &amp;&amp;
+cd    build-glib &amp;&amp;
+
+meson --prefix=/usr   \
+      -Dman=true      \
+      -Dselinux=false \
+      ..              &amp;&amp;
+ninja</kbd></pre>
+        <p>
+          La suite de tests de <span class="application">GLib</span> exige
+          <span class="application">desktop-file-utils</span> pour quelques
+          tests. Cependant, <span class=
+          "application">desktop-file-utils</span> exige <span class=
+          "application">GLib</span> pour se compiler&nbsp;; vous devrez donc
+          installer d'abord <span class="application">GLib</span> puis lancer
+          la suite de test.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Si <a class="xref" href="libxslt.html" title=
+            "libxslt-1.1.33">libxslt-1.1.33</a> est installé, la commande
+            suivante peut indiquer plusieurs erreurs (environ 33) qui
+            commencent par «&nbsp;Error: no ID for constraint linkend:&nbsp;»
+            lors de l'installation des pages de manuel. Elles sont
+            inoffensives.
+          </p>
+        </div>
+        <pre class="root">
+
+<kbd class="command">ninja install &amp;&amp;
+
+mkdir -p /usr/share/doc/glib-2.58.3 &amp;&amp;
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.3</kbd></pre>
+        <p>
+          Vous devriez maintenant installer <a class="xref" href=
+          "desktop-file-utils.html" title=
+          "desktop-file-utils-0.23">desktop-file-utils-0.23</a> et lancer la
+          suite de tests.
+        </p>
+        <p>
+          Pour tester les résultats, après avoir installé le paquet,
+          lancez&nbsp;: <span class="command"><strong>ninja
+          test</strong></span>. Un test, gdatetime, est connu pour échouer
+          sur les systèmes sysvinit.
+        </p>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <em class="parameter"><code>-Dman=true</code></em>&nbsp;: Ce
+          paramètre cause la construction et l'installation des pages de
+          manuel du paquet.
+        </p>
+        <p>
+          <em class="parameter"><code>-Dselinux=false</code></em>&nbsp;: Ce
+          paramètre désactive le support de selinux qui n'est pas supporté
+          par BLFS.
+        </p>
+        <p>
+          <em class="parameter"><code>-Ddocs=true</code></em>&nbsp;: Ce
+          paramètre cause la construction et l'installation de la
+          documentation de l'API.
+        </p>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contenu
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">gapplication, gdbus, gdbus-codegen, gio,
+              gio-launch-desktop, gio-querymodules, glib-compile-resources,
+              glib-compile-schemas, glib-genmarshal, glib-gettextize,
+              glib-mkenums, gobject-query, gresource, gsettings, gtester et
+              gtester-report</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">libgio-2.0.so, libglib-2.0.so,
+              libgmodule-2.0.so, libgobject-2.0.so et
+              libgthread-2.0.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">/usr/include/gio-unix-2.0,
+              /usr/include/glib-2.0, /usr/lib/glib-2.0, /usr/share/glib-2.0
+              et /usr/share/gtk-doc/html/{gio,glib,gobject}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gapplication" name="gapplication"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gapplication</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    peut être utilisé pour démarrer des applications et pour
+                    envoyer des messages aux instances déjà lancées d'autres
+                    applications.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdbus" name="gdbus"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdbus</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil simple utilisé pour fonctionner avec des
+                    objets <span class="application">D-Bus</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdbus-codegen" name=
+                    "gdbus-codegen"></a><span class="term"><span class=
+                    "command"><strong>gdbus-codegen</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour générer du code et de la documentation
+                    pour une ou plusieurs interfaces <span class=
+                    "application">D-Bus</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gio" name="gio"></a><span class=
+                    "term"><span class="command"><strong>gio</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un utilitaire qui rend plusieurs fonctionnalités de
+                    <span class="application">GIO</span> disponibles depuis
+                    la ligne de commande.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gio-querymodules" name=
+                    "gio-querymodules"></a><span class="term"><span class=
+                    "command"><strong>gio-querymodules</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour créer un fichier <code class=
+                    "filename">giomodule.cache</code> dans les répertoires
+                    listés. Ce fichier liste les points d'extension
+                    implémentés pour chaque module trouvé.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glib-compile-resources" name=
+                    "glib-compile-resources"></a><span class=
+                    "term"><span class=
+                    "command"><strong>glib-compile-resources</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour lire la description des ressources à
+                    partir d'un fichier et des fichiers référencés pour créer
+                    un catalogue de ressources binaire adapté à une
+                    utilisation avec l'API GResource.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glib-compile-schemas" name=
+                    "glib-compile-schemas"></a><span class=
+                    "term"><span class="command"><strong>glib-compile-schemas</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est utilisé pour compiler tous les fichiers de schémas
+                    XML de GSettings du répertoire en un fichier binaire
+                    nommé <code class="filename">gschemas.compiled</code>
+                    utilisable par GSettings.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glib-genmarshal" name=
+                    "glib-genmarshal"></a><span class="term"><span class=
+                    "command"><strong>glib-genmarshal</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de génération marshaller de code C pour les
+                    closures GLib.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glib-gettextize" name=
+                    "glib-gettextize"></a><span class="term"><span class=
+                    "command"><strong>glib-gettextize</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est une variante de l'outil d'internationalisation
+                    <span class="application">gettext</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glib-mkenums" name="glib-mkenums"></a><span class=
+                    "term"><span class=
+                    "command"><strong>glib-mkenums</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de génération de description des enum du
+                    langage C.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gobject-query" name=
+                    "gobject-query"></a><span class="term"><span class=
+                    "command"><strong>gobject-query</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil qui dessine une arborescence de types.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gresource" name="gresource"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gresource</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    offre une interface simple en ligne de commande avec
+                    GResource.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gsettings" name="gsettings"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gsettings</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    offre une interface simple en ligne de commande avec
+                    GSettings.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtester" name="gtester"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gtester</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil d'exécution de tests.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtester-report" name=
+                    "gtester-report"></a><span class="term"><span class=
+                    "command"><strong>gtester-report</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un outil de formatage de rapports de test.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="GLib-libraries" name=
+                    "GLib-libraries"></a><span class="term">Bibliothèques
+                    GLib</span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contient une bibliothèque cœur de bas niveau pour le
+                    Toolkit <span class="application">GIMP</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="fftw.html" title="fftw-3.3.8">Précédent</a>
+          <p>
+            fftw-3.3.8
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="glibmm.html" title=
+          "GLibmm-2.58.0">Suivant</a>
+          <p>
+            GLibmm-2.58.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapitre&nbsp;9.&nbsp;Bibliothèques générales">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

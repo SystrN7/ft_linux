@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      libkdcraw-18.12.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="okular5.html" title=
+          "Okular-18.12.2">Précédent</a>
+          <p>
+            Okular-18.12.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gwenview5.html" title=
+          "Gwenview-18.12.2">Suivant</a>
+          <p>
+            Gwenview-18.12.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="kf5-apps.html" title=
+          "Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="libkdcraw" name="libkdcraw"></a>libkdcraw-18.12.2
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à libkdcraw
+        </h2>
+        <p>
+          <span class="application">Libkdcraw</span> est une enveloppe KDE
+          autour de la bibliothèque <a class="xref" href=
+          "../general/libraw.html" title="libraw-0.19.2">libraw-0.19.2</a>
+          pour manipuler les métadonnées des images.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "http://download.kde.org/stable/applications/18.12.2/src/libkdcraw-18.12.2.tar.xz">
+                http://download.kde.org/stable/applications/18.12.2/src/libkdcraw-18.12.2.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                74a2a5eb7050ddf94ea5e91e96f6d1f6
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 44 Ko
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 1.2 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: moins de 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de libkdcraw
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="krameworks5.html" title=
+          "Constructions de KDE Frameworks 5 (KF5)">KDE Frameworks-5.55.0</a>
+          et <a class="xref" href="../general/libraw.html" title=
+          "libraw-0.19.2">libraw-0.19.2</a>
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libkdcraw">http://wiki.linuxfromscratch.org/blfs/wiki/libkdcraw</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de libkdcraw
+        </h2>
+        <p>
+          Installez <span class="application">libkdcraw</span> en lançant les
+          commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DBUILD_TESTING=OFF                \
+      -Wno-dev .. &amp;&amp;
+make</kbd></pre>
+        <p>
+          Ce paquet n'est pas fourni avec une suite de tests.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">Aucun</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libKF5KDcraw.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">$KF5_PREFIX/include/KF5/KDCRAW et
+              $KF5_PREFIX/lib/cmake/KF5KDcraw</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-18 21:50:23 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="okular5.html" title=
+          "Okular-18.12.2">Précédent</a>
+          <p>
+            Okular-18.12.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gwenview5.html" title=
+          "Gwenview-18.12.2">Suivant</a>
+          <p>
+            Gwenview-18.12.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="kf5-apps.html" title=
+          "Chapitre&nbsp;31.&nbsp;Applications basées sur KDE Frameworks 5">Niveau
+          supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

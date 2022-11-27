@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Rustc-1.32.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-8.4">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 8.4
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ruby.html" title="Ruby-2.6.1">Précédent</a>
+          <p>
+            Ruby-2.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="scons.html" title="SCons-3.0.4">Suivant</a>
+          <p>
+            SCons-3.0.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="rust" name="rust"></a>Rustc-1.32.0
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Rust
+        </h2>
+        <p>
+          Le langage de programmation <span class="application">Rust</span>
+          est conçu pour être un langage sûr, concurrent et pratique.
+        </p>
+        <p>
+          Ce paquet est mis à jour sur un cycle de publication de six
+          semaines. Comme c'est un gros paquet long à construire et qu'il
+          n'est actuellement utilisé que par cinq paquets dans le livre, les
+          éditeurs de BLFS pensent qu'il ne devrait être mis à jour que
+          lorsque cela est nécessaire (soit pour corriger des problèmes, soit
+          pour permettre à une nouvelle version de <span class=
+          "application">firefox</span> d'être construite).
+        </p>
+        <p>
+          Comme avec tous les langages de programmation, rustc (le
+          compilateur rust) requiert un binaire à partir duquel bootstraper.
+          Il téléchargera un binaire stage0, et plusieurs fichier cargo (ce
+          sont en fait des archives de source en .tar.gz) au début de la
+          construction, donc vous ne pouvez pas le compiler sans connexion
+          internet.
+        </p>
+        <p>
+          Ces recettes resteront éternellement dans divers formats (caches,
+          répertoire des sources) dans <code class=
+          "filename">~/.cargo</code>. Les gros paquets <span class=
+          "application">rust</span> utilisent régulièrement plusieurs
+          versions de certaines recettes. Si vous supprimez les fichiers
+          avant de mettre à jour ce paquet, très peut de recettes devront
+          être mises à jour par les paquets dans ce livre (et elles seront
+          téléchargé au besoin). Mais si vous gardez une ancienne version
+          comme option de secours puis l'utilisez (il ne faudrait alors
+          <span class="emphasis"><em>pas</em></span> construire dans
+          <code class="filename">/usr</code>), il est fort probable qu'elle
+          re-téléchargera certaines recettes. Pour un téléchargement complet
+          (c.-à-d.&nbsp;à partir d'un répertoire <code class=
+          "filename">~/.cargo</code> vide ou manquant), le téléchargement des
+          fichiers cargo externes pour cette version ne prend qu'une minute
+          ou deux sur un réseau rapide.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Bien que BLFS installé généralement ses logiciels dans
+            <code class="filename">/usr</code>, lorsque vous mettez à jour
+            vers une nouvelle version de <span class=
+            "application">rust</span> les anciennes bibliothèques de
+            <code class="filename">/usr/lib/rustlib</code> resteront
+            présentes, avec divers hashs dans leur nom, mais seront inutiles
+            et gaspilleront de l'espace disque. Les éditeurs recommandent de
+            placer ces fichiers dans le répertoire <code class=
+            "filename">/opt</code>. En particulier, si vous avez une raison
+            pour reconstruire avec une configuration différente (p. ex. pour
+            utiliser le LLVM interne après avoir construit avec un LLVM
+            partagé, mais peut-être aussi dans la situation contraire) il est
+            possible que l'installation laisse un programme <span class=
+            "command"><strong>cargo</strong></span> cassé. Dans une telle
+            situation, vous pouvez soit supprimer l'installation existante
+            avant, soit utiliser un préfixe différent, comme
+            /opt/rust-1.32.0-build2.
+          </p>
+          <p>
+            Si vous préférez, vous pouvez évidemment changer le préfixe en
+            <code class="filename">/usr</code> et omettre le lancement de
+            <span class="command"><strong>ldconfig</strong></span> et les
+            actions pour ajouter rustc au PATH.
+          </p>
+        </div>
+        <p>
+          Le système de construction <span class=
+          "application">rustbuild</span> actuel utilisera tous les
+          processeurs disponible, bien qu'il ne passe pas bien à l'échelle et
+          n'utilisera souvent qu'un cœur en attendant qu'une bibliothèque se
+          compile.
+        </p>
+        <p>
+          Pour l'instant <span class="application">Rust</span> ne donne
+          aucune garantie de stabilité de son ABI.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Rustc construit par défaut pour TOUTES les architectures
+            supportées, avec une copie embarquée de LLVM. Dans BLFS la
+            construction n'est utile que pour l'architecture X86. Rustc
+            continuera de prétendre qu'il a besoin de Python 2, mais ce n'est
+            vraiment nécessaire que pour construire pour d'autres
+            architectures avec le LLVM embarqué. Si vous voulez développer
+            des crates rust, cette construction peut ne pas vous satisfaire.
+          </p>
+          <p>
+            Contrairement aux versions précédentes, les temps de construction
+            de cette version, lorsqu'elles sont répétées sur la même machine
+            ont l'air cohérents.
+          </p>
+          <p>
+            De manière inhabituelle, la méthode DESTDIR est utilisée pour
+            installer ce paquet. Cela est dû au fait que lancer
+            l'installation en root télécharge tous les fichiers cargo de
+            nouveau (dans <code class="filename">/root/.cargo</code>) puis
+            passe encore beaucoup de temps à tout recompiler. Cette méthode
+            réduit de beaucoup le temps de construction au prix d'un espace
+            disque plus important.
+          </p>
+        </div>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.4.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz">https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                366f049777e00d0d6f15d25895485efb
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 152 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 6.2 Go (475 Mo
+                installés), dont 295 Mo de fichiers ~/.cargo pour les
+                utilisateurs qui le construisent. Plus 1.5 Go si vous
+                installez la documentation (314 Mo supplémentaires installés)
+                et 2.0 Go si vous lancez les tests.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 34 SBU (plus 3 SBU
+                si vous installez la documentation et 15 SBU pour les tests,
+                dans les deux cas avec 4 processeurs)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Rust
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          <a class="xref" href="../basicnet/curl.html" title=
+          "cURL-7.64.0">cURL-7.64.0</a>, <a class="xref" href="cmake.html"
+          title="CMake-3.13.4">CMake-3.13.4</a> et <a class="xref" href=
+          "libssh2.html" title="libssh2-1.8.0">libssh2-1.8.0</a>
+        </p>
+        <h4>
+          Facultatives
+        </h4>
+        <p class="optional">
+          <a class="xref" href="gdb.html" title="GDB-8.2.1">GDB-8.2.1</a>
+          (utilisé par la suite de tests s'il est présent) et <a class="xref"
+          href="python2.html" title="Python-2.7.15">Python-2.7.15</a> (si gdb
+          est présent, il doit avoir été construit avec le support de Python
+          2 pour éviter certains échecs aux tests. En plus, un autre test
+          échoue si Python 2 n'est pas présent)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/rust">http://wiki.linuxfromscratch.org/blfs/wiki/rust</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Rust
+        </h2>
+        <p>
+          Pour installer dans le répertoire <code class=
+          "filename">/opt</code>, supprimez le lien symbolique et créez un
+          nouveau répertoire (c.-à-d. avec un nom différent si vous essayez
+          une construction différente). En tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">mkdir /opt/rustc-1.32.0             &amp;&amp;
+ln -svfin rustc-1.32.0 /opt/rustc</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Si vous avez installé plusieurs versions de <span class=
+            "application">Rust</span> dans <code class=
+            "filename">/opt</code>, pour changer de version, vous n'aurez
+            besoin que de changer le lien symbolique <code class=
+            "filename">/opt/rustc</code> puis de lancer <span class=
+            "command"><strong>ldconfig</strong></span>.
+          </p>
+        </div>
+        <p>
+          Créez un fichier <code class="filename">config.toml</code> qui
+          configurera la construction. Contrairement aux versions
+          précédentes, où même des versions plutôt anciennes de <span class=
+          "application">LLVM</span> fonctionnaient bien, cette version
+          contient une version de développement et utiliser la version
+          actuelle de <a class="xref" href="llvm.html" title=
+          "LLVM-7.0.1">LLVM-7.0.1</a> est connu pour causer des échecs dans
+          certaines circonstances.
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cat &lt;&lt; EOF &gt; config.toml
+# see config.toml.example for more possible options
+[llvm]
+
+# use ninja
+ninja = true
+
+targets = "X86"
+# When compiling LLVM, the experimental targets (WebAssembly
+# and RISCV) are built by default - omit them
+experimental-targets = ""
+
+[build]
+# omit HTML docs to save time and space (comment this to build them)
+docs = false
+
+# install cargo as well as rust
+extended = true
+
+[install]
+# Adjust the prefix for the desired destination
+#prefix = "/usr"
+prefix = "/opt/rustc-1.32.0"
+
+# docdir is used even if the full awesome docs are not installed
+docdir = "share/doc/rustc-1.32.0"
+
+[rust]
+channel = "stable"
+rpath = false
+
+# BLFS does not install the FileCheck executable from llvm,
+# so disable codegen tests
+codegen-tests = false
+
+# get a trace if there is an Internal Compiler Exception
+backtrace-on-ice = true
+
+EOF</kbd></pre>
+        <p>
+          Maintenant installez <span class="application">Rust</span> en
+          lançant les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &amp;&amp;
+python3 ./x.py build --exclude src/tools/miri</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            La suite de tests générera certains messages dans le <span class=
+            "phrase">journal système</span> à propos de capture d'opcodes
+            invalides, et d'erreurs de segmentation. En soit il n'y a rien à
+            craindre, ce n'est qu'une manière pour le test de terminer. Mais
+            si la sortie de la suite de tests rapporte des tests qui échouent
+            avec des erreurs de segmentation (signal 11), il y a un problème.
+          </p>
+        </div>
+        <p>
+          Pour lancer les tests, lancez <span class="command"><strong>python3
+          ./x.py test --verbose --no-fail-fast | tee
+          rustc-testlog</strong></span>&nbsp;: comme pour la construction,
+          cela utilisera tous les CPU disponibles.
+        </p>
+        <p>
+          Les instructions ci-dessus ne construisent pas de compilateurs ARM,
+          donc la suite de test <span class=
+          "emphasis"><em>échouera</em></span> et les tests rapporteront une
+          erreur à la fin, avec une trace de débogage du dernier test en
+          échec. Sur une bonne exécution, 3 tests qui nécessitent des
+          compilateurs Thumb (ARM) échoueront, tous dans <code class=
+          "filename">ui/issues</code> pour les problèmes 37131, 49851 et
+          50993. Parfois un quatrième test, dans <code class=
+          "filename">run-make-fulldeps/sysroot-cartes-are-unstable</code>
+          échoue. Si gdb est installé, dans certaines circonstances trois
+          tests dans <code class="filename">debuginfo</code> échouent aussi.
+          Comme avec toutes les grandes suites de tests, d'autres tests
+          peuvent échouer sur certaines machines — si le nombre d'échecs est
+          inférieur à 10, vérifiez les journaux en cherchant
+          «&nbsp;FAILED&nbsp;» et vérifiez les lignes qui précèdent. Toute
+          mention de SIGSEGV ou signal 11 dans un test en échec est suspecte.
+        </p>
+        <p>
+          Donc, vous devriez déterminer le nombre de tests, d'échecs, etc.
+          Vous pouvez trouvez le nombre total de tests lancés avec&nbsp;:
+        </p>
+        <pre class="screen"><span class=
+        "command"><strong>grep 'running .* tests' rustc-testlog | awk '{ sum += $2 } END { print sum }'</strong></span></pre>
+        <p>
+          Cela devrait rapporter 15795 tests. De même, le nombre de tests
+          échoués peut être trouvé avec&nbsp;:
+        </p>
+        <pre class="screen"><span class=
+        "command"><strong>grep '^test result:' rustc-testlog | awk  '{ sum += $6 } END { print sum }'</strong></span></pre>
+        <p>
+          Et pareil pour les tests qui ont réussi, utilisez $4, pour ceux qui
+          sont ignoré (c'est-à-dire passés) utilisez $8 (et $10 pour les
+          tests mesurés, $12 pour ceux qui ont été filtrés mais ces deux-là
+          sont probablement à 0). La somme ne correspond pas au total.
+        </p>
+        <p>
+          Toujours en tant qu'utilisateur normal, installez avec la méthode
+          DESTDIR&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export LIBSSH2_SYS_USE_PKG_CONFIG=1 &amp;&amp;
+DESTDIR=${PWD}/install python3 ./x.py install &amp;&amp;
+unset LIBSSH2_SYS_USE_PKG_CONFIG</kbd></pre>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code> installez les fichiers du DESTDIR&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">chown -R root:root install &amp;&amp;
+cp -a install/* /</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>ln -svfn rustc-1.32.0
+          /opt/rustc</strong></span>&nbsp;: si ce n'est pas la première fois
+          que vous utilisez le lien symbolique <code class=
+          "filename">/opt/rustc</code>, le réécrit en forçant et utilise le
+          drapeau «&nbsp;-n&nbsp;» pour éviter d'avoir des résultats bizarre
+          avec p. ex. <span class="command"><strong>ls -l</strong></span>.
+        </p>
+        <p>
+          <span class="command"><strong>targets =
+          "X86"</strong></span>&nbsp;: Cela évite de construire tous les
+          compilateurs croisés (Aarch64, MIPS, PowerPC, SystemZ, etc).
+          Malheureusement, rust insiste pour installer leurs fichiers sources
+          sous <code class="filename">/usr/lib/rustlib/src</code>.
+        </p>
+        <p>
+          <span class="command"><strong>extended =
+          true</strong></span>&nbsp;: Cela installe Cargo avec Rust.
+        </p>
+        <p>
+          <span class="command"><strong>channel =
+          "stable"</strong></span>&nbsp;: cela s'assure que seules les
+          fonctionnalités stables peuvent être utilisée, la valeur par défaut
+          dans <code class="filename">config.toml</code> est d'utiliser les
+          fonctionnalités de développement, qui ne sont pas appropriées pour
+          une version publique.
+        </p>
+        <p>
+          <span class="command"><strong>rpath = false</strong></span>&nbsp;:
+          par défaut, <span class="command"><strong>rust</strong></span> peut
+          être lancé depuis son emplacement de construction sans être
+          installé. Cela ajoute des entrées DT_RPATH à tous les fichiers ELF,
+          ce qui produit une sortie très chargée de la part de <span class=
+          "command"><strong>ldd</strong></span>, contenant les bibliothèques
+          à l'emplacement de leur construction, même si elles ont été
+          supprimées de là après l'installation.
+        </p>
+        <p>
+          <span class="command"><strong>export RUSTFLAGS="$RUSTFLAGS -C
+          link-args=-lffi"</strong></span>&nbsp;: Cela ajoute un lien vers
+          libffi dans les RUSTFLAGS que vous pourriez déjà passer à la
+          construction. Sur certains systèmes, l'édition de lien échoue à
+          inclure libffi à moins d'utiliser cela. La raison n'est pas très
+          claire.
+        </p>
+        <p>
+          <span class="command"><strong>--exclude
+          src/tools/miri</strong></span>&nbsp;: Pendant longtemps, la recette
+          miri (un interpréteur pour la représentation intermédiaire de
+          mi-niveau) n'arrive pas à se construire dans les versions publiées.
+          Il est facultatif, mais les messages d'erreurs peuvent persuader
+          les gens que la construction complète a échouée.
+        </p>
+        <p>
+          <span class="command"><strong>--verbose</strong></span>&nbsp;: ce
+          paramètre peut parfois fournir plus d'informations sur un test qui
+          échoue.
+        </p>
+        <p>
+          <span class="command"><strong>--no-fail-fast</strong></span>&nbsp;:
+          ce paramètre s'assure que la suite de tests ne s'arrêtera pas après
+          la première erreur.
+        </p>
+        <p>
+          <span class="command"><strong>export
+          LIBSSH2_SYS_USE_PKG_CONFIG=1</strong></span>&nbsp;: Sur certains
+          systèmes, cairo échoue à se lier pendant l'installation parce qu'il
+          ne trouve pas libssh2. Cela semble corriger le problème, mais la
+          raison en est inconnue.
+        </p>
+        <p>
+          <span class="command"><strong>DESTDIR=${PWD}/install python3 ./x.py
+          install</strong></span>&nbsp;: Cela fait une installation DESTDIR
+          dans l'arborescence des sources, en créant un répertoire
+          <code class="filename">install</code>. Remarquez que les
+          installation DESTDIR ont besoin d'un chemin absolu. Passer
+          «&nbsp;install&nbsp;» ne fonctionnera pas.
+        </p>
+        <p>
+          <span class="command"><strong>chown -R root:root
+          install</strong></span>&nbsp;: l'installation DESTDIR a été lancée
+          par un utilsateur normal qui possède les fichiers. Par sécurité,
+          changez l'appartenance avant de faire une copie pour les installer.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de Rust
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="rustc-config" name="rustc-config"></a>Informations sur la
+            configuration
+          </h3>
+          <p>
+            Si vous avez installé <span class="application">rustc</span> dans
+            <code class="filename">/opt</code>, vous devez mettre à jour les
+            fichiers de configuration suivants pour que <span class=
+            "application">rustc</span> puisse être trouvé correctement par
+            les autres paquets et les processus du système.
+          </p>
+          <p>
+            En tant qu'utilisateur <code class="systemitem">root</code>,
+            mettez à jour le fichier <code class=
+            "filename">/etc/ld.so.conf</code> et le fichier de cache
+            d'exécution de l'éditeur de lien dynamique&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt;&gt; /etc/ld.so.conf &lt;&lt; EOF
+<code class="literal"># Begin rustc addition
+
+/opt/rustc/lib
+
+# End rustc addition</code>
+EOF
+
+ldconfig</kbd></pre>
+          <p>
+            En tant qu'utilisateur <code class="systemitem">root</code>,
+            créez le fichier <code class=
+            "filename">/etc/profile.d/rustc.sh</code>&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt; /etc/profile.d/rustc.sh &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/profile.d/rustc.sh
+
+pathprepend /opt/rustc/bin           PATH
+
+# End /etc/profile.d/rustc.sh</code>
+EOF</kbd></pre>
+          <p>
+            Immédiatement après l'installation, mettez à jour le PATH actuel
+            de votre shell en tant qu'utilisateur normal&nbsp;:
+          </p>
+          <pre class="userinput"><kbd class=
+          "command">source /etc/profile.d/rustc.sh</kbd></pre>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">cargo-clippy, cargo-fmt, cargo,
+              clippy-driver, rls, rust-gdb, rust-lldb, rustc, rustdoc,
+              rustfmt.</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèques installées:</strong>
+              <span class="segbody">Beaucoup de bibliothèques
+              lib*&lt;16-byte-hash&gt;.so.</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoires installés:</strong>
+              <span class="segbody">~/.cargo, /usr/lib/rustlib,
+              /usr/share/doc/rustc-1.32.0 et
+              /usr/share/zsh/site-functions/</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cargo-clippy" name="cargo-clippy"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cargo-clippy</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    fournit des tests de formatage pour un paquet cargo.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cargo-fmt" name="cargo-fmt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cargo-fmt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    formate tous les fichiers bin et lib de la source
+                    courante avec rustfmt.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cargo" name="cargo"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cargo</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le gestionnaire de paquets de Rust
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="clippy-driver" name=
+                    "clippy-driver"></a><span class="term"><span class=
+                    "command"><strong>clippy-driver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    fournit des tests de formatage pour Rust.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rls" name="rls"></a><span class=
+                    "term"><span class="command"><strong>rls</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le serveur du langage Rust. Il peut être lancé en
+                    tâche de fond pour fournir des informations sur les
+                    programmes Rust à des IDE, des éditeurs et d'autres
+                    outils.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rust-gdb" name="rust-gdb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rust-gdb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script enveloppe pour gdb qui récupère les modules
+                    d'affichage Python installés dans <code class=
+                    "filename">/usr/lib/rustlib/etc</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rust-lldb" name="rust-lldb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rust-lldb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est un script Python enveloppe pour LLDB (le débogueur de
+                    LLVM) qui récupère les modules d'affichage Python.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rustc" name="rustc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rustc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le compilateur rust.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rustdoc" name="rustdoc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rustdoc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    génère de la documentation à partir de code source rust.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rustfmt" name="rustfmt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rustfmt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    formatte du code rust.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libstd" name="libstd"></a><span class=
+                    "term"><code class=
+                    "filename">libstd-&lt;16-byte-hash&gt;.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est la Bibliothèque Standard de Rust, le fondement des
+                    logiciels Rust portables.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2019-02-15 21:01:29 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ruby.html" title="Ruby-2.6.1">Précédent</a>
+          <p>
+            Ruby-2.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="scons.html" title="SCons-3.0.4">Suivant</a>
+          <p>
+            SCons-3.0.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 8.4">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

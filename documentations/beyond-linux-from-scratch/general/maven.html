@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=utf-8" />
+    <title>
+      Apache-Maven-3.5.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2019-01-17">
+    <div class="navheader">
+      <h4>
+        Au-delà&nbsp;de Linux<sup>®</sup> From Scratch - Version 2019-01-17
+      </h4>
+      <h3>
+        Chapitre&nbsp;13.&nbsp;Programmation
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ojdk-conf.html" title=
+          "Configuration de l'environnement JAVA">Précédent</a>
+          <p>
+            Configuration de l'environnement JAVA
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="apache-ant.html" title=
+          "apache-ant-1.10.4">Suivant</a>
+          <p>
+            apache-ant-1.10.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="fr" xml:lang="fr">
+      <h1 class="sect1">
+        <a id="maven" name="maven"></a>Apache-Maven-3.5.4
+      </h1>
+      <div class="package" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Introduction à Apache-Maven
+        </h2>
+        <p>
+          <span class="application">Apache-Maven</span> est un outil de
+          construction et de gestion de projet Java. Basé sur le concept de
+          modèle-objet de projet (POM), <span class=
+          "application">Apache-Maven</span> peut gérer la construction, les
+          tests et la documentation d'un projet à partir d'un fichier
+          d'information central.
+        </p>
+        <p>
+          Ce paquet est connu pour se construire correctement sur une
+          plateforme LFS-8.3.
+        </p>
+        <h3>
+          Informations sur le paquet
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Téléchargement (HTTP)&nbsp;: <a class="ulink" href=
+                "https://archive.apache.org/dist/maven/maven-3/3.5.4/source/apache-maven-3.5.4-src.tar.gz">
+                https://archive.apache.org/dist/maven/maven-3/3.5.4/source/apache-maven-3.5.4-src.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Téléchargement (FTP)&nbsp;: <a class="ulink" href=""></a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Somme de contrôle MD5 du téléchargement&nbsp;:
+                a4346b6cb557266677dc9541526e2548
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Taille du téléchargement&nbsp;: 2.6 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation de l'espace disque requis&nbsp;: 92 Mo
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimation du temps de construction&nbsp;: 0.4 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Téléchargements supplémentaires
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                <span class="application">Appache-Maven</span> doit être
+                construit par lui-même, donc un binaire est requis&nbsp;:
+                <a class="ulink" href=
+                "https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz">
+                https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Dépendances de Apache-Maven
+        </h3>
+        <h4>
+          Requises
+        </h4>
+        <p class="required">
+          Un JDK (<a class="xref" href="java.html#java-bin" title=
+          "Information sur le binaire JDK">Binaire Java</a> ou <a class=
+          "xref" href="openjdk.html" title=
+          "OpenJDK-11.0.2">OpenJDK-11.0.2</a>)
+        </p>
+        <p class="usernotes">
+          Notes utilisateur&nbsp;: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/ApacheMaven">http://wiki.linuxfromscratch.org/blfs/wiki/ApacheMaven</a>
+        </p>
+      </div>
+      <div class="installation" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Installation de Apache-Maven
+        </h2>
+        <p>
+          Tout d'abord corrigez deux problèmes qui empêche la construction
+          avec Java 10&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e '/-surefire-/a&lt;version&gt;2.21.0&lt;/version&gt;' \
+    -e '/&lt;commonsLang/s/3\.5/3.7/'              \
+    -i pom.xml</kbd></pre>
+        <p>
+          Installez <span class="application">Apache-Maven</span> en lançant
+          les commandes suivantes&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vdm 755 ../apache-maven-bin     &amp;&amp;
+tar -xf ../apache-maven-3.5.4-bin.tar.gz \
+    --strip-components=1                 \
+    --directory ../apache-maven-bin      &amp;&amp;
+
+SAVEPATH=$PATH   &amp;&amp;
+PATH=../apache-maven-bin/bin:$PATH &amp;&amp;
+
+mvn -DdistributionTargetDir=build \
+    package</kbd></pre>
+        <p>
+          Les tests sont lancés pendant la compilation.
+        </p>
+        <p>
+          Maintenant, en tant qu'utilisateur <code class=
+          "systemitem">root</code>&nbsp;:
+        </p>
+        <pre class="root"><kbd class=
+        "command">install -vdm 755            /opt/maven-3.5.4 &amp;&amp;
+cp -Rv apache-maven/build/* /opt/maven-3.5.4 &amp;&amp;
+ln -sfvn maven-3.5.4 /opt/maven</kbd></pre>
+        <p>
+          Vous pouvez maintenant réinitialiser la variable <code class=
+          "envar">PATH</code> et nettoyer le répertoire des sources&nbsp;:
+        </p>
+        <pre class="userinput"><kbd class="command">PATH=$SAVEPATH &amp;&amp;
+rm -rf ../apache-maven-bin</kbd></pre>
+      </div>
+      <div class="commands" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Explication des commandes
+        </h2>
+        <p>
+          <span class="command"><strong>tar ../apache-maven-3.5.4-bin.tar.gz
+          ... PATH=.../bin:$PATH</strong></span>&nbsp;: Extrait le binaire
+          <span class="application">Apache-Maven</span> et dit au système où
+          le trouver.
+        </p>
+        <p>
+          <span class="command"><strong>mvn ...
+          package</strong></span>&nbsp;: Compile et test le paquet, et
+          l’empaquète dans son format final.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>-DdistributionTargetDir=build</code></em>&nbsp;:
+          Spécifie l'emplacement où le binaire construit devrai être
+          empaqueté. Le contenu de ce répertoire est prêt à être copié à son
+          emplacement final.
+        </p>
+        <p>
+          <span class="command"><strong>ln -sfvn maven-3.5.4
+          /opt/maven</strong></span>&nbsp;: Crée un lien symbolique pratique.
+        </p>
+        <p>
+          <code class="option">-Dmaven.repo.local=...</code>&nbsp;: Spécifie
+          un dépôt maven local pour cette construction, plutôt que
+          <code class="filename">~/.m2/repository</code> par défaut. Vous
+          pouvez utiliser cela si plusieurs utilisateurs utiliseront
+          <span class="application">Apache-Maven</span>.
+        </p>
+      </div>
+      <div class="configuration" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Configuration de Apache-Maven
+        </h2>
+        <div class="sect3">
+          <h3 class="sect3">
+            <a id="maven-config" name="maven-config"></a>Fichiers de
+            configuration
+          </h3>
+          <p>
+            Le fichier de configuration utilisateur <code class=
+            "filename">~/.m2/settings.xml</code> et le fichier de
+            configuration global <code class=
+            "filename">/opt/maven/conf/settings.xml</code>
+          </p>
+        </div>
+        <div class="sect3">
+          <h3 class="sect3">
+            Informations sur la configuration
+          </h3>
+          <p>
+            Le fichier de configuration par défaut fournit avec <span class=
+            "application">Apache-Maven</span> devrait être suffisant pour les
+            tâches usuelles. Vous pouvez copier le fichier de paramètre
+            global à la place du fichier utilisateur et le modifier pour
+            correspondre à vos besoins.
+          </p>
+          <p>
+            Vous devriez ajouter la commande <span class=
+            "command"><strong>mvn</strong></span> à votre <code class=
+            "envar">PATH</code>. Par exemple&nbsp;:
+          </p>
+          <pre class="root"><kbd class=
+          "command">cat &gt; /etc/profile.d/maven.sh &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/profile.d/maven.sh
+
+pathappend /opt/maven/bin
+
+# End /etc/profile.d/maven.sh</code>
+EOF</kbd></pre>
+        </div>
+      </div>
+      <div class="content" lang="fr" xml:lang="fr">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Programmes installés:</strong>
+              <span class="segbody">mvn, mvnDebug et mvnyjp</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Bibliothèque installée:</strong>
+              <span class="segbody">libjansi.so dans <code class=
+              "filename">/opt/maven/lib/jansi-native</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Répertoire installé:</strong>
+              <span class="segbody">/opt/maven-3.5.4</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Descriptions courtes
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mvn" name="mvn"></a><span class=
+                    "term"><span class="command"><strong>mvn</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    est le l'outil construction et de gestion de projet Java
+                    <span class="application">Apache-Maven</span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mvnDebug" name="mvnDebug"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mvnDebug</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    active le mode débogage de <span class=
+                    "command"><strong>mvn</strong></span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mvnyjp" name="mvnyjp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mvnyjp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lance <span class="command"><strong>mvn</strong></span>
+                    sous la supervision de <a class="ulink" href=
+                    "https://www.yourkit.com/java/profiler/">YourKit Java
+                    Profiler</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2017-09-11 12:14:03 +0200
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ojdk-conf.html" title=
+          "Configuration de l'environnement JAVA">Précédent</a>
+          <p>
+            Configuration de l'environnement JAVA
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="apache-ant.html" title=
+          "apache-ant-1.10.4">Suivant</a>
+          <p>
+            apache-ant-1.10.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapitre&nbsp;13.&nbsp;Programmation">Niveau supérieur</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Au-delà&nbsp;de Linux® From Scratch - Version 2019-01-17">Sommaire</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
