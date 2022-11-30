@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 21:36:51 by felix             #+#    #+#              #
-#    Updated: 2022/11/27 22:14:50 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/28 00:10:31 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,9 @@ mv        /usr/share/doc/git-2.20.1/howto/{*.,}html               &&
 
 sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.html &&
 sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.txt
+
+# Install
+make install
 
 popd
 
