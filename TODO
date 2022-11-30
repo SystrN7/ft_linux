@@ -6,4 +6,6 @@
 - Extract the tar durring the build and note befor and remove cp and the --preserve arguement durring build script
 [i] The --preserve is require beceause if you change the date is trying to rebuid configure and other build config utils
 
-- Removing Flex and autotools from setup scripts
+- Removing Flex and autotools from setup scripts and other usless deps
+Add unmount of temps fs into sub scritpt and make clean 
+Clean source of linux befor moving to /usr/src
