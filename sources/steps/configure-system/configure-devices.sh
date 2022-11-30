@@ -6,7 +6,7 @@
 #    By: felix <felix@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:17:58 by felix             #+#    #+#              #
-#    Updated: 2022/11/23 18:43:44 by felix            ###   ########lyon.fr    #
+#    Updated: 2022/11/30 20:37:49 by felix            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ echo "# Begin /etc/resolv.conf
 nameserver 1.1.1.1
 nameserver 8.8.8.8
 
-# End /etc/resolv.conf" > /etc/resolv.config
+# End /etc/resolv.conf" > /etc/resolv.conf
 
 
 # Configure hostname
